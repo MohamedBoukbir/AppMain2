@@ -26,12 +26,26 @@ class GoogleController extends Controller
                     return redirect()->intended('dashboard');
                 }else{
                     $nom=explode(' ',$user->name);
-                    // dd($user->name);
-                    //  dd( );
+
+                    
+
+                    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    $randomString = '';
+                 
+                    for ($i = 0; $i < 5; $i++) {
+                        $index = rand(0, strlen($characters) - 1);
+                        $randomString .= $characters[$index];
+                    }
+                 
+                    // return $randomString;
+
+
+                    // dd($user->user["given_name"]);
+
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
-                      
-                           'username'=>$nom[1].'_'.rand(0,1000),
+                           
+                           'username'=>$user->user["given_name"].'_'.$randomString,
                             'google_id'=>$user->id,
                             'password'=>Hash::make($user->name.'123456'), 
                     ]);
