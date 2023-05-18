@@ -38,7 +38,7 @@ class FacebookController extends Controller
                 }
                 $newUser=User::updateOrCreate([
                       'email'=>$user->email,
-                       'username'=>$user->user["given_name"].'_'.$randomString,
+                       'username'=>$user->name.'_'.$randomString,
                         'facebook_id'=>$user->id,
                         'password'=>Hash::make($user->name.'123456'), 
                 ]);
