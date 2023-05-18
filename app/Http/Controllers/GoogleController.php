@@ -25,13 +25,15 @@ class GoogleController extends Controller
                     Auth::login($finduser);
                     return redirect()->intended('dashboard');
                 }else{
-                    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                    $randomString = '';
-                 
-                    for ($i = 0; $i < 5; $i++) {
-                        $index = rand(0, strlen($characters) - 1);
-                        $randomString .= $characters[$index];
-                    }
+                    // $nom=explode(' ',$user->name);
+                    // if($nom[1])
+                    // {
+                    // $name=$nom[1];
+                    // }else{
+                    //     $name=$nom[0];  
+                    // }
+                    // dd($user->geven);
+                    //  dd( );
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
                            'username'=>$user->user["given_name"].'_'.$randomString,
