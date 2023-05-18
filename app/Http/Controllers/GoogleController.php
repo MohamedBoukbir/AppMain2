@@ -25,7 +25,12 @@ class GoogleController extends Controller
                     Auth::login($finduser);
                     return redirect()->intended('dashboard');
                 }else{
-                  
+                    $findmail =User::where('email',$user->email)->first();
+                    // dd($findmail);
+                    if($findmail){
+
+                        return redirect()->route('signup');
+                    }else{
                     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     $randomString = '';
                  
@@ -39,12 +44,9 @@ class GoogleController extends Controller
                             'google_id'=>$user->id,
                             'password'=>Hash::make($user->name.'123456'), 
                     ]);
-                    // if (session()->has('user')) {
-                    //     $newUser->attachRole(session()->get('user'));
-                    // }
-                    // session()->forget('user');
                     Auth::login($newUser);
                     return redirect()->intended('dashboard');
+                  }
                 }
     
                
