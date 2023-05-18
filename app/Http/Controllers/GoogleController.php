@@ -27,7 +27,7 @@ class GoogleController extends Controller
                 }else{
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
-
+                        
                         // $user->name = str_replace(' ', '_', $user->name).'_'.rand(10,1000);
 
                            'username'=>str_replace(' ', '_', $user->name).'_'.rand(10,1000),
