@@ -25,10 +25,6 @@ class GoogleController extends Controller
                     Auth::login($finduser);
                     return redirect()->intended('dashboard');
                 }else{
-                    $nom=explode(' ',$user->name);
-
-                    
-
                     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     $randomString = '';
                  
@@ -36,12 +32,6 @@ class GoogleController extends Controller
                         $index = rand(0, strlen($characters) - 1);
                         $randomString .= $characters[$index];
                     }
-                 
-                    // return $randomString;
-
-
-                    // dd($user->user["given_name"]);
-
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
                            
