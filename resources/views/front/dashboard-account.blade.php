@@ -299,7 +299,6 @@
                     </div>
                     <a href="{{ route('chat') }}">message</a>
                     <br>
-                    <a href="{{ route('users.selectusernorole')}}">selecter</a>
                     <div>
                         <h5 class="dashboard-card-subtitle">{{ __('Can we help you?') }}</h5>
                         <div class="dashboard-card-container">

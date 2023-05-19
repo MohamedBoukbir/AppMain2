@@ -267,9 +267,11 @@ class AdminController extends Controller
     //    dd( $user);
          $user->delete();
          if($user->hasRole('famille')){
+            $user->detachRole('famille');
             return redirect()->back()->with('success', 'famille  a été bien supremer !!');
 
         }else{
+            $user->detachRole('candidat');
             return redirect()->back()->with('success', 'candidat  a été bien supremer !!');
         }   
 
