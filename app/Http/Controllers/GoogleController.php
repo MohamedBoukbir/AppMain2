@@ -36,17 +36,19 @@ class GoogleController extends Controller
                     // dd($user->user["given_name"]);
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
-                           
                            'username'=>$user->user["given_name"].'_'.$randomString,
                             'google_id'=>$user->id,
                             'password'=>Hash::make($user->name.'123456'), 
                     ]);
-                    // if (session()->has('user')) {
-                    //     $newUser->attachRole(session()->get('user'));
-                    // }
-                    // session()->forget('user');
                     Auth::login($newUser);
                     return redirect()->intended('dashboard');
                 }
+    
+               
+            // }catch(Exception $e){
+            //     // dd($user->email);
+            //     dd($e->getMessage()); 
+    
+            // }
         }
 }
