@@ -26,22 +26,14 @@ class GoogleController extends Controller
                     return redirect()->intended('dashboard');
                 }else{
                     $nom=explode(' ',$user->name);
-
-                    
-
                     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     $randomString = '';
-                 
                     for ($i = 0; $i < 5; $i++) {
                         $index = rand(0, strlen($characters) - 1);
                         $randomString .= $characters[$index];
                     }
-                 
                     // return $randomString;
-
-
                     // dd($user->user["given_name"]);
-
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
                            
@@ -56,12 +48,5 @@ class GoogleController extends Controller
                     Auth::login($newUser);
                     return redirect()->intended('dashboard');
                 }
-    
-               
-            // }catch(Exception $e){
-            //     // dd($user->email);
-            //     dd($e->getMessage()); 
-    
-            // }
         }
 }
