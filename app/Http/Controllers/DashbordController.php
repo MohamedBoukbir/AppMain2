@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,7 @@ class DashbordController extends Controller
 {
     public function logincontrole()
     {
+        try{
         $user = Auth::user();
         switch ($user) {
             case $user->hasRole('admin'):
@@ -27,6 +29,11 @@ class DashbordController extends Controller
             default:
                 return redirect()->route('users.selectusernorole');
         }
+    }catch(Exception $e){
+    return view('front.welcome'); 
+
+}
+
     }
 
     public function selectusernorole()
