@@ -200,6 +200,24 @@
                         </section>
                         <div class="card-body">
                             <div class="row">
+
+
+
+                                <select class="livesearch" multiple>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                </select>
+
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+                                <script>
+                                    $(".livesearch").chosen();
+                                </script>
+
+
+
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Under 3 years old</label>
