@@ -16,7 +16,7 @@ class FacebookController extends Controller
  
     }
     public function facebookredirect(){
-        // try{
+        try{
         $user=Socialite::driver('facebook')->user();
             $finduser =User::where('facebook_id',$user->id)->first();
             if( $finduser){
@@ -52,10 +52,10 @@ class FacebookController extends Controller
             }
 
            
-        // }catch(Exception $e){
-        //     // dd($user->email);
-        //     dd($e->getMessage()); 
+        }catch(Exception $e){
+            // dd($user->email);
+            return view('front.welcome'); 
 
-        // }
+        }
     }
 }

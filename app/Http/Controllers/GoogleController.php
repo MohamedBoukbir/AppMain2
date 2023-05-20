@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class GoogleController extends Controller
         }
     
         public function googleredirect(){
-            // try{
+            try{
             //    dd('nadi');
             $user=Socialite::driver('google')->user();
             //    dd($user);
@@ -45,10 +46,9 @@ class GoogleController extends Controller
                 }
     
                
-            // }catch(Exception $e){
-            //     // dd($user->email);
-            //     dd($e->getMessage()); 
+            }catch(Exception $e){
+                return view('front.welcome'); 
     
-            // }
+            }
         }
 }

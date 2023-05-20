@@ -39,7 +39,7 @@ Route::get('/login/google/callback', [GoogleController::class, 'googleredirect']
 //////////////////////////front ///////////////////////////
 Route::get('/', function () {
     return view('front.welcome');
-  });
+  })->name('welcome');
 
 Route::get('/homehelp/signup', function () {
   return view('front.signup');
@@ -71,7 +71,11 @@ Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dashboard', [DashbordController::class,'logincontrole'])->name('dashboard');
+
+
+Route::middleware(['auth','backNotAllowed'])->group(function () {
+  Route::get('/dashboard', [DashbordController::class,'logincontrole'])->name('dashboard');
+});
 
 ////////////////////////end front /////////////////////////////////////////
 

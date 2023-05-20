@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(LaratrustSeeder::class);
-        // $this->call(CreateUsersSeeder::class);
+        $this->call(CreateUsersSeeder::class);
     }
 }
