@@ -1,5 +1,7 @@
 <?php
 use App\Http\Livewire\Chat\Main;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CreateUsers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Chat\CreateChat;
 use App\Http\Controllers\AdminController;
@@ -11,6 +13,10 @@ use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\DashbordController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\staff\StaffController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +33,50 @@ use App\Http\Controllers\staff\StaffController;
 //     return view('welcome');
 // });
 
+//////////////////////verfication email //////////////////
 
+Route::get('/email/verify', function () {
+  return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+
+/////
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+  $request->fulfill();
+
+  return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+////
+Route::post('/email/verification-notification', function (Request $request) {
+  $request->user()->sendEmailVerificationNotification();
+
+  return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+
+/////////////////////// end verfication email //////////////////
+/////////////////////// forget password //////////////////////
+Route::post('/forgot-password', function (Request $request) {
+  $request->validate(['email' => 'required|email']);
+
+  $status = Password::sendResetLink(
+      $request->only('email')
+  );
+
+  return $status === Password::RESET_LINK_SENT
+              ? back()->with(['status' => __($status)])
+              : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+///////////////////////
+Route::get('/reset-password/{token}', function (string $token) {
+  return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+///////////////////////  end forget password //////////////////////
 //////////////// autentification faceboook ///////////////
 //login
 Route::get('/auth/facebook', [FacebookController::class, 'facebookpage'])->name('registerfacebook');
@@ -73,7 +122,7 @@ Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware(['auth','backNotAllowed'])->group(function () {
+Route::middleware(['auth','backNotAllowed','verified'])->group(function () {
   Route::get('/dashboard', [DashbordController::class,'logincontrole'])->name('dashboard');
 });
 
@@ -193,6 +242,14 @@ Route::get('/my-account-saves', function () {
 //////////////////////////message //////////////////////////////////
 Route::get('/users',CreateChat::class)->name('users');
 Route::get('/chat{key?}',Main::class)->name('chat');
+
+
+
+Route::get('/index', [CreateUsers::class, 'index'])->name('index');
+Route::get('/sendeto/{user}',[CreateUsers::class, 'sendetoUser'])->name('sendeto');
+// Route::get('/sendeto//{user}', [CreateUsers::class, 'sendetoUser'])->name('sendto');
+Route::post('/send/message/{receiverInstance}/{conversation}', [CreateUsers::class, 'sendMessage'])->name('users.sendmessage');
+
 ///////////////////////end message ///////////////////////////
 
 
