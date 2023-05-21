@@ -14,7 +14,7 @@
 <a   href="{{ route('sendeto', $user->id) }}">{{$user->username}}</a>
 <br>
 @endforeach
-
-
+/////////////////
+<a href="{{route('account-dashboard')}}"> router </a>
 </body>
 </html>

@@ -48,7 +48,7 @@
         <div class="chatbox_header">
 
             <div class="return">
-                <i class="bi bi-arrow-left"></i>
+              <a href="{{route('index')}} "><i class="bi bi-arrow-left"></i></a>  
             </div>
 
             <div class="img_container">
