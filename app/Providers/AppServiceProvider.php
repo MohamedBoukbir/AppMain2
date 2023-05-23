@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Cashier\User;
+// use Laravel\Cashier\Cashier;
 use Laravel\Cashier\Cashier;
+use Laravel\Cashier\Subscription;
+use Laravel\Cashier\SubscriptionItem;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Cashier::useCustomerModel(User::class);
+        Cashier::useSubscriptionModel(Subscription::class);
+        Cashier::useSubscriptionItemModel(SubscriptionItem::class);
     }
 }
