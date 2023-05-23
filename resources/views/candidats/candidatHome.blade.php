@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    you are candidat
+                    you are candidat 
                 </div>
             </div>
         </div>

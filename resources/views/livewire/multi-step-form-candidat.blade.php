@@ -219,7 +219,20 @@
 
 
                                 <div class="col-md-4">
+
                                     <div class="form-group">
+                                        <label for="">Middle name</label>
+                                        <input type="text" class="form-control" wire:model="title_of_offer">
+                                        <span class="text-danger">
+                                            @error('title_of_offer')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+
+
+
+                                    {{-- <div class="form-group">
                                         <label for="">Under 3 years old</label>
                                         <select class="form-select" wire:model="child_baby">
                                             <option value="" selected>Select</option>
@@ -232,11 +245,23 @@
                                                 {{ $message }}
                                             @enderror
                                         </span>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="col-md-4">
+
                                     <div class="form-group">
-                                        <label for="">Between 3 and 6 Yo</label>
+                                        <label for="">Middle name</label>
+                                        <input type="number" class="form-control" wire:model="title_of_offer">
+                                        <span class="text-danger">
+                                            @error('title_of_offer')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+
+                                    {{-- <div class="form-group">
+                                        <label for="">
+                                            Number of children *</label>
                                         <select class="form-select" wire:model="child_kid">
                                             <option value="" selected>Select</option>
                                             <option value="1">1</option>
@@ -248,19 +273,14 @@
                                                 {{ $message }}
                                             @enderror
                                         </span>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="">7 years old and up</label>
-                                        <select class="form-select" wire:model="child_boy">
-                                            <option value="" selected>Select</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3+">3+</option>
-                                        </select>
+                                        <label for="">Date of birth *</label>
+                                        <input type="date" class="form-control" wire:model="title_of_offer"  max="<?php echo date('Y-m-d'); ?>">
                                         <span class="text-danger">
-                                            @error('child_boy')
+                                            @error('title_of_offer')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -268,7 +288,42 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Date of birth *</label>
+                                        <input type="date" class="form-control" wire:model="title_of_offer"  max="<?php echo date('Y-m-d'); ?>">
+                                        <span class="text-danger">
+                                            @error('title_of_offer')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Date of birth *</label>
+                                        <input type="date" class="form-control" wire:model="title_of_offer"  max="<?php echo date('Y-m-d'); ?>">
+                                        <span class="text-danger">
+                                            @error('title_of_offer')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Date of birth *</label>
+                                        <input type="date" class="form-control" wire:model="title_of_offer"  max="<?php echo date('Y-m-d'); ?>">
+                                        <span class="text-danger">
+                                            @error('title_of_offer')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                </div>
+                                {{-- <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Type of Employment</label>
                                         <select class="form-select" wire:model="type_of_employment">
@@ -282,7 +337,7 @@
                                             @enderror
                                         </span>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
