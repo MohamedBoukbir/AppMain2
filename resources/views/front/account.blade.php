@@ -2,14 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>E</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <!-- Favicon -->
-    <link href="{{ asset('img/favicon.png') }}" rel="icon">
-    <!-- Google Web Fonts -->
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
@@ -17,6 +16,9 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('css/new-animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/new-owl.carousel.min.css') }}" rel="stylesheet">
@@ -28,8 +30,28 @@
     <link href="{{ asset('css/style-login.css') }}" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
-    {{-- @livewireStyles --}}
+
+    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}" />
+
+
+    <script src="{{ asset('js/states.js') }}"></script>
+    <script src="{{ asset('js/select2.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
+
+    @livewireStyles
 </head>
 
 <body style="background-color: #FFF">
@@ -45,7 +67,8 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="{{route('welcome')}}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <a href="{{ route('welcome') }}"
+                class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
                 <h1 class="m-0 text-muted">HomeHelp</h1>
             </a>
@@ -93,7 +116,7 @@
                         {{-- <span>username</span> --}}
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item disabled" href="#">{{Auth::user()->username }}</a>
+                        <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
                         <a class="dropdown-item" href="profile.html"><i data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
@@ -105,11 +128,11 @@
                                 document.getElementById('logout-form').submit();"><i
                                 data-feather="log-out" class="mr-1"></i> Logout</a> --}}
 
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                            
-                                    <button type="submit"> Logout</button>
-                                </form>     
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <button type="submit"> Logout</button>
+                        </form>
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}
@@ -194,9 +217,10 @@
                 color: #9cb2bd;
             }
 
-            .menu-item-icon,.menu-item-link :hover{
-               
-                color: #144862!important;
+            .menu-item-icon,
+            .menu-item-link :hover {
+
+                color: #144862 !important;
             }
 
             .menu-list-item:last-child {
@@ -242,7 +266,7 @@
                 </div>
 
                 <div class="menu-list-item item-search">
-                    <a href="{{route('index')}}" class="menu-item-link">
+                    <a href="{{ route('index') }}" class="menu-item-link">
                         <span class="menu-item-icon" style="color: green;"><i class='bx bx-search-alt-2'></i></span>
                         <p class="menu-item-label" style="color: green;">Find Domestic Helpers</p>
                     </a>
@@ -253,13 +277,13 @@
         </div>
 
 
-       @yield('content')
-       
+        @yield('content')
+
     </div>
 
 
 
-    {{-- @livewireScripts --}}
+    @livewireScripts
 </body>
 
 </html>

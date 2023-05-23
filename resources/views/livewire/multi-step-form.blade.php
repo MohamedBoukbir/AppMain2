@@ -203,7 +203,7 @@
 
 
 
-                                <select class="livesearch" multiple>
+                                {{-- <select class="livesearch" multiple>
                                     <option value="">1</option>
                                     <option value="">2</option>
                                     <option value="">3</option>
@@ -214,7 +214,7 @@
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
                                 <script>
                                     $(".livesearch").chosen();
-                                </script>
+                                </script> --}}
 
 
 
