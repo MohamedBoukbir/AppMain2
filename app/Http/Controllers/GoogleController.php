@@ -26,19 +26,15 @@ class GoogleController extends Controller
                     Auth::login($finduser);
                     return redirect()->intended('dashboard');
                 }else{
-                    $findmail =User::where('email',$user->email)->first();
-                    // dd($findmail);
-                    if($findmail){
-
-                        return redirect()->route('signup');
-                    }else{
+                    $nom=explode(' ',$user->name);
                     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                     $randomString = '';
-                 
                     for ($i = 0; $i < 5; $i++) {
                         $index = rand(0, strlen($characters) - 1);
                         $randomString .= $characters[$index];
                     }
+                    // return $randomString;
+                    // dd($user->user["given_name"]);
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
                            'username'=>$user->user["given_name"].'_'.$randomString,
@@ -47,7 +43,6 @@ class GoogleController extends Controller
                     ]);
                     Auth::login($newUser);
                     return redirect()->intended('dashboard');
-                  }
                 }
     
                

@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12",
         "santigarcor/laratrust": "^7.2",
+        "srmklive/paypal": "~1.0",
         "stevebauman/location": "^6.6"
     },
     "require-dev": {
