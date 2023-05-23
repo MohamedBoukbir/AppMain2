@@ -28,6 +28,12 @@
     <link href="{{ asset('css/style-login.css') }}" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +41,8 @@
         <!-- Spinner Start -->
         <div id="spinner"
             class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
+            <div class="spinner-grow text-primary"
+                style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
@@ -43,7 +50,8 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="{{route('welcome')}}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <a href="{{ route('welcome') }}"
+                class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 <h1 class="m-0 text-primary">Homework</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -73,15 +81,16 @@
                 </div>
                 <a href="{{ route('signup') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block"><i
                         class="fa fa-user me-3"></i>Sign Up</a>
-                <a href="{{ route('signin') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block ">Sign In<i
-                        class="fa fa-arrow-right ms-3"></i></a>
+                <a href="{{ route('signin') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block ">Sign
+                    In<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
         <!-- Navbar End -->
-        <div class="container-xxl py-5" >
+        <div class="container-xxl py-5">
             <div class="container">
                 <div class="row py-5">
-                    <section class="container forms" style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 30px;">
+                    <section class="container forms"
+                        style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 30px;">
                         <!-- Signup Form -->
                         <div class="form signup">
                             <div class="form-content">
@@ -93,43 +102,52 @@
                                         <input id="user"  name="user" type="text" class="input text text-muted"  :value="old('{{$user}}')"  value="{{$user}}">
 
                                     </div>  --}}
-                                  {{-- </fieldset> --}}
+                                    {{-- </fieldset> --}}
                                     <div class="field input-field">
-                                        <input id="username" type="text" placeholder="Username" class="input @error('username') is-invalid @enderror" name="username" :value="old('username')" required autocomplete="username" autofocus>
+                                        <input id="username" type="text" placeholder="Username"
+                                            class="input @error('username') is-invalid @enderror" name="username"
+                                            :value="old('username')" required autocomplete="username" autofocus>
                                         @error('username')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                         @enderror
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="field input-field">
-                                        <input type="email"  id="email" placeholder="Email" class="input  @error('email') is-invalid @enderror" name="email" :value="old('email')" required autocomplete="email">
+                                        <input type="email" id="email" placeholder="Email"
+                                            class="input  @error('email') is-invalid @enderror" name="email"
+                                            :value="old('email')" required autocomplete="email">
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                         @enderror
-                                    
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
                                     </div>
                                     <div class="field input-field">
-                                        <input id="password" type="password" placeholder="Create password" class="password @error('password') is-invalid @enderror" name="password" :value="__('Password')" required autocomplete="new-password">
+                                        <input id="password" type="password" placeholder="Create password"
+                                            class="password @error('password') is-invalid @enderror" name="password"
+                                            :value="__('Password')" required autocomplete="new-password">
                                         @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                       @enderror
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="field input-field">
-                                        <input   id="password-confirm" type="password" placeholder="Confirm password" class="password" name="password_confirmation" :value="__('Confirm Password')" required autocomplete="new-password">
+                                        <input id="password-confirm" type="password" placeholder="Confirm password"
+                                            class="password" name="password_confirmation"
+                                            :value="__('Confirm Password')" required autocomplete="new-password">
                                         {{-- <i class='bx bx-hide eye-icon'></i> --}}
-                                      
+
                                     </div>
                                     <div class="field button-field">
                                         <button>Signup</button>
                                     </div>
                                 </form>
                                 <div class="form-link">
-                                    <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                                    <span>Already have an account? <a href="#"
+                                            class="link login-link">Login</a></span>
                                 </div>
                             </div>
                             <div class="line"></div>
@@ -140,16 +158,116 @@
                                 </a>
                             </div>
                             <div class="media-options">
-                                <a href="{{ route('google.login')}}" class="field google">
+
+                                <a href="#" data-toggle="modal" data-target="#ModalDelete">GMAIL</a>
+                                <a href="{{ route('google.login') }}" class="field google">
                                     {{-- <i class='bx bxl-google text text-danger icon-google'></i> --}}
                                     <img src="{{ asset('img/gmail.png') }}" alt="" class="google-img">
                                     <span>Login with Google</span>
                                 </a>
                             </div>
-                         
-                            
+
+
                         </div>
                     </section>
+
+                    {{-- ------------------------ DELETE MODAL ---------------------------- --}}
+                    <div class="modal fade" id="ModalDelete" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <style>
+                                    .btn-send {
+                                        width: 80%;
+                                        height: 50px;
+                                        /* min-width: 230px; */
+                                        /* padding: 10px 20px; */
+                                        background: transparent;
+                                        cursor: pointer;
+                                        background-color: #00b074;
+                                        color: #fff;
+                                        border: 2px solid #00b074;
+                                        padding: 5px;
+                                        border-radius: 6px;
+                                        box-sizing: border-box;
+                                        font-size: 11px;
+                                        font-weight: 600;
+                                        text-align: center;
+                                        text-decoration: none;
+                                        transition: background-color .3s, border-color .3s;
+                                        margin: 15px;
+                                        box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
+                                    }
+
+                                    .btn-logout {
+                                        width: 90%;
+                                        height: 50px;
+                                        /* min-width: 230px; */
+                                        /* padding: 10px 20px; */
+                                        background: transparent;
+                                        cursor: pointer;
+                                        background-color: #f44336;
+                                        color: #fff;
+                                        border: 2px solid #f44336;
+                                        padding: 5px;
+                                        border-radius: 6px;
+                                        box-sizing: border-box;
+                                        font-size: 11px;
+                                        font-weight: 600;
+                                        text-align: center;
+                                        text-decoration: none;
+                                        transition: background-color .3s, border-color .3s;
+                                        margin: 15px;
+                                        box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
+                                    }
+                                </style>
+                                {{-- <form action="#" method="POST" enctype="multipart/form-data"> --}}
+
+                                <div class="modal-body">
+                                    <form method="POST" action="{{ route('verification.send') }}">
+                                        @csrf
+                                        <center>
+                                            <img src="{{ asset('img/paper-plane.png') }}" alt=""
+                                                style="max-width: 100px;display: flex;align-content: center">
+
+                                            <div>
+                                                <button type="submit" class="btn-send">
+                                                    {{ __('Resend Verification Email') }}
+                                                </button>
+                                                {{-- <x-primary-button>
+                                                {{ __('Resend Verification Email') }}
+                                            </x-primary-button> --}}
+                                            </div>
+                                        </center>
+                                    </form>
+                                </div>
+                                {{-- <div class="modal-footer"> --}}
+                                  
+
+
+
+                                    {{-- <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="btn-logout">
+                                            {{ __('Log Out') }}
+                                        </button>
+                                    </form> --}}
+
+
+                                    {{-- <button type="submit"
+                                        class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        {{ __('Log Out') }}
+                                    </button> --}}
+
+                                {{-- </div> --}}
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    {{-- //////////////////////////////////////////////////////// --}}
                 </div>
             </div>
         </div>
@@ -239,11 +357,20 @@
     <script src="{{ asset('js/new-main.js') }}"></script>
     <script src="{{ asset('js/states.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> --}}
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 </body>
 
 </html>
