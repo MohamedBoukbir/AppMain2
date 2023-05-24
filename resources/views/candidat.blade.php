@@ -50,7 +50,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
-
+    @livewireStyles
 </head>
 
 <body background="{{ asset('img/back-blur.png') }}">
@@ -89,18 +89,22 @@
     </div>
 
   
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
-                
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">955</div>
+                    <div class="col-sm-4">955</div>
+                    <div class="col-sm-4">955</div>
+                </div>
             </div>
-            {{-- <div class="col-sm-6 vh-100 section" style="background-color: lightblue;">Section 2</div> --}}
+            <div class="col-sm-6 vh-100 section" style="background-color: lightblue;">Section 2</div>
         </div>
     </div>
 
     <div>
 
-    </div>
+    </div> --}}
 
 
 
@@ -144,7 +148,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
-
+    @livewireScripts
 </body>
 
 </html>
