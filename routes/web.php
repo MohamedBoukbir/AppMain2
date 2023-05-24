@@ -1,11 +1,15 @@
 <?php
+use Illuminate\Http\Request;
 use App\Http\Livewire\Chat\Main;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CreateUsers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Chat\CreateChat;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\ProfileController;
@@ -14,8 +18,6 @@ use App\Http\Controllers\DashbordController;
 use App\Http\Controllers\FacebookController;
 use App\Http\Controllers\staff\StaffController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
  
 
 /*
@@ -32,6 +34,16 @@ use Illuminate\Support\Facades\Password;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+//////////////////  peymant Paypale ///////////////
+Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
+Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
+Route::get('/payment/success', [PayPalController::class, 'success'])->name('payment.success');
+//////////////////  end  peymant Paypale ///////////////
+////////////////// peymant Stripe ///////////////
+Route::get('/payment/carts', [StripeController::class, 'paymentstripe'])->name('payment.stripe');
+Route::post('single-charge',[StripeController::class,'singleCharge'])->name('single.charge');
+//////////////////  end peymant Stripe ///////////////
 
 //////////////////////verfication email //////////////////
 
@@ -53,7 +65,7 @@ Route::post('/email/verification-notification', function (Request $request) {
   $request->user()->sendEmailVerificationNotification();
 
   
-  $request->session()->flash('success', 'The item was successfully saved.');
+  // $request->session()->flash('success', 'The item was successfully saved.');
 
   return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
@@ -221,7 +233,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //////////////////////////// end route route famille     /////////////////////////////////////////////////\
-
+////////
 
 
 

@@ -233,8 +233,11 @@
                                     </svg> Vestibulum at eros</li>
                             </ul>
                             <div class="card-body text-center">
-                                <button class="btn btn-violet-outline btn-lg"
-                                    style="border-radius:30px;border-color: #9e9cf7">Select</button>
+                                {{-- <button class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select</button> --}}
+                                    <a  href="{{route('payment',['price' =>8])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select</a>
+                                    <br>
+                                    <a   href="{{route('payment.stripe',['price' =>8])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select carts</a>
                             </div>
                         </div>
                     </div>
@@ -269,8 +272,11 @@
                                     </svg> Vestibulum at eros</li>
                             </ul>
                             <div class="card-body text-center">
-                                <button class="btn btn-violet-outline btn-lg"
-                                    style="border-radius:30px;border-color: #9e9cf7">Select</button>
+                                {{-- <button class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select</button> --}}
+                                    <a   href="{{route('payment',['price' =>20])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select</a>
+                                    <br>
+                                    <a   href="{{route('payment.stripe',['price' =>20])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select carts</a>
                             </div>
                         </div>
                     </div>
@@ -305,9 +311,13 @@
                                     </svg> Vestibulum at eros</li>
                             </ul>
                             <div class="card-body text-center">
-                                <button class="btn btn-violet-outline btn-lg"
-                                    style="border-radius:30px;border-color: #9e9cf7">Select</button>
-                            </div>
+                                {{-- <button class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select</button> --}}
+
+                                    <a href="{{route('payment',['price' =>40])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select</a>
+                                    <br>
+                                    <a   href="{{route('payment.stripe',['price' =>40])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select carts</a> 
+                                </div>
                         </div>
                     </div>
                 </div>
