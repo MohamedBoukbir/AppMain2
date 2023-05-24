@@ -9,4 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Subscription extends CashierSubscription
 {
     use HasFactory;
+
+    protected $fillable=[
+        'name',
+        'user_id',
+        'stripe_id',
+        'stripe_price',
+        'ends_at',
+    ];
+
 }
