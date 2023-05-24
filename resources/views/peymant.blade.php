@@ -232,8 +232,26 @@
             <div class="inputBox">
                 @csrf
                 <div class="form-row">
+                    <style>
+                        /* .card-element {
+                            width: 100%;
+                            height: 70px;
+                            border: 1px solid rgba(235, 236, 241, 1);
+                            padding: 0 30px;
+                            font-size: 15px;
+                            color: #000000;
+                            border-radius: 5px;
+                        } */
+                    </style>
                     <div id="card-element" class="form-control"
-                        style="border: 1px solid #b2b2b2;border-radius: 5px;padding: 10px;">
+                        style="width: 100%;
+                            height: 70px;
+                            border: 1px solid rgba(235, 236, 241, 1);
+                            padding: 25px;
+                            border-radius: 10px;
+                            font-size: 15px;
+                            color: #000000;
+                            margin-top: 10px;">
                     </div>
                     <div id="card-errors" role="alert"></div>
                 </div>
@@ -251,7 +269,14 @@
                 <span>card holder</span>
 
                 <input id="card-holder-name" type="text" class="card-holder-input" maxlength="30"
-                    onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || event.key==' '">
+                    onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || event.key==' '"
+                    style="width: 100%;
+                            height: 70px;
+                            border: 1px solid rgba(235, 236, 241, 1);
+                            padding: 25px;
+                            font-size: 15px;
+                            color: #000000;
+                            margin-top: 10px;">
             </div>
             <input id="card-button" type="submit" data-secret="{{ $intent->client_secret }}" value="submit"
                 class="submit-btn">
@@ -338,7 +363,7 @@
         document.querySelector('#card-element').oninput = () => {
             document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
         }
-        
+
 
         document.querySelector('.card-holder-input').oninput = () => {
             document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
