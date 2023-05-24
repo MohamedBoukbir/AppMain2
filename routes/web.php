@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\ProfileController;
@@ -34,12 +35,15 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 //     return view('welcome');
 // });
 
-////////////////// piemnt Paypale ///////////////
+//////////////////  peymant Paypale ///////////////
 Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
 Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
 Route::get('/payment/success', [PayPalController::class, 'success'])->name('payment.success');
-
-//////////////////  end piemnt Paypale ///////////////
+//////////////////  end  peymant Paypale ///////////////
+////////////////// peymant Stripe ///////////////
+Route::get('/payment/carts', [StripeController::class, 'paymentstripe'])->name('payment.stripe');
+Route::post('single-charge',[StripeController::class,'singleCharge'])->name('single.charge');
+//////////////////  end peymant Stripe ///////////////
 
 //////////////////////verfication email //////////////////
 
