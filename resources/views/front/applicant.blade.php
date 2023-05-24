@@ -353,7 +353,7 @@
     </style>
 
 
-
+ @foreach ($annonces as $annonce)
     <div class="yp-main-content">
         <div class="yp-candidates-container" data-v-126c35e4="">
             <!---->
@@ -398,8 +398,8 @@
                                                     <div class="btn-group"> 
                                                         <button type="button" class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 50px;height: 30px;background-color: transparent;border: none;color: #9cb2bd;"><i class="fa-solid fa-bars"></i></button>
                                                         <div class="dropdown-menu">
-                                                          <a class="dropdown-item" href="#" style="color: #9cb2bd;"><i class="fa-solid fa-eye"></i> View</a>
-                                                          <a class="dropdown-item" href="#" style="color: #9cb2bd;"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                          <a class="dropdown-item" href="{{ route('famille.addannonce') }}" style="color: #9cb2bd;"><i class="fa-solid fa-eye"></i> View</a>
+                                                          <a class="dropdown-item" href="{{ route('famille.editannonce',['annonce' =>$annonce->id]) }}" style="color: #9cb2bd;"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                                                           <a class="dropdown-item" href="#" style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i> Reactivate</a>
                                                           {{-- <div class="dropdown-divider"></div>
                                                           <a class="dropdown-item" href="#">Separated link</a> --}}
@@ -450,10 +450,12 @@
                                             <h5 data-v-576fdb38="" class="title">{{ Auth::user()->username }}</h5>
                                             <div data-v-576fdb38="" class="status paused">
                                                 Paused
+                                               
                                             </div>
                                         </div>
                                         <p data-v-576fdb38="" class="description">
-                                            {{ Auth::user()->title_of_offer }}
+                                            {{ $annonce->title_of_offer }}
+                                            {{ $annonce->id }}
                                         </p>
                                     </section>
                                     <section data-v-576fdb38="" class="actions"><a data-v-576fdb38=""
@@ -474,6 +476,7 @@
             </div>
         </div>
     </div>
+    @endforeach()
     {{-- <div class="container" >
     <div class="row" style="margin-top:50px">
         <div class="col-md-9 offset-md-1">

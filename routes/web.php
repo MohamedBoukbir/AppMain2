@@ -185,7 +185,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('admin/user/famille', [AdminController::class, 'indexfamille'])->name('admin.famille');
 
             /////////////////////////// fineshed regestring famille///////////////////////////
-            Route::get('complete/regestre/famille', [FamilleController::class, 'regesterFamille'])->name('famille.regester');
+            Route::get('complete/add/annonce', [FamilleController::class, 'addAnnonce'])->name('famille.addannonce');
+            Route::get('complete/edit/annonce', [FamilleController::class, 'editAnnonce'])->name('famille.editannonce');
             Route::get('/dashbord/famille', [FamilleController::class, 'rederectToFamille'])->name('registration.famille.success');
 
             /////////////// end fineshed regestring famille///////////////////////////
@@ -229,7 +230,8 @@ Route::middleware(['auth'])->group(function () {
 
   // Route::get('/famille/home', [HomeController::class, 'familleHome'])->name('famille.home');
   Route::resource('familles', FamilleController::class);
-  Route::resource('annonces', AnnonceController::class);
+  // Route::resource('annonces', AnnonceController::class);
+  Route::get('/my-account-applications', [AnnonceController::class, 'index'])->name('account-applications');
 });
 
 //////////////////////////// end route route famille     /////////////////////////////////////////////////\
@@ -243,9 +245,9 @@ Route::get('/my-account-dashboard', function () {
   return view('front.dashboard-account');
 })->name('account-dashboard');
 
-Route::get('/my-account-applications', function () {
-  return view('front.applicant');
-})->name('account-applications');
+// Route::get('/my-account-applications', function () {
+//   return view('front.applicant');
+// })->name('account-applications');
 Route::get('/my-account-conversation', function () {
   return view('front.conversation');
 })->name('account-conversation');

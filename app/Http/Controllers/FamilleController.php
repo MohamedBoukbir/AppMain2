@@ -124,13 +124,20 @@ public function store(Request $request)
 
 
     /////// complete registring ////////////////////////
-    public function regesterFamille(){
+    public function addAnnonce(){
         // dd('rfrjhfjrjh');
-        return view('familles.regester-famille');
+        return view('familles.add_annonce');
     }
-
     public function rederectToFamille(){
         return view('front.dashboard-account');
+    }
+
+    public function editAnnonce(Request $request){
+        $id_annonce = $request->query('annonce');
+        session()->put('id_annonce',$id_annonce);
+        
+        // dd($id_annonce);
+        return view('familles.edit_annonce');
     }
 
 }
