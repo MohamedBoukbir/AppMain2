@@ -20,7 +20,6 @@ class MultiStepFormCandidat extends Component
     public $accommodation;
     public $living_arrangement;
     public $helper_nationality;
-    public $gender;
     public $education_level;
     public $contract_situation;
     public $monthly_salary;
@@ -29,15 +28,22 @@ class MultiStepFormCandidat extends Component
     public $title_of_offer;
     public $define_needs;
     public $address;
-    public $country;
+   
     public $religion;
-    public $phone;
+   
     // public $status;
     public $city;
     public $domain;
     public $child;
     public $social_status;
-
+    //////////////////////////////candidat ////////////
+    public $middle_name;
+    public $number_of_children;
+    public $date_of_birth;
+    public $phone;
+    public $country;
+    public $gender;
+    // public $gender;
     public $totalSteps =4;
     public $currentStep = 1;
 
@@ -93,10 +99,12 @@ class MultiStepFormCandidat extends Component
         // }
          if($this->currentStep == 1){
             $this->validate([
-                'child_baby'=>'required',
-                'child_kid'=>'required',
-                'child_boy'=>'required',
-                'type_of_employment'=>'required'
+                'middle_name'=>'required',
+                'number_of_children'=>'required',
+                'date_of_birth'=>'required',
+                'gender'=>'required',
+                'country'=>'required',
+                'phone'=>'required'
             ]);
         }
         elseif($this->currentStep == 2){
