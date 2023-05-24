@@ -291,7 +291,6 @@
             <div class="dashboard">
                 <div class="dashboard-card">
                     <div>
-                        <a href="{{ route('famille.regester') }}">nadi nadi</a>
                         <a href="{{ route('payment.stripe') }}">sir sir </a>
                         <h2 class="dashboard-card-title"> Hi {{Auth::user()->username }}</h2>
                         <p class="dashboard-card-text">

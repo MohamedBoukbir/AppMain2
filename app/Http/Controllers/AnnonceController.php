@@ -10,8 +10,9 @@ class AnnonceController extends Controller
     
     public function index()
     {
-        $annonces = User::where("type","candidat")->orderBy('id','desc')->paginate("");
-        return view('candidats.candidatHome', compact('annonces'));
+        $annonces = Annonce::where("user_id",auth()->user()->id)->paginate("");
+        // dd($annonces);
+        return view('front.applicant', compact('annonces'));
     }
 
 
@@ -55,7 +56,7 @@ public function store(Request $request)
         $annonce->experience = $request->experience;
 
      
-        $user->save();
+        $annonce->save();
 
         return redirect()->route('famille.home')->with('success','annonce  Ajouter ');
     }
