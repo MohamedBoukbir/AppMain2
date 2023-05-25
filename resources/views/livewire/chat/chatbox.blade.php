@@ -54,7 +54,6 @@
                 
                                     if($message->read == 0){
 
-
                                         echo'<i class="bi bi-check2 status_tick "></i> ';
                                     }
                                     else {
