@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                                                                                        font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                                                                                        font-size: 14px;
-                                                                                                                        color: #363636;
-                                                                                                                        background: #fff;
-                                                                                                                        padding: 10px;
-                                                                                                                        font-weight: 500;
-                                                                                                                        white-space: nowrap;
-                                                                                                                        text-decoration: none;
-                                                                                                                    } */
+                                                                                                                            font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                                                                            font-size: 14px;
+                                                                                                                            color: #363636;
+                                                                                                                            background: #fff;
+                                                                                                                            padding: 10px;
+                                                                                                                            font-weight: 500;
+                                                                                                                            white-space: nowrap;
+                                                                                                                            text-decoration: none;
+                                                                                                                        } */
     </style>
 
 
@@ -458,7 +458,7 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <div 
+                                                                                        <div
                                                                                             style="background-color: #f49758;padding: 15px;border-radius: 5px; 
                                                                                             display: flex;
                                                                                             align-items: center;
