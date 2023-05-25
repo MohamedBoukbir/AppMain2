@@ -187,6 +187,7 @@ Route::middleware(['auth'])->group(function () {
             /////////////////////////// fineshed regestring famille///////////////////////////
             Route::get('complete/add/annonce', [FamilleController::class, 'addAnnonce'])->name('famille.addannonce');
             Route::get('complete/edit/annonce', [FamilleController::class, 'editAnnonce'])->name('famille.editannonce');
+            Route::get('complete/active/annonce', [FamilleController::class, 'activeAnnonce'])->name('famille.activeannonce');
             Route::get('/dashbord/famille', [FamilleController::class, 'rederectToFamille'])->name('registration.famille.success');
 
             /////////////// end fineshed regestring famille///////////////////////////

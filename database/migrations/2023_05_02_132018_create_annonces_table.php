@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('accommodation')->nullable();
             $table->string('day_off')->nullable();
             $table->string('expected_start_date')->nullable();
+            $table->string('status')->default('Active');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 

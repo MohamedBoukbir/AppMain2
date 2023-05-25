@@ -413,7 +413,7 @@
                                                                     style="color: #9cb2bd;"><i
                                                                         class="fa-solid fa-trash"></i>
                                                                     Delete</a>
-                                                                <a class="dropdown-item" href="#"
+                                                                <a class="dropdown-item" href="{{ route('famille.activeannonce', ['status' => $annonce->status,'id_annonce'=>$annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
                                                                     Reactivate</a>
                                                                 <button onclick="active()">active</button>
@@ -466,7 +466,8 @@
                                             <div data-v-576fdb38="">
                                                 <h5 data-v-576fdb38="" class="title">{{ $annonce->title_of_offer }}</h5>
                                                 <div class="status paused" id="status">
-                                                    Paused
+                                                    {{-- Paused --}}
+                                                   {{ $annonce->status}}
                                                 </div>
 
                                             </div>
