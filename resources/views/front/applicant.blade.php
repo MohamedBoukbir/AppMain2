@@ -408,11 +408,23 @@
                                                                     href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i
                                                                         class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                                                <a class="dropdown-item"
+                                                                    {{-- //////////////////////// --}}
+                                                                    <form action="{{ route('annonce.destroye',$annonce->id) }}" method="Post">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit" class="dropdown-item"  style="color: #9cb2bd;"><i
+                                                                            class="fa-solid fa-trash"></i> >Delete</button>
+                                                                    </form>
+
+                                                                    {{-- /////////////////// --}}
+
+                                                                {{-- <a class="dropdown-item"
                                                                     href="{{ route('famille.addannonce') }}"
                                                                     style="color: #9cb2bd;"><i
                                                                         class="fa-solid fa-trash"></i>
-                                                                    Delete</a>
+                                                                    Delete</a> --}}
+
+
                                                                 <a class="dropdown-item"
                                                                     href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>

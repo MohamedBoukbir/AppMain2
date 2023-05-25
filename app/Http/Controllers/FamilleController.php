@@ -156,4 +156,11 @@ public function store(Request $request)
         return back();
     }
 
+    public function destroyAnnonce(Annonce $annonce)
+    {
+        // dd($annonce);
+        $annonce->delete();
+        return redirect()->back()->with('success', 'famille  a été bien supremer !!');
+    }
+
 }
