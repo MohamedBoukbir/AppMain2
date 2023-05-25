@@ -19,7 +19,6 @@
 
 
 @section('content')
-
     <style>
         .yp-main-content {
             background: #f6f8f9;
@@ -342,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                font-family: Nunito, Arial, Helvetica, sans-serif;
-                                font-size: 14px;
-                                color: #363636;
-                                background: #fff;
-                                padding: 10px;
-                                font-weight: 500;
-                                white-space: nowrap;
-                                text-decoration: none;
-                            } */
+                                            font-family: Nunito, Arial, Helvetica, sans-serif;
+                                            font-size: 14px;
+                                            color: #363636;
+                                            background: #fff;
+                                            padding: 10px;
+                                            font-weight: 500;
+                                            white-space: nowrap;
+                                            text-decoration: none;
+                                        } */
     </style>
 
 
@@ -417,6 +416,8 @@
                                                                 <a class="dropdown-item" href="#"
                                                                     style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
                                                                     Reactivate</a>
+                                                                <button onclick="active()">active</button>
+                                                                <button onclick="notactive()">non active</button>
                                                                 {{-- <div class="dropdown-divider"></div>
                                                           <a class="dropdown-item" href="#">Separated link</a> --}}
                                                             </div>
@@ -467,9 +468,10 @@
                                                 <div class="status paused" id="status">
                                                     Paused
                                                 </div>
+
                                             </div>
 
-                                            
+
 
 
                                             <div class="description" style="overflow: auto;">
@@ -501,6 +503,7 @@
                                                 </span></a></section>
                                     </section>
                                 </li>
+
                             </ul>
                         @endforeach()
 
@@ -513,21 +516,29 @@
 
 
     <script>
-        var element = document.getElementById("status");
-        if(element.value == 'PAUSED'){
+        var element = document.querySelector("#status");
 
-            element.innerHTML = 'cavani 1 ';
-            element.style.backgroundColor = "red";
-            // alert(element.textContent);
-        }
-        else{
-            element.innerHTML = 'ACTIVE';
+        function active() {
             element.style.backgroundColor = "green";
-            // element.style.backgroundColor = "red";
-            // alert(element.innerHTML);
-            // alert(element.textContent);
+            // if (element.value == 'PAUSED') {
+            //     element.innerHTML = 'cavani 1 ';
+            //     // alert(element.textContent);
+            // } else {
+            //     element.innerHTML = 'ACTIVE';
+            //     element.style.backgroundColor = "green";
+            //     // element.style.backgroundColor = "red";
+            //     // alert(element.innerHTML);
+            //     // alert(element.textContent);
+            // }
         }
+
+        function notactive() {
+            element.style.backgroundColor = "red";
+        }
+        // var element = document.getElementById("status");
     </script>
+
+
 
     {{-- <div class="container" >
     <div class="row" style="margin-top:50px">
