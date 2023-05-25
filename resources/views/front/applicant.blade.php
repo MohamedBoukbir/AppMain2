@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                                    font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                                    font-size: 14px;
-                                                                    color: #363636;
-                                                                    background: #fff;
-                                                                    padding: 10px;
-                                                                    font-weight: 500;
-                                                                    white-space: nowrap;
-                                                                    text-decoration: none;
-                                                                } */
+                                                                                                font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                                                font-size: 14px;
+                                                                                                color: #363636;
+                                                                                                background: #fff;
+                                                                                                padding: 10px;
+                                                                                                font-weight: 500;
+                                                                                                white-space: nowrap;
+                                                                                                text-decoration: none;
+                                                                                            } */
     </style>
 
 
@@ -361,9 +361,18 @@
                 <div class="yp-candidates-ads-overview">
                     <!---->
                     <div class="yp-candidates-ads">
-                        <h1 class="yp-candidates-title-block">
-                            Your Paused Ad
-                        </h1>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h1 class="yp-candidates-title-block">Your Paused Ad</h1>
+                            <div style="margin-left: auto;">
+                                <a class="btn btn-success text text-light" href="{{ route('famille.addannonce') }}"><i
+                                        class="fa-solid fa-plus"></i></a>
+                            </div>
+                        </div>
+                        {{-- <div style="display: flex;background-color: red;">
+                            <h1 class="yp-candidates-title-block">Your Paused Ad</h1>
+                            <button class="text-right">ok</button>
+                        </div> --}}
                         @foreach ($annonces as $annonce)
                             <ul style="margin-top: 10px;">
                                 <li>
@@ -390,10 +399,6 @@
                                                 <div data-v-576fdb38="" class="yp-dropdown-menu">
 
 
-
-                                                    {{-- <a class="btn btn-primary mt-1 mb-1"><i class="fa-solid fa-eye"></i></a>
-                                                <a class="btn btn-primary p-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                <a class="btn btn-primary p-1"><i class="fa-solid fa-plug"></i></a> --}}
                                                     <div class="yp-dropdown-menu-actions">
 
                                                         <div class="btn-group">
@@ -402,93 +407,68 @@
                                                                 aria-expanded="false"
                                                                 style="width: 50px;height: 30px;background-color: transparent;border: none;color: #9cb2bd;"><i
                                                                     class="fa-solid fa-bars"></i></button>
-                                                            <form action="{{ route('annonce.destroye', $annonce->id) }}"
-                                                                method="Post">
-                                                                <div class="dropdown-menu">
+                                                            <div class="dropdown-menu">
 
-                                                                    <a class="dropdown-item"
-                                                                        href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
-                                                                        style="color: #9cb2bd;"><i
-                                                                            class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                                                    {{-- //////////////////////// --}}
-
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="dropdown-item"
-                                                                        style="color: #9cb2bd;">
-                                                                        <i class="fa-solid fa-trash"></i> Delete</button>
-
-
-                                                                    {{-- /////////////////// --}}
-
-                                                                    {{-- <a class="dropdown-item"
-                                                                    href="{{ route('famille.addannonce') }}"
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i
-                                                                        class="fa-solid fa-trash"></i>
-                                                                    Delete</a> --}}
+                                                                        class="fa-solid fa-pen-to-square"></i> Edit</a>
 
-
-                                                                    @if ($annonce->status == 'Active')
-                                                                        <a class="dropdown-item"
-                                                                            href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
-                                                                            style="color: #9cb2bd;"><i
-                                                                                class="fa-solid fa-pause"></i></i>
-                                                                            Pause</a>
-                                                                    @else
-                                                                        <a class="dropdown-item"
-                                                                            href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
-                                                                            style="color: #9cb2bd;"><i
-                                                                                class="fa-solid fa-plug"></i>
-                                                                            Reactivate</a>
-                                                                    @endif
-
-
-
-
-                                                                    {{-- <a class="dropdown-item"
-                                                                    href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
-                                                                    style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
-                                                                    Reactivate</a> --}}
+                                                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                                                    data-target="#ModalDelete{{ $annonce->id }}"
+                                                                    style="color: #9cb2bd;">
+                                                                    <i class="fa-solid fa-trash"></i> Delete</a>
+                                                                @if ($annonce->status == 'Active')
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                        style="color: #9cb2bd;"><i
+                                                                            class="fa-solid fa-pause"></i>
+                                                                        Pause</a>
+                                                                @else
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                        style="color: #9cb2bd;"><i
+                                                                            class="fa-solid fa-plug"></i>
+                                                                        Reactivate</a>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        {{-- MODAL DELETE --}}
+                                                        <div class="modal fade" id="ModalDelete{{ $annonce->id }}"
+                                                            tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <form
+                                                                        action="{{ route('annonce.destroye', $annonce->id) }}"
+                                                                        method="POST" enctype="multipart/form-data">
+                                                                        {{ method_field('delete') }}
+                                                                        {{ csrf_field() }}
+                                                                        @method('DELETE')
+                                                                        @csrf
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title">
+                                                                                {{ __('Supprimer l\'annonce') }}</h4>
+                                                                            <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                                <Span aria-hidden="true">&times;</Span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            Voulez-vous supprimer l'annonce
+                                                                            <b>{{ $annonce->title_of_offer }}</b>?
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn gray btn-outline-secondary"
+                                                                                data-dismiss="modal">{{ __('Anuller') }}</button>
+                                                                            <button type="submit"
+                                                                                class="btn gray btn-outline-danger">{{ __('Supprimer') }}</button>
+                                                                        </div>
+                                                                    </form>
                                                                 </div>
-                                                            </form>
+                                                            </div>
                                                         </div>
-
-
-
-                                                        {{-- <a class="custom-link"><i class="fa-solid fa-eye"></i></a>
-                                                    <a class="custom-link"></a>
-                                                    <a class="custom-link"></a> --}}
-                                                        {{-- <svg data-name="Layer 1"
-                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.01 16.32"
-                                                        width="20" height="7">
-                                                        <path
-                                                            d="M5.09 11.79a5 5 0 0 1-1.48-3.67 4.83 4.83 0 0 1 1.48-3.58A4.92 4.92 0 0 1 8.64 3.1a4.76 4.76 0 0 1 3.48 1.4 4.94 4.94 0 0 1 1.4 3.62 5 5 0 0 1-1.44 3.67 4.7 4.7 0 0 1-3.44 1.44 4.92 4.92 0 0 1-3.55-1.44zm14.91 0a4.91 4.91 0 0 1-1.48-3.67A4.79 4.79 0 0 1 20 4.54a4.92 4.92 0 0 1 3.58-1.44 4.72 4.72 0 0 1 3.47 1.4 4.91 4.91 0 0 1 1.41 3.62A5 5 0 0 1 27 11.79a4.7 4.7 0 0 1-3.44 1.44A4.92 4.92 0 0 1 20 11.79zm15 0a4.91 4.91 0 0 1-1.48-3.67A4.79 4.79 0 0 1 35 4.54a4.9 4.9 0 0 1 3.52-1.44A4.74 4.74 0 0 1 42 4.5a4.91 4.91 0 0 1 1.4 3.62 5 5 0 0 1-1.4 3.67 4.72 4.72 0 0 1-3.44 1.44A4.9 4.9 0 0 1 35 11.79z"
-                                                            fill="#9cb2bd"></path>
-                                                    </svg></div>
-                                                   
-                                                <div class="yp-dropdown-menu-content hide">
-                                                    <div data-v-576fdb38="" class="yp-dropdown-menu-item"
-                                                        datayp="link|ad-card|open|307693">
-                                                        <div class="yp-drowndown-menu-item-icon-container"></div>
-                                                        <div class="yp-dropdown-menu-item-content"><a href="/ad/307693"
-                                                                class="yp-dropdown-menu-item-content-href">View</a></div>
-                                                    </div>
-                                                    <div data-v-576fdb38="" class="yp-dropdown-menu-item"
-                                                        datayp="link|ad-card|edit|307693">
-                                                        <div class="yp-drowndown-menu-item-icon-container"></div>
-                                                        <div class="yp-dropdown-menu-item-content"><a
-                                                                href="/registration/employer/307693/edit"
-                                                                class="yp-dropdown-menu-item-content-href">Edit</a></div>
-                                                    </div>
-                                                    <div data-v-576fdb38="" class="yp-dropdown-menu-item"
-                                                        datayp="link|ad-card|restore|307693">
-                                                        <div class="yp-drowndown-menu-item-icon-container"></div>
-                                                        <div class="yp-dropdown-menu-item-content"><a
-                                                                href="/annonce/parent/restore/307693"
-                                                                class="yp-dropdown-menu-item-content-href">Reactivate</a>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
+                                                        {{-- END MODAL DELETE --}}
                                                     </div>
                                                 </div>
                                         </section>
@@ -518,13 +498,8 @@
                                                     echo $chunk . '<br>';
                                                 }
                                                 ?> --}}
-
                                                 {{ $annonce->define_needs }}
-
-
-
                                             </div>
-
                                         </section>
                                         <section data-v-576fdb38="" class="actions"><a data-v-576fdb38="" href="#"
                                                 class="" datayp="link|ad-card|view-candidates|307693"><strong
@@ -537,48 +512,11 @@
                                                 </span></a></section>
                                     </section>
                                 </li>
-
                             </ul>
                         @endforeach()
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-    {{-- <script>
-        var element = document.querySelector("#status");
-
-        function active() {
-            element.style.backgroundColor = "green";
-            // if (element.value == 'PAUSED') {
-            //     element.innerHTML = 'cavani 1 ';
-            //     // alert(element.textContent);
-            // } else {
-            //     element.innerHTML = 'ACTIVE';
-            //     element.style.backgroundColor = "green";
-            //     // element.style.backgroundColor = "red";
-            //     // alert(element.innerHTML);
-            //     // alert(element.textContent);
-            // }
-        }
-
-        function notactive() {
-            element.style.backgroundColor = "red";
-        }
-        // var element = document.getElementById("status");
-    </script> --}}
-
-
-
-    {{-- <div class="container" >
-    <div class="row" style="margin-top:50px">
-        <div class="col-md-9 offset-md-1">
-            <livewire:multi-step-form />
-        </div>
-    </div>
-</div> --}}
 @endsection

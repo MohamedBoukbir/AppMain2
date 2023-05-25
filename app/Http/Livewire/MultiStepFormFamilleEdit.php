@@ -70,7 +70,6 @@ class MultiStepFormFamilleEdit extends Component
         $this->edit();
         $this->id_annonce=session()->get('id_annonce');
          session()->forget('id_annonce');
-
         // $this->push('scripts', view('livewire.component'));
     }
 
