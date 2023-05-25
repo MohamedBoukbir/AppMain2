@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                        font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                        font-size: 14px;
-                                                        color: #363636;
-                                                        background: #fff;
-                                                        padding: 10px;
-                                                        font-weight: 500;
-                                                        white-space: nowrap;
-                                                        text-decoration: none;
-                                                    } */
+                                                                    font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                    font-size: 14px;
+                                                                    color: #363636;
+                                                                    background: #fff;
+                                                                    padding: 10px;
+                                                                    font-weight: 500;
+                                                                    white-space: nowrap;
+                                                                    text-decoration: none;
+                                                                } */
     </style>
 
 
@@ -402,50 +402,55 @@
                                                                 aria-expanded="false"
                                                                 style="width: 50px;height: 30px;background-color: transparent;border: none;color: #9cb2bd;"><i
                                                                     class="fa-solid fa-bars"></i></button>
-                                                            <div class="dropdown-menu">
+                                                            <form action="{{ route('annonce.destroye', $annonce->id) }}"
+                                                                method="Post">
+                                                                <div class="dropdown-menu">
 
-                                                                <a class="dropdown-item"
-                                                                    href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
-                                                                    style="color: #9cb2bd;"><i
-                                                                        class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
+                                                                        style="color: #9cb2bd;"><i
+                                                                            class="fa-solid fa-pen-to-square"></i> Edit</a>
                                                                     {{-- //////////////////////// --}}
-                                                                    <form action="{{ route('annonce.destroye',$annonce->id) }}" method="Post">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="submit" class="dropdown-item"  style="color: #9cb2bd;"><i
-                                                                            class="fa-solid fa-trash"></i> >Delete</button>
-                                                                    </form>
+
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="dropdown-item"
+                                                                        style="color: #9cb2bd;">
+                                                                        <i class="fa-solid fa-trash"></i> Delete</button>
+
 
                                                                     {{-- /////////////////// --}}
 
-                                                               {{-- <a class="dropdown-item"
+                                                                    {{-- <a class="dropdown-item"
                                                                     href="{{ route('famille.addannonce') }}"
                                                                     style="color: #9cb2bd;"><i
                                                                         class="fa-solid fa-trash"></i>
                                                                     Delete</a> --}}
 
-                                                                    
+
                                                                     @if ($annonce->status == 'Active')
-                                                                    <a class="dropdown-item"
-                                                                    href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
-                                                                    style="color: #9cb2bd;"><i class="fa-solid fa-pause"></i></i>
-                                                                    Pause</a>
-                                                                @else
-                                                                   
-                                                                <a class="dropdown-item"
-                                                                href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
-                                                                style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
-                                                                Reactivate</a>
-                                                                @endif
+                                                                        <a class="dropdown-item"
+                                                                            href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                            style="color: #9cb2bd;"><i
+                                                                                class="fa-solid fa-pause"></i></i>
+                                                                            Pause</a>
+                                                                    @else
+                                                                        <a class="dropdown-item"
+                                                                            href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                            style="color: #9cb2bd;"><i
+                                                                                class="fa-solid fa-plug"></i>
+                                                                            Reactivate</a>
+                                                                    @endif
 
 
 
 
-                                                                {{-- <a class="dropdown-item"
+                                                                    {{-- <a class="dropdown-item"
                                                                     href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
                                                                     Reactivate</a> --}}
-                                                            </div>
+                                                                </div>
+                                                            </form>
                                                         </div>
 
 
@@ -496,7 +501,6 @@
                                                         {{ $annonce->status }}
                                                     </div>
                                                 @else
-                                                   
                                                     <div class="status paused" id="status"
                                                         style="background-color: red;">
                                                         {{ $annonce->status }}
