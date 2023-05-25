@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                                                                font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                                                                font-size: 14px;
-                                                                                                color: #363636;
-                                                                                                background: #fff;
-                                                                                                padding: 10px;
-                                                                                                font-weight: 500;
-                                                                                                white-space: nowrap;
-                                                                                                text-decoration: none;
-                                                                                            } */
+                                                                                                                    font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                                                                    font-size: 14px;
+                                                                                                                    color: #363636;
+                                                                                                                    background: #fff;
+                                                                                                                    padding: 10px;
+                                                                                                                    font-weight: 500;
+                                                                                                                    white-space: nowrap;
+                                                                                                                    text-decoration: none;
+                                                                                                                } */
     </style>
 
 
@@ -363,7 +363,7 @@
                     <div class="yp-candidates-ads">
 
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h1 class="yp-candidates-title-block">Your Paused Ad</h1>
+                            <h1 class="yp-candidates-title-block">Your annonces</h1>
                             <div style="margin-left: auto;">
                                 <a class="btn btn-success text text-light" href="{{ route('famille.addannonce') }}"><i
                                         class="fa-solid fa-plus"></i></a>
@@ -431,8 +431,408 @@
                                                                             class="fa-solid fa-plug"></i>
                                                                         Reactivate</a>
                                                                 @endif
+
+
+                                                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                                                    data-target="#ModalShow{{ $annonce->id }}"
+                                                                    style="color: #9cb2bd;">
+                                                                    <i class="fa-solid fa-eye"></i> View</a>
                                                             </div>
                                                         </div>
+                                                        {{-- MODAL VIEW --}}
+
+                                                        <div class="modal fade text-left" id="ModalShow{{ $annonce->id }}"
+                                                            tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title">
+                                                                            {{ __('Detailles de l\'etudiant') }}</h4>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <Span aria-hidden="true">&times;</Span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <div
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                            PART 1</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Under 3
+                                                                                            years old</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Between
+                                                                                            3 and 6 Yo</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">7
+                                                                                            years old and up</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Type
+                                                                                            of Employment</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <div
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                            PART 2</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Expected
+                                                                                            start date</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Day
+                                                                                            off</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Accommodation</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Living
+                                                                                            arrangement</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <div
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                            PART 3</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Title
+                                                                                            of my offer</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Define
+                                                                                            your needs</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Nationality</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Address</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Phone
+                                                                                            number</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <div
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                            PART 4</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Title</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Title</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Title</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Title</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Title</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="title_of_offer"
+                                                                                            disabled>
+                                                                                        <span class="text-danger">
+                                                                                            @error('title_of_offer')
+                                                                                                {{ $message }}
+                                                                                            @enderror
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            {{-- <div class="row mb-4">
+                                                                                <label class="col-sm-3 col-label-form"><b>Image
+                                                                                        d'etudiant</b></label>
+                                                                                <div class="col-sm-9">
+                                                                                    <img src="{{ asset('images/' . $annonce->student_image) }}"
+                                                                                        width="200"
+                                                                                        class="img-thumbnail" />
+                                                                                </div>
+                                                                            </div> --}}
+                                                                            {{-- <div class="row mb-3">
+                                                                                <label
+                                                                                    class="col-sm-3 col-label-form"><b>C.I.N</b></label>
+                                                                                <div class="col-sm-12">
+                                                                                    <input type="text"
+                                                                                        value="{{ $annonce->title_of_offer }}"
+                                                                                        class="form-control" disabled>
+                                                                                </div>
+                                                                            </div> --}}
+
+                                                                            <div class="text-center">
+                                                                                <button type="button"
+                                                                                    class="btn btn-primary close"
+                                                                                    data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    {{ __('Close') }}
+                                                                                </button>
+
+
+
+                                                                                {{-- <button type="button"
+                                                                                    class="btn btn-primary"> {{ __('Close') }}</button> --}}
+                                                                            </div>
+                                                                        </div> {{-- - --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        {{-- END MODAL VIEW --}}
                                                         {{-- MODAL DELETE --}}
                                                         <div class="modal fade" id="ModalDelete{{ $annonce->id }}"
                                                             tabindex="-1" role="dialog" aria-hidden="true">
