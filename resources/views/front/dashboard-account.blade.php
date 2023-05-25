@@ -349,7 +349,7 @@
                                             <div class="yp-card-block-ad-incomplete-body__text">
                                                 Unfortunately, you don't have a job posting yet. Fill your needs now to help
                                                 you find the perfect match
-                                            </div> <a href="/registration/employer"
+                                            </div> <a href="{{ route('famille.addannonce') }}"
                                                 class="yp-card-block-ad-incomplete-body__link">
                                                 Define my needs
                                             </a>
