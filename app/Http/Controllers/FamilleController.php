@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Annonce;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -142,8 +144,16 @@ public function store(Request $request)
 
     public function activeAnnonce(Request $request){
         $status = $request->query('status');
-    dd( $status );
-        return view('familles.edit_annonce');
+        $id_annonce = $request->query('id_annonce');
+         $annoce=Annonce::find( $id_annonce);
+        // dd( $annoce );
+        if ($status =='Active'){
+            $annoce->status='Paused';
+        }else{
+            $annoce->status='Active';
+        }
+        $annoce->save();
+        return back();
     }
 
 }
