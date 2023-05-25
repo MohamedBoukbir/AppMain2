@@ -17,6 +17,7 @@
 @endsection
 
 
+
 @section('content')
 
     <style>
@@ -53,8 +54,8 @@
         }
 
         .yp-candidates-ads-overview .candidates {
-            display: flex;
-            flex-wrap: wrap;
+            display: block;
+            justify-content: center;
             margin: 0 -10px;
             padding: 0;
             list-style: none;
@@ -89,8 +90,8 @@
         }
 
         .yp-candidates-ads-overview .candidates {
-            display: flex;
-            flex-wrap: wrap;
+            display: block;
+            justify-content: center;
             margin: 0 -10px;
             padding: 0;
             list-style: none;
@@ -216,7 +217,7 @@
         .ad-overview .content>div .title {
             max-width: 70%;
             margin: 0 15px 0 0;
-            font-weight: 700;
+            font-weight: 900;
             text-overflow: ellipsis;
             flex-grow: 1;
             white-space: nowrap;
@@ -225,7 +226,7 @@
 
         h5 {
             display: block;
-            font-size: 0.83em;
+            font-size: 1em;
             margin-block-start: 1.67em;
             margin-block-end: 1.67em;
             margin-inline-start: 0px;
@@ -341,21 +342,21 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-            font-family: Nunito, Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            color: #363636;
-            background: #fff;
-            padding: 10px;
-            font-weight: 500;
-            white-space: nowrap;
-            text-decoration: none;
-        } */
+                                font-family: Nunito, Arial, Helvetica, sans-serif;
+                                font-size: 14px;
+                                color: #363636;
+                                background: #fff;
+                                padding: 10px;
+                                font-weight: 500;
+                                white-space: nowrap;
+                                text-decoration: none;
+                            } */
     </style>
 
 
- @foreach ($annonces as $annonce)
+
     <div class="yp-main-content">
-        <div class="yp-candidates-container" data-v-126c35e4="">
+        <div class="yp-candidates-container">
             <!---->
             <div class="yp-candidates-content">
                 <div class="yp-candidates-ads-overview">
@@ -364,54 +365,69 @@
                         <h1 class="yp-candidates-title-block">
                             Your Paused Ad
                         </h1>
-                        <ul class="candidates">
-                            <li>
-                                <section data-v-576fdb38="" class="ad-overview">
-                                    <section data-v-576fdb38="" class="header">
-                                        <h4 data-v-576fdb38="">Domestic help</h4>
-                                        <style>
-                                            .custom-link{
-                                                background-color: #9cb2bd;
-                                                text-decoration: none;
-                                                color: #fff;
-                                                padding: 2px;
-                                                font-size: 14px;
-                                                font-weight: 900;
-                                                width: 50px;
-                                                text-align: center;
-                                                margin: 3px;
-                                                cursor: pointer;
-                                                margin-left: 0 auto;
-                                            }
-                                        </style>
-                                   
-                                        <div data-v-576fdb38="" class="dropdown">
-                                            <div data-v-576fdb38="" class="yp-dropdown-menu">
+                        @foreach ($annonces as $annonce)
+                            <ul style="margin-top: 10px;">
+                                <li>
+                                    <section data-v-576fdb38="" class="ad-overview">
+                                        <section data-v-576fdb38="" class="header">
+                                            <h4 data-v-576fdb38="">Domestic help</h4>
+                                            <style>
+                                                .custom-link {
+                                                    background-color: #9cb2bd;
+                                                    text-decoration: none;
+                                                    color: #fff;
+                                                    padding: 2px;
+                                                    font-size: 14px;
+                                                    font-weight: 900;
+                                                    width: 50px;
+                                                    text-align: center;
+                                                    margin: 3px;
+                                                    cursor: pointer;
+                                                    margin-left: 0 auto;
+                                                }
+                                            </style>
 
-                                                    
+                                            <div data-v-576fdb38="" class="dropdown">
+                                                <div data-v-576fdb38="" class="yp-dropdown-menu">
 
-                                                {{-- <a class="btn btn-primary mt-1 mb-1"><i class="fa-solid fa-eye"></i></a>
+
+
+                                                    {{-- <a class="btn btn-primary mt-1 mb-1"><i class="fa-solid fa-eye"></i></a>
                                                 <a class="btn btn-primary p-1"><i class="fa-solid fa-pen-to-square"></i></a>
                                                 <a class="btn btn-primary p-1"><i class="fa-solid fa-plug"></i></a> --}}
-                                                <div class="yp-dropdown-menu-actions">
+                                                    <div class="yp-dropdown-menu-actions">
 
-                                                    <div class="btn-group"> 
-                                                        <button type="button" class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 50px;height: 30px;background-color: transparent;border: none;color: #9cb2bd;"><i class="fa-solid fa-bars"></i></button>
-                                                        <div class="dropdown-menu">
-                                                          <a class="dropdown-item" href="{{ route('famille.addannonce') }}" style="color: #9cb2bd;"><i class="fa-solid fa-eye"></i> View</a>
-                                                          <a class="dropdown-item" href="{{ route('famille.editannonce',['annonce' =>$annonce->id]) }}" style="color: #9cb2bd;"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                                          <a class="dropdown-item" href="{{ route('famille.activeannonce',['status' =>$annonce->status]) }}" style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i> Reactivate</a>
-                                                          {{-- <div class="dropdown-divider"></div>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false"
+                                                                style="width: 50px;height: 30px;background-color: transparent;border: none;color: #9cb2bd;"><i
+                                                                    class="fa-solid fa-bars"></i></button>
+                                                            <div class="dropdown-menu">
+
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
+                                                                    style="color: #9cb2bd;"><i
+                                                                        class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('famille.addannonce') }}"
+                                                                    style="color: #9cb2bd;"><i
+                                                                        class="fa-solid fa-trash"></i>
+                                                                    Delete</a>
+                                                                <a class="dropdown-item" href="#"
+                                                                    style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
+                                                                    Reactivate</a>
+                                                                {{-- <div class="dropdown-divider"></div>
                                                           <a class="dropdown-item" href="#">Separated link</a> --}}
+                                                            </div>
                                                         </div>
-                                                      </div>
 
 
 
-                                                    {{-- <a class="custom-link"><i class="fa-solid fa-eye"></i></a>
+                                                        {{-- <a class="custom-link"><i class="fa-solid fa-eye"></i></a>
                                                     <a class="custom-link"></a>
                                                     <a class="custom-link"></a> --}}
-                                                    {{-- <svg data-name="Layer 1"
+                                                        {{-- <svg data-name="Layer 1"
                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.01 16.32"
                                                         width="20" height="7">
                                                         <path
@@ -442,41 +458,77 @@
                                                         </div>
                                                     </div>
                                                 </div> --}}
+                                                    </div>
+                                                </div>
+                                        </section>
+                                        <section class="content">
+                                            <div data-v-576fdb38="">
+                                                <h5 data-v-576fdb38="" class="title">{{ $annonce->title_of_offer }}</h5>
+                                                <div class="status paused" id="status">
+                                                    Paused
+                                                </div>
                                             </div>
-                                        </div>
-                                    </section>
-                                    <section data-v-576fdb38="" class="content">
-                                        <div data-v-576fdb38="">
-                                            <h5 data-v-576fdb38="" class="title">{{ Auth::user()->username }}</h5>
-                                            <div data-v-576fdb38="" class="status paused">
-                                                Paused
-                                               
+
+                                            
+
+
+                                            <div class="description" style="overflow: auto;">
+                                                {{-- <?php
+                                                $string = $annonce->define_needs;
+                                                $chunkSize = 100; // Nombre de caractères par morceau
+                                                $chunks = str_split($string, $chunkSize);
+                                                // Affichage des morceaux
+                                                foreach ($chunks as $chunk) {
+                                                    echo $chunk . '<br>';
+                                                }
+                                                ?> --}}
+
+                                                {{ $annonce->define_needs }}
+
+
+
                                             </div>
-                                        </div>
-                                        <p data-v-576fdb38="" class="description">
-                                            {{ $annonce->title_of_offer }}
-                                            {{ $annonce->id }}
-                                        </p>
+
+                                        </section>
+                                        <section data-v-576fdb38="" class="actions"><a data-v-576fdb38="" href="#"
+                                                class="" datayp="link|ad-card|view-candidates|307693"><strong
+                                                    data-v-576fdb38="">0</strong> <span data-v-576fdb38="">
+                                                    New Application
+                                                </span></a> <a data-v-576fdb38="" href="#"
+                                                datayp="link|ad-card|view-messages|307693" class="has-unread"><strong
+                                                    data-v-576fdb38="">0</strong> <span data-v-576fdb38="">
+                                                    Conversation
+                                                </span></a></section>
                                     </section>
-                                    <section data-v-576fdb38="" class="actions"><a data-v-576fdb38=""
-                                            href="#" class=""
-                                            datayp="link|ad-card|view-candidates|307693"><strong
-                                                data-v-576fdb38="">0</strong> <span data-v-576fdb38="">
-                                                New Application
-                                            </span></a> <a data-v-576fdb38="" href="#"
-                                            datayp="link|ad-card|view-messages|307693" class="has-unread"><strong
-                                                data-v-576fdb38="">0</strong> <span data-v-576fdb38="">
-                                                Conversation
-                                            </span></a></section>
-                                </section>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        @endforeach()
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endforeach()
+
+
+
+    <script>
+        var element = document.getElementById("status");
+        if(element.value == 'PAUSED'){
+
+            element.innerHTML = 'cavani 1 ';
+            element.style.backgroundColor = "red";
+            // alert(element.textContent);
+        }
+        else{
+            element.innerHTML = 'ACTIVE';
+            element.style.backgroundColor = "green";
+            // element.style.backgroundColor = "red";
+            // alert(element.innerHTML);
+            // alert(element.textContent);
+        }
+    </script>
+
     {{-- <div class="container" >
     <div class="row" style="margin-top:50px">
         <div class="col-md-9 offset-md-1">
