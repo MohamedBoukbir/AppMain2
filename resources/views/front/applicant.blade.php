@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                                                                                    font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                                                                                    font-size: 14px;
-                                                                                                                    color: #363636;
-                                                                                                                    background: #fff;
-                                                                                                                    padding: 10px;
-                                                                                                                    font-weight: 500;
-                                                                                                                    white-space: nowrap;
-                                                                                                                    text-decoration: none;
-                                                                                                                } */
+                                                                                                                        font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                                                                        font-size: 14px;
+                                                                                                                        color: #363636;
+                                                                                                                        background: #fff;
+                                                                                                                        padding: 10px;
+                                                                                                                        font-weight: 500;
+                                                                                                                        white-space: nowrap;
+                                                                                                                        text-decoration: none;
+                                                                                                                    } */
     </style>
 
 
@@ -458,8 +458,12 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <div
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                        <div 
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            display: flex;
+                                                                                            align-items: center;
+                                                                                            justify-content: center;
+                                                                                            text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
                                                                                             PART 1</div>
                                                                                     </div>
                                                                                 </div>
@@ -536,8 +540,12 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <div
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                        <div class="mt-5"
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            display: flex;
+                                                                                            align-items: center;
+                                                                                            justify-content: center;
+                                                                                            text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
                                                                                             PART 2</div>
                                                                                     </div>
                                                                                 </div>
@@ -612,8 +620,12 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <div
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                        <div class="mt-5"
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            display: flex;
+                                                                                            align-items: center;
+                                                                                            justify-content: center;
+                                                                                            text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
                                                                                             PART 3</div>
                                                                                     </div>
                                                                                 </div>
@@ -705,8 +717,12 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <div
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px;text-align: center;color: #FFF;font-weight: 900;">
+                                                                                        <div class="mt-5"
+                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            display: flex;
+                                                                                            align-items: center;
+                                                                                            justify-content: center;
+                                                                                            text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
                                                                                             PART 4</div>
                                                                                     </div>
                                                                                 </div>
