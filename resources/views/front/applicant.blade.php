@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                font-size: 14px;
-                                                color: #363636;
-                                                background: #fff;
-                                                padding: 10px;
-                                                font-weight: 500;
-                                                white-space: nowrap;
-                                                text-decoration: none;
-                                            } */
+                                                        font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                        font-size: 14px;
+                                                        color: #363636;
+                                                        background: #fff;
+                                                        padding: 10px;
+                                                        font-weight: 500;
+                                                        white-space: nowrap;
+                                                        text-decoration: none;
+                                                    } */
     </style>
 
 
@@ -413,10 +413,28 @@
                                                                     style="color: #9cb2bd;"><i
                                                                         class="fa-solid fa-trash"></i>
                                                                     Delete</a>
+
+                                                                    
+                                                                    @if ($annonce->status == 'Active')
+                                                                    <a class="dropdown-item"
+                                                                    href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                    style="color: #9cb2bd;"><i class="fa-solid fa-pause"></i></i>
+                                                                    Pause</a>
+                                                                @else
+                                                                   
                                                                 <a class="dropdown-item"
+                                                                href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
+                                                                Reactivate</a>
+                                                                @endif
+
+
+
+
+                                                                {{-- <a class="dropdown-item"
                                                                     href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
-                                                                    Reactivate</a>
+                                                                    Reactivate</a> --}}
                                                             </div>
                                                         </div>
 
@@ -463,13 +481,16 @@
                                             <div data-v-576fdb38="">
                                                 <h5 data-v-576fdb38="" class="title">{{ $annonce->title_of_offer }}</h5>
                                                 @if ($annonce->status == 'Active')
-                                                <div class="status paused" id="status" style="background-color: green;">
-                                                    {{ $annonce->status }}
-                                                </div>
+                                                    <div class="status paused" id="status"
+                                                        style="background-color: green;">
+                                                        {{ $annonce->status }}
+                                                    </div>
                                                 @else
-                                                <div class="status paused" id="status" style="background-color: red;">
-                                                    {{ $annonce->status }}
-                                                </div>
+                                                   
+                                                    <div class="status paused" id="status"
+                                                        style="background-color: red;">
+                                                        {{ $annonce->status }}
+                                                    </div>
                                                 @endif
                                             </div>
 
