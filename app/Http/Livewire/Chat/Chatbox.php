@@ -46,8 +46,7 @@ $this->receiverInstance= null;
 
     public function broadcastedMessageRead($event)
     {
-        //dd($event);
-
+        dd($event);
         if($this->selectedConversation){
 
 
