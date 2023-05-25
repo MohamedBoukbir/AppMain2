@@ -400,7 +400,7 @@
                                                         <div class="dropdown-menu">
                                                           <a class="dropdown-item" href="{{ route('famille.addannonce') }}" style="color: #9cb2bd;"><i class="fa-solid fa-eye"></i> View</a>
                                                           <a class="dropdown-item" href="{{ route('famille.editannonce',['annonce' =>$annonce->id]) }}" style="color: #9cb2bd;"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                                          <a class="dropdown-item" href="#" style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i> Reactivate</a>
+                                                          <a class="dropdown-item" href="{{ route('famille.activeannonce',['status' =>$annonce->status]) }}" style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i> Reactivate</a>
                                                           {{-- <div class="dropdown-divider"></div>
                                                           <a class="dropdown-item" href="#">Separated link</a> --}}
                                                         </div>

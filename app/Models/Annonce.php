@@ -33,6 +33,7 @@ class Annonce extends Model
         'day_off',
         'expected_start_date',
         'user_id',
+        'status',
     ];
 
     

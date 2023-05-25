@@ -140,4 +140,10 @@ public function store(Request $request)
         return view('familles.edit_annonce');
     }
 
+    public function activeAnnonce(Request $request){
+        $status = $request->query('status');
+    dd( $status );
+        return view('familles.edit_annonce');
+    }
+
 }
