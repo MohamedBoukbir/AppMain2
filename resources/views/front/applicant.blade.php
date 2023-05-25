@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                            font-family: Nunito, Arial, Helvetica, sans-serif;
-                                            font-size: 14px;
-                                            color: #363636;
-                                            background: #fff;
-                                            padding: 10px;
-                                            font-weight: 500;
-                                            white-space: nowrap;
-                                            text-decoration: none;
-                                        } */
+                                                font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                font-size: 14px;
+                                                color: #363636;
+                                                background: #fff;
+                                                padding: 10px;
+                                                font-weight: 500;
+                                                white-space: nowrap;
+                                                text-decoration: none;
+                                            } */
     </style>
 
 
@@ -413,13 +413,10 @@
                                                                     style="color: #9cb2bd;"><i
                                                                         class="fa-solid fa-trash"></i>
                                                                     Delete</a>
-                                                                <a class="dropdown-item" href="{{ route('famille.activeannonce', ['status' => $annonce->status,'id_annonce'=>$annonce->id]) }}"
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
                                                                     Reactivate</a>
-                                                                <button onclick="active()">active</button>
-                                                                <button onclick="notactive()">non active</button>
-                                                                {{-- <div class="dropdown-divider"></div>
-                                                          <a class="dropdown-item" href="#">Separated link</a> --}}
                                                             </div>
                                                         </div>
 
@@ -465,15 +462,16 @@
                                         <section class="content">
                                             <div data-v-576fdb38="">
                                                 <h5 data-v-576fdb38="" class="title">{{ $annonce->title_of_offer }}</h5>
-                                                <div class="status paused" id="status">
-                                                    {{-- Paused --}}
-                                                   {{ $annonce->status}}
+                                                @if ($annonce->status == 'Active')
+                                                <div class="status paused" id="status" style="background-color: green;">
+                                                    {{ $annonce->status }}
                                                 </div>
-
+                                                @else
+                                                <div class="status paused" id="status" style="background-color: red;">
+                                                    {{ $annonce->status }}
+                                                </div>
+                                                @endif
                                             </div>
-
-
-
 
                                             <div class="description" style="overflow: auto;">
                                                 {{-- <?php
@@ -516,7 +514,7 @@
 
 
 
-    <script>
+    {{-- <script>
         var element = document.querySelector("#status");
 
         function active() {
@@ -537,7 +535,7 @@
             element.style.backgroundColor = "red";
         }
         // var element = document.getElementById("status");
-    </script>
+    </script> --}}
 
 
 
