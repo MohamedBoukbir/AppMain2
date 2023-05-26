@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                                                                                                font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                                                                                                font-size: 14px;
-                                                                                                                                color: #363636;
-                                                                                                                                background: #fff;
-                                                                                                                                padding: 10px;
-                                                                                                                                font-weight: 500;
-                                                                                                                                white-space: nowrap;
-                                                                                                                                text-decoration: none;
-                                                                                                                            } */
+                                                                                                                                        font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                                                                                        font-size: 14px;
+                                                                                                                                        color: #363636;
+                                                                                                                                        background: #fff;
+                                                                                                                                        padding: 10px;
+                                                                                                                                        font-weight: 500;
+                                                                                                                                        white-space: nowrap;
+                                                                                                                                        text-decoration: none;
+                                                                                                                                    } */
     </style>
 
 
@@ -459,7 +459,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <div
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            style="background-color: #144862;padding: 15px;border-radius: 5px; 
                                                                                             display: flex;
                                                                                             align-items: center;
                                                                                             justify-content: center;
@@ -477,10 +477,10 @@
                                                                                             years old</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                           
                                                                                             value="{{ $annonce->child_baby }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                      
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -490,10 +490,10 @@
                                                                                             3 and 6 Yo</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            
                                                                                             value="{{ $annonce->child_kid }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -503,10 +503,10 @@
                                                                                             years old and up</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                          
                                                                                             value="{{ $annonce->child_boy }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                      
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -518,9 +518,10 @@
                                                                                             of Employment</label>
                                                                                         <input type="text"
                                                                                             class="form-control "
-                                                                                             value="{{ $annonce->type_of_employment }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                      
+                                                                                            value="{{ $annonce->type_of_employment }}"
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -528,7 +529,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <div class="mt-5"
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            style="background-color: #144862;padding: 15px;border-radius: 5px; 
                                                                                             display: flex;
                                                                                             align-items: center;
                                                                                             justify-content: center;
@@ -545,10 +546,10 @@
                                                                                             start date</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                           
                                                                                             value="{{ $annonce->expected_start_date }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -560,10 +561,10 @@
                                                                                             off</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            
                                                                                             value="{{ $annonce->day_off }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -572,10 +573,10 @@
                                                                                             class="font-weight-bold">Accommodation</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                           
                                                                                             value="{{ $annonce->accommodation }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -585,10 +586,10 @@
                                                                                             arrangement</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                           
                                                                                             value="{{ $annonce->living_arrangement }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -596,7 +597,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <div class="mt-5"
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            style="background-color: #144862;padding: 15px;border-radius: 5px; 
                                                                                             display: flex;
                                                                                             align-items: center;
                                                                                             justify-content: center;
@@ -613,10 +614,10 @@
                                                                                             of my offer</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                          
                                                                                             value="{{ $annonce->title_of_offer }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -624,13 +625,13 @@
                                                                                 <div class="col-md-12">
 
                                                                                     <div class="form-group">
-                                                                                        <label for="">Define your needs</label>
-                                                                                        <textarea class="form-control customtextarea" rows="6"
-                                                                                          disabled style="color: #808080;font-size: 15px;">{{ $annonce->define_needs }}"</textarea>
-                                                                                       
+                                                                                        <label for="">Define your
+                                                                                            needs</label>
+                                                                                        <textarea class="form-control customtextarea" rows="6" disabled style="color: #808080;font-size: 15px;">{{ $annonce->define_needs }}"</textarea>
+
                                                                                     </div>
                                                                                 </div>
-                                                                                
+
                                                                             </div>
                                                                             <div class="row">
                                                                                 <div class="col-md-4">
@@ -639,10 +640,10 @@
                                                                                             class="font-weight-bold">Nationality</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                         
                                                                                             value="{{ $annonce->country }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -651,10 +652,10 @@
                                                                                             class="font-weight-bold">Address</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                           
                                                                                             value="{{ $annonce->address }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -664,10 +665,10 @@
                                                                                             number</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                          
                                                                                             value="{{ $annonce->phone }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                      
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -675,7 +676,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <div class="mt-5"
-                                                                                            style="background-color: #f49758;padding: 15px;border-radius: 5px; 
+                                                                                            style="background-color: #144862;padding: 15px;border-radius: 5px; 
                                                                                             display: flex;
                                                                                             align-items: center;
                                                                                             justify-content: center;
@@ -691,9 +692,9 @@
                                                                                             class="font-weight-bold">Nationality</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                          
                                                                                             value="{{ $annonce->helper_nationality }}"
-                                                                                            disabled style="color: #808080;;">
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
                                                                                         <span class="text-danger">
                                                                                             @error('title_of_offer')
                                                                                                 {{ $message }}
@@ -707,10 +708,10 @@
                                                                                             class="font-weight-bold">Gender</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            
                                                                                             value="{{ $annonce->gender }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                      
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -719,10 +720,10 @@
                                                                                             class="font-weight-bold">Religion</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                           
                                                                                             value="{{ $annonce->religion }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                    
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -731,25 +732,27 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Minimum education level</label>
+                                                                                            class="font-weight-bold">Minimum
+                                                                                            education level</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                          
                                                                                             value="{{ $annonce->education_level }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                            
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Contract situation</label>
+                                                                                            class="font-weight-bold">Contract
+                                                                                            situation</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                          
                                                                                             value="{{ $annonce->contract_situation }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                        
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -757,13 +760,14 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Monthly salary</label>
+                                                                                            class="font-weight-bold">Monthly
+                                                                                            salary</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                           
                                                                                             value="{{ $annonce->monthly_salary }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                    
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
@@ -773,10 +777,10 @@
                                                                                             Currency</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            
                                                                                             value="{{ $annonce->currency_coin }}"
-                                                                                            disabled style="color: #808080;;">
-                                                                                       
+                                                                                            disabled
+                                                                                            style="color: #808080;;">
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
