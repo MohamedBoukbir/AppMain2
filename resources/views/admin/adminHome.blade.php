@@ -351,20 +351,26 @@
             <div class="col-xl-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-titles">list familles</h2>
+                        <h2 class="card-titles">Search</h2>
                         <div class="top-nav-search">
                         </div>
-                        <form>
-                            <input type="text" class="form-control" placeholder="">
+                        {{-- ///////// cherche  --}}
+                        <form action="{{ route('Search') }}" method="POST">
+                            @csrf
+                            <input type="text"  name ="username" id= "username" class="form-control" placeholder="Search ">
+                              <div id="user_list">
+
+                              </div>
                             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                         </form>
+                        {{-- /////////  end cherche  --}}
                     </div>
                     <div class="table-responsive">
                         <table class="table custom-table no-footer">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Name</th>
+                                    <th>Username</th>
                                     <th>Email</th>
                                     <th>Country</th>
                                     <th>Phone</th>
@@ -380,8 +386,8 @@
                                     <tr>
 
                                         <td>#</td>
-                                        <td>{{ $user->firstName . ' ' . $user->lastName }}</td>
-                                        {{-- <td>{{ $famille->lastName }}</td> --}}
+                                        {{-- <td>{{ $user->firstName . ' ' . $user->lastName }}</td> --}}
+                                        <td>{{ $user->username }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->country }}</td>
                                         <td>{{ $user->phone }}</td>
@@ -865,4 +871,28 @@
         </div>
     </div>
 </div> --}}
+
+{{-- ////////////////// Search scripte ////////// --}}
+<script>
+ $(document).ready(function(){
+ $("#username").on('keyup',function(){
+var value=$(this).val();
+$.ajax({
+     url:"{{ route('livesearch') }}",
+     type:"GET",
+     data:{'username':value},
+     success:function(data){
+        $("#user_list").html(data);
+
+     }
+});
+ });
+ $(document).on('click','li',function(){
+var value= $(this).text();
+$("#username").val(value);
+$("#user_list").html("");
+ });
+ });
+</script>
+{{-- ////////////////// end  Search scripte ////////// --}}
 @endsection
