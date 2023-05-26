@@ -25,7 +25,7 @@
 
                     <div class="chatlist_info">
                         <div class="top_row">
-                            <div class="list_username">{{ $this->getChatUserInstance($conversation, $name = 'name') }}
+                            <div class="list_username">{{ $this->getChatUserInstance($conversation, $name = 'username') }}
                             </div>
                             <span class="date">
                                 {{ $conversation->messages->last()?->created_at->shortAbsoluteDiffForHumans() }}</span>
