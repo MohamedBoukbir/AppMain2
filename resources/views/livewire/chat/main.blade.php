@@ -27,16 +27,20 @@
                 $('.chat_box_container').show();
 
             }
+            if (window.innerWidth > 768) {
+                // $('.chat_list_container').hide();
+                $('.chat_box_container').show();
+            }
 
             $('.chatbox_body').scrollTop($('.chatbox_body')[0].scrollHeight);
-        let height= $('.chatbox_body')[0].scrollHeight; 
-    //alert(height);
-    window.livewire.emit('updateHeight',{
-       
-height:height,
+            let height = $('.chatbox_body')[0].scrollHeight;
+            //alert(height);
+            window.livewire.emit('updateHeight', {
+
+                height: height,
 
 
-    });
+            });
         });
 
 
@@ -60,30 +64,29 @@ height:height,
         });
     </script>
 
-<script>
-    // //let el= $('#chatBody');
-    // let el = document.querySelector('#chatBody');
-    // window.addEventListener('scroll', (event) => {
-    //     // handle the scroll event 
-    //     alert('aasd');
-    
-    // });
-    $(document).on('scroll','#chatBody',function() {
-        alert('aasd');
-    
-        var top = $('.chatbox_body').scrollTop();
-        if (top == 0) {
-            
-            window.livewire.emit('loadmore');
-        }
-    
-    
-    });
-    
-    </script>
-{{-- ///////////////////////// --}}
+    <script>
+        // //let el= $('#chatBody');
+        // let el = document.querySelector('#chatBody');
+        // window.addEventListener('scroll', (event) => {
+        //     // handle the scroll event 
+        //     alert('aasd');
 
-{{-- <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+        // });
+        $(document).on('scroll', '#chatBody', function() {
+            alert('aasd');
+
+            var top = $('.chatbox_body').scrollTop();
+            if (top == 0) {
+
+                window.livewire.emit('loadmore');
+            }
+
+
+        });
+    </script>
+    {{-- ///////////////////////// --}}
+
+    {{-- <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script>
   var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
     cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
