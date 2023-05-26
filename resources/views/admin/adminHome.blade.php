@@ -324,13 +324,15 @@
                         {{-- ///////// cherche  --}}
                         <form action="{{ route('Search') }}" method="POST">
                             @csrf
-                            <input type="text"  name ="username" id= "username" class="form-control" placeholder="Search ">
-                              <div id="user_list">
+                            <input type="text" name="username" id="username" class="form-control"
+                                placeholder="Search " autocomplete="off">
+                            <div id="user_list">
 
-                              </div>
+                            </div>
                             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         {{-- /////////  end cherche  --}}
+                      
                     </div>
                     <div class="table-responsive">
                         <table class="table custom-table no-footer">
@@ -839,27 +841,29 @@
     </div>
 </div> --}}
 
-{{-- ////////////////// Search scripte ////////// --}}
-<script>
- $(document).ready(function(){
- $("#username").on('keyup',function(){
-var value=$(this).val();
-$.ajax({
-     url:"{{ route('livesearch') }}",
-     type:"GET",
-     data:{'username':value},
-     success:function(data){
-        $("#user_list").html(data);
+    {{-- ////////////////// Search scripte ////////// --}}
+    <script>
+        $(document).ready(function() {
+            $("#username").on('keyup', function() {
+                var value = $(this).val();
+                $.ajax({
+                    url: "{{ route('livesearch') }}",
+                    type: "GET",
+                    data: {
+                        'username': value
+                    },
+                    success: function(data) {
+                        $("#user_list").html(data);
 
-     }
-});
- });
- $(document).on('click','li',function(){
-var value= $(this).text();
-$("#username").val(value);
-$("#user_list").html("");
- });
- });
-</script>
-{{-- ////////////////// end  Search scripte ////////// --}}
+                    }
+                });
+            });
+            $(document).on('click', 'li', function() {
+                var value = $(this).text();
+                $("#username").val(value);
+                $("#user_list").html("");
+            });
+        });
+    </script>
+    {{-- ////////////////// end  Search scripte ////////// --}}
 @endsection
