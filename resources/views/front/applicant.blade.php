@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                                                                                        font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                                                                                        font-size: 14px;
-                                                                                                                        color: #363636;
-                                                                                                                        background: #fff;
-                                                                                                                        padding: 10px;
-                                                                                                                        font-weight: 500;
-                                                                                                                        white-space: nowrap;
-                                                                                                                        text-decoration: none;
-                                                                                                                    } */
+                                                                                                                                font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                                                                                font-size: 14px;
+                                                                                                                                color: #363636;
+                                                                                                                                background: #fff;
+                                                                                                                                padding: 10px;
+                                                                                                                                font-weight: 500;
+                                                                                                                                white-space: nowrap;
+                                                                                                                                text-decoration: none;
+                                                                                                                            } */
     </style>
 
 
@@ -408,7 +408,10 @@
                                                                 style="width: 50px;height: 30px;background-color: transparent;border: none;color: #9cb2bd;"><i
                                                                     class="fa-solid fa-bars"></i></button>
                                                             <div class="dropdown-menu">
-
+                                                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                                                    data-target="#ModalShow{{ $annonce->id }}"
+                                                                    style="color: #9cb2bd;">
+                                                                    <i class="fa-solid fa-eye"></i> View</a>
                                                                 <a class="dropdown-item"
                                                                     href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
                                                                     style="color: #9cb2bd;"><i
@@ -433,10 +436,7 @@
                                                                 @endif
 
 
-                                                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                                                    data-target="#ModalShow{{ $annonce->id }}"
-                                                                    style="color: #9cb2bd;">
-                                                                    <i class="fa-solid fa-eye"></i> View</a>
+
                                                             </div>
                                                         </div>
                                                         {{-- MODAL VIEW --}}
@@ -447,7 +447,7 @@
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h4 class="modal-title">
-                                                                            {{ __('Detailles de l\'etudiant') }}</h4>
+                                                                            {{ __('Detailles de l\'annonce') }}</h4>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">
                                                                             <Span aria-hidden="true">&times;</Span>
@@ -458,13 +458,13 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <div 
+                                                                                        <div
                                                                                             style="background-color: #f49758;padding: 15px;border-radius: 5px; 
                                                                                             display: flex;
                                                                                             align-items: center;
                                                                                             justify-content: center;
                                                                                             text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
-                                                                                            PART 1</div>
+                                                                                            FAMILY INFORMATIONS</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -477,13 +477,10 @@
                                                                                             years old</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                           
+                                                                                            value="{{ $annonce->child_baby }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                      
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -493,13 +490,10 @@
                                                                                             3 and 6 Yo</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                            
+                                                                                            value="{{ $annonce->child_kid }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -509,13 +503,10 @@
                                                                                             years old and up</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                          
+                                                                                            value="{{ $annonce->child_boy }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                      
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -526,14 +517,10 @@
                                                                                             class="font-weight-bold">Type
                                                                                             of Employment</label>
                                                                                         <input type="text"
-                                                                                            class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                            class="form-control "
+                                                                                             value="{{ $annonce->type_of_employment }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                      
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -546,7 +533,7 @@
                                                                                             align-items: center;
                                                                                             justify-content: center;
                                                                                             text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
-                                                                                            PART 2</div>
+                                                                                            RECOMMANDATION</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -558,13 +545,10 @@
                                                                                             start date</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                           
+                                                                                            value="{{ $annonce->expected_start_date }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -576,13 +560,10 @@
                                                                                             off</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                            
+                                                                                            value="{{ $annonce->day_off }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -591,13 +572,10 @@
                                                                                             class="font-weight-bold">Accommodation</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                           
+                                                                                            value="{{ $annonce->accommodation }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -607,13 +585,10 @@
                                                                                             arrangement</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                           
+                                                                                            value="{{ $annonce->living_arrangement }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -626,7 +601,7 @@
                                                                                             align-items: center;
                                                                                             justify-content: center;
                                                                                             text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
-                                                                                            PART 3</div>
+                                                                                            OFFER</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -638,33 +613,24 @@
                                                                                             of my offer</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                          
+                                                                                            value="{{ $annonce->title_of_offer }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
+
                                                                                     <div class="form-group">
-                                                                                        <label for=""
-                                                                                            class="font-weight-bold">Define
-                                                                                            your needs</label>
-                                                                                        <input type="text"
-                                                                                            class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                        <label for="">Define your needs</label>
+                                                                                        <textarea class="form-control customtextarea" rows="6"
+                                                                                          disabled style="color: #808080;font-size: 15px;">{{ $annonce->define_needs }}"</textarea>
+                                                                                       
                                                                                     </div>
                                                                                 </div>
+                                                                                
                                                                             </div>
                                                                             <div class="row">
                                                                                 <div class="col-md-4">
@@ -673,13 +639,10 @@
                                                                                             class="font-weight-bold">Nationality</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                         
+                                                                                            value="{{ $annonce->country }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -688,13 +651,10 @@
                                                                                             class="font-weight-bold">Address</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                           
+                                                                                            value="{{ $annonce->address }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -704,13 +664,10 @@
                                                                                             number</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                          
+                                                                                            value="{{ $annonce->phone }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                      
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -723,7 +680,7 @@
                                                                                             align-items: center;
                                                                                             justify-content: center;
                                                                                             text-align: center;color: #FFF;font-weight: 900;min-height: 100px;">
-                                                                                            PART 4</div>
+                                                                                            HELPER </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -731,11 +688,12 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Title</label>
+                                                                                            class="font-weight-bold">Nationality</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
+                                                                                          
+                                                                                            value="{{ $annonce->helper_nationality }}"
+                                                                                            disabled style="color: #808080;;">
                                                                                         <span class="text-danger">
                                                                                             @error('title_of_offer')
                                                                                                 {{ $message }}
@@ -746,66 +704,79 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Title</label>
+                                                                                            class="font-weight-bold">Gender</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                            
+                                                                                            value="{{ $annonce->gender }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                      
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Title</label>
+                                                                                            class="font-weight-bold">Religion</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                           
+                                                                                            value="{{ $annonce->religion }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                    
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <div class="row">
-                                                                                <div class="col-md-12">
+                                                                                <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Title</label>
+                                                                                            class="font-weight-bold">Minimum education level</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                          
+                                                                                            value="{{ $annonce->education_level }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                            
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">Contract situation</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                          
+                                                                                            value="{{ $annonce->contract_situation }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                        
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="row">
-                                                                                <div class="col-md-12">
+                                                                                <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Title</label>
+                                                                                            class="font-weight-bold">Monthly salary</label>
                                                                                         <input type="text"
                                                                                             class="form-control"
-                                                                                            wire:model="title_of_offer"
-                                                                                            disabled>
-                                                                                        <span class="text-danger">
-                                                                                            @error('title_of_offer')
-                                                                                                {{ $message }}
-                                                                                            @enderror
-                                                                                        </span>
+                                                                                           
+                                                                                            value="{{ $annonce->monthly_salary }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                    
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for=""
+                                                                                            class="font-weight-bold">
+                                                                                            Currency</label>
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            
+                                                                                            value="{{ $annonce->currency_coin }}"
+                                                                                            disabled style="color: #808080;;">
+                                                                                       
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
