@@ -224,15 +224,19 @@
                         </div>
                         <div class="card-body dash-activity">
                             <div class="slimscroll activity_scroll">
+                                {{-- /// email no verfier --}}
+                                @foreach ($users as $user)
                                 <div class="activity-set">
                                     <div class="activity-img">
                                         <img src="{{ asset('img/profile.png') }}" alt="avatar">
                                     </div>
                                     <div class="activity-content">
-                                        <label>Lorem ipsum dolor sit amet,</label>
-                                        <span>4 hours ago</span>
+                                        <label>{{$user->username}}</label>
+                                        <span>{{$user->created_at->format('Y-m-d')}}</span>
                                     </div>
                                 </div>
+                                @endforeach
+                        {{-- /// email no verfier --}}
                                 <div class="activity-set">
                                     <div class="activity-img">
                                         <img src="{{ asset('img/profile.png') }}" alt="avatar">
@@ -365,6 +369,7 @@
                                     <th>Country</th>
                                     <th>Phone</th>
                                     <th>Role</th>
+                                    <th>create at</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -381,6 +386,7 @@
                                         <td>{{ $user->country }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->type }}</td>
+                                        <td>{{ $user->created_at->format('Y-m-d')}}</td>
                                         {{-- <td>{{ $user->status }}</td> --}}
                                         <td class="tab-select">
                                             <select class="select">

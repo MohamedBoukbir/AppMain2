@@ -11,13 +11,16 @@ class DashbordController extends Controller
 {
     public function logincontrole()
     {
+        
         try{
+           
         $user = Auth::user();
         switch ($user) {
             case $user->hasRole('admin'):
-                $users = User::whereRoleIs(['famille', 'candidat'])->orderBy('id', 'desc')->paginate("");
+                // $users = User::whereRoleIs(['famille', 'candidat'])->orderBy('id', 'desc')->paginate("");
+                $users = User::whereNull(['email_verified_at'])->orderBy('id', 'desc')->paginate("");
                 $familles = User::whereRoleIs('famille')->orderBy('id', 'desc')->paginate("");
-                $candidats = User::whereRoleIs('candidat')->orderBy('id', 'desc')->paginate("");
+                $candidats = User::whereRoleIs('candidat')->orderBy('created_at', 'asc')->paginate("");
                 return view('admin.adminHome', compact('users', 'familles', 'candidats'));
                 break;
             case $user->hasRole('famille'):
