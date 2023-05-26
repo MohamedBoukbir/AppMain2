@@ -81,4 +81,22 @@ height:height,
     });
     
     </script>
+{{-- ///////////////////////// --}}
+
+{{-- <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script>
+  var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
+    cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
+    encrypted: true
+  });
+
+  pusher.connection.bind('connected', function() {
+    console.log('Pusher connected');
+  });
+
+  pusher.connection.bind('failed', function() {
+    console.log('Pusher connection failed');
+  });
+</script> --}}
+
 </div>

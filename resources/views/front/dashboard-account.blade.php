@@ -291,13 +291,13 @@
             <div class="dashboard">
                 <div class="dashboard-card">
                     <div>
-                        <a href="{{ route('payment.stripe') }}">sir sir </a>
+                        
                         <h2 class="dashboard-card-title"> Hi {{Auth::user()->username }}</h2>
                         <p class="dashboard-card-text">
                             {{ __('Welcome to your personal dashboard! Here you can manage your searches and job posting.') }}
                         </p>
                     </div>
-                    <a href="{{ route('chat') }}">message</a>
+                   
                     <br>
                     <div>
                         <h5 class="dashboard-card-subtitle">{{ __('Can we help you?') }}</h5>

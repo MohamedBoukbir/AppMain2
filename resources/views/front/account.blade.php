@@ -256,7 +256,8 @@
                     </a>
                 </div>
                 <div class="menu-list-item">
-                    <a href="{{ route('account-conversation') }}" class="menu-item-link">
+                    {{-- <a href="{{ route('chat') }}">message</a> --}}
+                    <a href="{{ route('chat') }}" class="menu-item-link">
                         <span class="menu-item-icon"><i class='bx bxs-message'></i></span>
                         {{-- <p class="menu-item-label">Conversations</p> --}}
                         @yield('item-list-3')
