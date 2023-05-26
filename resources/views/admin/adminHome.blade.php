@@ -103,20 +103,20 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <div class="mt-4">
-                                            <p class="mb-2 text-truncate"><i
-                                                    class="fas fa-circle text-primary mr-1"></i> Families</p>
+                                            <p class="mb-2 text-truncate"><i class="fas fa-circle text-primary mr-1"></i>
+                                                Families</p>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="mt-4">
-                                            <p class="mb-2 text-truncate"><i
-                                                    class="fas fa-circle text-success mr-1"></i> Candidats</p>
+                                            <p class="mb-2 text-truncate"><i class="fas fa-circle text-success mr-1"></i>
+                                                Candidats</p>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="mt-4">
-                                            <p class="mb-2 text-truncate"><i
-                                                    class="fas fa-circle text-danger mr-1"></i> New</p>
+                                            <p class="mb-2 text-truncate"><i class="fas fa-circle text-danger mr-1"></i> New
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -226,54 +226,19 @@
                             <div class="slimscroll activity_scroll">
                                 {{-- /// email no verfier --}}
                                 @foreach ($users as $user)
-                                <div class="activity-set">
-                                    <div class="activity-img">
-                                        <img src="{{ asset('img/profile.png') }}" alt="avatar">
+                                    <div class="activity-set">
+                                        <div class="activity-img">
+                                            <img src="{{ asset('img/profile.png') }}" alt="avatar">
+                                        </div>
+                                        <div class="activity-content">
+                                            <label>{{ $user->username }}</label>
+                                            <span>{{ $user->created_at->format('Y-m-d') }}</span>
+                                        </div>
                                     </div>
-                                    <div class="activity-content">
-                                        <label>{{$user->username}}</label>
-                                        <span>{{$user->created_at->format('Y-m-d')}}</span>
-                                    </div>
-                                </div>
                                 @endforeach
-                        {{-- /// email no verfier --}}
-                                <div class="activity-set">
-                                    <div class="activity-img">
-                                        <img src="{{ asset('img/profile.png') }}" alt="avatar">
-                                    </div>
-                                    <div class="activity-content">
-                                        <label>Lorem ipsum dolor sit amet,</label>
-                                        <span>5 hours ago</span>
-                                    </div>
-                                </div>
-                                <div class="activity-set">
-                                    <div class="activity-img">
-                                        <img src="{{ asset('img/profile.png') }}" alt="avatar">
-                                    </div>
-                                    <div class="activity-content">
-                                        <label>Lorem ipsum dolor sit amet,</label>
-                                        <span>6 hours ago</span>
-                                    </div>
-                                </div>
-                                <div class="activity-set">
-                                    <div class="activity-img">
-                                        <img src="{{ asset('img/profile.png') }}" alt="avatar">
-                                    </div>
-                                    <div class="activity-content">
-                                        <label>Lorem ipsum dolor sit amet,</label>
-                                        <span>2 hours ago</span>
-                                    </div>
-                                </div>
-                                <div class="activity-set">
-                                    <div class="activity-img">
-                                        <img src="{{ asset('img/profile.png') }}" alt="avatar">
-                                    </div>
-                                    <div class="activity-content">
-                                        <label>Lorem ipsum dolor sit amet,</label>
-                                        <span>3 hours ago</span>
-                                    </div>
-                                </div>
-                                <div class="activity-set">
+                                {{-- /// email no verfier --}}
+
+                                {{-- <div class="activity-set">
                                     <div class="activity-img">
                                         <img src="{{ asset('img/profile.png') }}" alt="avatar">
                                     </div>
@@ -281,10 +246,12 @@
                                         <label>Lorem ipsum dolor sit amet,</label>
                                         <span>4 hours ago</span>
                                     </div>
-                                </div>
+                                </div> --}}
+
                             </div>
                             <div class="leave-viewall activit" style="margin-top: 100px">
-                                <a>View all <img src="{{ asset('img/right-arrow.png') }}" class="ml-2" alt="arrow"></a>
+                                <a>View all <img src="{{ asset('img/right-arrow.png') }}" class="ml-2"
+                                        alt="arrow"></a>
                             </div>
                         </div>
                     </div>
@@ -335,8 +302,8 @@
                                 <label>Lorem ipsum moch cunchen</label>
                             </div>
                             <div class="leave-viewall">
-                                <a href="leave.html">View all <img src="{{ asset('img/right-arrow.png') }}" class="ml-2"
-                                        alt="arrow" /></a>
+                                <a href="leave.html">View all <img src="{{ asset('img/right-arrow.png') }}"
+                                        class="ml-2" alt="arrow" /></a>
                             </div>
                         </div>
                     </div>
@@ -357,13 +324,15 @@
                         {{-- ///////// cherche  --}}
                         <form action="{{ route('Search') }}" method="POST">
                             @csrf
-                            <input type="text"  name ="username" id= "username" class="form-control" placeholder="Search ">
-                              <div id="user_list">
+                            <input type="text" name="username" id="username" class="form-control"
+                                placeholder="Search " autocomplete="off">
+                            <div id="user_list">
 
-                              </div>
+                            </div>
                             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         {{-- /////////  end cherche  --}}
+                      
                     </div>
                     <div class="table-responsive">
                         <table class="table custom-table no-footer">
@@ -392,7 +361,7 @@
                                         <td>{{ $user->country }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->type }}</td>
-                                        <td>{{ $user->created_at->format('Y-m-d')}}</td>
+                                        <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                         {{-- <td>{{ $user->status }}</td> --}}
                                         <td class="tab-select">
                                             <select class="select">
@@ -872,27 +841,29 @@
     </div>
 </div> --}}
 
-{{-- ////////////////// Search scripte ////////// --}}
-<script>
- $(document).ready(function(){
- $("#username").on('keyup',function(){
-var value=$(this).val();
-$.ajax({
-     url:"{{ route('livesearch') }}",
-     type:"GET",
-     data:{'username':value},
-     success:function(data){
-        $("#user_list").html(data);
+    {{-- ////////////////// Search scripte ////////// --}}
+    <script>
+        $(document).ready(function() {
+            $("#username").on('keyup', function() {
+                var value = $(this).val();
+                $.ajax({
+                    url: "{{ route('livesearch') }}",
+                    type: "GET",
+                    data: {
+                        'username': value
+                    },
+                    success: function(data) {
+                        $("#user_list").html(data);
 
-     }
-});
- });
- $(document).on('click','li',function(){
-var value= $(this).text();
-$("#username").val(value);
-$("#user_list").html("");
- });
- });
-</script>
-{{-- ////////////////// end  Search scripte ////////// --}}
+                    }
+                });
+            });
+            $(document).on('click', 'li', function() {
+                var value = $(this).text();
+                $("#username").val(value);
+                $("#user_list").html("");
+            });
+        });
+    </script>
+    {{-- ////////////////// end  Search scripte ////////// --}}
 @endsection

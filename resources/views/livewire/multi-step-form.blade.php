@@ -146,7 +146,7 @@
                                     flex-grow: 1;
                                     max-width: 60%;
                                     display: flex;
-                                    flex-direction: column;
+                                    flex-direction: row;
                                     text-align: center;
                                     min-width: 100px;
                                     position: relative;
@@ -198,24 +198,11 @@
                                 </li>
                             </ul>
                         </section>
+                        {{-- !DEL --}}
+
+                        {{-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
                         <div class="card-body">
                             <div class="row">
-
-
-
-                                {{-- <select class="livesearch" multiple>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                </select>
-
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
-                                <script>
-                                    $(".livesearch").chosen();
-                                </script> --}}
-
 
 
                                 <div class="col-md-4">

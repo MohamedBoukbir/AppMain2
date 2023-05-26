@@ -231,7 +231,6 @@
                                     </div>
 
 
-
                                     {{-- <div class="form-group">
                                         <label for="">Under 3 years old</label>
                                         <select class="form-select" wire:model="child_baby">
@@ -246,12 +245,13 @@
                                             @enderror
                                         </span>
                                     </div> --}}
+
                                 </div>
                                 <div class="col-md-4">
-
                                     <div class="form-group">
                                         <label for="">Number of children</label>
-                                        <input type="number" class="form-control" pattern="[0-9]+" wire:model="number_of_children">
+                                        <input type="number" class="form-control" pattern="[0-9]+"
+                                            wire:model="number_of_children">
                                         <span class="text-danger">
                                             @error('number_of_children')
                                                 {{ $message }}
@@ -274,11 +274,13 @@
                                             @enderror
                                         </span>
                                     </div> --}}
+
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Date of birth *</label>
-                                        <input type="date" class="form-control" wire:model="date_of_birth"  max="<?php echo date('Y-m-d'); ?>">
+                                        <input type="date" class="form-control" wire:model="date_of_birth"
+                                            max="<?php echo date('Y-m-d'); ?>">
                                         <span class="text-danger">
                                             @error('date_of_birth')
                                                 {{ $message }}
@@ -488,7 +490,8 @@
                                             <option value="thai">Thai</option>
                                             <option value="togolese">Togolese</option>
                                             <option value="tongan">Tongan</option>
-                                            <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option>
+                                            <option value="trinidadian or tobagonian">Trinidadian or Tobagonian
+                                            </option>
                                             <option value="tunisian">Tunisian</option>
                                             <option value="turkish">Turkish</option>
                                             <option value="tuvaluan">Tuvaluan</option>
@@ -502,7 +505,7 @@
                                             <option value="yemenite">Yemenite</option>
                                             <option value="zambian">Zambian</option>
                                             <option value="zimbabwean">Zimbabwean</option>
-                                          </select>
+                                        </select>
 
                                         <span class="text-danger">
                                             @error('country')
@@ -515,7 +518,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Phone number</label>
-                                        <input type="text" class="form-control" wire:model="phone" placeholder="(+1) 123-456-789">
+                                        <input type="text" class="form-control" wire:model="phone"
+                                            placeholder="(+1) 123-456-789">
                                         <span class="text-danger">
                                             @error('phone')
                                                 {{ $message }}
@@ -685,7 +689,8 @@
                             }
                         </style>
 
-                        <div class="card-header bg-primary text-white d-flex align-items-center justify-content-center">
+                        <div
+                            class="card-header bg-primary text-white d-flex align-items-center justify-content-center">
                             Define your needs</div>
                         <section class="step-wizard">
                             <ul class="step-wizard-list">
