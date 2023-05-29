@@ -38,6 +38,9 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 Route::get('/search/live', [DashbordController::class, 'liveSearch'])->name('livesearch');
 Route::post('/Search', [DashbordController::class, 'search'])->name('Search');
 //////////////////  end live  search ///////////
+///////////////// searsh ajax ///////////
+Route::post('ajax_searsh',[DashbordController::class, 'ajax_searsh'])->name('ajax_searsh_name');
+///////////////////////////////
 
 
 //////////////////  peymant Paypale ///////////////

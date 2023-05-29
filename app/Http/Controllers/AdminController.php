@@ -257,7 +257,7 @@ class AdminController extends Controller
             return redirect()->route('admin.edit.candidat',$user);
         }
     }
-
+   
 
      /// delete 
      public function destroy(User $user)

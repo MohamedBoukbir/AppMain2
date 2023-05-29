@@ -123,6 +123,8 @@ class DashbordController extends Controller
 // foreach($users as $row){
 //     dd($row->username);
 // }
+
+
     return view('admin.adminHome', compact('users', 'familles', 'candidats'));
     // } else {
 
@@ -130,4 +132,18 @@ class DashbordController extends Controller
     // }
     
 }
+
+ ////////////// /////////////  ajax_searsh
+ public function ajax_searsh (Request $request){
+     dd($request);
+    if ($request->ajax()){
+       
+       $searshbyname=$request->searshbyname;
+       $data= User::where("mail","like","%{$searshbyname}%")->orderby("id","ASC")->paginate("");
+       return view('ajax_searsh',['data'=>$data]) ; 
+    }
+}
+
+////////////////
+
 }
