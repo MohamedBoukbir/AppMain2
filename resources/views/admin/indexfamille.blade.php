@@ -61,12 +61,24 @@ active
                     </div>
                   </div>
                   {{--  --}}
+                   {{-- ///////// cherche en table  --}}
+                   {{-- <form action="{{ route('Search') }}" method="POST">
+                    @csrf --}}
+                    <input type="text" name="search" id="search" class="form-control" placeholder="searsh by name">
+                    {{-- <div id="user_list">
+
+                    </div>
+                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                </form> --}}
+                {{-- /////////  end cherche  --}}
                   <div class="col-xl-12 col-sm-12 col-12 mb-4">
                     <div class="card">
                       <div class="table-heading">
                         <h2>Families</h2>
                       </div>
+                      <div id="ajax_searsh_result">
                       <div class="table-responsive">
+                        
                         <table class="table custom-table no-footer">
                           <thead>
                             <tr>
@@ -211,6 +223,7 @@ active
                             </tr> --}}
                           </tbody>
                         </table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -257,5 +270,71 @@ active
           </div>
         </div>
       {{-- END MODAL --}}
+
     </div>
+   {{-- /////////// javascripte --}}
+<script>
+ $('#search').on('keyup',functio(){
+ alert('hello');
+ });
+
+</script>
+
+
+    <script>     
+//     $(document).ready(function(){
+
+// // alert();
+// $(document).on('input',"#searshbymail",function(){
+// var searshbyname = $(this).val();
+
+// jQuery.ajax({
+
+//   url:"{{ route('ajax_searsh_name') }}",
+//   type:'post',
+//   datatype:'html',
+//   cache:false,
+//   data:{searshbyname:searshbyname,"_token":"{{ csrf_token() }}"},
+//   success:function(data){
+// $("#ajax_searsh_result").html(data);
+
+//   },
+//   error:function(){
+
+//   }
+
+
+// });
+
+// });
+
+//     });
+    
+    </script>
+
+        {{-- ////////////////// Search scripte ////////// --}}
+        <script>
+          $(document).ready(function() {
+              $("#username").on('keyup', function() {
+                  var value = $(this).val();
+                  $.ajax({
+                      url: "{{ route('livesearch') }}",
+                      type: "GET",
+                      data: {
+                          'username': value
+                      },
+                      success: function(data) {
+                          $("#user_list").html(data);
+  
+                      }
+                  });
+              });
+              $(document).on('click', 'li', function() {
+                  var value = $(this).text();
+                  $("#username").val(value);
+                  $("#user_list").html("");
+              });
+          });
+      </script>
+      {{-- ////////////////// end  Search scripte ////////// --}}
 @endsection
