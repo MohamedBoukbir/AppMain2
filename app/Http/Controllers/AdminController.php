@@ -14,7 +14,7 @@ class AdminController extends Controller
     //// afficher familles
     public function indexfamille()
     {
-        $familles = User::whereRoleIs('famille')->orderBy('id','desc')->paginate("");
+        $familles = User::orderBy('id','desc')->paginate("");
         return view('admin.indexfamille', compact('familles'));
     }
 

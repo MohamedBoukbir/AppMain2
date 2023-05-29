@@ -97,7 +97,7 @@ active
                               <th>Action</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="content">
 
                             @foreach ($familles as $famille)
                             <tr>
@@ -223,6 +223,11 @@ active
                               </td>
                             </tr> --}}
                           </tbody>
+                          {{-- <tbody id="content">
+
+
+                          </tbody> --}}
+
                         </table>
                         </div>
                       </div>
@@ -274,11 +279,11 @@ active
 
     </div>
    {{-- /////////// javascripte --}}
-<script>
+{{-- <script>
 $(document).ready(function() {
               $("#username").on('keyup', function() {
                   var value = $(this).val();
-                  alert($(this).val());
+                  // alert($(this).val());
                   $.ajax({
                       url: "{{ route('ajax_searsh_name') }}",
                       type: "GET",
@@ -286,7 +291,8 @@ $(document).ready(function() {
                           'username': value
                       },
                       success: function(data) {
-                          $("#user_list").html(data);
+                        // console.log(data);
+                          $("#content").html(data);
   
                       }
                   });
@@ -297,7 +303,7 @@ $(document).ready(function() {
                   $("#user_list").html("");
               });
           });
-</script>
+</script> --}}
 
 
     <script>     
@@ -332,28 +338,28 @@ $(document).ready(function() {
     </script>
 
         {{-- ////////////////// Search scripte ////////// --}}
-        {{-- <script>
+        <script>
           $(document).ready(function() {
               $("#username").on('keyup', function() {
                   var value = $(this).val();
                   $.ajax({
-                      url: "{{ route('livesearch') }}",
+                      url: "{{ route('ajax_searsh_name') }}",
                       type: "GET",
                       data: {
                           'username': value
                       },
                       success: function(data) {
-                          $("#user_list").html(data);
+                          $("#content").html(data);
   
                       }
                   });
               });
-              $(document).on('click', 'li', function() {
-                  var value = $(this).text();
-                  $("#username").val(value);
-                  $("#user_list").html("");
-              });
+              // $(document).on('click', 'li', function() {
+              //     var value = $(this).text();
+              //     $("#username").val(value);
+              //     $("#user_list").html("");
+              // });
           });
-      </script> --}}
+      </script>
       {{-- ////////////////// end  Search scripte ////////// --}}
 @endsection

@@ -134,16 +134,34 @@ class DashbordController extends Controller
 }
 
  ////////////// /////////////  ajax_searsh
- public function ajax_searsh (Request $request){
-     dd($request);
-    if ($request->ajax()){
-       
-       $searshbyname=$request->searshbyname;
-       $data= User::where("mail","like","%{$searshbyname}%")->orderby("id","ASC")->paginate("");
-       return view('ajax_searsh',['data'=>$data]) ; 
-    }
-}
 
-////////////////
+   ///////////////////////////////////////////// Shearch //////////////////
+
+   public function ajax_searsh(Request $request){
+  
+ if($request->ajax()){
+    //  $data = User::where('username','LIKE',$request->username.'%')->get();
+     $data = User::where("username","LIKE","$request->username%")->get();
+     $output='';
+     if(count( $data) > 0){
+
+     
+       foreach($data as $user){
+        $output.=
+        '<tr>
+        <td> '.$user->username.'</td>
+        <td> '.$user->mail.'</td>
+        </tr>';
+       }
+    }else{
+        $output.=
+        '<tr>
+        <td>  No Data Found </td>
+        </tr>';
+    }
+     return $output;
+ }
+}
+///////////////////////////////////////////////////////////////////
 
 }
