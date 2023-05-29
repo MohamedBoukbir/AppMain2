@@ -37,7 +37,7 @@ return new class extends Migration
             ///////candidat////
             $table->string('years_experience')->nullable();
             /////////////////////////////////
-            $table->string('gender')->nullable();
+            
             $table->string('child_baby')->nullable();
             $table->string('child_kid')->nullable();
             $table->string('child_boy')->nullable();
@@ -49,11 +49,19 @@ return new class extends Migration
             $table->longText('title_of_offer')->nullable();
             $table->longText('define_needs')->nullable();
             $table->string('helper_nationality')->nullable();
-            $table->string('education_level')->nullable();
+           
             $table->string('contract_situation')->nullable();
             $table->string('monthly_salary')->nullable();
             $table->string('currency_coin')->nullable();
             //////////////////////////////////
+            $table->string('number_of_children')->nullable();
+            $table->string('date_of_birth')->nullable();
+            $table->string('education_level')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('languages')->nullable();
+            $table->string('passport_number')->nullable();
+            $table->string('visa_expiry_date')->nullable();
+            ///////////////////////
             $table->rememberToken();
             $table->timestamps();
         });

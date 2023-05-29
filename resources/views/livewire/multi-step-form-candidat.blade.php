@@ -947,7 +947,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Education Level</label>
-                                        <select class="form-select" wire:model="gender">
+                                        <select class="form-select" wire:model="education_level">
                                             <option value="" selected>Select</option>
                                             <option value="O level">O level</option>
                                             <option value="A level">A level</option>
@@ -956,7 +956,7 @@
 
                                         </select>
                                         <span class="text-danger">
-                                            @error('gender')
+                                            @error('education_level')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -965,14 +965,14 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Religion</label>
-                                        <select class="form-select" wire:model="country">
+                                        <select class="form-select" wire:model="religion">
                                             <option value="" selected>Select</option>
                                             <option value="Live_In">Muslim</option>
                                             <option value="Live_Out">Buddihst</option>
                                             <option value="Live_Out">Other</option>
                                         </select>
                                         <span class="text-danger">
-                                            @error('country')
+                                            @error('religion')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -984,7 +984,7 @@
                                     <div class="form-group">
                                         <label for="">Native Language</label>
                                         <select class="form-select" id="languages" name="languages"
-                                            wire:model="phone">
+                                            wire:model="languages">
                                             <option>Select</option>
                                             <option value="af">Afrikaans</option>
                                             <option value="sq">Albanian - shqip</option>
@@ -1091,7 +1091,7 @@
                                             <option value="zu">Zulu - isiZulu</option>
                                         </select>
                                         <span class="text-danger">
-                                            @error('phone')
+                                            @error('languages')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -1270,9 +1270,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Passport number or HKID</label>
-                                        <input type="text" class="form-control" wire:model="title_of_offer">
+                                        <input type="text" class="form-control" wire:model="passport_number">
                                         <span class="text-danger">
-                                            @error('title_of_offer')
+                                            @error('passport_number')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -1281,9 +1281,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Visa expiry date (if you have one)</label>
-                                        <input type="date" class="form-control" wire:model="title_of_offer">
+                                        <input type="date" class="form-control" wire:model="visa_expiry_date">
                                         <span class="text-danger">
-                                            @error('title_of_offer')
+                                            @error('visa_expiry_date')
                                                 {{ $message }}
                                             @enderror
                                         </span>

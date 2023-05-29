@@ -20,7 +20,7 @@ class MultiStepFormCandidat extends Component
     public $accommodation;
     public $living_arrangement;
     public $helper_nationality;
-    public $education_level;
+   
     public $contract_situation;
     public $monthly_salary;
     public $currency_coin;
@@ -29,21 +29,30 @@ class MultiStepFormCandidat extends Component
     public $define_needs;
     public $address;
    
-    public $religion;
    
-    // public $status;
+   
+    public $status;
     public $city;
     public $domain;
     public $child;
     public $social_status;
     //////////////////////////////candidat ////////////
     public $middle_name;
-    public $number_of_children;
-    public $date_of_birth;
-    public $phone;
-    public $country;
-    public $gender;
-    // public $gender;
+    
+    
+   
+  ////////////////////////////
+  public $number_of_children;
+  public $date_of_birth;
+  public $gender;
+  public $country;
+  public $phone;
+  public $education_level;
+  public $religion;
+  public $languages;
+  public $passport_number;
+public $visa_expiry_date;
+  ////////////////////////////////
     public $totalSteps =4;
     public $currentStep = 1;
 
@@ -99,29 +108,27 @@ class MultiStepFormCandidat extends Component
         // }
          if($this->currentStep == 1){
             $this->validate([
-                'middle_name'=>'required',
-                'number_of_children'=>'required',
-                'date_of_birth'=>'required',
-                'gender'=>'required',
+                'phone'=>'required',
                 'country'=>'required',
-                'phone'=>'required'
+                'gender'=>'required',
+                'date_of_birth'=>'required',
+                'number_of_children'=>'required',
             ]);
         }
         elseif($this->currentStep == 2){
               $this->validate([
-                 'living_arrangement'=>'required',
-                 'accommodation'=>'required',
-                 'day_off'=>'required',
-                 'expected_start_date'=>'required'
+                 'education_level'=>'required',
+                 'languages'=>'required',
+                 'religion'=>'required',
               ]);
         }
         elseif($this->currentStep == 3){
               $this->validate([
-                  'title_of_offer'=>'required|min:30|max:60',
-                  'define_needs'=>'required|min:200',
-                  'country'=>'required',
-                  'phone'=>'required|digits:9',
-                  'address'=>'required'
+                  'passport_number'=>'required',
+                //   'define_needs'=>'required|min:200',
+                //   'country'=>'required',
+                //   'phone'=>'required|digits:9',
+                //   'address'=>'required'
               ]);
         }
     }
