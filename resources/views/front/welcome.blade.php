@@ -40,7 +40,8 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="{{route('welcome')}}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <a href="{{ route('welcome') }}"
+                class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 <h1 class="m-0 text-primary">Homework</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -70,8 +71,8 @@
                 </div>
                 <a href="{{ route('signup') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block"><i
                         class="fa fa-user me-3"></i>Sign Up</a>
-                <a href="{{ route('signin') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block ">Sign In<i
-                        class="fa fa-arrow-right ms-3"></i></a>
+                <a href="{{ route('signin') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block ">Sign
+                    In<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
         <!-- Navbar End -->
@@ -187,7 +188,8 @@
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="cat-item rounded p-4" href="">
                             {{-- <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i> --}}
-                            <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-baby text-primary mb-4"></i>
+                            {{-- <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i> --}}
                             <h6 class="mb-3">BabySitter</h6>
                             <p class="mb-0">0</p>
                         </a>
@@ -213,7 +215,7 @@
                             <p class="mb-0">0</p>
                         </a>
                     </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    {{--  <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Nanny</h6>
@@ -240,7 +242,7 @@
                             <h6 class="mb-3">Nanny</h6>
                             <p class="mb-0">0</p>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -921,9 +923,15 @@
     <script src="{{ asset('js/new-main.js') }}"></script>
     <script src="{{ asset('js/states.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
