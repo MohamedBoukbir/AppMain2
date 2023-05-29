@@ -61,6 +61,9 @@ return new class extends Migration
             $table->string('languages')->nullable();
             $table->string('passport_number')->nullable();
             $table->string('visa_expiry_date')->nullable();
+            $table->string('driving_license')->nullable();
+            $table->string('access_to_a_car')->nullable();
+            $table->string('first_Aid_training')->nullable();
             ///////////////////////
             $table->rememberToken();
             $table->timestamps();

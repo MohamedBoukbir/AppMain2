@@ -52,8 +52,12 @@ class MultiStepFormCandidat extends Component
   public $languages;
   public $passport_number;
 public $visa_expiry_date;
+// public $selectedOptions = [];
+public $driving_license;
+public $access_to_a_car;
+public $first_Aid_training;
   ////////////////////////////////
-    public $totalSteps =4;
+    public $totalSteps =3;
     public $currentStep = 1;
 
     public function mount(){
@@ -122,28 +126,18 @@ public $visa_expiry_date;
                  'religion'=>'required',
               ]);
         }
-        elseif($this->currentStep == 3){
-              $this->validate([
-                  'passport_number'=>'required',
-                //   'define_needs'=>'required|min:200',
-                //   'country'=>'required',
-                //   'phone'=>'required|digits:9',
-                //   'address'=>'required'
-              ]);
-        }
+        // elseif($this->currentStep == 3){
+        //       $this->validate([
+        //           'passport_number'=>'required',
+        //       ]);
+        // }
     }
 
     public function register(){
           $this->resetErrorBag();
-          if($this->currentStep == 4){
+          if($this->currentStep == 3){
               $this->validate([
-                'helper_nationality'=>'required',
-                  'gender'=>'required',
-                  'religion'=>'required',
-                  'education_level'=>'required',
-                  'contract_situation'=>'required',
-                  'monthly_salary'=>'required',
-                  'currency_coin'=>'required',
+                'passport_number'=>'required',
               ]);
           }
 
@@ -166,27 +160,27 @@ public $visa_expiry_date;
         $user = User::find(Auth::user()->id);
         // dd('nadi');
 
-        $user->helper_nationality =$this->helper_nationality ;
+        $user->number_of_children =$this->number_of_children ;
+        $user->date_of_birth = $this->date_of_birth;
         $user->gender = $this->gender;
-        $user->religion = $this->religion;
-       $user->education_level =$this->education_level;
-       $user->contract_situation = $this->contract_situation;
-       $user->monthly_salary = $this->monthly_salary;
-       $user->currency_coin =$this->currency_coin;
+       $user->country =$this->country;
+       $user->phone = $this->phone;
+       $user->education_level = $this->education_level;
+       $user->religion =$this->religion;
       
-        $user->define_needs = $this->define_needs;
-        $user->title_of_offer = $this->title_of_offer;
-        $user->address = $this->address;
-        $user->phone = $this->phone;
-        $user->country = $this->country;
-        $user->child_baby =$this->child_baby;
-        $user->child_kid = $this->child_kid;
-        $user->child_boy = $this->child_boy;
-        $user->type_of_employment = $this->type_of_employment;
-        $user->living_arrangement =$this->living_arrangement;
-        $user->accommodation = $this->accommodation;
-        $user->day_off = $this->day_off;
-        $user->expected_start_date = $this->expected_start_date;
+        $user->languages = $this->languages;
+        $user->passport_number = $this->passport_number;
+        $user->visa_expiry_date = $this->visa_expiry_date;
+        $user->first_Aid_training = $this->first_Aid_training;
+        $user->driving_license = $this->driving_license;
+        $user->access_to_a_car=$this->access_to_a_car;
+        // $user->child_kid = $this->child_kid;
+        // $user->child_boy = $this->child_boy;
+        // $user->type_of_employment = $this->type_of_employment;
+        // $user->living_arrangement =$this->living_arrangement;
+        // $user->accommodation = $this->accommodation;
+        // $user->day_off = $this->day_off;
+        // $user->expected_start_date = $this->expected_start_date;
 
         $user->save();
 
@@ -194,6 +188,7 @@ public $visa_expiry_date;
             //   $this->reset();
             //   $this->currentStep = 1;
             // $data = ['name'=>$this->first_name.' '.$this->last_name,'email'=>$this->email];
+            dd('nadi rak t enregestreter');
             return redirect()->route('registration.famille.success');
         //   }
     }
