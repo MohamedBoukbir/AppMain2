@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('religion')->nullable();
             $table->boolean('status')->default(0);
             $table->string('domain')->nullable();
+              $table->string('liked')->nullable();
             ///////famille////
          
             // $table->string('social_status')->nullable();

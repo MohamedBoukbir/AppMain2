@@ -20,8 +20,11 @@
 
 
 @section('content')
-
+@if(count($likeds)>0)
+@foreach ($likeds as $liked)
+    {{$liked->username}}
+@endforeach
+@else
 <p style="margin: 300px; font-size: 80px">liked</p>
-
-
+@endif
 @endsection

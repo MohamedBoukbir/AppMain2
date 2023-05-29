@@ -36,6 +36,11 @@ class CreateUsers extends Controller
            ->orderBy('created_at','asc')
            ->skip($messages_count - 10)
            ->take(10)->get();
+
+
+         Message::where('conversation_id',$conversation->id)
+                  ->where('receiver_id',auth()->user()->id)->update(['read'=> 1]);
+
         //    dd(count($messages));
          return  view('chatbox',compact('receiverInstance','messages','conversation'));
        }
@@ -55,6 +60,9 @@ class CreateUsers extends Controller
           ->orderBy('created_at','asc')
            ->skip($messages_count - 10)
            ->take(10)->get();
+           
+         Message::where('conversation_id',$conversation->id)
+         ->where('receiver_id',auth()->user()->id)->update(['read'=> 1]);
         return  view('chatbox',compact('receiverInstance','messages','conversation'));
      } 
 }

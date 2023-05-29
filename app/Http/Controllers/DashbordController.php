@@ -11,6 +11,7 @@ class DashbordController extends Controller
 {
     public function logincontrole()
     {
+        // dd('rak nadi');
         
         try{
            

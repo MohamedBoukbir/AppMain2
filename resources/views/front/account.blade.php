@@ -265,7 +265,7 @@
                 </div>
 
                 <div class="menu-list-item ">
-                    <a href="{{ route('account-saved-profiles') }}" class="menu-item-link">
+                    <a href="{{ route('likedcandidat') }}" class="menu-item-link">
                         <span class="menu-item-icon "><i class='bx bxs-like'></i></span>
                         {{-- <p class="menu-item-label">Saved profiles</p> --}}
                         @yield('item-list-4')

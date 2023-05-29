@@ -156,6 +156,15 @@ public function store(Request $request)
         return back();
     }
 
+   public function likedCandidat(Request $request){
+     $likeds=User::whereRoleIs('candidat')
+                   ->where('liked','liked')
+                   ->orderBy('id', 'desc')->paginate("");
+    //  dd($likeds);
+    return view('front.liked',compact('likeds'));
+   
+   }
+
     public function destroyAnnonce(Annonce $annonce)
     {
         // dd($annonce);
