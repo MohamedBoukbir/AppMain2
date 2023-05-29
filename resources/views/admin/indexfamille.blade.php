@@ -61,16 +61,17 @@ active
                     </div>
                   </div>
                   {{--  --}}
-                   {{-- ///////// cherche en table  --}}
-                   {{-- <form action="{{ route('Search') }}" method="POST">
-                    @csrf --}}
-                    <input type="text" name="search" id="search" class="form-control" placeholder="searsh by name">
-                    {{-- <div id="user_list">
+                 {{-- ///////// cherche  --}}
+                 {{-- <form action="{{ route('Search') }}" method="POST">
+                  @csrf --}}
+                  <input type="text" name="username" id="username" class="form-control"
+                      placeholder="Search " autocomplete="off">
+                  <div id="user_list">
 
-                    </div>
-                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                </form> --}}
-                {{-- /////////  end cherche  --}}
+                  </div>
+                  {{-- <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+              </form> --}}
+              {{-- /////////  end cherche  --}}
                   <div class="col-xl-12 col-sm-12 col-12 mb-4">
                     <div class="card">
                       <div class="table-heading">
@@ -83,7 +84,7 @@ active
                           <thead>
                             <tr>
                               <th>Id</th>
-                              <th>Name</th>
+                              <th>Username</th>
                               <th>Email</th>
                               <th>Address</th>
                               <th>Country</th>
@@ -102,7 +103,7 @@ active
                             <tr>
                                
                                 <td>#</td>
-                                <td>{{ $famille->firstName.' '.$famille->lastName }}</td>
+                                <td>{{ $famille->username }}</td>
                                 <td>{{ $famille->email }}</td>
                                 <td>{{ $famille->address }}</td>
                                 <td>{{ $famille->country }}</td>
@@ -274,10 +275,28 @@ active
     </div>
    {{-- /////////// javascripte --}}
 <script>
- $('#search').on('keyup',functio(){
- alert('hello');
- });
-
+$(document).ready(function() {
+              $("#username").on('keyup', function() {
+                  var value = $(this).val();
+                  alert($(this).val());
+                  $.ajax({
+                      url: "{{ route('ajax_searsh_name') }}",
+                      type: "GET",
+                      data: {
+                          'username': value
+                      },
+                      success: function(data) {
+                          $("#user_list").html(data);
+  
+                      }
+                  });
+              });
+              $(document).on('click', 'li', function() {
+                  var value = $(this).text();
+                  $("#username").val(value);
+                  $("#user_list").html("");
+              });
+          });
 </script>
 
 
@@ -313,7 +332,7 @@ active
     </script>
 
         {{-- ////////////////// Search scripte ////////// --}}
-        <script>
+        {{-- <script>
           $(document).ready(function() {
               $("#username").on('keyup', function() {
                   var value = $(this).val();
@@ -335,6 +354,6 @@ active
                   $("#user_list").html("");
               });
           });
-      </script>
+      </script> --}}
       {{-- ////////////////// end  Search scripte ////////// --}}
 @endsection
