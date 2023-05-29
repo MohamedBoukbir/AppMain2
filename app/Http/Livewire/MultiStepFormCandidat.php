@@ -37,11 +37,12 @@ class MultiStepFormCandidat extends Component
     public $child;
     public $social_status;
     //////////////////////////////candidat ////////////
-    public $middle_name;
+    
     
     
    
   ////////////////////////////
+  public $middle_name;
   public $number_of_children;
   public $date_of_birth;
   public $gender;
@@ -62,6 +63,9 @@ public $first_Aid_training;
 
     public function mount(){
         $this->currentStep = 1;
+        $user=User::find(auth()->user()->id);
+        $this->middle_name=$user->username;
+
         // $this->push('scripts', view('livewire.component'));
     }
 

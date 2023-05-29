@@ -361,7 +361,7 @@
 
                                     <div class="form-group">
                                         <label for="">Middle name</label>
-                                        <input type="text" class="form-control" value="{{ __('username here') }}"
+                                        <input type="text" class="form-control" wire:model="middle_name"
                                             disabled>
                                         {{-- <input type="text" class="form-control" wire:model="middle_name" value="" disabled> --}}
                                         <span class="text-danger">
