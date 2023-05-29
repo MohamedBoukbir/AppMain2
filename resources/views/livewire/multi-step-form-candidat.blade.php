@@ -350,13 +350,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        {{-- <label for="">Middle name 1</label>
-                                        <input type="text" class="form-control" wire:model="middle_name">
-                                        <span class="text-danger">
-                                            @error('middle_name')
-                                                {{ $message }}
-                                            @enderror
-                                        </span> --}}
+
                                     </div>
                                 </div>
                             </div>
@@ -637,21 +631,131 @@
                                         </span>
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Type of Employment</label>
-                                        <select class="form-select" wire:model="type_of_employment">
-                                            <option value="" selected>Choose</option>
-                                            <option value="full_time">Full time (Foreign Domestic Helper)</option>
-                                            <option value="part_time ">Part time (Local Domestic Helper)</option>
-                                        </select>
-                                        <span class="text-danger">
-                                            @error('type_of_employment')
-                                                {{ $message }}
-                                            @enderror
-                                        </span>
-                                    </div>
-                                </div> --}}
+                                <div class="col-md-12">
+                                    {{-- <div class="form-group"> --}}
+                                    <style>
+                                        .section-items {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            /* width: 100vmin;
+                                            height: 100vh; */
+                                            /* position: absolute; */
+                                            /* transform: translate(-50%, -50%); */
+                                            /* left: 50%;
+                                            top: 50%; */
+                                            /* align-items: center;
+                                            flex-wrap: wrap;
+                                            gap: 20px; */
+                                        }
+
+                                        .tile {
+                                            height: 200px;
+                                            width: 270px;
+                                            position: relative;
+                                            text-align: center;
+                                        }
+
+                                        input[type="checkbox"] {
+                                            -webkit-appearance: none;
+                                            position: relative;
+                                            height: 100%;
+                                            width: 100%;
+                                            background-color: #ffffff;
+                                            border-radius: 10px;
+                                            cursor: pointer;
+                                            border: 3px solid transparent;
+                                            outline: none;
+                                            box-shadow: 15px 15px 25px rgba(2, 28, 53, 0.05);
+                                        }
+
+                                        input[type="checkbox"]:after {
+                                            position: absolute;
+                                            font-family: "Font Awesome 5 Free";
+                                            font-weight: 400;
+                                            content: "\f111";
+                                            font-size: 22px;
+                                            top: 10px;
+                                            left: 10px;
+                                            color: #e2e6f3;
+                                        }
+
+                                        input[type="checkbox"]:hover {
+                                            transform: scale(1.08);
+                                        }
+
+                                        input[type="checkbox"]:checked {
+                                            border: 3px solid #478bfb;
+                                        }
+
+                                        input[type="checkbox"]:checked:after {
+                                            font-weight: 900;
+                                            content: "\f058";
+                                            color: #478bfb;
+                                        }
+
+                                        .tile label {
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            justify-content: center;
+                                            gap: 20px;
+                                            height: 80%;
+                                            width: 100%;
+                                            position: absolute;
+                                            bottom: 0;
+                                            cursor: pointer;
+                                        }
+
+                                        label .fas {
+                                            font-size: 60px;
+                                            color: #2c2c51;
+                                        }
+
+                                        input[type="checkbox"]:checked+label .fas {
+                                            animation: grow 0.5s;
+                                        }
+
+                                        @keyframes grow {
+                                            50% {
+                                                font-size: 80px;
+                                            }
+                                        }
+
+                                        .tile label h6 {
+                                            font-family: "Poppins", sans-serif;
+                                            font-size: 15px;
+                                            font-weight: 400;
+                                            color: #7b7b93;
+                                        }
+                                    </style>
+                                    <section class="section-items mt-5">
+                                        <div class="tile">
+                                            <input type="checkbox" name="sports" id="sport1">
+                                            <label for="sport1">
+                                                {{-- <i class="fas fa-basketball-ball"></i> --}}
+                                                <i class="fas fa-id-card"></i>
+                                                <h6>Driving license valid</h6>
+                                            </label>
+                                        </div>
+                                        <div class="tile">
+                                            <input type="checkbox" name="sports" id="sport2">
+                                            <label for="sport2">
+                                                {{-- <i class="fas fa-swimmer"></i> --}}
+                                                <i class="fas fa-car"></i>
+                                                <h6>Access to a car</h6>
+                                            </label>
+                                        </div>
+                                        <div class="tile">
+                                            <input type="checkbox" name="sports" id="sport3">
+                                            <label for="sport3">
+                                                {{-- <i class="fas fa-quidditch"></i> --}}
+                                                <i class="fas fa-kit-medical"></i>
+                                                <h6>First Aid training</h6>
+                                            </label>
+                                        </div>
+                                    </section>
+                                    {{-- </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
