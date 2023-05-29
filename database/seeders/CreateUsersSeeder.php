@@ -21,20 +21,21 @@ class CreateUsersSeeder extends Seeder
         $admin = User::create(['username' => 'Admin',
                              'email' =>'mohamed.boukbir@uit.ac.ma',
                              'password' =>Hash::make('test12345'),
+                             'type' =>'admin',
         ]); 
         $admin->attachRole('admin');
      
-        $candidat=User::create(['username' => 'candidat',
-                                'email' =>'candidat@gmail.com',
-                                'password' =>Hash::make('test12345'),
-        ]); 
-         $candidat->attachRole('candidat');
+        // $candidat=User::create(['username' => 'candidat',
+        //                         'email' =>'candidat@gmail.com',
+        //                         'password' =>Hash::make('test12345'),
+        // ]); 
+        //  $candidat->attachRole('candidat');
          
 
-        $famille=User::create(['username' => 'famille',
-                                'email' =>'famille@gmail.com',
-                                'password' =>Hash::make('test12345'),
-        ]); 
-        $famille->attachRole('famille');
+        // $famille=User::create(['username' => 'famille',
+        //                         'email' =>'famille@gmail.com',
+        //                         'password' =>Hash::make('test12345'),
+        // ]); 
+        // $famille->attachRole('famille');
     }
 }

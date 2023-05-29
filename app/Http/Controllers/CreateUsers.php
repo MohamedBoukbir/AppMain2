@@ -6,14 +6,21 @@ use App\Models\User;
 use App\Models\Message;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsers extends Controller
 {
   public function index(){
+
+    $likeds = DB::table('users')
+    ->join('likeds', 'users.id', '=', 'likeds.id_candidat')
+    ->where('likeds.id_famille',auth()->user()->id)
+    ->select('users.username', 'likeds.id_candidat','likeds.id_famille')
+    ->get();
   $users=User::where('id', '!=', auth()->user()->id)->get();
   // dd($users);
   // $nadi="rak nadi";
-  return view('index',compact('users',$users));
+  return view('index',compact('users','likeds'));
   }
 
 

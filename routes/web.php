@@ -191,6 +191,7 @@ Route::middleware(['auth'])->group(function () {
 
             /////////////////////////// fineshed regestring famille///////////////////////////
             Route::get('famille/liked', [FamilleController::class, 'likedCandidat'])->name('likedcandidat');
+            Route::get('liked', [FamilleController::class, 'liked'])->name('liked');
             Route::get('add/annonce', [FamilleController::class, 'addAnnonce'])->name('famille.addannonce');
             Route::get('edit/annonce', [FamilleController::class, 'editAnnonce'])->name('famille.editannonce');
             Route::get('active/annonce', [FamilleController::class, 'activeAnnonce'])->name('famille.activeannonce');

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Annonce;
 use App\Models\User;
+use App\Models\Liked;
+use App\Models\Annonce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class FamilleController extends Controller
@@ -156,13 +158,37 @@ public function store(Request $request)
         return back();
     }
 
-   public function likedCandidat(Request $request){
-     $likeds=User::whereRoleIs('candidat')
-                   ->where('liked','liked')
-                   ->orderBy('id', 'desc')->paginate("");
+   public function likedCandidat(){
+
+    $likeds = DB::table('users')
+    ->join('likeds', 'users.id', '=', 'likeds.id_candidat')
+    ->where('likeds.id_famille',auth()->user()->id)
+    ->select('users.username', 'likeds.id_candidat')
+    ->get();
+    // dd(count($likeds));
+    //  $likeds=User::whereRoleIs('candidat')
+    //                ->where('liked','liked')
+    //                ->orderBy('id', 'desc')->paginate("");
     //  dd($likeds);
     return view('front.liked',compact('likeds'));
    
+   }
+
+   public function liked(Request $request){
+    $id_candidat = $request->query('id_candidat');
+    $liked=Liked::where('id_candidat',$id_candidat)->first();
+    if($liked){
+        // dd('delete');
+        $liked->delete();
+    }else{
+        $liked= new Liked();
+        $liked->id_famille=auth()->user()->id;
+        $liked->id_candidat= $id_candidat;
+        $liked->save();
+    }
+    return back();
+   
+    // dd( $liked );
    }
 
     public function destroyAnnonce(Annonce $annonce)
