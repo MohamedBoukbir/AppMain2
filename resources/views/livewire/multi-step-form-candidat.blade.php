@@ -270,6 +270,8 @@
                                 background: var(--dark-blue);
                             }
                         </style>
+
+
                         <div class="card-header bg-primary text-white d-flex align-items-center justify-content-center">
                             Define your needs</div>
                         <section class="step-wizard ">
@@ -280,7 +282,7 @@
                                 </li>
                                 <li class="step-wizard-item ">
                                     <span class="progress-count">2</span>
-                                    <span class="progress-label">STEP TWO</span>
+                                    <span class="progress-label">Your background</span>
                                 </li>
                                 <li class="step-wizard-item">
                                     <span class="progress-count">3</span>
@@ -821,7 +823,7 @@
                             </ul>
                         </section>
                         <div class="card-body">
-                            <div class="row">
+                            {{-- <div class="row">
 
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -836,24 +838,21 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> --}}
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="">Day off</label>
-                                        <select class="form-select" wire:model="day_off">
+                                        <label for="">Education Level</label>
+                                        <select class="form-select" wire:model="education_level">
                                             <option value="" selected>Select</option>
-                                            <option value="Sunday">Sunday</option>
-                                            <option value="Moday">Moday</option>
-                                            <option value="Tuesday">Tuesday</option>
-                                            <option value="Wednesday">Wednesday</option>
-                                            <option value="Thursday">Thursday</option>
-                                            <option value="Friday">Friday</option>
-                                            <option value="Saturday">Saturday</option>
+                                            <option value="O level">O level</option>
+                                            <option value="A level">A level</option>
+                                            <option value="1 university year">1 university year</option>
+                                            <option value="2 university years">2 university years</option>
 
                                         </select>
                                         <span class="text-danger">
-                                            @error('day_off')
+                                            @error('education_level')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -861,14 +860,15 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="">Accommodation</label>
-                                        <select class="form-select" wire:model="accommodation">
+                                        <label for="">Religion</label>
+                                        <select class="form-select" wire:model="religion">
                                             <option value="" selected>Select</option>
-                                            <option value="Live_In">Live in</option>
-                                            <option value="Live_Out">Live out</option>
+                                            <option value="Live_In">Muslim</option>
+                                            <option value="Live_Out">Buddihst</option>
+                                            <option value="Live_Out">Other</option>
                                         </select>
                                         <span class="text-danger">
-                                            @error('accommodation')
+                                            @error('religion')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -876,18 +876,116 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="">Living arrangement</label>
-                                        <select class="form-select" wire:model="living_arrangement">
-                                            <option value="" selected>Select</option>
-                                            <option value="Private_Room">Private Room</option>
-                                            <option value="Share_with_a_kid">Share with a kid</option>
-                                            <option value="Share_with_another_helper">Share with another helper
+                                        <label for="">Native Language</label>
+                                        <select class="form-select" id="languages" name="languages"
+                                            wire:model="languages">
+                                            <option>Select</option>
+                                            <option value="af">Afrikaans</option>
+                                            <option value="sq">Albanian - shqip</option>
+                                            <option value="am">Amharic - አማርኛ</option>
+                                            <option value="ar">Arabic - العربية</option>
+                                            <option value="an">Aragonese - aragonés</option>
+                                            <option value="az">Azerbaijani - azərbaycan dili</option>
+                                            <option value="eu">Basque - euskara</option>
+                                            <option value="be">Belarusian - беларуская</option>
+                                            <option value="bn">Bengali - বাংলা</option>
+                                            <option value="bs">Bosnian - bosanski</option>
+                                            <option value="br">Breton - brezhoneg</option>
+                                            <option value="bg">Bulgarian - български</option>
+                                            <option value="ca">Catalan - català</option>
+                                            <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
+                                            <option value="zh">Chinese - 中文</option>
+                                            <option value="hr">Croatian - hrvatski</option>
+                                            <option value="da">Danish - dansk</option>
+                                            <option value="nl">Dutch - Nederlands</option>
+                                            <option value="en">English</option>
+                                            <option value="et">Estonian - eesti</option>
+                                            <option value="fo">Faroese - føroyskt</option>
+                                            <option value="fil">Filipino</option>
+                                            <option value="fi">Finnish - suomi</option>
+                                            <option value="fr">French - français</option>
+                                            <option value="de">German - Deutsch</option>
+                                            <option value="el">Greek - Ελληνικά</option>
+                                            <option value="gn">Guarani</option>
+                                            <option value="gu">Gujarati - ગુજરાતી</option>
+                                            <option value="ha">Hausa</option>
+                                            <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
+                                            <option value="he">Hebrew - עברית</option>
+                                            <option value="hi">Hindi - हिन्दी</option>
+                                            <option value="hu">Hungarian - magyar</option>
+                                            <option value="is">Icelandic - íslenska</option>
+                                            <option value="id">Indonesian - Indonesia</option>
+                                            <option value="ia">Interlingua</option>
+                                            <option value="ga">Irish - Gaeilge</option>
+                                            <option value="it">Italian - italiano</option>
+                                            <option value="ja">Japanese - 日本語</option>
+                                            <option value="ko">Korean - 한국어</option>
+                                            <option value="ku">Kurdish - Kurdî</option>
+                                            <option value="la">Latin</option>
+                                            <option value="lt">Lithuanian - lietuvių</option>
+                                            <option value="mk">Macedonian - македонски</option>
+                                            <option value="ms">Malay - Bahasa Melayu</option>
+                                            <option value="ml">Malayalam - മലയാളം</option>
+                                            <option value="mt">Maltese - Malti</option>
+                                            <option value="mr">Marathi - मराठी</option>
+                                            <option value="mn">Mongolian - монгол</option>
+                                            <option value="ne">Nepali - नेपाली</option>
+                                            <option value="no">Norwegian - norsk</option>
+                                            <option value="nb">Norwegian Bokmål - norsk bokmål</option>
+                                            <option value="nn">Norwegian Nynorsk - nynorsk</option>
+                                            <option value="oc">Occitan</option>
+                                            <option value="or">Oriya - ଓଡ଼ିଆ</option>
+                                            <option value="om">Oromo - Oromoo</option>
+                                            <option value="ps">Pashto - پښتو</option>
+                                            <option value="fa">Persian - فارسی</option>
+                                            <option value="pl">Polish - polski</option>
+                                            <option value="pt">Portuguese - português</option>
+                                            <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
+                                            <option value="pt-PT">Portuguese (Portugal) - português (Portugal)
                                             </option>
-                                            <option value="Share_with_another_person">Share with another person
-                                            </option>
+                                            <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
+                                            <option value="qu">Quechua</option>
+                                            <option value="ro">Romanian - română</option>
+                                            <option value="ru">Russian - русский</option>
+                                            <option value="gd">Scottish Gaelic</option>
+                                            <option value="sr">Serbian - српски</option>
+                                            <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
+                                            <option value="sn">Shona - chiShona</option>
+                                            <option value="sd">Sindhi</option>
+                                            <option value="si">Sinhala - සිංහල</option>
+                                            <option value="sk">Slovak - slovenčina</option>
+                                            <option value="sl">Slovenian - slovenščina</option>
+                                            <option value="so">Somali - Soomaali</option>
+                                            <option value="st">Southern Sotho</option>
+                                            <option value="es">Spanish - español</option>
+                                            <option value="su">Sundanese</option>
+                                            <option value="sw">Swahili - Kiswahili</option>
+                                            <option value="sv">Swedish - svenska</option>
+                                            <option value="tg">Tajik - тоҷикӣ</option>
+                                            <option value="ta">Tamil - தமிழ்</option>
+                                            <option value="tt">Tatar</option>
+                                            <option value="te">Telugu - తెలుగు</option>
+                                            <option value="th">Thai - ไทย</option>
+                                            <option value="ti">Tigrinya - ትግርኛ</option>
+                                            <option value="to">Tongan - lea fakatonga</option>
+                                            <option value="tr">Turkish - Türkçe</option>
+                                            <option value="tk">Turkmen</option>
+                                            <option value="tw">Twi</option>
+                                            <option value="uk">Ukrainian - українська</option>
+                                            <option value="ur">Urdu - اردو</option>
+                                            <option value="ug">Uyghur</option>
+                                            <option value="uz">Uzbek - o‘zbek</option>
+                                            <option value="vi">Vietnamese - Tiếng Việt</option>
+                                            <option value="wa">Walloon - wa</option>
+                                            <option value="cy">Welsh - Cymraeg</option>
+                                            <option value="fy">Western Frisian</option>
+                                            <option value="xh">Xhosa</option>
+                                            <option value="yi">Yiddish</option>
+                                            <option value="yo">Yoruba - Èdè Yorùbá</option>
+                                            <option value="zu">Zulu - isiZulu</option>
                                         </select>
                                         <span class="text-danger">
-                                            @error('living_arrangement')
+                                            @error('languages')
                                                 {{ $message }}
                                             @enderror
                                         </span>
