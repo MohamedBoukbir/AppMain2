@@ -39,7 +39,7 @@ Route::get('/search/live', [DashbordController::class, 'liveSearch'])->name('liv
 Route::post('/Search', [DashbordController::class, 'search'])->name('Search');
 //////////////////  end live  search ///////////
 ///////////////// searsh ajax ///////////
-Route::post('ajax_searsh',[DashbordController::class, 'ajax_searsh'])->name('ajax_searsh_name');
+Route::get('/ajax_searsh/shearch', [DashbordController::class, 'ajax_searsh'])->name('ajax_searsh_name');
 ///////////////////////////////
 
 
