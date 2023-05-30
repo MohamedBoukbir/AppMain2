@@ -113,10 +113,11 @@ Route::get('/auth/google', [GoogleController::class, 'loginWithGoogle'])->name('
 Route::get('/login/google/callback', [GoogleController::class, 'googleredirect']);
 //////////////// end  autentification faceboook ///////////////
 //////////////////////////front ///////////////////////////
-Route::get('/', function () {
-  $users=User::where('maid',1)->get();
-    return view('front.welcome',compact('users'));
-  })->name('welcome');
+Route::get('/', [FrontController::class, 'indexfront'])->name('welcome');
+// Route::get('/', function () {
+  // $users=User::where('maid',1)->get();
+  //   return view('front.welcome',compact('users'));
+  // })->name('welcome');
 
 Route::get('/homehelp/signup', function () {
   return view('front.signup');
