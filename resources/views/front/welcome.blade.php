@@ -150,11 +150,11 @@
                                     <div class="form-group">
                                         <input id="email" type="text" name="username" id="username"  class="form-control" 
                                             placeholder="Keyword" autofocus>
-                                            <span style="color: red">
+                                            {{-- <span style="color: red">
                                             @error('username')
                                             {{ $message }}
                                             @enderror
-                                           </span>
+                                           </span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -163,10 +163,10 @@
                                     <div class="form-group">
                                         <select name="category" id="categorySel" size="1"  name="category" id="category" >
                                             <option value="" selected="selected">Category</option>
-                                            <option value="1">Babysitter</option>
-                                            <option value="2">Maid</option>
-                                            <option value="3">Nanny</option>
-                                            <option value="3">Childminder</option>
+                                            <option value="babysitter">Babysitter</option>
+                                            <option value="maid">Maid</option>
+                                            <option value="nanny">Nanny</option>
+                                            <option value="childminder">Childminder</option>
                                             {{-- <option value="3">Au Pair</option> --}}
                                         </select>
                                     </div>
@@ -192,6 +192,46 @@
         </div>
     </form>
         <!-- Search End -->
+         <!-- table  -->
+         @if(count($users)>0)
+                <div class="table-responsive">
+                    <table class="table custom-table no-footer">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Country</th>
+                                <th>Phone</th>
+                                <th>religion</th>
+                                <th>gender</th>
+                                <th>languages</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ($users as $user)
+                                <tr>
+
+                                    <td>#</td>
+                                    {{-- <td>{{ $user->firstName . ' ' . $user->lastName }}</td> --}}
+                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->country }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->religion }}</td>
+                                    <td>{{ $user->gender }}</td>
+                                    <td>{{ $user->languages }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        @endif
+          <!-- table End -->
         <!-- Category Start -->
         <div class="container-xxl py-5">
             <div class="container">

@@ -411,8 +411,8 @@
                                         <label for="">Gender</label>
                                         <select class="form-select" wire:model="gender">
                                             <option value="" selected>Select</option>
-                                            <option value="Sunday">Female</option>
-                                            <option value="Moday">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="male">Male</option>
                                         </select>
                                         <span class="text-danger">
                                             @error('gender')

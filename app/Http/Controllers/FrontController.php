@@ -14,33 +14,34 @@ class FrontController extends Controller
         //     'q' => 'required'
         // ]);
 
-        // dd( $request->location);
-if ( $request->username){
-    dd('username');
-}elseif($request->location && $request->category){
-    dd('location or ');
-}else{
-   $request->validate([
-            'username' => 'required'
-        ]);  
-}
-    
-
-        $filteredUsers = User::where('nom', 'like', '%' . $q . '%')
-                                ->orWhere('prenom', 'like', '%' . $q . '%')->paginate("");
-                                // ->get();
-         
-            // $filteredUsers->paginate("3");
-                                
-        if ($filteredUsers->count()) {
-
-            return view('utilisateurs.index')->with([
-                'utilisateurs' =>  $filteredUsers
-            ]);
-        } else {
-
-            return redirect()->route('utilisateurs.index')->with('success','aucun résultat');
-        }
         
+if ( $request->location || $request->category){
+    switch ($request->category) {
+        case 'childminder':
+           
+            $users = User::whereRoleIs('candidat')
+            ->where('childminder', $request->category)
+            ->orWhere('country',$request->location)->paginate("");
+            dd($users);
+            break;
+        case 'nanny':
+            $users = User::whereRoleIs('candidat')
+            ->where('nanny', $request->category)
+            ->orWhere('country',$request->location)->paginate("");
+            break;
+        case 'maid':
+            $users = User::whereRoleIs('candidat')
+            ->where('maid', $request->category)
+            ->orWhere('country',$request->location)->paginate("");
+            break;
+        default:
+        $users = User::whereRoleIs('candidat')
+        ->where('babysitter', $request->category)
+        ->orWhere('country',$request->location)->paginate("");
+    }
+    return view('front.welcome',compact('users'));
+
+}
+return back();
     }
 }

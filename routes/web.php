@@ -1,4 +1,5 @@
 <?php
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Livewire\Chat\Main;
 use Illuminate\Support\Facades\Auth;
@@ -112,7 +113,8 @@ Route::get('/login/google/callback', [GoogleController::class, 'googleredirect']
 //////////////// end  autentification faceboook ///////////////
 //////////////////////////front ///////////////////////////
 Route::get('/', function () {
-    return view('front.welcome');
+  $users=User::where('maid',1)->get();
+    return view('front.welcome',compact('users'));
   })->name('welcome');
 
 Route::get('/homehelp/signup', function () {
