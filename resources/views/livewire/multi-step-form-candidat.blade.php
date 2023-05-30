@@ -309,17 +309,24 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                    <input type="file" id="file" accept="image/*"  wire:model="image">
-                                           @error('image')
-                                                {{ $message }}
-                                            @enderror
+                                    <div class="form-group">
+                                        <label for="">Image profile</label>
+                                        <input class="form-control" type="file" id="file" accept="image/*"
+                                            wire:model="image">
+                                        @error('image')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+
                                     {{-- <div class="img-area" data-img="">
                                         <i class='bx bxs-cloud-upload icon'></i>
                                         <h3>Upload Image</h3>
                                         <p>Image size must be less than <span>2MB</span></p>
                                     </div> --}}
                                     {{-- <a href="#" class="select-image">SELECT</a> --}}
-                                    <button class="select-image" type="button">Select Image</button>
+                                    {{-- ! --}}
+                                    {{-- <button class="select-image" type="button">Select Image</button> --}}
+                                    {{-- ! --}}
                                     {{-- <script>
                                         const selectImage = document.querySelector('.select-image');
                                         const inputFile = document.querySelector('#file');
@@ -364,8 +371,7 @@
 
                                     <div class="form-group">
                                         <label for="">Middle name</label>
-                                        <input type="text" class="form-control" wire:model="middle_name"
-                                            disabled>
+                                        <input type="text" class="form-control" wire:model="middle_name" disabled>
                                         {{-- <input type="text" class="form-control" wire:model="middle_name" value="" disabled> --}}
                                         <span class="text-danger">
                                             @error('middle_name')
@@ -637,6 +643,157 @@
                                     </div>
                                 </div>
 
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{-- <div class="form-group"> --}}
+                                    <style>
+                                        .section-items {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            /* width: 100vmin;
+                                            height: 100vh; */
+                                            /* position: absolute; */
+                                            /* transform: translate(-50%, -50%); */
+                                            /* left: 50%;
+                                            top: 50%; */
+                                            /* align-items: center;
+                                            flex-wrap: wrap;
+                                            gap: 20px; */
+                                        }
+
+                                        .tile {
+                                            height: 200px;
+                                            width: 270px;
+                                            position: relative;
+                                            text-align: center;
+                                        }
+
+                                        input[type="checkbox"] {
+                                            -webkit-appearance: none;
+                                            position: relative;
+                                            height: 100%;
+                                            width: 100%;
+                                            background-color: #ffffff;
+                                            border-radius: 10px;
+                                            cursor: pointer;
+                                            border: 3px solid transparent;
+                                            outline: none;
+                                            box-shadow: 15px 15px 25px rgba(2, 28, 53, 0.05);
+                                        }
+
+                                        input[type="checkbox"]:after {
+                                            position: absolute;
+                                            font-family: "Font Awesome 5 Free";
+                                            font-weight: 400;
+                                            content: "\f111";
+                                            font-size: 22px;
+                                            top: 10px;
+                                            left: 10px;
+                                            color: #e2e6f3;
+                                        }
+
+                                        input[type="checkbox"]:hover {
+                                            transform: scale(1.08);
+                                        }
+
+                                        input[type="checkbox"]:checked {
+                                            border: 3px solid #478bfb;
+                                        }
+
+                                        input[type="checkbox"]:checked:after {
+                                            font-weight: 900;
+                                            content: "\f058";
+                                            color: #478bfb;
+                                        }
+
+                                        .tile label {
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            justify-content: center;
+                                            gap: 20px;
+                                            height: 80%;
+                                            width: 100%;
+                                            position: absolute;
+                                            bottom: 0;
+                                            cursor: pointer;
+                                        }
+
+                                        label .fas {
+                                            font-size: 60px;
+                                            color: #2c2c51;
+                                        }
+
+                                        input[type="checkbox"]:checked+label .fas {
+                                            animation: grow 0.5s;
+                                        }
+
+                                        @keyframes grow {
+                                            50% {
+                                                font-size: 80px;
+                                            }
+                                        }
+
+                                        .tile label h6 {
+                                            font-family: "Poppins", sans-serif;
+                                            font-size: 15px;
+                                            font-weight: 400;
+                                            color: #7b7b93;
+                                        }
+                                    </style>
+                                    <section class="section-items mt-5">
+                                        <div class="tile" style="width: 180px;">
+                                            <input type="checkbox" name="sports" id="sport1"
+                                                value="Driving license" wire:model="driving_license">
+                                            <label for="sport1">
+                                                {{-- <i class="fas fa-basketball-ball"></i> --}}
+                                                {{-- <i class="fas fa-id-card"></i> --}}
+                                                <img src="{{ asset('img/mother.png') }}" alt="">
+                                                <h6>Babysitter</h6>
+                                            </label>
+                                        </div>
+                                        <div class="tile" style="width: 180px;">
+                                            <input type="checkbox" name="sports" id="sport2"
+                                                value="Access to a car" wire:model="access_to_a_car">
+                                            <label for="sport2">
+                                                {{-- <i class="fas fa-swimmer"></i> --}}
+                                                {{-- <i class="fas fa-car"></i> --}}
+                                                <img src="{{ asset('img/babysitter.png') }}" alt="">
+                                                <h6>Nanny</h6>
+                                            </label>
+                                        </div>
+                                        <div class="tile" style="width: 180px;">
+                                            <input type="checkbox" name="sports" id="sport3"
+                                                value="First Aid training" wire:model="first_Aid_training">
+                                            <label for="sport3">
+                                                {{-- <i class="fas fa-quidditch"></i> --}}
+                                                {{-- <i class="fas fa-kit-medical"></i> --}}
+                                                <img src="{{ asset('img/kid.png') }}" alt="">
+                                                <h6>Childminder</h6>
+                                            </label>
+                                        </div>
+                                        <div class="tile" style="width: 180px;">
+                                            <input type="checkbox" name="sports" id="sport3"
+                                                value="First Aid training" wire:model="first_Aid_training">
+                                            <label for="sport3">
+                                                {{-- <i class="fas fa-quidditch"></i> --}}
+                                                {{-- <i class="fas fa-kit-medical"></i> --}}
+                                                <img src="{{ asset('img/maid-ic.png') }}" alt="">
+                                                <h6>Maid</h6>
+                                            </label>
+                                        </div>
+                                        {{-- <div class="tile" style="width: 180px;">
+                                            <input type="checkbox" name="sports" id="sport3"
+                                                value="First Aid training" wire:model="first_Aid_training">
+                                            <label for="sport3">
+                                                <i class="fas fa-kit-medical"></i>
+                                                <h6>Au Pair</h6>
+                                            </label>
+                                        </div> --}}
+                                    </section>
+                                    {{-- </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1271,7 +1428,8 @@
                                     </style>
                                     <section class="section-items mt-5">
                                         <div class="tile">
-                                            <input type="checkbox" name="sports" id="sport1"  value="Driving license" wire:model="driving_license">
+                                            <input type="checkbox" name="sports" id="sport1"
+                                                value="Driving license" wire:model="driving_license">
                                             <label for="sport1">
                                                 {{-- <i class="fas fa-basketball-ball"></i> --}}
                                                 <i class="fas fa-id-card"></i>
@@ -1279,7 +1437,8 @@
                                             </label>
                                         </div>
                                         <div class="tile">
-                                            <input type="checkbox" name="sports" id="sport2"  value="Access to a car" wire:model="access_to_a_car">
+                                            <input type="checkbox" name="sports" id="sport2"
+                                                value="Access to a car" wire:model="access_to_a_car">
                                             <label for="sport2">
                                                 {{-- <i class="fas fa-swimmer"></i> --}}
                                                 <i class="fas fa-car"></i>
@@ -1287,7 +1446,8 @@
                                             </label>
                                         </div>
                                         <div class="tile">
-                                            <input type="checkbox" name="sports" id="sport3"  value="First Aid training" wire:model="first_Aid_training">
+                                            <input type="checkbox" name="sports" id="sport3"
+                                                value="First Aid training" wire:model="first_Aid_training">
                                             <label for="sport3">
                                                 {{-- <i class="fas fa-quidditch"></i> --}}
                                                 <i class="fas fa-kit-medical"></i>
@@ -1310,7 +1470,7 @@
                     <div></div>
                 @endif
 
-                @if ($currentStep == 2 || $currentStep == 3 )
+                @if ($currentStep == 2 || $currentStep == 3)
                     <button type="button" class="btn btn-md btn-danger" wire:click="decreaseStep()"><i
                             class="fa-sharp fa-solid fa-arrow-left"></i></button>
                 @endif

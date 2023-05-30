@@ -163,11 +163,11 @@
                                     <div class="form-group">
                                         <select name="category" id="categorySel" size="1"  name="category" id="category" >
                                             <option value="" selected="selected">Category</option>
-                                            <option value="babysitter">Babysitter</option>
-                                            <option value="maid">Maid</option>
-                                            <option value="au_Pair">Au Pair</option>
-                                            <option value="nanny">Nanny</option>
-                                            <option value="childminder">Childminder</option>
+                                            <option value="1">Babysitter</option>
+                                            <option value="2">Maid</option>
+                                            <option value="3">Nanny</option>
+                                            <option value="3">Childminder</option>
+                                            {{-- <option value="3">Au Pair</option> --}}
                                         </select>
                                     </div>
                                 </div>
