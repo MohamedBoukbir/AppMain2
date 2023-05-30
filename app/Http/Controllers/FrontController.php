@@ -19,25 +19,52 @@ if ( $request->location || $request->category){
     switch ($request->category) {
         case 'childminder':
            
+            // $users = User::whereRoleIs('candidat')
+            // ->where('childminder', $request->category)
+            // ->orWhere('country',$request->location)->paginate("");
+            // dd($users);
+
             $users = User::whereRoleIs('candidat')
-            ->where('childminder', $request->category)
-            ->orWhere('country',$request->location)->paginate("");
-            dd($users);
+            ->where(function ($query) use ($request) {
+                $query->where('childminder', $request->category)
+                      ->orWhere('country', $request->location);
+            })
+            ->paginate();
             break;
         case 'nanny':
+            // $users = User::whereRoleIs('candidat')
+            // ->where('nanny', $request->category)
+            // ->orWhere('country',$request->location)->paginate("");
             $users = User::whereRoleIs('candidat')
-            ->where('nanny', $request->category)
-            ->orWhere('country',$request->location)->paginate("");
+            ->where(function ($query) use ($request) {
+                $query->where('nanny', $request->category)
+                      ->orWhere('country', $request->location);
+            })
+            ->paginate();
+           
             break;
         case 'maid':
+            // $users = User::whereRoleIs('candidat')
+            // ->where('maid', $request->category)
+            // ->orWhere('country',$request->location)->paginate("");
             $users = User::whereRoleIs('candidat')
-            ->where('maid', $request->category)
-            ->orWhere('country',$request->location)->paginate("");
+            ->where(function ($query) use ($request) {
+                $query->where('maid', $request->category)
+                      ->orWhere('country', $request->location);
+            })
+            ->paginate();
             break;
         default:
+        // $users = User::whereRoleIs('candidat')
+        // ->where('babysitter', $request->category)
+        // ->orWhere('country',$request->location)->paginate("");
+
         $users = User::whereRoleIs('candidat')
-        ->where('babysitter', $request->category)
-        ->orWhere('country',$request->location)->paginate("");
+        ->where(function ($query) use ($request) {
+            $query->where('babysitter', $request->category)
+                  ->orWhere('country', $request->location);
+        })
+        ->paginate();
     }
     return view('front.welcome',compact('users'));
 
