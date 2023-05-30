@@ -117,7 +117,7 @@ Route::get('/', [FrontController::class, 'indexfront'])->name('welcome');
 // Route::get('/', function () {
   // $users=User::where('maid',1)->get();
   //   return view('front.welcome',compact('users'));
-  // })->name('welcome');
+  // })->name('welcome');F
 
 Route::get('/homehelp/signup', function () {
   return view('front.signup');
