@@ -28,6 +28,9 @@ class DashbordController extends Controller
                 return view('front.dashboard-account');
                 break;
             case $user->hasRole('candidat'):
+                if ($user->number_of_children){
+                   return redirect()->route('candidats.index');
+                }
                 return view('candidat');
                 break;
             default:
