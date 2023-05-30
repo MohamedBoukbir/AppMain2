@@ -66,7 +66,7 @@
 
 </head>
 
-<body background="{{ asset('img/back-blur.png') }}" style="background-color: #FFF">
+<body style="background: url(../img/back-blur.png); background-color: #FFF;background-size: cover;">
     <div class="container-fluid bg-white p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="{{ route('welcome') }}"
@@ -209,8 +209,21 @@
     </div>
 
     {{-- ! --}}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+    <style>
+        .search-familly {
+            width: 100%;
+            height: 60px;
+            border: 1px solid rgba(235, 236, 241, 1);
+            padding: 0 30px;
+            font-size: 15px;
+            color: #000000;
+            border-radius: 5px;
+        }
+    </style>
+    {{-- ! --}}
+    {{-- ! --}}
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #ffffff;">
+        <div class="collapse navbar-collapse offset-2" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#"><i class="fas fa-gauge"></i> Dashboard <span
@@ -226,12 +239,194 @@
                     <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> My Account</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+            <form class="form-inline my-2 my-lg-0 ">
+                <input class="form-control mr-sm-2 search-familly" type="search" placeholder="Search"
+                    aria-label="Search">
+                {{-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
             </form>
         </div>
     </nav>
+    <div class="container-fluid py-1 bg-dark page-header mb-5">
+        <div class="container-fluid my-1 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 1.5em;">Hi USERNAME,
+            </h1>
+            <h6 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 2.5em;"> # new
+                childcare jobs available</h6>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb text-uppercase">
+                    {{-- <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Job Detail</li> --}}
+                </ol>
+            </nav>
+        </div>
+    </div>
+    {{-- ! --}}
+    <div class="container-xxl py-5">
+        <div class="container">
+            {{-- <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1> --}}
+            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill"
+                            href="#tab-1" style="text-decoration: none;">
+                            <h6 class="mt-n1 mb-0">Available jobs</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill"
+                            href="#tab-2" style="text-decoration: none;">
+                            <h6 class="mt-n1 mb-0">Applied jobs</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill"
+                            href="#tab-3" style="text-decoration: none;">
+                            <h6 class="mt-n1 mb-0">Declined jobs</h6>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid rounded" src="{{ asset('img/family.png') }}"
+                                        alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        @if (count($annonces) > 0)
+                                            <!-- table  -->
+                                            @foreach ($annonces as $annonce)
+                                                {{ $annonce->title_of_offer }}
+                                                <br>
+                                                <hr>
+                                                {{ $annonce->define_needs }}
+                                            @endforeach
+                                            {{-- @else
+                                    <div>ok</div> --}}
+                                            <!-- table End -->
+                                        @endif
+                                        {{-- <h5 class="mb-3">Software Engineer</h5> --}}
+                                        <div class="mt-3">
+                                            <span class="text-truncate me-3"><i
+                                                    class="fa fa-map-marker-alt text-primary me-2"></i>New York,
+                                                USA</span>
+                                            <span class="text-truncate me-3"><i
+                                                    class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i
+                                                    class="far fa-money-bill-alt text-primary me-2"></i>$123 -
+                                                $456</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3" href=""><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
+                    </div>
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="job-item p-4 mb-4">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
+                                        alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York,
+                                            USA</span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 -
+                                            $456</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3" href=""><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
+                    </div>
+                    <div id="tab-3" class="tab-pane fade show p-0">
+                        <div class="job-item p-4 mb-4">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
+                                        alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York,
+                                            USA</span>
+                                        <span class="text-truncate me-3"><i
+                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                        <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 -
+                                            $456</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        <a class="btn btn-light btn-square me-3" href=""><i
+                                                class="far fa-heart text-primary"></i></a>
+                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i
+                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
+                                        2045</small>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- ! --}}
+    {{-- <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #4fb8a3;">
+        <div class="collapse navbar-collapse offset-4" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-light" href="#">Available jobs <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Applied jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Declined jobs</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav> --}}
+
     {{-- <nav class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -255,15 +450,7 @@
             </form>
         </div>
     </nav> --}}
-    @if(count($annonces)>0)
-     <!-- table  -->
-                 @foreach ($annonces as $annonce)
-                        {{ $annonce->title_of_offer }}
-                        {{ $annonce->define_needs }}
-                 @endforeach
-     
-<!-- table End -->
-    @endif
+  
 </body>
 
 </html>
