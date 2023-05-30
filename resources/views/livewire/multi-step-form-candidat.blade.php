@@ -744,8 +744,8 @@
                                     </style>
                                     <section class="section-items mt-5">
                                         <div class="tile" style="width: 180px;">
-                                            <input type="checkbox" name="sports" id="sport1"
-                                                value="Driving license" wire:model="driving_license">
+                                            <input type="checkbox" name="babysitter" id="babysitter"
+                                                value="babysitter" wire:model="babysitter">
                                             <label for="sport1">
                                                 {{-- <i class="fas fa-basketball-ball"></i> --}}
                                                 {{-- <i class="fas fa-id-card"></i> --}}
@@ -754,8 +754,8 @@
                                             </label>
                                         </div>
                                         <div class="tile" style="width: 180px;">
-                                            <input type="checkbox" name="sports" id="sport2"
-                                                value="Access to a car" wire:model="access_to_a_car">
+                                            <input type="checkbox" name="nanny" id="nanny"
+                                                value="nanny" wire:model="nanny">
                                             <label for="sport2">
                                                 {{-- <i class="fas fa-swimmer"></i> --}}
                                                 {{-- <i class="fas fa-car"></i> --}}
@@ -764,8 +764,8 @@
                                             </label>
                                         </div>
                                         <div class="tile" style="width: 180px;">
-                                            <input type="checkbox" name="sports" id="sport3"
-                                                value="First Aid training" wire:model="first_Aid_training">
+                                            <input type="checkbox" name="childminder" id="childminder"
+                                                value="childminder" wire:model="childminder">
                                             <label for="sport3">
                                                 {{-- <i class="fas fa-quidditch"></i> --}}
                                                 {{-- <i class="fas fa-kit-medical"></i> --}}
@@ -774,8 +774,8 @@
                                             </label>
                                         </div>
                                         <div class="tile" style="width: 180px;">
-                                            <input type="checkbox" name="sports" id="sport3"
-                                                value="First Aid training" wire:model="first_Aid_training">
+                                            <input type="checkbox" name="maid" id="maid"
+                                                value="maid" wire:model="maid">
                                             <label for="sport3">
                                                 {{-- <i class="fas fa-quidditch"></i> --}}
                                                 {{-- <i class="fas fa-kit-medical"></i> --}}

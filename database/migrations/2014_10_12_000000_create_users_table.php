@@ -65,6 +65,10 @@ return new class extends Migration
             $table->string('driving_license')->nullable();
             $table->string('access_to_a_car')->nullable();
             $table->string('first_Aid_training')->nullable();
+            $table->string('babysitter')->nullable();
+            $table->string('nanny')->nullable();
+            $table->string('childminder')->nullable();
+            $table->string('maid')->nullable();
             ///////////////////////
             $table->rememberToken();
             $table->timestamps();

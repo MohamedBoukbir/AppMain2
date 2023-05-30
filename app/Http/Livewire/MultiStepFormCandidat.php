@@ -59,6 +59,10 @@ public $driving_license;
 public $access_to_a_car;
 public $first_Aid_training;
 public $image;
+public $babysitter;
+public $nanny;
+public $childminder;
+public $maid;
   ////////////////////////////////
     public $totalSteps =3;
     public $currentStep = 1;
@@ -123,7 +127,7 @@ public $image;
                 'gender'=>'required',
                 'date_of_birth'=>'required',
                 'number_of_children'=>'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
         }
         elseif($this->currentStep == 2){
@@ -189,10 +193,10 @@ public $image;
         $user->first_Aid_training = $this->first_Aid_training;
         $user->driving_license = $this->driving_license;
         $user->access_to_a_car=$this->access_to_a_car;
-        // $user->child_kid = $this->child_kid;
-        // $user->child_boy = $this->child_boy;
-        // $user->type_of_employment = $this->type_of_employment;
-        // $user->living_arrangement =$this->living_arrangement;
+        $user->maid = $this->maid;
+        $user->childminder = $this->childminder;
+        $user->nanny = $this->nanny;
+        $user->babysitter =$this->babysitter;
         // $user->accommodation = $this->accommodation;
         // $user->day_off = $this->day_off;
         // $user->expected_start_date = $this->expected_start_date;
@@ -203,8 +207,7 @@ public $image;
             //   $this->reset();
             //   $this->currentStep = 1;
             // $data = ['name'=>$this->first_name.' '.$this->last_name,'email'=>$this->email];
-            dd('nadi rak t enregestreter');
-            return redirect()->route('registration.famille.success');
+            return redirect()->route('candidats.index');
         //   }
     }
 }

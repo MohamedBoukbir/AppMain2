@@ -13,8 +13,8 @@ class CandidatController extends Controller
 
     public function index()
     {
-        $candidats = User::where("username","candidat")->orderBy('id','desc')->paginate("");
-        return view('utilisateurs', compact('candidats'));
+        // $candidats = User::where("username","candidat")->orderBy('id','desc')->paginate("");
+        return view('candidats.candidat-dashboard');
     }
 
 
