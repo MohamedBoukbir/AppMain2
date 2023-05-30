@@ -69,6 +69,7 @@ return new class extends Migration
             $table->string('nanny')->nullable();
             $table->string('childminder')->nullable();
             $table->string('maid')->nullable();
+            $table->string('rate')->nullable();
             ///////////////////////
             $table->rememberToken();
             $table->timestamps();

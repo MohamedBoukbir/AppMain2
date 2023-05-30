@@ -17,7 +17,31 @@ class FrontController extends Controller
     $babysitters=count(User::whereRoleIs('candidat')
     ->where('babysitter','babysitter')->get()) ;
     $users=User::where('maid',1)->get();
-    return view('front.welcome',compact('childminders','users','nannys','maids','babysitters'));
+
+    $first2childminder=User::whereRoleIs('candidat')
+                    ->where('childminder','childminder')
+                    ->orderBy('rate', 'desc') 
+                    ->take(2)
+                    ->get();
+    
+    $first2nanny=User::whereRoleIs('candidat')
+                    ->where('nanny','nanny')
+                    ->orderBy('rate', 'desc') 
+                    ->take(2)
+                    ->get();
+
+    $first2maid=User::whereRoleIs('candidat')
+                    ->where('maid','maid')
+                    ->orderBy('rate', 'desc') 
+                    ->take(2)
+                    ->get();
+     $first2babysitter=User::whereRoleIs('candidat')
+                    ->where('babysitter','babysitter')
+                    ->orderBy('rate', 'desc') 
+                    ->take(2)
+                    ->get();
+
+    return view('front.welcome',compact('childminders','users','nannys','maids','babysitters','first2childminder','first2nanny','first2maid','first2babysitter'));
  }
 
 
