@@ -18,12 +18,6 @@ class FrontController extends Controller
 if ( $request->location || $request->category){
     switch ($request->category) {
         case 'childminder':
-           
-            // $users = User::whereRoleIs('candidat')
-            // ->where('childminder', $request->category)
-            // ->orWhere('country',$request->location)->paginate("");
-            // dd($users);
-
             $users = User::whereRoleIs('candidat')
             ->where(function ($query) use ($request) {
                 $query->where('childminder', $request->category)
@@ -32,9 +26,7 @@ if ( $request->location || $request->category){
             ->paginate();
             break;
         case 'nanny':
-            // $users = User::whereRoleIs('candidat')
-            // ->where('nanny', $request->category)
-            // ->orWhere('country',$request->location)->paginate("");
+          
             $users = User::whereRoleIs('candidat')
             ->where(function ($query) use ($request) {
                 $query->where('nanny', $request->category)
@@ -44,9 +36,6 @@ if ( $request->location || $request->category){
            
             break;
         case 'maid':
-            // $users = User::whereRoleIs('candidat')
-            // ->where('maid', $request->category)
-            // ->orWhere('country',$request->location)->paginate("");
             $users = User::whereRoleIs('candidat')
             ->where(function ($query) use ($request) {
                 $query->where('maid', $request->category)
@@ -55,10 +44,6 @@ if ( $request->location || $request->category){
             ->paginate();
             break;
         default:
-        // $users = User::whereRoleIs('candidat')
-        // ->where('babysitter', $request->category)
-        // ->orWhere('country',$request->location)->paginate("");
-
         $users = User::whereRoleIs('candidat')
         ->where(function ($query) use ($request) {
             $query->where('babysitter', $request->category)
@@ -71,4 +56,28 @@ if ( $request->location || $request->category){
 }
 return back();
     }
+
+
+      ///////////////////////////////////////////// Shearch //////////////////
+
+      public function livesearchfront(Request $request){
+        // $users = User::whereRoleIs(['famille', 'candidat'])->orderBy('id', 'desc')->paginate("");
+      if($request->ajax() && $request->username <> ''){
+          $data = User::whereRoleIs('candidat')
+                 ->where('username','LIKE',$request->username.'%')->get();
+          $output='';
+          if (count( $data)>0){
+            $output .='<ul class="list-group" style="display:block; position:relative; z-indez:1">';
+            foreach($data as $row){
+                $output .='<li class="list-group-item">'.$row->username.'</li>';
+            }
+            $output .='</ul>';
+          }else{
+            $output .='<li class="list-group-item"> No Data Found</li>';
+          }
+          return $output;
+      }
+        return view ('admin.adminHome');
+   }
+///////////////////////////////////////////////////////////////////
 }

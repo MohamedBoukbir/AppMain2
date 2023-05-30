@@ -45,6 +45,7 @@ Route::get('/ajax_searsh/shearch', [DashbordController::class, 'ajax_searsh'])->
 ///////////////////////////////
 //////////////////////// searchfront/////////////////////
 Route::post('front/searchfront', [FrontController::class, 'searchfront'])->name('front.searchfront');
+Route::get('/front/search/live', [FrontController::class, 'livesearchfront'])->name('front.livesearch');
 ////////////////////////  end searchfront/////////////////////
 //////////////////  peymant Paypale ///////////////
 Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');

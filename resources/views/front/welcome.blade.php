@@ -25,6 +25,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/new-style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-home.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -148,14 +149,20 @@
                                 <br> --}}
                                 <div class="col-xl-12 col-sm-12 col-12">
                                     <div class="form-group">
-                                        <input id="email" type="text" name="username" id="username"  class="form-control" 
-                                            placeholder="Keyword" autofocus>
+                                        {{-- <input id="email" type="text" name="username" id="username"  class="form-control" 
+                                            placeholder="Keyword" autofocus> --}}
                                             {{-- <span style="color: red">
                                             @error('username')
                                             {{ $message }}
                                             @enderror
                                            </span> --}}
+                                           <input type="text" name="username" id="username" class="form-control"
+                                           placeholder="Search " autocomplete="off">
+                                       <div id="user_list">
+                                       </div>
+                                         
                                     </div>
+                                   
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -985,6 +992,35 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+
+
+
+      {{-- ////////////////// Search scripte ////////// --}}
+      <script>
+        $(document).ready(function() {
+            $("#username").on('keyup', function() {
+                var value = $(this).val();
+                $.ajax({
+                    url: "{{ route('front.livesearch') }}",
+                    type: "GET",
+                    data: {
+                        'username': value
+                    },
+                    success: function(data) {
+                        $("#user_list").html(data);
+
+                    }
+                });
+            });
+            $(document).on('click', 'li', function() {
+                var value = $(this).text();
+                $("#username").val(value);
+                $("#user_list").html("");
+            });
+        });
+    </script>
+    {{-- ////////////////// end  Search scripte ////////// --}}
 
 </body>
 
