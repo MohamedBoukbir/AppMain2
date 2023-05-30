@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Chat\CreateChat;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\StripeController;
@@ -41,8 +42,9 @@ Route::post('/Search', [DashbordController::class, 'search'])->name('Search');
 ///////////////// searsh ajax ///////////
 Route::get('/ajax_searsh/shearch', [DashbordController::class, 'ajax_searsh'])->name('ajax_searsh_name');
 ///////////////////////////////
-
-
+//////////////////////// searchfront/////////////////////
+Route::post('front/searchfront', [FrontController::class, 'searchfront'])->name('front.searchfront');
+////////////////////////  end searchfront/////////////////////
 //////////////////  peymant Paypale ///////////////
 Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
 Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');

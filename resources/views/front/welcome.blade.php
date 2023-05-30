@@ -132,6 +132,12 @@
 
 
         <!-- Search Start -->
+
+    <form action="{{ route('front.searchfront') }}" method="POST">
+            @csrf
+            {{-- <input type="text" name="q" id="q" class="form-control  mt-2">
+            <button type="submit" class="btn btn-primary   btn-sm mt-2"> Search</button> --}}
+      
         <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
             <div class="container">
                 <div class="row g-2">
@@ -142,21 +148,26 @@
                                 <br> --}}
                                 <div class="col-xl-12 col-sm-12 col-12">
                                     <div class="form-group">
-                                        <input id="email" type="text" class="form-control" required
+                                        <input id="email" type="text" name="username" id="username"  class="form-control" 
                                             placeholder="Keyword" autofocus>
+                                            <span style="color: red">
+                                            @error('username')
+                                            {{ $message }}
+                                            @enderror
+                                           </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="col-xl-12 col-sm-12 col-12">
                                     <div class="form-group">
-                                        <select name="category" id="categorySel" size="1">
+                                        <select name="category" id="categorySel" size="1"  name="category" id="category" >
                                             <option value="" selected="selected">Category</option>
-                                            <option value="1">Babysitter</option>
-                                            <option value="2">Maid</option>
-                                            <option value="3">Au Pair</option>
-                                            <option value="3">Nanny</option>
-                                            <option value="3">Childminder</option>
+                                            <option value="babysitter">Babysitter</option>
+                                            <option value="maid">Maid</option>
+                                            <option value="au_Pair">Au Pair</option>
+                                            <option value="nanny">Nanny</option>
+                                            <option value="childminder">Childminder</option>
                                         </select>
                                     </div>
                                 </div>
@@ -164,7 +175,7 @@
                             <div class="col-md-4">
                                 <div class="col-xl-12 col-sm-12 col-12">
                                     <div class="form-group">
-                                        <select name="state" id="countySel" size="1">
+                                        <select name="location" id="countySel" size="1"  id="location" >
                                             <option value="" selected="selected">Location</option>
                                         </select>
                                     </div>
@@ -173,12 +184,13 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-dark border-0 ms-1 w-100 mt-0 h-100"
+                        <button  type="submit" class="btn btn-dark border-0 ms-1 w-100 mt-0 h-100"
                             style="border-radius: 8px;">Search</button>
                     </div>
                 </div>
             </div>
         </div>
+    </form>
         <!-- Search End -->
         <!-- Category Start -->
         <div class="container-xxl py-5">
