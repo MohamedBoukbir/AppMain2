@@ -268,6 +268,17 @@
             </form>
         </div>
     </nav> --}}
+    @if(count($annonces)>0)
+     <!-- table  -->
+                 @foreach ($annonces as $annonce)
+                   
+                        {{ $annonce->title_of_offer }}
+                        {{ $annonce->define_needs }}
+                     
+                 @endforeach
+     
+<!-- table End -->
+    @endif
 </body>
 
 </html>

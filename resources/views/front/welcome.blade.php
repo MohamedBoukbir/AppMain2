@@ -250,28 +250,28 @@
                             <i class="fa fa-3x fa-baby text-primary mb-4"></i>
                             {{-- <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i> --}}
                             <h6 class="mb-3">BabySitter</h6>
-                            <p class="mb-0">0</p>
+                            <p class="mb-0">{{$childminders}}</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Maid</h6>
-                            <p class="mb-0">0</p>
+                            <p class="mb-0">{{$maids}}</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
-                            <h6 class="mb-3">Au Pair</h6>
-                            <p class="mb-0">0</p>
+                            <h6 class="mb-3">Childminder</h6>
+                            <p class="mb-0">{{$childminders}}</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Nanny</h6>
-                            <p class="mb-0">0</p>
+                            <p class="mb-0">{{ $nannys}}</p>
                         </a>
                     </div>
                     {{--  <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">

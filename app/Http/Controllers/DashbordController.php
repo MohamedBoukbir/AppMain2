@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
+use App\Models\Annonce;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,8 +30,10 @@ class DashbordController extends Controller
                 break;
             case $user->hasRole('candidat'):
                 if ($user->number_of_children){
-                   return redirect()->route('candidats.index');
+                    $annonces=Annonce::orderBy('id','desc')->get();
+                   return view('candidats.candidat-dashboard',compact('annonces'));
                 }
+               
                 return view('candidat');
                 break;
             default:

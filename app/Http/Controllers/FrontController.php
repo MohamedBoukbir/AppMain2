@@ -7,14 +7,22 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
-    public function searchfront( Request $request) {
+ public function indexfront(){
+    $childminders=count(User::whereRoleIs('candidat')
+                   ->where('childminder','childminder')->get());
+    $nannys=count(User::whereRoleIs('candidat')
+            ->where('nanny','nanny')->get());
+    $maids= count(User::whereRoleIs('candidat')
+    ->where('maid','maid')->get());
+    $babysitters=count(User::whereRoleIs('candidat')
+    ->where('babysitter','babysitter')->get()) ;
+    $users=User::where('maid',1)->get();
+    return view('front.welcome',compact('childminders','users','nannys','maids','babysitters'));
+ }
 
-        // $request->validate([
 
-        //     'q' => 'required'
-        // ]);
 
-        
+    public function searchfront( Request $request) {   
 if ( $request->location || $request->category){
     switch ($request->category) {
         case 'childminder':
