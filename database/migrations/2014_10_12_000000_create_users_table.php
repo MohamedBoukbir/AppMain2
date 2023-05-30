@@ -31,6 +31,7 @@ return new class extends Migration
             $table->boolean('status')->default(0);
             $table->string('domain')->nullable();
               $table->string('type')->nullable();
+              $table->string('image')->nullable();
             ///////famille////
          
             // $table->string('social_status')->nullable();

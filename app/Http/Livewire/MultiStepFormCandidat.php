@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
-
+use Livewire\WithFileUploads;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +11,7 @@ use Stevebauman\Location\Facades\Location;
 
 class MultiStepFormCandidat extends Component
 {///////////////////////////
+    use WithFileUploads;
     public $child_baby;
     public $child_kid;
     public $child_boy;
@@ -57,6 +58,7 @@ public $visa_expiry_date;
 public $driving_license;
 public $access_to_a_car;
 public $first_Aid_training;
+public $image;
   ////////////////////////////////
     public $totalSteps =3;
     public $currentStep = 1;
@@ -121,6 +123,7 @@ public $first_Aid_training;
                 'gender'=>'required',
                 'date_of_birth'=>'required',
                 'number_of_children'=>'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
             ]);
         }
         elseif($this->currentStep == 2){
@@ -161,9 +164,17 @@ public $first_Aid_training;
             //       "child"=>$this->child,
             //     //   "cv"=>$cv_name,
             //   );
-        $user = User::find(Auth::user()->id);
-        // dd('nadi');
 
+            // $imageName = time() . '.' . $this->image->extension();
+            // $this->image->storeAs('images', $imageName, 'public');
+
+
+             $imagePath = $this->image->store('images', 'public');
+    
+        $user = User::find(Auth::user()->id);
+        
+        $user->image = $imagePath;
+        // $user->image = $imageName;
         $user->number_of_children =$this->number_of_children ;
         $user->date_of_birth = $this->date_of_birth;
         $user->gender = $this->gender;

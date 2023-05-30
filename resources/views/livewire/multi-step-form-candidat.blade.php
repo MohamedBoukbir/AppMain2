@@ -309,15 +309,18 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                    <input type="file" id="file" accept="image/*" hidden>
-                                    <div class="img-area" data-img="">
+                                    <input type="file" id="file" accept="image/*"  wire:model="image">
+                                           @error('image')
+                                                {{ $message }}
+                                            @enderror
+                                    {{-- <div class="img-area" data-img="">
                                         <i class='bx bxs-cloud-upload icon'></i>
                                         <h3>Upload Image</h3>
                                         <p>Image size must be less than <span>2MB</span></p>
-                                    </div>
+                                    </div> --}}
                                     {{-- <a href="#" class="select-image">SELECT</a> --}}
                                     <button class="select-image" type="button">Select Image</button>
-                                    <script>
+                                    {{-- <script>
                                         const selectImage = document.querySelector('.select-image');
                                         const inputFile = document.querySelector('#file');
                                         const imgArea = document.querySelector('.img-area');
@@ -345,7 +348,7 @@
                                                 alert("Image size more than 2MB");
                                             }
                                         })
-                                    </script>
+                                    </script> --}}
                                 </div>
 
                                 <div class="col-md-4">
