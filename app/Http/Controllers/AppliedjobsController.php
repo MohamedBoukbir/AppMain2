@@ -23,10 +23,10 @@ public function contact(Request $request){
 // }
 // $appliedjobs->save();
 //     return redirect()->route('dashboard');
-dd( $request->annonce_id);
+// dd( $request->annonce_id);
 $appliedjobs = Appliedjobs::where('annonce_id', $request->annonce_id)
                             ->where('user_id',$request->user_id)->first();
-dd($appliedjobs->annonce_id);
+// dd($appliedjobs->annonce_id);
 if ($appliedjobs) {
     if ($appliedjobs->apply_decline == 'null' || $appliedjobs->apply_decline == 'decline') {
         $appliedjobs->apply_decline = 'apply';

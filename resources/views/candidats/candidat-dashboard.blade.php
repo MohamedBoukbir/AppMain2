@@ -519,8 +519,8 @@
                                                  src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
                                                  alt="" style="width: 80px; height: 80px;">
                                              <div class="text text-dark ms-2" style="width: 100%;">
-                                                 <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
-                                                 <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
+                                                 <h5 class="animated slideInDown"> {{$annonce->username}}</h5>
+                                                 <h6> {{$annonce->address}}, {{$annonce->country}}</h6>
                                              </div>
                                          </div>
                                      </div>
@@ -550,7 +550,7 @@
                                          style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
-                                                 <h6> HERE DESCRIPTION</h6>
+                                                 {{-- <h6> {{$annonce->define_needs}}</h6> --}}
                                              </div>
                                          </div>
                                      </div>
@@ -566,7 +566,7 @@
                                      <div class="col-md-6 ">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
-                                                 <h6> XX/XX/XXXX</h6>
+                                                 <h6>    {{ \Carbon\Carbon::parse($annonce->expected_start_date)->format('d M, Y') }}</h6>
                                              </div>
                                          </div>
                                      </div>
@@ -582,7 +582,7 @@
                                      <div class="col-md-6 ">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
-                                                 <h6> XXXX USD / MONTH</h6>
+                                                 <h6> {{$annonce->monthly_salary}} {{$annonce->currency_coin}} / MONTH</h6>
                                              </div>
                                          </div>
                                      </div>
@@ -598,7 +598,7 @@
                                      <div class="col-md-6 ">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
-                                                 <h6> XXXXXXX </h6>
+                                                 <h6> {{$annonce->accommodation}} </h6>
                                              </div>
                                          </div>
                                      </div>
@@ -614,7 +614,7 @@
                                      <div class="col-md-6 ">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
-                                                 <h6> XXXXXXXXX</h6>
+                                                 <h6> {{$annonce->living_arrangement}}</h6>
                                              </div>
                                          </div>
                                      </div>
@@ -630,7 +630,7 @@
                                      <div class="col-md-6 ">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
-                                                 <h6> XXXXXXXX</h6>
+                                                 <h6> {{$annonce->day_off}}</h6>
                                              </div>
                                          </div>
                                      </div>
@@ -664,7 +664,7 @@
                                      <div class="col-md-6 ">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
-                                                 <h6> XXXXXXXX</h6>
+                                                 <h6> {{$annonce->helper_nationality}}</h6>
                                              </div>
                                          </div>
                                      </div>
