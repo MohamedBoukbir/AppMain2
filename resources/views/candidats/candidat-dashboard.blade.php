@@ -340,7 +340,7 @@
                                                     }
                                                 </style>
 
-                                                {{ $annonce->title_of_offer }}
+                                                {{ $annonce->title_of_offer.'  '.$annonce->id}}
                                                 <div class="container-xxl">{{ $annonce->define_needs }} </div>
 
                                                 {{--   <p class="truncate-text">
@@ -422,7 +422,289 @@
                                 </div>
 
                                 {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
-                            @endforeach
+                         {{-- !CAVANI --}}
+                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+                         aria-labelledby="offcanvasExampleLabel">
+                         <div class="offcanvas-header">
+                             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Annonce details</h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                         </div>
+                         <div class="offcanvas-body">
+                             <style>
+                                 .header {
+                                     width: 100%;
+                                     /* margin-right: 5px; */
+                                     height: 150px;
+                                     /* position: absolute; */
+                                     /* bottom: 0px; */
+                                     /* */
+                                     left: 0;
+                                     right: 0;
+                                     text-align: center;
+                                     display: flex;
+                                     background-color: #efece8;
+                                     padding: 10px;
+                                     border-bottom: 3px solid #c6c3bd;
+                                 }
+                 
+                                 .offcanvas-footer {
+                                     /* background-color: red; */
+                                     position: absolute;
+                                     bottom: 0px;
+                                     left: 0;
+                                     right: 0;
+                                     text-align: center;
+                                     display: flex;
+                                 }
+                 
+                                 .offcanvas-footer button {
+                                     width: 100%;
+                                     /* margin-right: 5px; */
+                                     height: 70px;
+                                     display: flex;
+                                     align-items: center;
+                                     justify-content: center;
+                                     /* border: 1px solid rgba(235, 236, 241, 1); */
+                                     border-radius: 0px;
+                                     font-size: 15px;
+                                     transition: .3s;
+                                     color: #FFFFFF;
+                 
+                                     /* border: 1px solid rgba(255, 255, 255, 0.5); */
+                 
+                                 }
+                 
+                                 .btn-save {
+                                     background-color: #ffc107;
+                                     border: none;
+                                 }
+                 
+                                 .btn-save:hover i {
+                                     transform: scale(1.5);
+                                     transition: all 0.4s ease;
+                                 }
+                 
+                                 .btn-send:hover i {
+                                     transform: scale(1.5);
+                                     transition: all 0.4s ease;
+                                 }
+                 
+                                 .row {
+                                     margin-top: 20px;
+                                 }
+                             </style>
+                             {{-- <div class="row">
+                                 <div class="col-md-12">
+                 
+                                 </div>
+                             </div> --}}
+                             {{-- <img src="{{ asset('img/profile-admin.png') }}" alt="" style="width: 80px;height: 80px;"> --}}
+                             {{-- <div class="header d-flex align-items-center justify-content-center">
+                                 <img class="flex-shrink-0 img-fluid rounded"
+                                     src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
+                                     style="width: 80px; height: 80px;">
+                                 <div class="text text-dark" style="width: 100%;">
+                                     <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
+                                     <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
+                                 </div>
+                             </div> --}}
+                 
+                 
+                 
+                             <div class="container-fluid bg-white p-0">
+                                 <div class="row">
+                                     <div class="col-md-12 header">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <img class="flex-shrink-0 img-fluid rounded"
+                                                 src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
+                                                 alt="" style="width: 80px; height: 80px;">
+                                             <div class="text text-dark ms-2" style="width: 100%;">
+                                                 <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
+                                                 <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 {{-- <div class="row">
+                                     <div class="form-group">
+                                         <div class="col-md-12 d-flex align-items-end justify-content-end">
+                                             <button
+                                                 style="width: 20%;
+                                             height: 40px;
+                                             border: 1px solid rgba(235, 236, 241, 1);
+                                             padding: 0 30px;
+                                             margin-top: -20px;
+                                             border-left: 3px solid #c6c3bd;
+                                             border-right: 3px solid #c6c3bd;
+                                             border-bottom: 3px solid #c6c3bd;
+                                             border-top: none;
+                                             font-size: 15px;
+                                             color: #000000;
+                                             border-radius: 5px;"><i
+                                                     class="fa-solid fa-caret-down"></i></button>
+                                         </div>
+                                     </div>
+                                 </div> --}}
+                                 <div class="row">
+                                     <div class="col-md-12 "
+                                         style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> HERE DESCRIPTION</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> START DATE: </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> XX/XX/XXXX</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> SALARY: </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> XXXX USD / MONTH</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> HOUSING: </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> XXXXXXX </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> ARRANGEMENT: </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> XXXXXXXXX</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> DAY OFF: </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> XXXXXXXX</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                 
+                                 {{-- <div class="row">
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> FLAT SIZE: </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> XXXXXXXX</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div> --}}
+                 
+                                 <div class="row">
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> EMPLOYER NATIONALITY: </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6 ">
+                                         <div class=" d-flex align-items-center justify-content-center">
+                                             <div class="text text-dark" style="width: 100%;">
+                                                 <h6> XXXXXXXX</h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                 
+                                 {{-- <p>
+                                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                         data-bs-target="#collapseWidthExample" aria-expanded="false"
+                                         aria-controls="collapseWidthExample">
+                                         Toggle width collapse
+                                     </button>
+                                 </p>
+                                 <div style="min-height: 120px;">
+                                     <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                                         <div class="card card-body" style="width: 300px;">
+                                             This is some placeholder content for a horizontal collapse. It's hidden by default and shown
+                                             when triggered.
+                                         </div>
+                                     </div>
+                                 </div> --}}
+                             </div>
+                 
+                 
+                             <!-- Body content here -->
+                             <div class="offcanvas-footer">
+                                 {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
+                                 <a href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}" type="button" class="btn btn-success btn-send">
+                                     <i class="fa-solid fa-paper-plane fa-lg "></i></a>
+                                 <a type="button" class="btn btn-outline-warning btn-save"><i
+                                         class="fa-regular fa-heart fa-lg"></i></a>
+                 
+                 
+                             </div>
+                         </div>
+                     </div>
+
+                         {{-- !END --}}
+                         
+                         
+                                @endforeach
                         @endif
                     </div>
                     {{-- ! --}}
@@ -458,7 +740,7 @@
                                                 }
                                             </style>
 
-                                            {{ $apply->title_of_offer }}
+                                            {{ $apply->title_of_offer.'  '.$apply->id }}
                                             <div class="container-xxl">{{ $apply->define_needs }} </div>
 
                                             <div class="mt-3">
@@ -535,7 +817,7 @@
                                                 }
                                             </style>
 
-                                            {{ $decline->title_of_offer }}
+                                            {{ $decline->title_of_offer .'  '.$decline->id }}
                                             <div class="container-xxl">{{ $decline->define_needs }} </div>
 
                                             <div class="mt-3">
@@ -636,283 +918,7 @@
         Button with data-bs-target
     </button> --}}
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
-        aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Annonce details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <style>
-                .header {
-                    width: 100%;
-                    /* margin-right: 5px; */
-                    height: 150px;
-                    /* position: absolute; */
-                    /* bottom: 0px; */
-                    /* */
-                    left: 0;
-                    right: 0;
-                    text-align: center;
-                    display: flex;
-                    background-color: #efece8;
-                    padding: 10px;
-                    border-bottom: 3px solid #c6c3bd;
-                }
-
-                .offcanvas-footer {
-                    /* background-color: red; */
-                    position: absolute;
-                    bottom: 0px;
-                    left: 0;
-                    right: 0;
-                    text-align: center;
-                    display: flex;
-                }
-
-                .offcanvas-footer button {
-                    width: 100%;
-                    /* margin-right: 5px; */
-                    height: 70px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    /* border: 1px solid rgba(235, 236, 241, 1); */
-                    border-radius: 0px;
-                    font-size: 15px;
-                    transition: .3s;
-                    color: #FFFFFF;
-
-                    /* border: 1px solid rgba(255, 255, 255, 0.5); */
-
-                }
-
-                .btn-save {
-                    background-color: #ffc107;
-                    border: none;
-                }
-
-                .btn-save:hover i {
-                    transform: scale(1.5);
-                    transition: all 0.4s ease;
-                }
-
-                .btn-send:hover i {
-                    transform: scale(1.5);
-                    transition: all 0.4s ease;
-                }
-
-                .row {
-                    margin-top: 20px;
-                }
-            </style>
-            {{-- <div class="row">
-                <div class="col-md-12">
-
-                </div>
-            </div> --}}
-            {{-- <img src="{{ asset('img/profile-admin.png') }}" alt="" style="width: 80px;height: 80px;"> --}}
-            {{-- <div class="header d-flex align-items-center justify-content-center">
-                <img class="flex-shrink-0 img-fluid rounded"
-                    src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
-                    style="width: 80px; height: 80px;">
-                <div class="text text-dark" style="width: 100%;">
-                    <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
-                    <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
-                </div>
-            </div> --}}
-
-
-
-            <div class="container-fluid bg-white p-0">
-                <div class="row">
-                    <div class="col-md-12 header">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <img class="flex-shrink-0 img-fluid rounded"
-                                src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
-                                alt="" style="width: 80px; height: 80px;">
-                            <div class="text text-dark ms-2" style="width: 100%;">
-                                <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
-                                <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-12 d-flex align-items-end justify-content-end">
-                            <button
-                                style="width: 20%;
-                            height: 40px;
-                            border: 1px solid rgba(235, 236, 241, 1);
-                            padding: 0 30px;
-                            margin-top: -20px;
-                            border-left: 3px solid #c6c3bd;
-                            border-right: 3px solid #c6c3bd;
-                            border-bottom: 3px solid #c6c3bd;
-                            border-top: none;
-                            font-size: 15px;
-                            color: #000000;
-                            border-radius: 5px;"><i
-                                    class="fa-solid fa-caret-down"></i></button>
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="row">
-                    <div class="col-md-12 "
-                        style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> HERE DESCRIPTION</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> START DATE: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XX/XX/XXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> SALARY: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXX USD / MONTH</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> HOUSING: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXX </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> ARRANGEMENT: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> DAY OFF: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> FLAT SIZE: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> EMPLOYER NATIONALITY: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseWidthExample" aria-expanded="false"
-                        aria-controls="collapseWidthExample">
-                        Toggle width collapse
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-horizontal" id="collapseWidthExample">
-                        <div class="card card-body" style="width: 300px;">
-                            This is some placeholder content for a horizontal collapse. It's hidden by default and shown
-                            when triggered.
-                        </div>
-                    </div>
-                </div> --}}
-            </div>
-
-
-            <!-- Body content here -->
-            <div class="offcanvas-footer">
-                {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
-                <a href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}" type="button" class="btn btn-success btn-send">
-                    <i class="fa-solid fa-paper-plane fa-lg "></i></a>
-                <a type="button" class="btn btn-outline-warning btn-save"><i
-                        class="fa-regular fa-heart fa-lg"></i></a>
-
-
-            </div>
-        </div>
-    </div>
+    
 
 </body>
 
