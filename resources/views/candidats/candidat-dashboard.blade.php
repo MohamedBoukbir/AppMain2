@@ -52,7 +52,9 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+
+    {{-- !REPORT --}}
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -61,7 +63,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
+    </script> --}}
+    {{-- !END REPORT --}}
+
+
+    {{-- ! --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- ! --}}
 
 
 </head>
@@ -384,11 +394,24 @@
                                                 {{-- <a class="btn btn-light btn-square me-3" href=""><i
                                                             class="far fa-heart text-primary"></i></a> --}}
                                                 {{-- <i class="fa-solid fa-right-from-bracket"></i> --}}
-                                                <a class="btn btn-success text-light font-monospace me-1"
+                                                {{-- <a class="btn btn-success text-light font-monospace me-1"
                                                     href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">
-                                                    Contact</a>
+                                                    Contact</a> --}}
+                                                {{-- <a class="btn btn-outline-secondary font-monospace"
+                                                    href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">Decline</a> --}}
+                                                {{-- <a class="btn btn-success text-light font-monospace me-1"
+                                                    href="">
+                                                    Contact</a> --}}
+                                                <a class="btn btn-success text-light font-monospace me-1"
+                                                    data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                                    role="button" aria-controls="offcanvasExample">
+                                                    Apply
+                                                </a>
                                                 <a class="btn btn-outline-secondary font-monospace"
                                                     href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">Decline</a>
+
+
+
                                             </div>
                                             <small class="text-truncate"><i
                                                     class="far fa-calendar-alt text-primary me-2"></i>Date Line:
@@ -516,6 +539,85 @@
             </form>
         </div>
     </nav> --}}
+
+    {{-- <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+        aria-controls="offcanvasExample">
+        Link with href
+    </a>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
+        Button with data-bs-target
+    </button> --}}
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Annonce details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <style>
+                .header {
+                    /* Your custom styles for the header here */
+                }
+
+                .offcanvas-footer {
+                    /* background-color: red; */
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    display: flex;
+                }
+
+                .offcanvas-footer button {
+                    width: 100%;
+                    /* margin-right: 5px; */
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    /* border: 1px solid rgba(235, 236, 241, 1); */
+                    border-radius: 0px;
+                    font-size: 15px;
+                    transition: .3s;
+                    color: #FFFFFF;
+
+                    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+
+                }
+
+                .btn-save {
+                    background-color: #ffc107;
+                    border: none;
+                }
+
+                .btn-save:hover i {
+                    transform: scale(1.5);
+                    transition: all 0.4s ease;
+                }
+
+                .btn-send:hover i {
+                    transform: scale(1.5);
+                    transition: all 0.4s ease;
+                }
+            </style>
+            <div class="header">
+                <!-- Your header content here -->
+            </div>
+            <!-- Body content here -->
+            <div class="offcanvas-footer">
+                {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
+                <button type="button" class="btn btn-success btn-send">
+                    <i class="fa-solid fa-paper-plane fa-lg "></i></button>
+                <button type="button" class="btn btn-outline-warning btn-save"><i
+                        class="fa-regular fa-heart fa-lg"></i></button>
+
+
+            </div>
+        </div>
+    </div>
 
 </body>
 
