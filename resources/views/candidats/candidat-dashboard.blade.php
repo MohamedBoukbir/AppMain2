@@ -613,6 +613,23 @@
                 .row {
                     margin-top: 20px;
                 }
+
+                @media (max-width < 1023px) {
+
+                    /* CSS styles to apply when the screen size is less than 1024 pixels */
+                    h6 {
+                        color: red;
+
+                    }
+                }
+
+                .text h6 {
+                    font-size: 14px;
+                }
+
+                .text h5 {
+                    font-size: 18px;
+                }
             </style>
             {{-- <div class="row">
                 <div class="col-md-12">
@@ -774,7 +791,7 @@
                     </div>
                 </div> --}}
 
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col-md-6 ">
                         <div class=" d-flex align-items-center justify-content-center">
                             <div class="text text-dark" style="width: 100%;">
