@@ -249,9 +249,9 @@
     </nav>
     <div class="container-fluid py-1 bg-dark page-header mb-5">
         <div class="container-fluid my-1 pt-5 pb-4">
-            <h1 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 1.5em;">Hi USERNAME,
+            <h1 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 1.5em;">Hi {{ Auth::user()->username }},
             </h1>
-            <h6 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 2.5em;"> # new
+            <h6 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 2.5em;"> {{count($annonces)}} new
                 childcare jobs available</h6>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb text-uppercase">
@@ -307,14 +307,12 @@
                                                 {{-- <h5 class="mb-3">Software Engineer</h5> --}}
                                                 <div class="mt-3">
                                                     <span class="text-truncate me-3"><i
-                                                            class="fa fa-map-marker-alt text-primary me-2"></i>New
-                                                        York,
-                                                        USA</span>
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>{{$annonce->country}} ,
+                                                            {{$annonce->currency_coin}}</span>
                                                     <span class="text-truncate me-3"><i
-                                                            class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                            class="far fa-clock text-primary me-2"></i>{{$annonce->type_of_employment}}</span>
                                                     <span class="text-truncate me-0"><i
-                                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 -
-                                                        $456</span>
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>{{$annonce->monthly_salary}}</span>
                                                 </div>
 
                                             </div>
@@ -327,9 +325,9 @@
                                                 <a class="btn btn-primary" href="">Apply Now</a>
                                             </div>
                                             <small class="text-truncate"><i
-                                                    class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01
-                                                Jan,
-                                                2045</small>
+                                                    class="far fa-calendar-alt text-primary me-2"></i>Date Line: 
+                                                     {{\Carbon\Carbon::parse($annonce->expected_start_date)->format('d M, Y')}}
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
