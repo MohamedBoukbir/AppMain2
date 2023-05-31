@@ -427,70 +427,157 @@
                     </div>
                     {{-- ! --}}
                     <div id="tab-2" class="tab-pane fade show p-0">
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Software Engineer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York,
-                                            USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 -
-                                            $456</span>
+                        {{--!--}}
+                        @if (count($apply) > 0)
+                        @foreach ($apply as $apply)
+                            <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        @if ($apply->image)
+                                            <img class="flex-shrink-0 img-fluid rounded"
+                                                src="/storage/images/{{ $apply->image }}" alt=""
+                                                style="width: 80px; height: 80px;">
+                                        @else
+                                            <img class="flex-shrink-0 img-fluid rounded"
+                                                src="https://ui-avatars.com/api/?name={{ urlencode($apply->username) }}"
+                                                alt="" style="width: 80px; height: 80px;">
+                                        @endif
+                                        <div class="text-start ps-4">
+                                            <style>
+                                                .truncate-text {
+                                                    /* overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap; */
+                                                    display: -webkit-box;
+                                                    -webkit-box-orient: vertical;
+                                                    overflow: hidden;
+                                                    /* display: -webkit-box;
+                                                    -webkit-box-orient: vertical;
+                                                    -webkit-line-clamp: 3;
+                                                    overflow: hidden; */
+                                                }
+                                            </style>
+
+                                            {{ $apply->title_of_offer }}
+                                            <div class="container-xxl">{{ $apply->define_needs }} </div>
+
+                                            <div class="mt-3">
+                                                <span class="text-truncate me-3"><i
+                                                        class="fa fa-map-marker-alt text-primary me-2"></i>{{ $apply->country }}
+                                                </span>
+                                                <span class="text-truncate me-3"><i
+                                                        class="far fa-clock text-primary me-2"></i>{{ $apply->type_of_employment }}</span>
+                                                <span class="text-truncate me-0"><i
+                                                        class="far fa-money-bill-alt text-primary me-2"></i>{{ $apply->monthly_salary }}
+                                                    {{ $apply->currency_coin }}</span>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-light btn-square me-3" href=""><i
-                                                class="far fa-heart text-primary"></i></a>
-                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    <div
+                                        class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                        </div>
+                                        <div class="d-flex mb-3">
+                
+                                            <a class="btn btn-success text-light font-monospace me-1"
+                                                data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                                role="button" aria-controls="offcanvasExample">
+                                                Apply
+                                            </a>
+                                            <a class="btn btn-outline-secondary font-monospace"
+                                                href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$apply->id])}}">Decline</a>
+
+
+
+                                        </div>
+                                        <small class="text-truncate"><i
+                                                class="far fa-calendar-alt text-primary me-2"></i>Date Line:
+                                            {{ \Carbon\Carbon::parse($apply->expected_start_date)->format('d M, Y') }}
+                                        </small>
                                     </div>
-                                    <small class="text-truncate"><i
-                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
-                                        2045</small>
                                 </div>
                             </div>
-                        </div>
-
+                        @endforeach
+                    @endif
+                        {{--!--}}
                         {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
                     </div>
                     <div id="tab-3" class="tab-pane fade show p-0">
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Software Engineer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York,
-                                            USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 -
-                                            $456</span>
+                        {{--?--}}
+                        @if (count($decline) > 0)
+                        @foreach ($decline as $decline)
+                            <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        @if ($decline->image)
+                                            <img class="flex-shrink-0 img-fluid rounded"
+                                                src="/storage/images/{{ $decline->image }}" alt=""
+                                                style="width: 80px; height: 80px;">
+                                        @else
+                                            <img class="flex-shrink-0 img-fluid rounded"
+                                                src="https://ui-avatars.com/api/?name={{ urlencode($decline->username) }}"
+                                                alt="" style="width: 80px; height: 80px;">
+                                        @endif
+                                        <div class="text-start ps-4">
+                                            <style>
+                                                .truncate-text {
+                                                    /* overflow: hidden;
+                                                    text-overflow: ellipsis;
+                                                    white-space: nowrap; */
+                                                    display: -webkit-box;
+                                                    -webkit-box-orient: vertical;
+                                                    overflow: hidden;
+                                                    /* display: -webkit-box;
+                                                    -webkit-box-orient: vertical;
+                                                    -webkit-line-clamp: 3;
+                                                    overflow: hidden; */
+                                                }
+                                            </style>
+
+                                            {{ $decline->title_of_offer }}
+                                            <div class="container-xxl">{{ $decline->define_needs }} </div>
+
+                                            <div class="mt-3">
+                                                <span class="text-truncate me-3"><i
+                                                        class="fa fa-map-marker-alt text-primary me-2"></i>{{ $decline->country }}
+                                                </span>
+                                                <span class="text-truncate me-3"><i
+                                                        class="far fa-clock text-primary me-2"></i>{{ $decline->type_of_employment }}</span>
+                                                <span class="text-truncate me-0"><i
+                                                        class="far fa-money-bill-alt text-primary me-2"></i>{{ $decline->monthly_salary }}
+                                                    {{ $decline->currency_coin }}</span>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-light btn-square me-3" href=""><i
-                                                class="far fa-heart text-primary"></i></a>
-                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                    <div
+                                        class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                        </div>
+                                        <div class="d-flex mb-3">
+                
+                                            <a class="btn btn-success text-light font-monospace me-1"
+                                                data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                                role="button" aria-controls="offcanvasExample">
+                                                Apply
+                                            </a>
+                                            <a class="btn btn-outline-secondary font-monospace"
+                                                href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$decline->id])}}">Decline</a>
+
+
+
+                                        </div>
+                                        <small class="text-truncate"><i
+                                                class="far fa-calendar-alt text-primary me-2"></i>Date Line:
+                                            {{ \Carbon\Carbon::parse($decline->expected_start_date)->format('d M, Y') }}
+                                        </small>
                                     </div>
-                                    <small class="text-truncate"><i
-                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
-                                        2045</small>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
+                    @endif
+                         {{--?--}}
                         {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
                     </div>
                 </div>
@@ -609,10 +696,10 @@
             <!-- Body content here -->
             <div class="offcanvas-footer">
                 {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
-                <button type="button" class="btn btn-success btn-send">
-                    <i class="fa-solid fa-paper-plane fa-lg "></i></button>
-                <button type="button" class="btn btn-outline-warning btn-save"><i
-                        class="fa-regular fa-heart fa-lg"></i></button>
+                <a href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}" type="button" class="btn btn-success btn-send">
+                    <i class="fa-solid fa-paper-plane fa-lg "></i></a>
+                <a type="button" class="btn btn-outline-warning btn-save"><i
+                        class="fa-regular fa-heart fa-lg"></i></a>
 
 
             </div>

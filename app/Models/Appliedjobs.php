@@ -11,8 +11,7 @@ class Appliedjobs extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'apply',
-        'decline',
+        'apply_decline',
         'user_id',
         'annonce_id',
     ];

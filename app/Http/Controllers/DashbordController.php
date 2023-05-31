@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\User;
 use App\Models\Annonce;
+use App\Models\Appliedjobs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -38,9 +39,31 @@ class DashbordController extends Controller
                         'annonces.monthly_salary', 'annonces.expected_start_date')
                     ->orderBy('annonces.created_at', 'desc')
                     ->get();
-                    // dd($annonces );
-                    // $annonces=Annonce::orderBy('created_at','desc')->get();
-                   return view('candidats.candidat-dashboard',compact('annonces'));
+                //   $apply=DB::table('users')
+                //             ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                //             ->select('users.image','users.username', 'annonces.title_of_offer', 'annonces.id', 'annonces.define_needs',
+                //                 'annonces.currency_coin', 'annonces.country', 'annonces.type_of_employment',
+                //                 'annonces.monthly_salary', 'annonces.expected_start_date')
+                //             ->orderBy('annonces.created_at', 'desc')
+                //             ->get();
+
+                $apply=DB::table('users')
+                            ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                            ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
+                            ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
+                            ->where('appliedjobs.user_id',auth()->user()->id)
+                            -> where('apply_decline','apply')
+                            ->get();
+
+                  $decline=DB::table('users')
+                            ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                            ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
+                            ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
+                            ->where('appliedjobs.user_id',auth()->user()->id)
+                            -> where('apply_decline','decline')
+                            ->get();
+                            
+                   return view('candidats.candidat-dashboard',compact('annonces','apply','decline'));
                 }
                
                 return view('candidat');

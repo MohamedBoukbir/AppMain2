@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('appliedjobs', function (Blueprint $table) {
             $table->id();
-            $table->string('apply')->nullable();
-            $table->string('decline')->nullable();
+            $table->string('apply_decline')->default('null');
+            // $table->string('decline')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('annonce_id');
