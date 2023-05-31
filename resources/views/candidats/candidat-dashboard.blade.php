@@ -296,26 +296,24 @@
                                 <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
                                     <div class="row g-4">
                                         <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                            @if($annonce->image)
-                                            <img class="flex-shrink-0 img-fluid rounded"
-                                            src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
-                                               style="width: 80px; height: 80px;">
-                                            {{-- <img class="flex-shrink-0 img-fluid rounded"
-                                              src="/storage/images/{{ $annonce->image }}" alt=""
-                                                style="width: 80px; height: 80px;"> --}}
-                                             @else
-                                             <img class="flex-shrink-0 img-fluid rounded"
-                                             src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
-                                                style="width: 80px; height: 80px;">
-                                             @endif
+                                            @if ($annonce->image)
+                                                {{-- <img class="flex-shrink-0 img-fluid rounded"
+                                                    src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
+                                                    alt="" style="width: 80px; height: 80px;"> --}}
+                                                <img class="flex-shrink-0 img-fluid rounded"
+                                                    src="/storage/images/{{ $annonce->image }}" alt=""
+                                                    style="width: 80px; height: 80px;">
+                                            @else
+                                                <img class="flex-shrink-0 img-fluid rounded"
+                                                    src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
+                                                    alt="" style="width: 80px; height: 80px;">
+                                            @endif
                                             <div class="text-start ps-4">
-
                                                 {{-- {{ $annonce->title_of_offer }}
                                                 <br>
                                                 <hr> --}}
                                                 {{-- {{ $annonce->define_needs }} --}}
                                                 {{-- csdkcnsdiocdnsciodsncdsiocnsdiocndsiocdnsciodsncdslkcndslkcjndscodsicnsdoincsdlkcnsdcioniowenew --}}
-
 
                                                 <style>
                                                     .truncate-text {
@@ -366,12 +364,12 @@
                                                 <div class="mt-3">
                                                     <span class="text-truncate me-3"><i
                                                             class="fa fa-map-marker-alt text-primary me-2"></i>{{ $annonce->country }}
-                                                        ,
-                                                        {{ $annonce->currency_coin }}</span>
+                                                    </span>
                                                     <span class="text-truncate me-3"><i
                                                             class="far fa-clock text-primary me-2"></i>{{ $annonce->type_of_employment }}</span>
                                                     <span class="text-truncate me-0"><i
-                                                            class="far fa-money-bill-alt text-primary me-2"></i>{{ $annonce->monthly_salary }}</span>
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>{{ $annonce->monthly_salary }}
+                                                        {{ $annonce->currency_coin }}</span>
                                                 </div>
 
                                             </div>
