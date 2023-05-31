@@ -249,9 +249,11 @@
     </nav>
     <div class="container-fluid py-1 bg-dark page-header mb-5">
         <div class="container-fluid my-1 pt-5 pb-4">
-            <h1 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 1.5em;">Hi {{ Auth::user()->username }},
+            <h1 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 1.5em;">Hi
+                {{ Auth::user()->username }},
             </h1>
-            <h6 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 2.5em;"> {{count($annonces)}} new
+            <h6 class="display-3 text-white mb-3 animated slideInDown offset-2" style="font-size: 2.5em;">
+                {{ count($annonces) }} new
                 childcare jobs available</h6>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb text-uppercase">
@@ -299,20 +301,68 @@
                                                 style="width: 80px; height: 80px;">
                                             <div class="text-start ps-4">
 
-                                                {{ $annonce->title_of_offer }}
+                                                {{-- {{ $annonce->title_of_offer }}
                                                 <br>
-                                                <hr>
-                                                {{ $annonce->define_needs }}
+                                                <hr> --}}
+                                                {{-- {{ $annonce->define_needs }} --}}
+                                                {{-- csdkcnsdiocdnsciodsncdsiocnsdiocndsiocdnsciodsncdslkcndslkcjndscodsicnsdoincsdlkcnsdcioniowenew --}}
+
+
+                                                <style>
+                                                    .truncate-text {
+                                                        /* overflow: hidden;
+                                                        text-overflow: ellipsis;
+                                                        white-space: nowrap; */
+                                                        display: -webkit-box;
+                                                        -webkit-box-orient: vertical;
+                                                        overflow: hidden;
+                                                        /* display: -webkit-box;
+                                                        -webkit-box-orient: vertical;
+                                                        -webkit-line-clamp: 3;
+                                                        overflow: hidden; */
+                                                    }
+                                                </style>
+
+                                                {{ $annonce->title_of_offer }}
+                                                <div class="container-xxl">{{ $annonce->define_needs }} </div>
+
+                                                {{--   <p class="truncate-text">
+                                                    <br>
+                                                    <hr>
+                                                    {{ $annonce->define_needs }}
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+                                                    reiciendis atque, distinctio quidem earum aliquam sapiente hic
+                                                    minima maxime fugiat. Nesciunt odit, exercitationem et numquam
+                                                    inventore fugiat soluta veniam ipsum? Lorem ipsum dolor sit amet
+                                                    consectetur adipisicing elit. Sint recusandae quo facere tenetur.
+                                                    Incidunt qui debitis porro consequuntur saepe deleniti. Doloremque
+                                                    impedit sit voluptatibus! Illo perferendis obcaecati autem non ex?
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem magni
+                                                    minus vitae totam deserunt, quasi dignissimos autem architecto
+                                                    dolores aut sed ab eaque repellat, quo, voluptas aliquid!
+                                                    Consequatur, laboriosam reiciendis!
+                                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto
+                                                    porro similique natus reprehenderit quidem fugiat ducimus voluptas
+                                                    quos minima ratione rerum modi, incidunt aut adipisci amet enim,
+                                                    temporibus dolorem quis?Lorem ipsum dolor sit amet consectetur
+                                                    adipisicing elit. Veritatis quas esse eum reiciendis enim error
+                                                    voluptate sed cumque culpa, et, dolorem nobis laborum, natus eveniet
+                                                    cupiditate! Provident, consequatur? Architecto, voluptatibus?
+                                                </p>
+
+                                               --}}
+
 
                                                 {{-- <h5 class="mb-3">Software Engineer</h5> --}}
                                                 <div class="mt-3">
                                                     <span class="text-truncate me-3"><i
-                                                            class="fa fa-map-marker-alt text-primary me-2"></i>{{$annonce->country}} ,
-                                                            {{$annonce->currency_coin}}</span>
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>{{ $annonce->country }}
+                                                        ,
+                                                        {{ $annonce->currency_coin }}</span>
                                                     <span class="text-truncate me-3"><i
-                                                            class="far fa-clock text-primary me-2"></i>{{$annonce->type_of_employment}}</span>
+                                                            class="far fa-clock text-primary me-2"></i>{{ $annonce->type_of_employment }}</span>
                                                     <span class="text-truncate me-0"><i
-                                                            class="far fa-money-bill-alt text-primary me-2"></i>{{$annonce->monthly_salary}}</span>
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>{{ $annonce->monthly_salary }}</span>
                                                 </div>
 
                                             </div>
@@ -320,13 +370,22 @@
                                         <div
                                             class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                             <div class="d-flex mb-3">
-                                                <a class="btn btn-light btn-square me-3" href=""><i
-                                                        class="far fa-heart text-primary"></i></a>
-                                                <a class="btn btn-primary" href="">Apply Now</a>
+                                                {{-- <a class="btn btn-light btn-square me-3" href=""><i
+                                                        class="far fa-heart text-primary"></i></a> --}}
+                                            </div>
+                                            <div class="d-flex mb-3">
+                                                {{-- <a class="btn btn-light btn-square me-3" href=""><i
+                                                            class="far fa-heart text-primary"></i></a> --}}
+                                                {{-- <i class="fa-solid fa-right-from-bracket"></i> --}}
+                                                <a class="btn btn-success text-light font-monospace me-1"
+                                                    href="">
+                                                    Contact</a>
+                                                <a class="btn btn-outline-secondary font-monospace"
+                                                    href="">Decline</a>
                                             </div>
                                             <small class="text-truncate"><i
-                                                    class="far fa-calendar-alt text-primary me-2"></i>Date Line: 
-                                                     {{\Carbon\Carbon::parse($annonce->expected_start_date)->format('d M, Y')}}
+                                                    class="far fa-calendar-alt text-primary me-2"></i>Date Line:
+                                                {{ \Carbon\Carbon::parse($annonce->expected_start_date)->format('d M, Y') }}
                                             </small>
                                         </div>
                                     </div>
@@ -450,7 +509,7 @@
             </form>
         </div>
     </nav> --}}
-  
+
 </body>
 
 </html>
