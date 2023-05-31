@@ -33,7 +33,7 @@ class DashbordController extends Controller
                 if ($user->number_of_children){
                     $annonces = DB::table('users')
                     ->join('annonces', 'users.id', '=', 'annonces.user_id')
-                    ->select('users.image', 'annonces.title_of_offer', 'annonces.define_needs',
+                    ->select('users.image','users.username', 'annonces.title_of_offer', 'annonces.define_needs',
                         'annonces.currency_coin', 'annonces.country', 'annonces.type_of_employment',
                         'annonces.monthly_salary', 'annonces.expected_start_date')
                     ->orderBy('annonces.created_at', 'desc')

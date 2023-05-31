@@ -298,11 +298,14 @@
                                         <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                             @if($annonce->image)
                                             <img class="flex-shrink-0 img-fluid rounded"
+                                            src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
+                                               style="width: 80px; height: 80px;">
+                                            {{-- <img class="flex-shrink-0 img-fluid rounded"
                                               src="/storage/images/{{ $annonce->image }}" alt=""
-                                                style="width: 80px; height: 80px;">
+                                                style="width: 80px; height: 80px;"> --}}
                                              @else
                                              <img class="flex-shrink-0 img-fluid rounded"
-                                              src="/storage/images/{{ $annonce->image }}" alt=""
+                                             src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
                                                 style="width: 80px; height: 80px;">
                                              @endif
                                             <div class="text-start ps-4">
