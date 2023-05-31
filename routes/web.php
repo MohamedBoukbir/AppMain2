@@ -18,6 +18,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\DashbordController;
 use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\AppliedjobsController;
 use App\Http\Controllers\staff\StaffController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
  
@@ -36,6 +37,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 ////////////////// live  search ///////////
 Route::get('/search/live', [DashbordController::class, 'liveSearch'])->name('livesearch');
 Route::post('/Search', [DashbordController::class, 'search'])->name('Search');
@@ -181,7 +183,8 @@ Route::middleware(['auth'])->group(function () {
 
   // Route::get('/candidat/home', [HomeController::class, 'index'])->name('home');
   Route::resource('candidats', CandidatController::class);
-
+  Route::get('/contacter/famille', [AppliedjobsController::class, 'contact'])->name('contacter');
+  Route::get('/decline/famille', [AppliedjobsController::class, 'decline'])->name('decline');
   // Route::get('/homehelppp/signin', function () {
   //   return view('front.account');
   // })->name('signin');

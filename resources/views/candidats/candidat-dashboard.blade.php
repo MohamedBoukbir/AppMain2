@@ -385,10 +385,10 @@
                                                             class="far fa-heart text-primary"></i></a> --}}
                                                 {{-- <i class="fa-solid fa-right-from-bracket"></i> --}}
                                                 <a class="btn btn-success text-light font-monospace me-1"
-                                                    href="">
+                                                    href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">
                                                     Contact</a>
                                                 <a class="btn btn-outline-secondary font-monospace"
-                                                    href="">Decline</a>
+                                                    href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">Decline</a>
                                             </div>
                                             <small class="text-truncate"><i
                                                     class="far fa-calendar-alt text-primary me-2"></i>Date Line:
