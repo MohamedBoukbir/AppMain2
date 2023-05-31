@@ -296,9 +296,15 @@
                                 <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
                                     <div class="row g-4">
                                         <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                            @if($annonce->image)
                                             <img class="flex-shrink-0 img-fluid rounded"
-                                                src="{{ asset('img/family.png') }}" alt=""
+                                              src="/storage/images/{{ $annonce->image }}" alt=""
                                                 style="width: 80px; height: 80px;">
+                                             @else
+                                             <img class="flex-shrink-0 img-fluid rounded"
+                                              src="/storage/images/{{ $annonce->image }}" alt=""
+                                                style="width: 80px; height: 80px;">
+                                             @endif
                                             <div class="text-start ps-4">
 
                                                 {{-- {{ $annonce->title_of_offer }}

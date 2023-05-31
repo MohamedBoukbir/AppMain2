@@ -6,6 +6,7 @@ use Exception;
 use App\Models\User;
 use App\Models\Annonce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class DashbordController extends Controller
@@ -30,7 +31,15 @@ class DashbordController extends Controller
                 break;
             case $user->hasRole('candidat'):
                 if ($user->number_of_children){
-                    $annonces=Annonce::orderBy('id','desc')->get();
+                    $annonces = DB::table('users')
+                    ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                    ->select('users.image', 'annonces.title_of_offer', 'annonces.define_needs',
+                        'annonces.currency_coin', 'annonces.country', 'annonces.type_of_employment',
+                        'annonces.monthly_salary', 'annonces.expected_start_date')
+                    ->orderBy('annonces.created_at', 'desc')
+                    ->get();
+                    // dd($annonces );
+                    // $annonces=Annonce::orderBy('created_at','desc')->get();
                    return view('candidats.candidat-dashboard',compact('annonces'));
                 }
                
@@ -40,7 +49,8 @@ class DashbordController extends Controller
                 return redirect()->route('users.selectusernorole');
         }
     }catch(Exception $e){
-    return view('front.welcome'); 
+    return redirect()->route('welcome');
+    // dd($e);
 
 }
 
