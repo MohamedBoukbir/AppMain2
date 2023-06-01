@@ -984,7 +984,7 @@
 
 
 
-    <a href="#">profile</a>
+    <a href="{{ route('profile-candidat') }}">profile</a>
 
 </body>
 

@@ -35,9 +35,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/profile-candidat', function () {
+    return view('candidats.profile');
+})->name('profile-candidat');
+
 // Comment ///////////////////////////////
 Route::get('/index/comments', [CommentController::class, 'indexComment'])->name('index.comment');
 Route::post('/comments', [CommentController::class, 'comments'])->name('comment');
