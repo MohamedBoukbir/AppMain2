@@ -32,16 +32,17 @@ class DashbordController extends Controller
                 break;
             case $user->hasRole('candidat'):
                 if ($user->number_of_children){
+                  
                     $annonces = DB::table('annonces')
-                        ->leftJoin('appliedjobs', function ($join) {
-                            $join->on('annonces.id', '=', 'appliedjobs.annonce_id');
-                        })
-                        ->join('users', 'users.id', '=', 'annonces.user_id')
-                        ->select('users.image', 'users.username', 'annonces.*')
-                        ->where('appliedjobs.apply_decline', '<>', 'decline')
-                        ->orWhereNull('appliedjobs.apply_decline')
-                        ->orderBy('annonces.created_at', 'desc')
-                        ->get();
+                    ->leftJoin('appliedjobs', function ($join) {
+                        $join->on('annonces.id', '=', 'appliedjobs.annonce_id');
+                    })
+                    ->join('users', 'users.id', '=', 'annonces.user_id')
+                    ->select('users.image', 'users.username', 'annonces.*')
+                    ->where('appliedjobs.apply_decline', '<>', 'decline')
+                    ->orWhereNull('appliedjobs.apply_decline')
+                    ->orderBy('annonces.created_at', 'desc')
+                    ->get();
                    
                 $apply=DB::table('users')
                             ->join('annonces', 'users.id', '=', 'annonces.user_id')
