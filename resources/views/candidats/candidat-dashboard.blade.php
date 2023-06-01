@@ -340,7 +340,7 @@
                                                     }
                                                 </style>
 
-                                                {{ $annonce->title_of_offer.'  '.$annonce->id}}
+                                                {{ $annonce->title_of_offer . '  ' . $annonce->id }}
                                                 <div class="container-xxl">{{ $annonce->define_needs }} </div>
 
                                                 {{--   <p class="truncate-text">
@@ -408,7 +408,7 @@
                                                     Apply
                                                 </a>
                                                 <a class="btn btn-outline-secondary font-monospace"
-                                                    href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">Decline</a>
+                                                    href="{{ route('decline', ['user_id' => Auth::user()->id, 'annonce_id' => $annonce->id]) }}">Decline</a>
 
 
 
@@ -422,84 +422,85 @@
                                 </div>
 
                                 {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
-                         {{-- !CAVANI --}}
-                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
-                         aria-labelledby="offcanvasExampleLabel">
-                         <div class="offcanvas-header">
-                             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Annonce details</h5>
-                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                         </div>
-                         <div class="offcanvas-body">
-                             <style>
-                                 .header {
-                                     width: 100%;
-                                     /* margin-right: 5px; */
-                                     height: 150px;
-                                     /* position: absolute; */
-                                     /* bottom: 0px; */
-                                     /* */
-                                     left: 0;
-                                     right: 0;
-                                     text-align: center;
-                                     display: flex;
-                                     background-color: #efece8;
-                                     padding: 10px;
-                                     border-bottom: 3px solid #c6c3bd;
-                                 }
-                 
-                                 .offcanvas-footer {
-                                     /* background-color: red; */
-                                     position: absolute;
-                                     bottom: 0px;
-                                     left: 0;
-                                     right: 0;
-                                     text-align: center;
-                                     display: flex;
-                                 }
-                 
-                                 .offcanvas-footer button {
-                                     width: 100%;
-                                     /* margin-right: 5px; */
-                                     height: 70px;
-                                     display: flex;
-                                     align-items: center;
-                                     justify-content: center;
-                                     /* border: 1px solid rgba(235, 236, 241, 1); */
-                                     border-radius: 0px;
-                                     font-size: 15px;
-                                     transition: .3s;
-                                     color: #FFFFFF;
-                 
-                                     /* border: 1px solid rgba(255, 255, 255, 0.5); */
-                 
-                                 }
-                 
-                                 .btn-save {
-                                     background-color: #ffc107;
-                                     border: none;
-                                 }
-                 
-                                 .btn-save:hover i {
-                                     transform: scale(1.5);
-                                     transition: all 0.4s ease;
-                                 }
-                 
-                                 .btn-send:hover i {
-                                     transform: scale(1.5);
-                                     transition: all 0.4s ease;
-                                 }
-                 
-                                 .row {
-                                     margin-top: 20px;
-                                 }
-                             </style>
-                             {{-- <div class="row">
+                                {{-- !CAVANI --}}
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+                                    aria-labelledby="offcanvasExampleLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Annonce details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <style>
+                                            .header {
+                                                width: 100%;
+                                                /* margin-right: 5px; */
+                                                height: 150px;
+                                                /* position: absolute; */
+                                                /* bottom: 0px; */
+                                                /* */
+                                                left: 0;
+                                                right: 0;
+                                                text-align: center;
+                                                display: flex;
+                                                background-color: #efece8;
+                                                padding: 10px;
+                                                border-bottom: 3px solid #c6c3bd;
+                                            }
+
+                                            .offcanvas-footer {
+                                                /* background-color: red; */
+                                                position: absolute;
+                                                bottom: 0px;
+                                                left: 0;
+                                                right: 0;
+                                                text-align: center;
+                                                display: flex;
+                                            }
+
+                                            .offcanvas-footer button {
+                                                width: 100%;
+                                                /* margin-right: 5px; */
+                                                height: 70px;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                /* border: 1px solid rgba(235, 236, 241, 1); */
+                                                border-radius: 0px;
+                                                font-size: 15px;
+                                                transition: .3s;
+                                                color: #FFFFFF;
+
+                                                /* border: 1px solid rgba(255, 255, 255, 0.5); */
+
+                                            }
+
+                                            .btn-save {
+                                                background-color: #ffc107;
+                                                border: none;
+                                            }
+
+                                            .btn-save:hover i {
+                                                transform: scale(1.5);
+                                                transition: all 0.4s ease;
+                                            }
+
+                                            .btn-send:hover i {
+                                                transform: scale(1.5);
+                                                transition: all 0.4s ease;
+                                            }
+
+                                            .row {
+                                                margin-top: 20px;
+                                            }
+                                        </style>
+                                        {{-- <div class="row">
                                  <div class="col-md-12">
                  
                                  </div>
                              </div> --}}
-                             {{-- <img src="{{ asset('img/profile-admin.png') }}" alt="" style="width: 80px;height: 80px;"> --}}
-                             {{-- <div class="header d-flex align-items-center justify-content-center">
+                                        {{-- <img src="{{ asset('img/profile-admin.png') }}" alt="" style="width: 80px;height: 80px;"> --}}
+                                        {{-- <div class="header d-flex align-items-center justify-content-center">
                                  <img class="flex-shrink-0 img-fluid rounded"
                                      src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
                                      style="width: 80px; height: 80px;">
@@ -508,24 +509,25 @@
                                      <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
                                  </div>
                              </div> --}}
-                 
-                 
-                 
-                             <div class="container-fluid bg-white p-0">
-                                 <div class="row">
-                                     <div class="col-md-12 header">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <img class="flex-shrink-0 img-fluid rounded"
-                                                 src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
-                                                 alt="" style="width: 80px; height: 80px;">
-                                             <div class="text text-dark ms-2" style="width: 100%;">
-                                                 <h5 class="animated slideInDown"> {{$annonce->username}}</h5>
-                                                 <h6> {{$annonce->address}}, {{$annonce->country}}</h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 {{-- <div class="row">
+
+
+
+                                        <div class="container-fluid bg-white p-0">
+                                            <div class="row">
+                                                <div class="col-md-12 header">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <img class="flex-shrink-0 img-fluid rounded"
+                                                            src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
+                                                            alt="" style="width: 80px; height: 80px;">
+                                                        <div class="text text-dark ms-2" style="width: 100%;">
+                                                            <h5 class="animated slideInDown"> {{ $annonce->username }}
+                                                            </h5>
+                                                            <h6> {{ $annonce->address }}, {{ $annonce->country }}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- <div class="row">
                                      <div class="form-group">
                                          <div class="col-md-12 d-flex align-items-end justify-content-end">
                                              <button
@@ -545,98 +547,100 @@
                                          </div>
                                      </div>
                                  </div> --}}
-                                 <div class="row">
-                                     <div class="col-md-12 "
-                                         style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 {{-- <h6> {{$annonce->define_needs}}</h6> --}}
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> START DATE: </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6>    {{ \Carbon\Carbon::parse($annonce->expected_start_date)->format('d M, Y') }}</h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> SALARY: </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> {{$annonce->monthly_salary}} {{$annonce->currency_coin}} / MONTH</h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> HOUSING: </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> {{$annonce->accommodation}} </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> ARRANGEMENT: </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> {{$annonce->living_arrangement}}</h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> DAY OFF: </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> {{$annonce->day_off}}</h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                 
-                                 {{-- <div class="row">
+                                            <div class="row">
+                                                <div class="col-md-12 "
+                                                    style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            {{-- <h6> {{$annonce->define_needs}}</h6> --}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6 style="font-weight: 900;"> START DATE : </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> {{ \Carbon\Carbon::parse($annonce->expected_start_date)->format('d M, Y') }}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6 style="font-weight: 900;"> SALARY: </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> {{ $annonce->monthly_salary }}
+                                                                {{ $annonce->currency_coin }} / MONTH</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class=" d-flex align-items-start justify-content-start">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6 style="font-weight: 900;"> HOUSING: </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> {{ $annonce->accommodation }} </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class=" d-flex ">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6 style="font-weight: 900;"> ARRANGEMENT: </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> {{ $annonce->living_arrangement }}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> DAY OFF: </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> {{ $annonce->day_off }}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {{-- <div class="row">
                                      <div class="col-md-6 ">
                                          <div class=" d-flex align-items-center justify-content-center">
                                              <div class="text text-dark" style="width: 100%;">
@@ -652,25 +656,25 @@
                                          </div>
                                      </div>
                                  </div> --}}
-                 
-                                 <div class="row">
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> EMPLOYER NATIONALITY: </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> {{$annonce->helper_nationality}}</h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                 
-                                 {{-- <p>
+
+                                            <div class="row">
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> EMPLOYER NATIONALITY: </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                        <div class="text text-dark" style="width: 100%;">
+                                                            <h6> {{ $annonce->helper_nationality }}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {{-- <p>
                                      <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                                          data-bs-target="#collapseWidthExample" aria-expanded="false"
                                          aria-controls="collapseWidthExample">
@@ -685,181 +689,180 @@
                                          </div>
                                      </div>
                                  </div> --}}
-                             </div>
-                 
-                 
-                             <!-- Body content here -->
-                             <div class="offcanvas-footer">
-                                 {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
-                                 <a href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}" type="button" class="btn btn-success btn-send">
-                                     <i class="fa-solid fa-paper-plane fa-lg "></i></a>
-                                 <a type="button" class="btn btn-outline-warning btn-save"><i
-                                         class="fa-regular fa-heart fa-lg"></i></a>
-                 
-                 
-                             </div>
-                         </div>
-                     </div>
+                                        </div>
 
-                         {{-- !END --}}
-                         
-                         
-                                @endforeach
+
+                                        <!-- Body content here -->
+                                        <div class="offcanvas-footer">
+                                            {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
+                                            <a href="{{ route('contacter', ['user_id' => Auth::user()->id, 'annonce_id' => $annonce->id]) }}"
+                                                type="button" class="btn btn-success btn-send">
+                                                <i class="fa-solid fa-paper-plane fa-lg "></i></a>
+                                            <a type="button" class="btn btn-outline-warning btn-save"><i
+                                                    class="fa-regular fa-heart fa-lg"></i></a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- !END --}}
+                            @endforeach
                         @endif
                     </div>
                     {{-- ! --}}
                     <div id="tab-2" class="tab-pane fade show p-0">
-                        {{--!--}}
+                        {{-- ! --}}
                         @if (count($apply) > 0)
-                        @foreach ($apply as $apply)
-                            <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        @if ($apply->image)
-                                            <img class="flex-shrink-0 img-fluid rounded"
-                                                src="/storage/images/{{ $apply->image }}" alt=""
-                                                style="width: 80px; height: 80px;">
-                                        @else
-                                            <img class="flex-shrink-0 img-fluid rounded"
-                                                src="https://ui-avatars.com/api/?name={{ urlencode($apply->username) }}"
-                                                alt="" style="width: 80px; height: 80px;">
-                                        @endif
-                                        <div class="text-start ps-4">
-                                            <style>
-                                                .truncate-text {
-                                                    /* overflow: hidden;
+                            @foreach ($apply as $apply)
+                                <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
+                                    <div class="row g-4">
+                                        <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                            @if ($apply->image)
+                                                <img class="flex-shrink-0 img-fluid rounded"
+                                                    src="/storage/images/{{ $apply->image }}" alt=""
+                                                    style="width: 80px; height: 80px;">
+                                            @else
+                                                <img class="flex-shrink-0 img-fluid rounded"
+                                                    src="https://ui-avatars.com/api/?name={{ urlencode($apply->username) }}"
+                                                    alt="" style="width: 80px; height: 80px;">
+                                            @endif
+                                            <div class="text-start ps-4">
+                                                <style>
+                                                    .truncate-text {
+                                                        /* overflow: hidden;
                                                     text-overflow: ellipsis;
                                                     white-space: nowrap; */
-                                                    display: -webkit-box;
-                                                    -webkit-box-orient: vertical;
-                                                    overflow: hidden;
-                                                    /* display: -webkit-box;
+                                                        display: -webkit-box;
+                                                        -webkit-box-orient: vertical;
+                                                        overflow: hidden;
+                                                        /* display: -webkit-box;
                                                     -webkit-box-orient: vertical;
                                                     -webkit-line-clamp: 3;
                                                     overflow: hidden; */
-                                                }
-                                            </style>
+                                                    }
+                                                </style>
 
-                                            {{ $apply->title_of_offer }}
-                                            <div class="container-xxl">{{ $apply->define_needs }} </div>
+                                                {{ $apply->title_of_offer }}
+                                                <div class="container-xxl">{{ $apply->define_needs }} </div>
 
-                                            <div class="mt-3">
-                                                <span class="text-truncate me-3"><i
-                                                        class="fa fa-map-marker-alt text-primary me-2"></i>{{ $apply->country }}
-                                                </span>
-                                                <span class="text-truncate me-3"><i
-                                                        class="far fa-clock text-primary me-2"></i>{{ $apply->type_of_employment }}</span>
-                                                <span class="text-truncate me-0"><i
-                                                        class="far fa-money-bill-alt text-primary me-2"></i>{{ $apply->monthly_salary }}
-                                                    {{ $apply->currency_coin }}</span>
+                                                <div class="mt-3">
+                                                    <span class="text-truncate me-3"><i
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>{{ $apply->country }}
+                                                    </span>
+                                                    <span class="text-truncate me-3"><i
+                                                            class="far fa-clock text-primary me-2"></i>{{ $apply->type_of_employment }}</span>
+                                                    <span class="text-truncate me-0"><i
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>{{ $apply->monthly_salary }}
+                                                        {{ $apply->currency_coin }}</span>
+                                                </div>
+
                                             </div>
+                                        </div>
+                                        <div
+                                            class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                            <div class="d-flex mb-3">
+                                            </div>
+                                            <div class="d-flex mb-3">
 
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                        </div>
-                                        <div class="d-flex mb-3">
-                
-                                            {{-- <a class="btn btn-success text-light font-monospace me-1"
+                                                {{-- <a class="btn btn-success text-light font-monospace me-1"
                                                 data-bs-toggle="offcanvas" href="#offcanvasExample"
                                                 role="button" aria-controls="offcanvasExample">
                                                 Apply
                                             </a> --}}
-                                            <a class="btn btn-outline-secondary font-monospace"
-                                                href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$apply->id])}}">applay</a>
+                                                <a class="btn btn-outline-secondary font-monospace"
+                                                    href="{{ route('contacter', ['user_id' => Auth::user()->id, 'annonce_id' => $apply->id]) }}">applay</a>
 
 
 
+                                            </div>
+                                            <small class="text-truncate"><i
+                                                    class="far fa-calendar-alt text-primary me-2"></i>Date Line:
+                                                {{ \Carbon\Carbon::parse($apply->expected_start_date)->format('d M, Y') }}
+                                            </small>
                                         </div>
-                                        <small class="text-truncate"><i
-                                                class="far fa-calendar-alt text-primary me-2"></i>Date Line:
-                                            {{ \Carbon\Carbon::parse($apply->expected_start_date)->format('d M, Y') }}
-                                        </small>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    @endif
-                        {{--!--}}
+                            @endforeach
+                        @endif
+                        {{-- ! --}}
                         {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
                     </div>
                     <div id="tab-3" class="tab-pane fade show p-0">
-                        {{--?--}}
+                        {{-- ? --}}
                         @if (count($decline) > 0)
-                        @foreach ($decline as $decline)
-                            <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        @if ($decline->image)
-                                            <img class="flex-shrink-0 img-fluid rounded"
-                                                src="/storage/images/{{ $decline->image }}" alt=""
-                                                style="width: 80px; height: 80px;">
-                                        @else
-                                            <img class="flex-shrink-0 img-fluid rounded"
-                                                src="https://ui-avatars.com/api/?name={{ urlencode($decline->username) }}"
-                                                alt="" style="width: 80px; height: 80px;">
-                                        @endif
-                                        <div class="text-start ps-4">
-                                            <style>
-                                                .truncate-text {
-                                                    /* overflow: hidden;
+                            @foreach ($decline as $decline)
+                                <div class="job-item p-4 mb-4 bg-light" style="border-radius: 15px;">
+                                    <div class="row g-4">
+                                        <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                            @if ($decline->image)
+                                                <img class="flex-shrink-0 img-fluid rounded"
+                                                    src="/storage/images/{{ $decline->image }}" alt=""
+                                                    style="width: 80px; height: 80px;">
+                                            @else
+                                                <img class="flex-shrink-0 img-fluid rounded"
+                                                    src="https://ui-avatars.com/api/?name={{ urlencode($decline->username) }}"
+                                                    alt="" style="width: 80px; height: 80px;">
+                                            @endif
+                                            <div class="text-start ps-4">
+                                                <style>
+                                                    .truncate-text {
+                                                        /* overflow: hidden;
                                                     text-overflow: ellipsis;
                                                     white-space: nowrap; */
-                                                    display: -webkit-box;
-                                                    -webkit-box-orient: vertical;
-                                                    overflow: hidden;
-                                                    /* display: -webkit-box;
+                                                        display: -webkit-box;
+                                                        -webkit-box-orient: vertical;
+                                                        overflow: hidden;
+                                                        /* display: -webkit-box;
                                                     -webkit-box-orient: vertical;
                                                     -webkit-line-clamp: 3;
                                                     overflow: hidden; */
-                                                }
-                                            </style>
+                                                    }
+                                                </style>
 
-                                            {{ $decline->title_of_offer .'  '.$decline->id }}
-                                            <div class="container-xxl">{{ $decline->define_needs }} </div>
+                                                {{ $decline->title_of_offer . '  ' . $decline->id }}
+                                                <div class="container-xxl">{{ $decline->define_needs }} </div>
 
-                                            <div class="mt-3">
-                                                <span class="text-truncate me-3"><i
-                                                        class="fa fa-map-marker-alt text-primary me-2"></i>{{ $decline->country }}
-                                                </span>
-                                                <span class="text-truncate me-3"><i
-                                                        class="far fa-clock text-primary me-2"></i>{{ $decline->type_of_employment }}</span>
-                                                <span class="text-truncate me-0"><i
-                                                        class="far fa-money-bill-alt text-primary me-2"></i>{{ $decline->monthly_salary }}
-                                                    {{ $decline->currency_coin }}</span>
+                                                <div class="mt-3">
+                                                    <span class="text-truncate me-3"><i
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>{{ $decline->country }}
+                                                    </span>
+                                                    <span class="text-truncate me-3"><i
+                                                            class="far fa-clock text-primary me-2"></i>{{ $decline->type_of_employment }}</span>
+                                                    <span class="text-truncate me-0"><i
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>{{ $decline->monthly_salary }}
+                                                        {{ $decline->currency_coin }}</span>
+                                                </div>
+
                                             </div>
+                                        </div>
+                                        <div
+                                            class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                            <div class="d-flex mb-3">
+                                            </div>
+                                            <div class="d-flex mb-3">
 
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                        </div>
-                                        <div class="d-flex mb-3">
-                
-                                            {{-- <a class="btn btn-success text-light font-monospace me-1"
+                                                {{-- <a class="btn btn-success text-light font-monospace me-1"
                                                 data-bs-toggle="offcanvas" href="#offcanvasExample"
                                                 role="button" aria-controls="offcanvasExample">
                                                 Apply
                                             </a> --}}
-                                            <a class="btn btn-outline-secondary font-monospace"
-                                                href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$decline->id])}}">Decline</a>
+                                                <a class="btn btn-outline-secondary font-monospace"
+                                                    href="{{ route('decline', ['user_id' => Auth::user()->id, 'annonce_id' => $decline->id]) }}">Decline</a>
 
 
 
+                                            </div>
+                                            <small class="text-truncate"><i
+                                                    class="far fa-calendar-alt text-primary me-2"></i>Date Line:
+                                                {{ \Carbon\Carbon::parse($decline->expected_start_date)->format('d M, Y') }}
+                                            </small>
                                         </div>
-                                        <small class="text-truncate"><i
-                                                class="far fa-calendar-alt text-primary me-2"></i>Date Line:
-                                            {{ \Carbon\Carbon::parse($decline->expected_start_date)->format('d M, Y') }}
-                                        </small>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    @endif
-                         {{--?--}}
+                            @endforeach
+                        @endif
+                        {{-- ? --}}
                         {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
                     </div>
                 </div>
@@ -918,7 +921,125 @@
         Button with data-bs-target
     </button> --}}
 
-    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Annonce details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <style>
+                .header {
+                    width: 100%;
+                    /* margin-right: 5px; */
+                    height: 150px;
+                    /* position: absolute; */
+                    /* bottom: 0px; */
+                    /* */
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    display: flex;
+                    background-color: #efece8;
+                    padding: 10px;
+                    border-bottom: 3px solid #c6c3bd;
+                }
+
+                .offcanvas-footer {
+                    /* background-color: red; */
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    display: flex;
+                }
+
+                .offcanvas-footer button {
+                    width: 100%;
+                    /* margin-right: 5px; */
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    /* border: 1px solid rgba(235, 236, 241, 1); */
+                    border-radius: 0px;
+                    font-size: 15px;
+                    transition: .3s;
+                    color: #FFFFFF;
+
+                    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+
+                }
+
+                .btn-save {
+                    background-color: #ffc107;
+                    border: none;
+                }
+
+                .btn-save:hover i {
+                    transform: scale(1.5);
+                    transition: all 0.4s ease;
+                }
+
+                .btn-send:hover i {
+                    transform: scale(1.5);
+                    transition: all 0.4s ease;
+                }
+
+                .row {
+                    margin-top: 20px;
+                }
+
+                @media (max-width < 1023px) {
+
+                    /* CSS styles to apply when the screen size is less than 1024 pixels */
+                    h6 {
+                        color: red;
+
+                    }
+                }
+
+                .text h6 {
+                    font-size: 14px;
+                }
+
+                .text h5 {
+                    font-size: 18px;
+                }
+            </style>
+            {{-- <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div> --}}
+            {{-- <img src="{{ asset('img/profile-admin.png') }}" alt="" style="width: 80px;height: 80px;"> --}}
+            {{-- <div class="header d-flex align-items-center justify-content-center">
+                <img class="flex-shrink-0 img-fluid rounded"
+                    src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
+                    style="width: 80px; height: 80px;">
+                <div class="text text-dark" style="width: 100%;">
+                    <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
+                    <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
+                </div>
+            </div> --}}
+
+
+
+
+
+            <!-- Body content here -->
+            <div class="offcanvas-footer">
+                {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
+                <button type="button" class="btn btn-success btn-send">
+                    <i class="fa-solid fa-paper-plane fa-lg "></i></button>
+                <button type="button" class="btn btn-outline-warning btn-save"><i
+                        class="fa-regular fa-heart fa-lg"></i></button>
+
+
+            </div>
+        </div>
+    </div>
 
 </body>
 
