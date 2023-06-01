@@ -74,6 +74,11 @@
     {{-- ! --}}
 
 
+
+
+
+    <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
 </head>
 
 <body style="background: url(../img/back-blur.png); background-color: #FFF;background-size: cover;">
@@ -1040,6 +1045,26 @@
             </div>
         </div>
     </div>
+    <button type="button" onclick="appelJS()">APPEL</button>
+
+    <script>
+        function appelJS() {
+
+
+            swal("Good job!", "You clicked the button!", "success")
+            // swal({
+            //     title: "Error!",
+            //     text: "Here's my error message!",
+            //     type: "error",
+            //     confirmButtonText: "Cool"
+            // });
+            // sweetAlert("Oops...", "Something went wrong!", "error");
+        }
+    </script>
+
+
+
+    <a href="#">profile</a>
 
 </body>
 
