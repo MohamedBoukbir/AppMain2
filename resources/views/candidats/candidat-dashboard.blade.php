@@ -392,24 +392,12 @@
                                         <div
                                             class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                             <div class="d-flex mb-3">
-                                                {{-- <a class="btn btn-light btn-square me-3" href=""><i
-                                                        class="far fa-heart text-primary"></i></a> --}}
                                             </div>
                                             <div class="d-flex mb-3">
-                                                {{-- <a class="btn btn-light btn-square me-3" href=""><i
-                                                            class="far fa-heart text-primary"></i></a> --}}
-                                                {{-- <i class="fa-solid fa-right-from-bracket"></i> --}}
-                                                {{-- <a class="btn btn-success text-light font-monospace me-1"
-                                                    href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">
-                                                    Contact</a> --}}
-                                                {{-- <a class="btn btn-outline-secondary font-monospace"
-                                                    href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$annonce->id])}}">Decline</a> --}}
-                                                {{-- <a class="btn btn-success text-light font-monospace me-1"
-                                                    href="">
-                                                    Contact</a> --}}
                                                 <a class="btn btn-success text-light font-monospace me-1"
-                                                    data-bs-toggle="offcanvas" href="#offcanvasExample"
-                                                    role="button" aria-controls="offcanvasExample">
+                                                    data-bs-toggle="offcanvas"
+                                                    href="#offcanvasExample{{ $annonce->id }}" role="button"
+                                                    aria-controls="offcanvasExample{{ $annonce->id }}">
                                                     Apply
                                                 </a>
                                                 <a class="btn btn-outline-secondary font-monospace"
@@ -425,11 +413,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
                                 {{-- !CAVANI --}}
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
-                                    aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas offcanvas-end" tabindex="-1"
+                                    id="offcanvasExample{{ $annonce->id }}" aria-labelledby="offcanvasExampleLabel">
                                     <div class="offcanvas-header">
                                         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Annonce details</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
@@ -499,21 +485,6 @@
                                                 margin-top: 20px;
                                             }
                                         </style>
-                                        {{-- <div class="row">
-                                 <div class="col-md-12">
-                 
-                                 </div>
-                             </div> --}}
-                                        {{-- <img src="{{ asset('img/profile-admin.png') }}" alt="" style="width: 80px;height: 80px;"> --}}
-                                        {{-- <div class="header d-flex align-items-center justify-content-center">
-                                 <img class="flex-shrink-0 img-fluid rounded"
-                                     src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}" alt=""
-                                     style="width: 80px; height: 80px;">
-                                 <div class="text text-dark" style="width: 100%;">
-                                     <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
-                                     <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
-                                 </div>
-                             </div> --}}
 
 
 
@@ -532,26 +503,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- <div class="row">
-                                     <div class="form-group">
-                                         <div class="col-md-12 d-flex align-items-end justify-content-end">
-                                             <button
-                                                 style="width: 20%;
-                                             height: 40px;
-                                             border: 1px solid rgba(235, 236, 241, 1);
-                                             padding: 0 30px;
-                                             margin-top: -20px;
-                                             border-left: 3px solid #c6c3bd;
-                                             border-right: 3px solid #c6c3bd;
-                                             border-bottom: 3px solid #c6c3bd;
-                                             border-top: none;
-                                             font-size: 15px;
-                                             color: #000000;
-                                             border-radius: 5px;"><i
-                                                     class="fa-solid fa-caret-down"></i></button>
-                                         </div>
-                                     </div>
-                                 </div> --}}
+
                                             <div class="row">
                                                 <div class="col-md-12 "
                                                     style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
@@ -645,22 +597,7 @@
                                                 </div>
                                             </div>
 
-                                            {{-- <div class="row">
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> FLAT SIZE: </h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-6 ">
-                                         <div class=" d-flex align-items-center justify-content-center">
-                                             <div class="text text-dark" style="width: 100%;">
-                                                 <h6> XXXXXXXX</h6>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div> --}}
+
 
                                             <div class="row">
                                                 <div class="col-md-6 ">
@@ -678,25 +615,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            {{-- <p>
-                                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                         data-bs-target="#collapseWidthExample" aria-expanded="false"
-                                         aria-controls="collapseWidthExample">
-                                         Toggle width collapse
-                                     </button>
-                                 </p>
-                                 <div style="min-height: 120px;">
-                                     <div class="collapse collapse-horizontal" id="collapseWidthExample">
-                                         <div class="card card-body" style="width: 300px;">
-                                             This is some placeholder content for a horizontal collapse. It's hidden by default and shown
-                                             when triggered.
-                                         </div>
-                                     </div>
-                                 </div> --}}
                                         </div>
-
-
                                         <!-- Body content here -->
                                         <div class="offcanvas-footer">
                                             {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
@@ -705,16 +624,17 @@
                                                 <i class="fa-solid fa-paper-plane fa-lg "></i></a>
                                             <a type="button" class="btn btn-outline-warning btn-save"><i
                                                     class="fa-regular fa-heart fa-lg"></i></a>
-
-
                                         </div>
                                     </div>
                                 </div>
-
                                 {{-- !END --}}
                             @endforeach
                         @endif
                     </div>
+                    {{-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> --}}
+                    {{-- <a class="dropdown-item" href="#" data-toggle="modal"
+                        data-target="#ModalShow{{ $annonce->id }}" style="color: #9cb2bd;"> --}}
+
                     {{-- ! --}}
                     <div id="tab-2" class="tab-pane fade show p-0">
                         {{-- ! --}}
