@@ -284,6 +284,8 @@
                         <span class="menu-item-icon" style="color: green;"><i class='bx bx-search-alt-2'></i></span>
                         <p class="menu-item-label" style="color: green;">Find Domestic Helpers</p>
                     </a>
+
+                    <a href="{{route('index.comment')}}">comments</a>
                 </div>
 
 

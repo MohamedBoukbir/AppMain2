@@ -13,6 +13,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CandidatController;
@@ -37,6 +38,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// Comment ///////////////////////////////
+Route::get('/index/comments', [CommentController::class, 'indexComment'])->name('index.comment');
+Route::post('/comments', [CommentController::class, 'comments'])->name('comment');
+//end comment ///////////////////////////////
 
 ////////////////// live  search ///////////
 Route::get('/search/live', [DashbordController::class, 'liveSearch'])->name('livesearch');

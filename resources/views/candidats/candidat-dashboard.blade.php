@@ -740,7 +740,7 @@
                                                 }
                                             </style>
 
-                                            {{ $apply->title_of_offer.'  '.$apply->id }}
+                                            {{ $apply->title_of_offer }}
                                             <div class="container-xxl">{{ $apply->define_needs }} </div>
 
                                             <div class="mt-3">
@@ -762,13 +762,13 @@
                                         </div>
                                         <div class="d-flex mb-3">
                 
-                                            <a class="btn btn-success text-light font-monospace me-1"
+                                            {{-- <a class="btn btn-success text-light font-monospace me-1"
                                                 data-bs-toggle="offcanvas" href="#offcanvasExample"
                                                 role="button" aria-controls="offcanvasExample">
                                                 Apply
-                                            </a>
+                                            </a> --}}
                                             <a class="btn btn-outline-secondary font-monospace"
-                                                href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$apply->id])}}">Decline</a>
+                                                href="{{route('contacter',['user_id'=>Auth::user()->id,'annonce_id'=>$apply->id])}}">applay</a>
 
 
 
@@ -839,11 +839,11 @@
                                         </div>
                                         <div class="d-flex mb-3">
                 
-                                            <a class="btn btn-success text-light font-monospace me-1"
+                                            {{-- <a class="btn btn-success text-light font-monospace me-1"
                                                 data-bs-toggle="offcanvas" href="#offcanvasExample"
                                                 role="button" aria-controls="offcanvasExample">
                                                 Apply
-                                            </a>
+                                            </a> --}}
                                             <a class="btn btn-outline-secondary font-monospace"
                                                 href="{{route('decline',['user_id'=>Auth::user()->id,'annonce_id'=>$decline->id])}}">Decline</a>
 
