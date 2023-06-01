@@ -42,15 +42,15 @@ class DashbordController extends Controller
 
 
                     $annonces = DB::table('users')
-                            ->join('annonces', 'users.id', '=', 'annonces.user_id')
-                            ->leftJoin('annonces', function ($join) {
-                                $join->on('appliedjobs.annonce_id', '=', 'annonces.id')
-                                    ->where('appliedjobs.apply_decline', '!=', 'decline');
-                            })
-                            ->select('users.image','users.username', 'annonces.*')
-                            ->where('appliedjobs.apply_decline','<>','decline')
-                            ->orderBy('annonces.created_at', 'desc')
-                            ->get();
+                    ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                    ->leftJoin('appliedjobs', function ($join) {
+                        $join->on('annonces.id', '=', 'appliedjobs.annonce_id')
+                            ->where('appliedjobs.apply_decline', '!=', 'decline');
+                    })
+                    ->select('users.image', 'users.username', 'annonces.*')
+                    ->where('appliedjobs.apply_decline', '<>', 'decline')
+                    ->orderBy('annonces.created_at', 'desc')
+                    ->get();
 
 
 
