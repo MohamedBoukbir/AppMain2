@@ -558,10 +558,10 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6 ">
+                                                <div class="col-md-4 ">
                                                     <div class=" d-flex align-items-center justify-content-center">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6> START DATE: </h6>
+                                                            <h6 style="font-weight: 900;"> START DATE : </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -575,10 +575,10 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6 ">
+                                                <div class="col-md-4 ">
                                                     <div class=" d-flex align-items-center justify-content-center">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6> SALARY: </h6>
+                                                            <h6 style="font-weight: 900;"> SALARY: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -592,10 +592,10 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                <div class="col-md-4 ">
+                                                    <div class=" d-flex align-items-start justify-content-start">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6> HOUSING: </h6>
+                                                            <h6 style="font-weight: 900;"> HOUSING: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -608,10 +608,10 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                <div class="col-md-4 ">
+                                                    <div class=" d-flex ">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6> ARRANGEMENT: </h6>
+                                                            <h6 style="font-weight: 900;"> ARRANGEMENT: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1026,181 +1026,6 @@
 
 
 
-            <div class="container-fluid bg-white p-0">
-                <div class="row">
-                    <div class="col-md-12 header">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <img class="flex-shrink-0 img-fluid rounded"
-                                src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
-                                alt="" style="width: 80px; height: 80px;">
-                            <div class="text text-dark ms-2" style="width: 100%;">
-                                <h5 class="animated slideInDown"> HERE FAMILLE USERNAME</h5>
-                                <h6> HERE FAMILLE ADRESS, COUNTRY</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-12 d-flex align-items-end justify-content-end">
-                            <button
-                                style="width: 20%;
-                            height: 40px;
-                            border: 1px solid rgba(235, 236, 241, 1);
-                            padding: 0 30px;
-                            margin-top: -20px;
-                            border-left: 3px solid #c6c3bd;
-                            border-right: 3px solid #c6c3bd;
-                            border-bottom: 3px solid #c6c3bd;
-                            border-top: none;
-                            font-size: 15px;
-                            color: #000000;
-                            border-radius: 5px;"><i
-                                    class="fa-solid fa-caret-down"></i></button>
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="row">
-                    <div class="col-md-12 "
-                        style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> HERE DESCRIPTION</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> START DATE: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XX/XX/XXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> SALARY: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXX USD / MONTH</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> HOUSING: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXX </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> ARRANGEMENT: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> DAY OFF: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- <div class="row">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> FLAT SIZE: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <div class="row mb-5">
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> EMPLOYER NATIONALITY: </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class=" d-flex align-items-center justify-content-center">
-                            <div class="text text-dark" style="width: 100%;">
-                                <h6> XXXXXXXX</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseWidthExample" aria-expanded="false"
-                        aria-controls="collapseWidthExample">
-                        Toggle width collapse
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-horizontal" id="collapseWidthExample">
-                        <div class="card card-body" style="width: 300px;">
-                            This is some placeholder content for a horizontal collapse. It's hidden by default and shown
-                            when triggered.
-                        </div>
-                    </div>
-                </div> --}}
-            </div>
 
 
             <!-- Body content here -->
@@ -1215,7 +1040,6 @@
             </div>
         </div>
     </div>
-
 
 </body>
 

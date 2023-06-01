@@ -32,14 +32,6 @@ class DashbordController extends Controller
                 break;
             case $user->hasRole('candidat'):
                 if ($user->number_of_children){
-                    $annonces = DB::table('users')
-                    ->join('annonces', 'users.id', '=', 'annonces.user_id')
-                    ->select('users.image','users.username', 'annonces.title_of_offer', 'annonces.id', 'annonces.define_needs',
-                        'annonces.currency_coin', 'annonces.country', 'annonces.type_of_employment',
-                        'annonces.monthly_salary', 'annonces.expected_start_date')
-                    ->orderBy('annonces.created_at', 'desc')
-                    ->get();
-
                     // $annonces = DB::table('users')
                     // ->join('annonces', 'users.id', '=', 'annonces.user_id')
                     // ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
@@ -48,18 +40,24 @@ class DashbordController extends Controller
                     // ->orderBy('annonces.created_at', 'desc')
                     // ->get();
 
+
+
                     // $annonces = DB::table('users')
-                    //         ->join('annonces', 'users.id', '=', 'annonces.user_id')
-                    //         ->leftJoin('annonces', function ($join) {
-                    //             $join->on('appliedjobs.annonce_id', '=', 'annonces.id')
-                    //                 ->where('appliedjobs.apply_decline', '!=', 'decline');
-                    //         })
-                    //         ->select('users.image','users.username', 'annonces.*')
-                    //         ->where('appliedjobs.apply_decline','<>','decline')
-                    //         ->orderBy('annonces.created_at', 'desc')
-                    //         ->get();
+                    // ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                    // ->join('appliedjobs', function ($join) {
+                    //     $join->on('annonces.id', '=', 'appliedjobs.annonce_id')
+                    //         ->where('appliedjobs.apply_decline', '<>', 'decline');
+                    // })
+                    // ->select('users.image', 'users.username', 'annonces.*')
+                    // ->orderBy('annonces.created_at', 'desc')
+                    // ->get();
+                    
 
-
+                    $annonces = DB::table('users')
+                    ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                    ->select('users.image','users.username', 'annonces.*')
+                    ->orderBy('annonces.created_at', 'desc')
+                    ->get();
 
 
                 
