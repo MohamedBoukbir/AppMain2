@@ -245,7 +245,8 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('chat')}}"><i class="fa-solid fa-message"></i> Conversation</a>
+                    <a class="nav-link" href="{{ route('chat') }}"><i class="fa-solid fa-message"></i>
+                        Conversation</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa-solid fa-puzzle-piece"></i> My Ad</a>
@@ -404,7 +405,8 @@
                                                     Apply
                                                 </a>
                                                 <a class="btn btn-outline-secondary font-monospace"
-                                                    href="{{ route('decline', ['user_id' => Auth::user()->id, 'annonce_id' => $annonce->id]) }}">Decline</a>
+                                                    href="{{ route('decline', ['user_id' => Auth::user()->id, 'annonce_id' => $annonce->id]) }}"
+                                                    onclick="appelDecline()">Decline</a>
 
 
 
@@ -491,7 +493,7 @@
 
 
 
-                                        <div class="container-fluid bg-white p-0">
+                                        <div class="container-fluid bg-white p-0 mb-5">
                                             <div class="row">
                                                 <div class="col-md-12 header">
                                                     <div class=" d-flex align-items-center justify-content-center">
@@ -509,24 +511,31 @@
 
                                             <div class="row">
                                                 <div class="col-md-12 "
-                                                    style="background-color: #efece8; margin: 15px;border-left: 3px solid #c6c3bd; height: 100px;padding: 10px;">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                    style="background-color: #efece8; border-left: 3px solid #c6c3bd; height: auto;">
+                                                    <div class="d-flex ">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            {{-- <h6> {{$annonce->define_needs}}</h6> --}}
+                                                            {{-- <h6 class="line-height-2">
+                                                                {{ $annonce->define_needs }}</h6>
+                                                            <hr> --}}
+                                                            <h6 class="mt-1" style="font-weight: 700;">Description
+                                                            </h6>
+                                                            <p class="lh-lg text-start" style="font-size: 0.8rem;">
+                                                                {{ $annonce->define_needs }}
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-4 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                            <div class="row ">
+                                                <div class="col-md-6  d-flex align-items-start justify-content-start">
+                                                    <div>
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6 style="font-weight: 900;"> START DATE : </h6>
+                                                            <h6 style="font-weight: 700;"> START DATE : </h6>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                    <div>
                                                         <div class="text text-dark" style="width: 100%;">
                                                             <h6> {{ \Carbon\Carbon::parse($annonce->expected_start_date)->format('d M, Y') }}
                                                             </h6>
@@ -535,15 +544,15 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                <div class="col-md-6  d-flex align-items-start justify-content-start">
+                                                    <div>
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6 style="font-weight: 900;"> SALARY: </h6>
+                                                            <h6 style="font-weight: 700;"> SALARY: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                    <div>
                                                         <div class="text text-dark" style="width: 100%;">
                                                             <h6> {{ $annonce->monthly_salary }}
                                                                 {{ $annonce->currency_coin }} / MONTH</h6>
@@ -552,10 +561,10 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4 ">
+                                                <div class="col-md-6  d-flex align-items-start justify-content-start">
                                                     <div class=" d-flex align-items-start justify-content-start">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6 style="font-weight: 900;"> HOUSING: </h6>
+                                                            <h6 style="font-weight: 700;"> HOUSING: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -568,26 +577,27 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4 ">
+                                                <div class="col-md-6  d-flex align-items-start justify-content-start">
                                                     <div class=" d-flex ">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6 style="font-weight: 900;"> ARRANGEMENT: </h6>
+                                                            <h6 style="font-weight: 700;"> ARRANGEMENT: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 ">
                                                     <div class=" d-flex align-items-center justify-content-center">
-                                                        <div class="text text-dark" style="width: 100%;">
+                                                        <div class="text text-dark"
+                                                            style="width: 100%;overflow: auto;">
                                                             <h6> {{ $annonce->living_arrangement }}</h6>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                <div class="col-md-6  d-flex align-items-start justify-content-start">
+                                                    <div class=" d-flex ">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6> DAY OFF: </h6>
+                                                            <h6 style="font-weight: 700;"> DAY OFF: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -603,30 +613,44 @@
 
 
                                             <div class="row">
-                                                <div class="col-md-6 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                <div class="col-md-6  d-flex align-items-start justify-content-start">
+                                                    <div class="d-flex">
                                                         <div class="text text-dark" style="width: 100%;">
-                                                            <h6> EMPLOYER NATIONALITY: </h6>
+                                                            <h6 style="font-weight: 700;">NATIONALITY: </h6>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 ">
-                                                    <div class=" d-flex align-items-center justify-content-center">
+                                                <div class="col-md-6 mb-5">
+                                                    <div class=" d-flex">
                                                         <div class="text text-dark" style="width: 100%;">
                                                             <h6> {{ $annonce->helper_nationality }}</h6>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
                                         </div>
+
+                                        {{-- <div class="container-fluid mt-5">
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+                                                </div>
+                                            </div>
+                                        </div> --}}
+
+
                                         <!-- Body content here -->
                                         <div class="offcanvas-footer">
                                             {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
+
                                             <a href="{{ route('contacter', ['user_id' => Auth::user()->id, 'annonce_id' => $annonce->id]) }}"
-                                                type="button" class="btn btn-success btn-send">
+                                                type="submit" class="btn btn-success btn-send" onclick="appelJS()">
                                                 <i class="fa-solid fa-paper-plane fa-lg "></i></a>
-                                            <a type="button" class="btn btn-outline-warning btn-save"><i
-                                                    class="fa-regular fa-heart fa-lg"></i></a>
+                                            {{-- <a type="button" class="btn btn-outline-warning btn-save"><i
+                                                    class="fa-regular fa-heart fa-lg"></i></a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -883,7 +907,7 @@
                     display: flex;
                 }
 
-                .offcanvas-footer button {
+                .offcanvas-footer a {
                     width: 100%;
                     /* margin-right: 5px; */
                     height: 70px;
@@ -959,8 +983,8 @@
             <!-- Body content here -->
             <div class="offcanvas-footer">
                 {{-- <i class="fa-solid fa-paper-plane fa-lg"></i> --}}
-                <button type="button" class="btn btn-success btn-send">
-                    <i class="fa-solid fa-paper-plane fa-lg "></i></button>
+                <a type="button" class="btn btn-success btn-send">
+                    <i class="fa-solid fa-paper-plane fa-lg "></i></a>
                 <button type="button" class="btn btn-outline-warning btn-save"><i
                         class="fa-regular fa-heart fa-lg"></i></button>
 
@@ -969,19 +993,21 @@
         </div>
     </div>
     <button type="button" onclick="appelJS()">APPEL</button>
+    <button type="button" onclick="appelDecline()">APPEL 2</button>
 
     <script>
-        function appelJS() {
+        function appelSuccess() {
+            swal("Job applied!", "", "error")
+        }
+    </script>
 
 
-            swal("Good job!", "You clicked the button!", "success")
-            // swal({
-            //     title: "Error!",
-            //     text: "Here's my error message!",
-            //     type: "error",
-            //     confirmButtonText: "Cool"
-            // });
-            // sweetAlert("Oops...", "Something went wrong!", "error");
+    <script>
+        function appelDecline() {
+            swal({
+                title: "Job Declined!",
+                timer: 2000
+            });
         }
     </script>
 
