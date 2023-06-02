@@ -92,17 +92,29 @@
                 </style>
                 <li class="nav-item dropdown has-arrow main-drop ">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        {{--! image --}}
+                        
+
+                        @if($candidat->image)
                         <span class="user-img">
-                            <img src="{{ asset('img/profile.png') }}" alt="" style="width: 30px">
+                            <img src="/storage/{{ Auth::user()->image }}" alt="" style="width: 30px">
                             <span class="status online"></span>
                         </span>
+                         @else
+                         <span class="user-img">
+                            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username)}}" alt="" style="width: 30px">
+                            <span class="status online"></span>
+                        </span>
+
+                         @endif
+                        {{--! end image --}}
                         {{-- <span>{{ Auth::user()->username}}</span> --}}
                         {{-- <span>username</span> --}}
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
                         {{-- <a class="dropdown-item disabled" href="#">#</a> --}}
-                        <a class="dropdown-item" href="profile.html"><i data-feather="user" class="mr-1"></i>
+                        <a class="dropdown-item" href="{{ route('candidats.edit',Auth::user()->id)}}"><i data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
                             Settings</a>
@@ -206,18 +218,39 @@
     </div>
 
     <div class="container mt-5">
+        <form action="{{ route('candidats.updatecandidat',$candidat->id) }}"  method="POST" enctype="multipart/form-data" >
+            @csrf
         <div class="main-body">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ asset('img/maid-ic.png') }}" alt="Admin" class="rounded-circle p-1"
+                                {{-- {{$candidat->image}} --}}
+                                @if($candidat->image)
+                                {{-- <img class="flex-shrink-0 img-fluid rounded"
+                                src="/storage/{{ $candidat->image }}" alt=""
+                                style="width: 80px; height: 80px;"> --}}
+                                <img src="/storage/{{ $candidat->image }}"  alt="Admin" class="rounded-circle p-1"
                                     width="110">
+                                 @else
+                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($candidat->username)}}"  alt="Admin" class="rounded-circle p-1"
+                                    width="110">
+                                 @endif
+                                 <div class="form-group">
+                                    <label for="">Image profile</label>
+                                    <input class="form-control" type="file" id="file" accept="image/*"
+                                       name="image">
+                                    <span class="text-danger">
+                                        @error('image')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
                                 <div class=" profile mt-3">
-                                    <h4>USERNAME</h4>
+                                    {{-- <h4>USERNAME</h4>
                                     <p class="text-secondary mb-1">ADRESSE</p>
-                                    <p class="text-muted font-size-sm">COUNTRY</p>
+                                    <p class="text-muted font-size-sm">COUNTRY</p> --}}
                                     {{-- <button type="button" class="btn-upgrade w-100">Get Verified</button> --}}
                                     {{-- <button class="btn btn-primary">Follow</button> --}}
                                     {{-- <button class="btn btn-outline-primary">Message</button> --}}
@@ -237,7 +270,7 @@
                                         </svg>
                                         Gmail
                                     </h6>
-                                    <span class="text-secondary">HERE EMAIL</span>
+                                    <span class="text-secondary">{{$candidat->email}}</span>
                                 </li>
                                 <li
                                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -264,7 +297,10 @@
                                     <h6 class="mb-0">Full Name</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="full name" disabled>
+                                    <input type="text" class="form-control" value="{{ $candidat->username }}" disabled>
+                                    @error('username')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -272,7 +308,10 @@
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="email" disabled>
+                                    <input type="text" class="form-control" value="{{ $candidat->email }}" disabled>
+                                    @error('email')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -280,7 +319,10 @@
                                     <h6 class="mb-0">Mobile</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" autocomplete="off">
+                                    <input type="text" name="phone" class="form-control" value="{{ $candidat->phone }}" autocomplete="off">
+                                    @error('phone')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -288,15 +330,30 @@
                                     <h6 class="mb-0">Address</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" autocomplete="off">
+                                    <input type="text" name="address" class="form-control" value="{{ $candidat->address }}" autocomplete="off">
+                                    @error('address')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
-                            <div class="row">
+
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Country</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="country" class="form-control" value="{{ $candidat->country }}" autocomplete="off">
+                                    @error('country')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
                                     <input type="button" class="btn btn-primary px-4" value="Save Changes">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card">
@@ -307,7 +364,10 @@
                                     <h6 class="mb-0">Current password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" value="">
+                                    <input type="password" class="form-control" name="current_password" id="current_password">
+                                    @error('current_password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -315,7 +375,10 @@
                                     <h6 class="mb-0">New password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" value="">
+                                    <input type="password" class="form-control" name="password" id="password">
+                                    @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -323,14 +386,14 @@
                                     <h6 class="mb-0">Confirmation</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" value="">
+                                    <input type="password" class="form-control"  name="password_confirmation" id="password_confirmation">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="button" class="btn btn-primary px-4" value="Save Changes">
+                                    <button type="submit" class="btn btn-primary px-4"> Save Changes</button>
                                 </div>
                             </div>
                         </div>
@@ -372,6 +435,7 @@
                 </div>
             </div>
         </div>
+        </form>
     </div>
 </body>
 

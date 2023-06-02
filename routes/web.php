@@ -188,12 +188,15 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
 
   // Route::get('/candidat/home', [HomeController::class, 'index'])->name('home');
-  Route::resource('candidats', CandidatController::class);
+  // Route::resource('candidats', CandidatController::class);
   Route::get('/contacter/famille', [AppliedjobsController::class, 'contact'])->name('contacter');
   Route::get('/decline/famille', [AppliedjobsController::class, 'decline'])->name('decline');
 ///////////////// searsh ajax ///////////
 Route::get('/candidat/shearch', [CandidatController::class, 'ajax_searsh'])->name('candidat.ajax_searsh_name');
 ///////////////////////////////
+// edit famille
+Route::get('candidat/edit-candidat/{candidat}', [CandidatController::class, 'edit'])->name('candidats.edit');
+Route::post('candidat/updatecandidat/{candidat}', [CandidatController::class, 'update'])->name('candidats.updatecandidat');
 // Search ///
 Route::post('/Search/candidat/search', [CandidatController::class, 'searchcandidat'])->name('candidat.search');
 //  end Search
