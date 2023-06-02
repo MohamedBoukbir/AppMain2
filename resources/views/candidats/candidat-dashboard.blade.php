@@ -254,11 +254,11 @@
                     <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> My Account</a>
                 </li>
             </ul>
-            <form  action="{{route('candidat.search')}}" method="POST" class="form-inline my-2 my-lg-0 ">
+            <form action="{{ route('candidat.search') }}" method="POST" class="form-inline my-2 my-lg-0 ">
                 @csrf
-                <input class="form-control mr-sm-2 search-familly" type="search" name="title_of_offer" id="title_of_offer"  placeholder="Search"
-                    aria-label="Search">
-                  
+                <input class="form-control mr-sm-2 search-familly" type="search" name="title_of_offer"
+                    id="title_of_offer" placeholder="Search" aria-label="Search">
+
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 <div id="user_list">
                 </div>
