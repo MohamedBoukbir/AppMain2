@@ -20,105 +20,97 @@ class CandidatController extends Controller
     }
 
 
-    public function create()
-    {
-        return view('candidats.add-candidat');
-    }
+//     public function create()
+//     {
+//         return view('candidats.add-candidat');
+//     }
 
-public function store(Request $request)
-    {
+// public function store(Request $request)
+//     {
        
-        $request->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'address' => 'required',
-            'country' => 'required',
-            'phone' => 'required',
-            'religion' => 'required',
-            'domain' => 'required',
-            'years_experience' => 'required',
+//         $request->validate([
+//             'firstName' => 'required',
+//             'lastName' => 'required',
+//             'email' => 'required',
+//             'password' => 'required',
+//             'address' => 'required',
+//             'country' => 'required',
+//             'phone' => 'required',
+//             'religion' => 'required',
+//             'domain' => 'required',
+//             'years_experience' => 'required',
+//         ]);
 
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
-
-        $user = new User();
+//         $user = new User();
         
 
-        $user->firstName = $request->firstName;
-        $user->lastName = $request->lastName;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->address = $request->address;
-        $user->country = $request->country;
-        $user->phone = $request->phone;
-        $user->religion = $request->religion;
-        $user->domain = $request->domain;
-        $user->years_experience = $request->years_experience;
-        $user->type='candidat';
+//         $user->firstName = $request->firstName;
+//         $user->lastName = $request->lastName;
+//         $user->email = $request->email;
+//         $user->password = Hash::make($request->password);
+//         $user->address = $request->address;
+//         $user->country = $request->country;
+//         $user->phone = $request->phone;
+//         $user->religion = $request->religion;
+//         $user->domain = $request->domain;
+//         $user->years_experience = $request->years_experience;
+//         $user->type='candidat';
 
 
      
-        $user->save();
+//         $user->save();
 
-        return redirect()->route('admin.candidat')->with('success','candidat  Ajouter ');
-    }
+//         return redirect()->route('admin.candidat')->with('success','candidat  Ajouter ');
+//     }
+
+// public function show()
+//     {
+//         dd('nad');
+//     }
 
     public function edit(User $candidat)
     {
-        return view('candidats.edit-candidats',compact('candidat'));
+        return view('candidats.profile',compact('candidat'));
     }
 
     public function update(Request $request, User $candidat)
     {
+        
         $request->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'password' => 'required',
+            'phone' => 'required',
             'address' => 'required',
             'country' => 'required',
-            'phone' => 'required',
-            'religion' => 'required',
-            'domain' => 'required',
-            'years_experience' => 'required',
         ]);
 
-        $candidat = User::find($candidat->id);
+     // Verify the current password
+     
 
-        if($candidat->email == $request->email){
-            $candidat->firstName = $request->firstName;
-            $candidat->lastName = $request->lastName;
-            // $candidat->email = $request->email;
-            $candidat->password = Hash::make($request->password);
-            $candidat->address = $request->address;
-            $candidat->country = $request->country;
-            $candidat->phone = $request->phone;
-            $candidat->religion = $request->religion;
-            $candidat->domain = $request->domain;
-            $candidat->years_experience = $request->years_experience;
-            $candidat->type='candidat';
-
-        }else{
+      // Update the password
+         $candidat = User::find($candidat->id);
+         if($request->current_password && $request->password){
             $request->validate([
-                'email' => ['required', 'string', 'email', 'max:255','unique:users']
+                'current_password' => 'required',
+                'password' => 'required|min:6|confirmed',
             ]);
-            $candidat->firstName = $request->firstName;
-            $candidat->lastName = $request->lastName;
-            $candidat->email = $request->email;
+            if (!Hash::check($request->current_password, $candidat->password)) {
+                return back()->withErrors(['current_password' => 'Le mot de passe actuel est incorrect.']);
+            }
             $candidat->password = Hash::make($request->password);
+        }
+            if($request->image){
+                $request->validate([
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                ]);
+                $imagePath =$request->image->store('images', 'public');
+                // $candidat->image = $request->image;
+                $candidat->image = $imagePath;
+            }
+
             $candidat->address = $request->address;
             $candidat->country = $request->country;
             $candidat->phone = $request->phone;
-            $candidat->religion = $request->religion;
-            $candidat->domain = $request->domain;
-            $candidat->years_experience = $request->years_experience;
-            $candidat->type='candidat';
-        }   
-
-
-        $candidat->save();
-        return redirect()->route('admin.candidat')->with('success', 'candidat  a été bien modifié !!');
+            $candidat->save();
+        return redirect()->route('dashboard')->with('success', 'candidat  a été bien modifié !!');
     }
 
     public function destroy(User $user)
