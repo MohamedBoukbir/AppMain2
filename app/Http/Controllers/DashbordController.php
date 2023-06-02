@@ -88,10 +88,12 @@ class DashbordController extends Controller
     public function usernoroleAtacher($user)
     {
        $users = Auth::user();
+      
        $users->type=$user;
        $users->save();
         $users->attachRole($user);
-       
+    
+        
         return redirect()->route('dashboard');
     }
 

@@ -74,7 +74,7 @@
     {{-- ! --}}
 
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 
     <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
@@ -254,11 +254,14 @@
                     <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> My Account</a>
                 </li>
             </ul>
-
-            <form class="form-inline my-2 my-lg-0 ">
-                <input class="form-control mr-sm-2 search-familly" type="search" placeholder="Search"
+            <form  action="{{route('candidat.search')}}" method="POST" class="form-inline my-2 my-lg-0 ">
+                @csrf
+                <input class="form-control mr-sm-2 search-familly" type="search" name="title_of_offer" id="title_of_offer"  placeholder="Search"
                     aria-label="Search">
-                {{-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
+                  
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <div id="user_list">
+                </div>
             </form>
         </div>
     </nav>
@@ -984,7 +987,35 @@
 
 
 
-    <a href="#">profile</a>
+    {{-- <a href="{{ route('profile-candidat') }}">profile</a> --}}
+
+    {{-- ////////////////// Search scripte ////////// --}}
+    <script>
+        $(document).ready(function() {
+            $("#title_of_offer").on('keyup', function() {
+                var value = $(this).val();
+                // alert('ok');
+                $.ajax({
+                    url: "{{ route('candidat.ajax_searsh_name') }}",
+                    type: "GET",
+                    data: {
+                        'title_of_offer': value
+                    },
+                    success: function(data) {
+                        $("#user_list").html(data);
+                        //    alert('ok');
+
+                    }
+                });
+            });
+            $(document).on('click', 'li', function() {
+                var value = $(this).text();
+                $("#title_of_offer").val(value);
+                $("#user_list").html("");
+            });
+        });
+    </script>
+    {{-- ////////////////// end  Search scripte ////////// --}}
 
 </body>
 

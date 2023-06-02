@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Annonce;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class CandidatController extends Controller
@@ -125,6 +127,84 @@ public function store(Request $request)
         return redirect()->back()->with('success', 'candidat  a été bien supremer !!');
     }
 
+    //////////////////////////////////////
 
+ ///////////////////////////////////////////// Shearch //////////////////
+
+   public function ajax_searsh(Request $request){
+  
+    if($request->ajax() && $request->title_of_offer <> ''){
+    //  $data = User::where('username','LIKE',$request->username.'%')->get();
+     $data =DB::table('annonces')
+            ->leftJoin('appliedjobs', function ($join) {
+                $join->on('annonces.id', '=', 'appliedjobs.annonce_id');
+            })
+            ->join('users', 'users.id', '=', 'annonces.user_id')
+            ->select('users.image', 'users.username', 'annonces.*')
+            ->where('appliedjobs.apply_decline', '<>', 'decline')
+            ->orWhereNull('appliedjobs.apply_decline')
+            ->where("annonces.title_of_offer","LIKE","$request->title_of_offer%")
+            ->orderBy('annonces.created_at', 'desc')
+            ->get();
+            // $users = User::whereRoleIs(['famille', 'candidat'])->orderBy('id', 'desc')->paginate("");
+           
+            //     $data = User::where('username','LIKE',$request->username.'%')->get();
+                $output='';
+                if (count( $data)>0){
+                  $output .='<ul class="list-group" style="display:block; position:relative; z-indez:1">';
+                  foreach($data as $row){
+                      $output .='<li class="list-group-item">'.$row->title_of_offer.'</li>';
+                  }
+                  $output .='</ul>';
+                }else{
+                  $output .='<li class="list-group-item"> No Data Found</li>';
+                }
+                return $output;
+            }
+              return back();
+}
+///////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////
+
+public function searchcandidat( Request $request) {
+
+    // dd($request->title_of_offer);
+    
+    $annonces =DB::table('annonces')
+    ->leftJoin('appliedjobs', function ($join) {
+        $join->on('annonces.id', '=', 'appliedjobs.annonce_id');
+    })
+    ->join('users', 'users.id', '=', 'annonces.user_id')
+    ->select('users.image', 'users.username', 'annonces.*')
+    ->where('appliedjobs.apply_decline', '<>', 'decline')
+    ->orWhereNull('appliedjobs.apply_decline')
+    ->where('annonces.title_of_offer','LIKE',$request->title_of_offer)
+    ->orderBy('annonces.created_at', 'desc')
+    ->get();
+
+    
+    $apply=DB::table('users')
+    ->join('annonces', 'users.id', '=', 'annonces.user_id')
+    ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
+    ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
+    ->where('appliedjobs.user_id',auth()->user()->id)
+    // ->where("annonces.title_of_offer","LIKE","%$request->title_of_offer%")
+    -> where('apply_decline','apply')
+    ->get();
+
+$decline=DB::table('users')
+    ->join('annonces', 'users.id', '=', 'annonces.user_id')
+    ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
+    ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
+    ->where('appliedjobs.user_id',auth()->user()->id)
+    // ->where("annonces.title_of_offer","LIKE","%$request->title_of_offer%")
+    -> where('apply_decline','decline')
+    ->get();
+    
+return view('candidats.candidat-dashboard',compact('annonces','apply','decline'));
+}
+
+ ////////////// /////////////  ajax_searsh
 
 }

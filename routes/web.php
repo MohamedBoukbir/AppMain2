@@ -190,6 +190,13 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('candidats', CandidatController::class);
   Route::get('/contacter/famille', [AppliedjobsController::class, 'contact'])->name('contacter');
   Route::get('/decline/famille', [AppliedjobsController::class, 'decline'])->name('decline');
+///////////////// searsh ajax ///////////
+Route::get('/candidat/shearch', [CandidatController::class, 'ajax_searsh'])->name('candidat.ajax_searsh_name');
+///////////////////////////////
+// Search ///
+Route::post('/Search/candidat/search', [CandidatController::class, 'searchcandidat'])->name('candidat.search');
+//  end Search
+
   // Route::get('/homehelppp/signin', function () {
   //   return view('front.account');
   // })->name('signin');
