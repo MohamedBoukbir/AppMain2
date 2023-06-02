@@ -245,7 +245,7 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-solid fa-message"></i> Conversation</a>
+                    <a class="nav-link" href="{{route('chat')}}"><i class="fa-solid fa-message"></i> Conversation</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa-solid fa-puzzle-piece"></i> My Ad</a>
