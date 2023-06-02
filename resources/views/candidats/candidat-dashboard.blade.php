@@ -1016,6 +1016,7 @@
         });
     </script>
     {{-- ////////////////// end  Search scripte ////////// --}}
+    <a href="{{ route('profile-candidat') }}">profile</a>
 
 </body>
 
