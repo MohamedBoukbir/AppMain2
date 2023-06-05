@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Subscribe;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 
@@ -32,33 +33,33 @@ class StripeController extends Controller
         
     //    dd ($request->all());
    if ($amountt){
-    $subscribe=Subscription::where('stripe_id',auth()->user()->stripe_id)->first();
-    // dd($subscribe);
-    if($subscribe == null){
-        $subscribe = new Subscription();
+    $subscribe=Subscribe::where('user_id',auth()->user()->id)->first();
+  
+    if($subscribe== null){
+        $subscribe = new Subscribe();
     }
-// $subscribe->email =auth()->user()->email;
-    $subscribe->name = auth()->user()->username;
+   
+    $subscribe->email =auth()->user()->email;
+    $subscribe->payerstatus = 'verified';
+    $subscribe->currencycode = 'USD';
     $subscribe->stripe_id =auth()->user()->stripe_id ;
-    $subscribe->stripe_price = $amountt;
-    // $subscribe->countrycode = $response['COUNTRYCODE'];
-    // $subscribe->currencycode =$response['CURRENCYCODE'];
-    // $subscribe->amt = $response['AMT'];
+    $subscribe->amt = $amountt;
     $subscribe->user_id =auth()->user()->id ;
 
     switch ($amountt) {
         case 8:
-            $subscribe->ends_at=Carbon::now()->addDays(30);
+            $subscribe->enddate=Carbon::now()->addDays(30);
             break;
         case 20:
-            $subscribe->ends_at=Carbon::now()->addDays(180);
+            $subscribe->enddate=Carbon::now()->addDays(180);
             break;
         case 40:
-            $subscribe->ends_at=Carbon::now()->addDays(356);
+            $subscribe->enddate=Carbon::now()->addDays(356);
             break;
         default:
-        $subscribe->ends_at=Carbon::now();
+        $subscribe->enddate=Carbon::now();
     }
+  
     $subscribe->save();
     return redirect()->route('dashboard');
    }else {

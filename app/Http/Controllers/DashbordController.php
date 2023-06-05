@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Exception;
 use App\Models\User;
 use App\Models\Annonce;
+use App\Models\Subscribe;
 use App\Models\Appliedjobs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +29,10 @@ class DashbordController extends Controller
                 return view('admin.adminHome', compact('users', 'familles', 'candidats'));
                 break;
             case $user->hasRole('famille'):
-                return view('front.dashboard-account');
+                 $upgrade=Subscribe::where('user_id',auth()->user()->id)
+                                     ->where('enddate','>',Carbon::now())->first();
+                                      
+                return view('front.dashboard-account',compact('upgrade'));
                 break;
             case $user->hasRole('candidat'):
                 if ($user->number_of_children){

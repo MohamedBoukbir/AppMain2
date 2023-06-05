@@ -254,11 +254,8 @@ Route::middleware(['auth'])->group(function () {
 
 
 
+  Route::get('admin/abonnements', [AdminController::class,'indexSubscribe'])->name('admin.abonnements');
 
-
-  Route::get('admin/abonnements', function () {
-    return view('abonnements');
-  })->name('admin.abonnements');
 });
 
 ////////////////////// End Route Admin ///////////////////////////////////////////
