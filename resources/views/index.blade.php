@@ -42,6 +42,6 @@
  <br>
 @endforeach
 /////////////////
-<a href="{{route('account-dashboard')}}"> router </a>
+<a href="{{route('famille.index')}}"> router </a>
 </body>
 </html>

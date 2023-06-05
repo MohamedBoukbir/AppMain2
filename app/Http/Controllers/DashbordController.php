@@ -169,5 +169,9 @@ class DashbordController extends Controller
  }
 }
 ///////////////////////////////////////////////////////////////////
+// public function signup(){
+//     dd('nadi');
+//     return view('front.signup');
+// }
 
 }
