@@ -10,13 +10,41 @@ use Illuminate\Support\Facades\Hash;
 
 class CandidatController extends Controller
 {
- 
+  public function completeprofile(){
+    return view('candidat');
+  }
 
 
     public function index()
     {
-        // $candidats = User::where("username","candidat")->orderBy('id','desc')->paginate("");
-        return view('candidats.candidat-dashboard');
+        $annonces = DB::table('annonces')
+        ->leftJoin('appliedjobs', function ($join) {
+            $join->on('annonces.id', '=', 'appliedjobs.annonce_id');
+        })
+        ->join('users', 'users.id', '=', 'annonces.user_id')
+        ->select('users.image', 'users.username', 'annonces.*')
+        ->where('appliedjobs.apply_decline', '<>', 'decline')
+        ->orWhereNull('appliedjobs.apply_decline')
+        ->orderBy('annonces.created_at', 'desc')
+        ->get();
+       
+    $apply=DB::table('users')
+                ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
+                ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
+                ->where('appliedjobs.user_id',auth()->user()->id)
+                -> where('apply_decline','apply')
+                ->get();
+
+      $decline=DB::table('users')
+                ->join('annonces', 'users.id', '=', 'annonces.user_id')
+                ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
+                ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
+                ->where('appliedjobs.user_id',auth()->user()->id)
+                -> where('apply_decline','decline')
+                ->get();
+                
+       return view('candidats.candidat-dashboard',compact('annonces','apply','decline'));
     }
 
 

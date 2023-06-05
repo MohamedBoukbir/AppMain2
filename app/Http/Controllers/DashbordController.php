@@ -22,52 +22,16 @@ class DashbordController extends Controller
         $user = Auth::user();
         switch ($user) {
             case $user->hasRole('admin'):
-                $users = User::whereRoleIs(['famille', 'candidat'])->orderBy('id', 'desc')->paginate("");
-                // $users = User::whereNull(['email_verified_at'])->orderBy('id', 'desc')->paginate("");
-                $familles = User::whereRoleIs('famille')->orderBy('id', 'desc')->paginate("");
-                $candidats = User::whereRoleIs('candidat')->orderBy('created_at', 'asc')->paginate("");
-                return view('admin.adminHome', compact('users', 'familles', 'candidats'));
+                return  redirect()->route('admin.index');
                 break;
-            case $user->hasRole('famille'):
-                 $upgrade=Subscribe::where('user_id',auth()->user()->id)
-                                     ->where('enddate','>',Carbon::now())->first();
-                                      
-                return view('front.dashboard-account',compact('upgrade'));
+            case $user->hasRole('famille'):    
+                 return  redirect()->route('famille.index');
                 break;
             case $user->hasRole('candidat'):
                 if ($user->number_of_children){
-                  
-                    $annonces = DB::table('annonces')
-                    ->leftJoin('appliedjobs', function ($join) {
-                        $join->on('annonces.id', '=', 'appliedjobs.annonce_id');
-                    })
-                    ->join('users', 'users.id', '=', 'annonces.user_id')
-                    ->select('users.image', 'users.username', 'annonces.*')
-                    ->where('appliedjobs.apply_decline', '<>', 'decline')
-                    ->orWhereNull('appliedjobs.apply_decline')
-                    ->orderBy('annonces.created_at', 'desc')
-                    ->get();
-                   
-                $apply=DB::table('users')
-                            ->join('annonces', 'users.id', '=', 'annonces.user_id')
-                            ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
-                            ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
-                            ->where('appliedjobs.user_id',auth()->user()->id)
-                            -> where('apply_decline','apply')
-                            ->get();
-
-                  $decline=DB::table('users')
-                            ->join('annonces', 'users.id', '=', 'annonces.user_id')
-                            ->join('appliedjobs', 'annonces.id', '=', 'appliedjobs.annonce_id')
-                            ->select('annonces.*', 'users.image','users.username', 'appliedjobs.apply_decline')
-                            ->where('appliedjobs.user_id',auth()->user()->id)
-                            -> where('apply_decline','decline')
-                            ->get();
-                            
-                   return view('candidats.candidat-dashboard',compact('annonces','apply','decline'));
+                    return  redirect()->route('candidat.index');
                 }
-               
-                return view('candidat');
+                return  redirect()->route('candidat.completeprofile');
                 break;
             default:
                 return redirect()->route('users.selectusernorole');

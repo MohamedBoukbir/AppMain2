@@ -39,32 +39,77 @@ Route::get('/profile-candidat', function () {
     return view('candidats.profile');
 })->name('profile-candidat');
 
-// Comment ///////////////////////////////
-Route::get('/index/comments', [CommentController::class, 'indexComment'])->name('index.comment');
-Route::post('/comments', [CommentController::class, 'comments'])->name('comment');
-//end comment ///////////////////////////////
+/// / /// / /// / welcome  /// / /// / ///
+Route::get('/', [FrontController::class, 'indexfront'])->name('welcome');
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // /Admin // / // / // / // / // / // / // / // / // / //
+Route::middleware('auth','backNotAllowed','role:admin','verified')->group(function () {
+  Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('admin.index');
+  Route::get('/dashboard/admin/famille', [AdminController::class, 'indexfamille'])->name('admin.famille');
+  Route::get('/dashboard/admin/candidat', [AdminController::class, 'indexcandidat'])->name('admin.candidat');
+  Route::get('dashboard/admin/abonnements', [AdminController::class,'indexSubscribe'])->name('admin.abonnements');
+});
 
-////////////////// live  search ///////////
-Route::get('/search/live', [DashbordController::class, 'liveSearch'])->name('livesearch');
-Route::post('/Search', [DashbordController::class, 'search'])->name('Search');
-//////////////////  end live  search ///////////
-///////////////// searsh ajax ///////////
-Route::get('/ajax_searsh/shearch', [DashbordController::class, 'ajax_searsh'])->name('ajax_searsh_name');
-///////////////////////////////
-//////////////////////// searchfront/////////////////////
-Route::post('front/searchfront', [FrontController::class, 'searchfront'])->name('front.searchfront');
-Route::get('/front/search/live', [FrontController::class, 'livesearchfront'])->name('front.livesearch');
-////////////////////////  end searchfront/////////////////////
-//////////////////  peymant Paypale ///////////////
-Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
-Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
-Route::get('/payment/success', [PayPalController::class, 'success'])->name('payment.success');
-//////////////////  end  peymant Paypale ///////////////
-////////////////// peymant Stripe ///////////////
-Route::get('/payment/carts', [StripeController::class, 'paymentstripe'])->name('payment.stripe');
-Route::post('single-charge',[StripeController::class,'singleCharge'])->name('single.charge');
-//////////////////  end peymant Stripe ///////////////
+// / // / // / // / // / // / end Admin // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / Famille // / // / // / // / // / // / // / // / // / //
+Route::middleware('auth','backNotAllowed','role:famille','verified')->group(function () {
+  Route::get('/dashboard/famille', [FamilleController::class, 'index'])->name('famille.index');
+    /////////////////////////// fineshed regestring famille///////////////////////////
+    Route::get('/dashboard/famille/liked', [FamilleController::class, 'likedCandidat'])->name('likedcandidat');
+    Route::get('/dashboard/liked', [FamilleController::class, 'liked'])->name('liked');
+    Route::get('/dashboard/add/annonce', [FamilleController::class, 'addAnnonce'])->name('famille.addannonce');
+    Route::get('/dashboard/edit/annonce', [FamilleController::class, 'editAnnonce'])->name('famille.editannonce');
+    Route::get('/dashboard/active/annonce', [FamilleController::class, 'activeAnnonce'])->name('famille.activeannonce');
+    Route::delete('/dashboard/delete/annonce/{annonce}', [FamilleController::class, 'destroyAnnonce'])->name('annonce.destroye');
 
+    Route::get('/dashbord/famille/success', [FamilleController::class, 'rederectToFamille'])->name('registration.famille.success');
+
+    /////////////// end fineshed regestring famille///////////////////////////
+    Route::get('/my-account-applications', [AnnonceController::class, 'index'])->name('account-applications');
+    Route::get('/souscription', function () {
+      return view('front.souscription');
+    })->name('account-souscription');
+});
+
+// / // / // / // / // / // / end Famille // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // /Candidat // / // / // / // / // / // / // / // / // / //
+Route::middleware('auth','backNotAllowed','role:candidat','verified')->group(function () {
+ Route::get('/dashboard/candidat', [CandidatController::class, 'index'])->name('candidat.index');
+ Route::get('/dashboard/complete/profile', [CandidatController::class, 'completeprofile'])->name('candidat.completeprofile');
+ Route::get('/contacter/famille', [AppliedjobsController::class, 'contact'])->name('contacter');
+  Route::get('/decline/famille', [AppliedjobsController::class, 'decline'])->name('decline');
+  // edit candidat
+  Route::get('candidat/edit-candidat/{candidat}', [CandidatController::class, 'edit'])->name('candidats.edit');
+  Route::post('candidat/updatecandidat/{candidat}', [CandidatController::class, 'update'])->name('candidats.updatecandidat');
+  // end edit 
+/// / /// / /// search sure annonce
+Route::get('/candidat/shearch', [CandidatController::class, 'ajax_searsh'])->name('candidat.ajax_searsh_name');
+// Search ///
+Route::post('/Search/candidat/search', [CandidatController::class, 'searchcandidat'])->name('candidat.search');
+//  end Search
+
+});
+
+// / // / // / // / // / // / end Candidat // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // /Autentification google et facebook  // / // / // / // / // / // / // / // / // / //
+Route::middleware(['auth','backNotAllowed','verified'])->group(function () {
+  Route::get('/dashboard', [DashbordController::class,'logincontrole'])->name('dashboard');
+});
+// faceboook autentification 
+Route::get('/auth/facebook', [FacebookController::class, 'facebookpage'])->name('registerfacebook');
+Route::get('/auth/facebook/callback', [FacebookController::class, 'facebookredirect'])->name('facebookrederectelogin');
+/// autentification google ///
+Route::get('/auth/google', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
+Route::get('/login/google/callback', [GoogleController::class, 'googleredirect']);
+/// end  autentification faceboook and google ///////////////
+/// / /// virifier email
 //////////////////////verfication email //////////////////
 
 Route::get('/email/verify', function () {
@@ -90,9 +135,9 @@ Route::post('/email/verification-notification', function (Request $request) {
   return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-
-
 /////////////////////// end verfication email //////////////////
+/// / /// /  end verfication email
+/// / /// forget password
 /////////////////////// forget password //////////////////////
 Route::post('/forgot-password', function (Request $request) {
   $request->validate(['email' => 'required|email']);
@@ -112,16 +157,67 @@ Route::get('/reset-password/{token}', function (string $token) {
 })->middleware('guest')->name('password.reset');
 
 ///////////////////////  end forget password //////////////////////
-//////////////// autentification faceboook ///////////////
-//login
-Route::get('/auth/facebook', [FacebookController::class, 'facebookpage'])->name('registerfacebook');
-Route::get('/auth/facebook/callback', [FacebookController::class, 'facebookredirect'])->name('facebookrederectelogin');
-//////////////// autentification google ///////////////
-Route::get('/auth/google', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
-Route::get('/login/google/callback', [GoogleController::class, 'googleredirect']);
-//////////////// end  autentification faceboook ///////////////
+/// / /// end forget password
+
+
+// / // / // / // / // / // / Autentification google et facebook // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // /all need autntification and virified // / // / // / // / // / // / // / // / // / //
+Route::middleware('auth','backNotAllowed','verified')->group(function () {
+ // Comment ///////////////////////////////
+Route::get('/index/comments', [CommentController::class, 'indexComment'])->name('index.comment');
+Route::post('/comments', [CommentController::class, 'comments'])->name('comment');
+//end comment ///////////////////////////////
+/// pyement
+//////////////////  peymant Paypale ///////////////
+Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
+Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
+Route::get('/payment/success', [PayPalController::class, 'success'])->name('payment.success');
+//////////////////  end  peymant Paypale ///////////////
+////////////////// peymant Stripe ///////////////
+Route::get('/payment/carts', [StripeController::class, 'paymentstripe'])->name('payment.stripe');
+Route::post('single-charge',[StripeController::class,'singleCharge'])->name('single.charge');
+//////////////////  end peymant Stripe ///////////////
+/// end pyement
+// select users
+Route::get('/homehelp/user', [DashbordController::class, 'selectusernorole'])->name('users.selectusernorole');
+Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])->name('usernorolatacher');
+// end selecte users
+// chat application 
+Route::get('/users',CreateChat::class)->name('users');
+Route::get('/my-account-conversation{key?}',Main::class)->name('chat');
+//////////////////////////message //////////////////////////////////
+Route::get('/index', [CreateUsers::class, 'index'])->name('index');
+Route::get('/sendeto/{user}',[CreateUsers::class, 'sendetoUser'])->name('sendeto');
+// Route::get('/sendeto//{user}', [CreateUsers::class, 'sendetoUser'])->name('sendto');
+Route::post('/send/message/{receiverInstance}/{conversation}', [CreateUsers::class, 'sendMessage'])->name('users.sendmessage');
+///////////////////////end message ///////////////////////////
+
+
+});
+
+// / // / // / // / // / // / end all need autntification and virified // / // / // / // / // / // / // / // / // / //
+// / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
+
+
+////////////////// live  search ///////////
+Route::get('/search/live', [DashbordController::class, 'liveSearch'])->name('livesearch');
+Route::post('/Search', [DashbordController::class, 'search'])->name('Search');
+//////////////////  end live  search ///////////
+///////////////// searsh ajax ///////////
+Route::get('/ajax_searsh/shearch', [DashbordController::class, 'ajax_searsh'])->name('ajax_searsh_name');
+///////////////////////////////
+//////////////////////// searchfront/////////////////////
+Route::post('front/searchfront', [FrontController::class, 'searchfront'])->name('front.searchfront');
+Route::get('/front/search/live', [FrontController::class, 'livesearchfront'])->name('front.livesearch');
+////////////////////////  end searchfront/////////////////////
+
+
+
+
+
 //////////////////////////front ///////////////////////////
-Route::get('/', [FrontController::class, 'indexfront'])->name('welcome');
 // Route::get('/', function () {
   // $users=User::where('maid',1)->get();
   //   return view('front.welcome',compact('users'));
@@ -146,8 +242,7 @@ Route::get('/homehelp/signin', function () {
 // Route::get('/homehelp/{user}', [DashbordController::class, 'userAtacher'])->name('useratacher');
 
 ///user no has rol
-Route::get('/homehelp/user', [DashbordController::class, 'selectusernorole'])->name('users.selectusernorole');
-Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])->name('usernorolatacher');
+
 ///////////
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -159,15 +254,13 @@ Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware(['auth','backNotAllowed','verified'])->group(function () {
-  Route::get('/dashboard', [DashbordController::class,'logincontrole'])->name('dashboard');
-});
+
 
 ////////////////////////end front /////////////////////////////////////////
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/candidats', [CandidatController::class,'index'])->name('candidat');
-});
+// Route::group(['prefix' => 'admin'], function() {
+//     Route::get('/candidats', [CandidatController::class,'index'])->name('candidat');
+// });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -185,27 +278,17 @@ require __DIR__.'/auth.php';
 // / Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 ///// Route candidat////////////////////////////////////////////////////////////
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
 
   // Route::get('/candidat/home', [HomeController::class, 'index'])->name('home');
   // Route::resource('candidats', CandidatController::class);
-  Route::get('/contacter/famille', [AppliedjobsController::class, 'contact'])->name('contacter');
-  Route::get('/decline/famille', [AppliedjobsController::class, 'decline'])->name('decline');
-///////////////// searsh ajax ///////////
-Route::get('/candidat/shearch', [CandidatController::class, 'ajax_searsh'])->name('candidat.ajax_searsh_name');
-///////////////////////////////
-// edit famille
-Route::get('candidat/edit-candidat/{candidat}', [CandidatController::class, 'edit'])->name('candidats.edit');
-Route::post('candidat/updatecandidat/{candidat}', [CandidatController::class, 'update'])->name('candidats.updatecandidat');
-// Search ///
-Route::post('/Search/candidat/search', [CandidatController::class, 'searchcandidat'])->name('candidat.search');
-//  end Search
+  
 
   // Route::get('/homehelppp/signin', function () {
   //   return view('front.account');
   // })->name('signin');
 
-});
+// });
 //////////////////// end candidat ////////////////////////////////////////////////
 ///// Route Admin////////////////////////////////////////////////////////////
 
@@ -215,19 +298,6 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/home/{user}', [AdminController::class, 'edituser'])->name('admin.edit-user');
 
   ///////afficher Famille/////////////////
-  Route::get('admin/user/famille', [AdminController::class, 'indexfamille'])->name('admin.famille');
-
-            /////////////////////////// fineshed regestring famille///////////////////////////
-            Route::get('famille/liked', [FamilleController::class, 'likedCandidat'])->name('likedcandidat');
-            Route::get('liked', [FamilleController::class, 'liked'])->name('liked');
-            Route::get('add/annonce', [FamilleController::class, 'addAnnonce'])->name('famille.addannonce');
-            Route::get('edit/annonce', [FamilleController::class, 'editAnnonce'])->name('famille.editannonce');
-            Route::get('active/annonce', [FamilleController::class, 'activeAnnonce'])->name('famille.activeannonce');
-            Route::delete('delete/annonce/{annonce}', [FamilleController::class, 'destroyAnnonce'])->name('annonce.destroye');
-
-            Route::get('/dashbord/famille', [FamilleController::class, 'rederectToFamille'])->name('registration.famille.success');
-
-            /////////////// end fineshed regestring famille///////////////////////////
   // add famille
   Route::get('admin/user/add-famille', [AdminController::class, 'createfamille'])->name('admin.add.famille');
   Route::post('admin/user/famille', [AdminController::class, 'storefamille'])->name('Storefamille');
@@ -240,7 +310,6 @@ Route::middleware(['auth'])->group(function () {
 
 
   ///////afficher candidat/////////////////
-  Route::get('admin/user/candidat', [AdminController::class, 'indexcandidat'])->name('admin.candidat');
   // add candidat
 
   Route::get('admin/user/add-candidat', [AdminController::class, 'createcandidat'])->name('admin.add.candidat');
@@ -254,20 +323,20 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-  Route::get('admin/abonnements', [AdminController::class,'indexSubscribe'])->name('admin.abonnements');
+ 
 
 });
 
 ////////////////////// End Route Admin ///////////////////////////////////////////
 //////////////////////////// route famille     /////////////////////////////////////////////////
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
 
   // Route::get('/famille/home', [HomeController::class, 'familleHome'])->name('famille.home');
-  Route::resource('familles', FamilleController::class);
+  // Route::resource('familles', FamilleController::class);
   // Route::resource('annonces', AnnonceController::class);
-  Route::get('/my-account-applications', [AnnonceController::class, 'index'])->name('account-applications');
-});
+ 
+// });
 
 //////////////////////////// end route route famille     /////////////////////////////////////////////////\
 ////////
@@ -276,44 +345,31 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-Route::get('/my-account-dashboard', function () {
-  return view('front.dashboard-account');
-})->name('account-dashboard');
+// Route::get('/my-account-dashboard', function () {
+//   return view('front.dashboard-account');
+// })->name('account-dashboard');
 
 // Route::get('/my-account-applications', function () {
 //   return view('front.applicant');
 // })->name('account-applications');
-Route::get('/my-account-conversation', function () {
-  return view('front.conversation');
-})->name('account-conversation');
-Route::get('/my-account-saves', function () {
-  return view('front.liked');
-})->name('account-saved-profiles');
-
-
-//////////////////////////message //////////////////////////////////
-Route::get('/users',CreateChat::class)->name('users');
-Route::get('/chat{key?}',Main::class)->name('chat');
+// Route::get('/my-account-conversation', function () {
+//   return view('front.conversation');
+// })->name('account-conversation');
+// Route::get('/my-account-saves', function () {
+//   return view('front.liked');
+// })->name('account-saved-profiles');
 
 
 
-Route::get('/index', [CreateUsers::class, 'index'])->name('index');
-Route::get('/sendeto/{user}',[CreateUsers::class, 'sendetoUser'])->name('sendeto');
-// Route::get('/sendeto//{user}', [CreateUsers::class, 'sendetoUser'])->name('sendto');
-Route::post('/send/message/{receiverInstance}/{conversation}', [CreateUsers::class, 'sendMessage'])->name('users.sendmessage');
-
-///////////////////////end message ///////////////////////////
 
 
 ////////////////////////////////////////staff ///////////////////////////
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function() {
   Route::resource('staff', StaffController::class);
-  // Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
+  Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
 });
 
-Route::get('/souscription', function () {
-  return view('front.souscription');
-})->name('account-souscription');
+
 
 
 //////////////////////end staff ////////////////////////////////////////////
