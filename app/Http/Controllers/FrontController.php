@@ -46,7 +46,8 @@ class FrontController extends Controller
 
 
 
-    public function searchfront( Request $request) {   
+    public function searchfront( Request $request) {  
+    $users=User::where('maid',1)->get();
 if ( $request->location || $request->category){
     switch ($request->category) {
         case 'childminder':
@@ -83,10 +84,46 @@ if ( $request->location || $request->category){
         })
         ->paginate();
     }
-    return view('front.welcome',compact('users'));
-
+}elseif($request->username){
+    // dd($request->username);
+    $users = User::whereRoleIs('candidat')
+            ->where('username', $request->username)
+            ->paginate();
 }
-return back();
+// autre table 
+$childminders=count(User::whereRoleIs('candidat')
+->where('childminder','childminder')->get());
+$nannys=count(User::whereRoleIs('candidat')
+->where('nanny','nanny')->get());
+$maids= count(User::whereRoleIs('candidat')
+->where('maid','maid')->get());
+$babysitters=count(User::whereRoleIs('candidat')
+->where('babysitter','babysitter')->get()) ;
+
+$first2childminder=User::whereRoleIs('candidat')
+->where('childminder','childminder')
+->orderBy('rate', 'desc') 
+->take(2)
+->get();
+
+$first2nanny=User::whereRoleIs('candidat')
+->where('nanny','nanny')
+->orderBy('rate', 'desc') 
+->take(2)
+->get();
+
+$first2maid=User::whereRoleIs('candidat')
+->where('maid','maid')
+->orderBy('rate', 'desc') 
+->take(2)
+->get();
+$first2babysitter=User::whereRoleIs('candidat')
+->where('babysitter','babysitter')
+->orderBy('rate', 'desc') 
+->take(2)
+->get();
+///
+return view('front.welcome',compact('childminders','users','nannys','maids','babysitters','first2childminder','first2nanny','first2maid','first2babysitter'));
     }
 
 
