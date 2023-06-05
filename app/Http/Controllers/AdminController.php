@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -275,6 +276,15 @@ class AdminController extends Controller
             return redirect()->back()->with('success', 'candidat  a été bien supremer !!');
         }   
 
+     }
+     // Abonnement
+     public function indexSubscribe(){
+        $subscribes= DB::table('users')
+        ->join('subscribes', 'users.id', '=', 'subscribes.user_id')
+        ->select('users.*', 'subscribes.payerstatus','subscribes.currencycode','subscribes.amt','subscribes.enddate')
+        ->orderBy('subscribes.enddate','desc')
+        ->get();
+        return view('abonnements',compact('subscribes'));
      }
  
 
