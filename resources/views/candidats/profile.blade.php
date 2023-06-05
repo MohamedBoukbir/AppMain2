@@ -92,29 +92,32 @@
                 </style>
                 <li class="nav-item dropdown has-arrow main-drop ">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        {{--! image --}}
-                        
+                        {{-- ! image --}}
 
-                        @if($candidat->image)
-                        <span class="user-img">
-                            <img src="/storage/{{ Auth::user()->image }}" alt="" style="width: 30px">
-                            <span class="status online"></span>
-                        </span>
-                         @else
-                         <span class="user-img">
-                            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username)}}" alt="" style="width: 30px">
-                            <span class="status online"></span>
-                        </span>
 
-                         @endif
-                        {{--! end image --}}
+                        @if ($candidat->image)
+                            <span class="user-img">
+                                <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
+                                    style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @else
+                            <span class="user-img">
+                                <img class="rounded-circle"
+                                    src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
+                                    alt="" style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @endif
+                        {{-- ! end image --}}
                         {{-- <span>{{ Auth::user()->username}}</span> --}}
                         {{-- <span>username</span> --}}
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
                         {{-- <a class="dropdown-item disabled" href="#">#</a> --}}
-                        <a class="dropdown-item" href="{{ route('candidats.edit',Auth::user()->id)}}"><i data-feather="user" class="mr-1"></i>
+                        <a class="dropdown-item" href="{{ route('candidats.edit', Auth::user()->id) }}"><i
+                                data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
                             Settings</a>
@@ -218,187 +221,214 @@
     </div>
 
     <div class="container mt-5">
-        <form action="{{ route('candidats.updatecandidat',$candidat->id) }}"  method="POST" enctype="multipart/form-data" >
+        <form action="{{ route('candidats.updatecandidat', $candidat->id) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
-        <div class="main-body">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
-                                {{-- {{$candidat->image}} --}}
-                                @if($candidat->image)
-                                {{-- <img class="flex-shrink-0 img-fluid rounded"
+            <div class="main-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    {{-- {{$candidat->image}} --}}
+                                    @if ($candidat->image)
+                                        {{-- <img class="flex-shrink-0 img-fluid rounded"
                                 src="/storage/{{ $candidat->image }}" alt=""
                                 style="width: 80px; height: 80px;"> --}}
-                                <img src="/storage/{{ $candidat->image }}"  alt="Admin" class="rounded-circle p-1"
-                                    width="110">
-                                 @else
-                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($candidat->username)}}"  alt="Admin" class="rounded-circle p-1"
-                                    width="110">
-                                 @endif
-                                 <div class="form-group">
-                                    <label for="">Image profile</label>
-                                    <input class="form-control" type="file" id="file" accept="image/*"
-                                       name="image">
-                                    <span class="text-danger">
-                                        @error('image')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                                <div class=" profile mt-3">
-                                    {{-- <h4>USERNAME</h4>
+
+                                        {{-- <img src="/storage/{{ $candidat->image }}" alt="Admin"
+                                            class="rounded-circle p-1" style="width: 110;height: 110px;"> --}}
+                                        <span class="user-img">
+                                            <img class="rounded-circle mb-3" src="/storage/{{ Auth::user()->image }}"
+                                                alt="" style="width: 100px;height: 100px;">
+                                            <span class="status online"></span>
+                                        </span>
+                                    @else
+                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($candidat->username) }}"
+                                            alt="Admin" class="rounded-circle p-1"
+                                            style="width: 110;height: 110px;">
+                                    @endif
+                                    <div class="form-group">
+
+
+                                        {{-- <span class="user-img">
+                                            <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}"
+                                                alt="" style="width: 100px;height: 100px;">
+                                            <span class="status online"></span>
+                                        </span> --}}
+
+
+
+                                        <label for="">Image profile</label>
+                                        <input class="form-control" type="file" id="file" accept="image/*"
+                                            name="image">
+                                        <span class="text-danger">
+                                            @error('image')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                    <div class=" profile mt-3">
+                                        {{-- <h4>USERNAME</h4>
                                     <p class="text-secondary mb-1">ADRESSE</p>
                                     <p class="text-muted font-size-sm">COUNTRY</p> --}}
-                                    {{-- <button type="button" class="btn-upgrade w-100">Get Verified</button> --}}
-                                    {{-- <button class="btn btn-primary">Follow</button> --}}
-                                    {{-- <button class="btn btn-outline-primary">Message</button> --}}
+                                        {{-- <button type="button" class="btn-upgrade w-100">Get Verified</button> --}}
+                                        {{-- <button class="btn btn-primary">Follow</button> --}}
+                                        {{-- <button class="btn btn-outline-primary">Message</button> --}}
+                                    </div>
                                 </div>
-                            </div>
-                            <hr class="my-4">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-mail me-2 icon-inline">
-                                            <path
-                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                            <polyline points="22,6 12,13 2,6" />
-                                        </svg>
-                                        Gmail
-                                    </h6>
-                                    <span class="text-secondary">{{$candidat->email}}</span>
-                                </li>
-                                <li
-                                    class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-facebook me-2 icon-inline ">
-                                            <path
-                                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
-                                            </path>
-                                        </svg>Facebook</h6>
+                                <hr class="my-4">
+                                <ul class="list-group list-group-flush">
+                                    <li
+                                        class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                        <h6 class="mb-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-mail me-2 icon-inline">
+                                                <path
+                                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                                <polyline points="22,6 12,13 2,6" />
+                                            </svg>
+                                            Gmail
+                                        </h6>
+                                        <span class="text-secondary">{{ $candidat->email }}</span>
+                                    </li>
+                                    <li
+                                        class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                class="feather feather-facebook me-2 icon-inline ">
+                                                <path
+                                                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
+                                                </path>
+                                            </svg>Facebook</h6>
 
-                                    <span class="text-secondary">HERE FACEBOOK</span>
-                                </li>
-                            </ul>
+                                        <span class="text-secondary">HERE FACEBOOK</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Full Name</h6>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Full Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" value="{{ $candidat->username }}"
+                                            disabled>
+                                        @error('username')
+                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="{{ $candidat->username }}" disabled>
-                                    @error('username')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" value="{{ $candidat->email }}"
+                                            disabled>
+                                        @error('email')
+                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Email</h6>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Mobile</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="phone" class="form-control"
+                                            value="{{ $candidat->phone }}" autocomplete="off">
+                                        @error('phone')
+                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="{{ $candidat->email }}" disabled>
-                                    @error('email')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Address</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="address" class="form-control"
+                                            value="{{ $candidat->address }}" autocomplete="off">
+                                        @error('address')
+                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Mobile</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" name="phone" class="form-control" value="{{ $candidat->phone }}" autocomplete="off">
-                                    @error('phone')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Address</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" name="address" class="form-control" value="{{ $candidat->address }}" autocomplete="off">
-                                    @error('address')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Country</h6>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Country</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="country" class="form-control"
+                                            value="{{ $candidat->country }}" autocomplete="off">
+                                        @error('country')
+                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" name="country" class="form-control" value="{{ $candidat->country }}" autocomplete="off">
-                                    @error('country')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            {{-- <div class="row">
+                                {{-- <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
                                     <input type="button" class="btn btn-primary px-4" value="Save Changes">
                                 </div>
                             </div> --}}
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="d-flex align-items-center mb-5">Password</h5>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Current password</h6>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="d-flex align-items-center mb-5">Password</h5>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Current password</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" name="current_password"
+                                            id="current_password" autocomplete="off" value="">
+                                        @error('current_password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" name="current_password" id="current_password">
-                                    @error('current_password')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">New password</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" name="password" id="password">
+                                        @error('password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">New password</h6>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Confirmation</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" class="form-control" name="password_confirmation"
+                                            id="password_confirmation">
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control" name="password" id="password">
-                                    @error('password')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Confirmation</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="password" class="form-control"  name="password_confirmation" id="password_confirmation">
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9 text-secondary">
-                                    <button type="submit" class="btn btn-primary px-4"> Save Changes</button>
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <button type="submit" class="btn btn-primary px-4"> Save Changes</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {{-- <div class="row">
+                        {{-- <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-body">
@@ -432,9 +462,9 @@
                             </div>
                         </div>
                     </div> --}}
+                    </div>
                 </div>
             </div>
-        </div>
         </form>
     </div>
 </body>

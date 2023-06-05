@@ -341,15 +341,15 @@
         }
 
         /* .yp-dropdown-menu-item-content-href {
-                                                                                                                                        font-family: Nunito, Arial, Helvetica, sans-serif;
-                                                                                                                                        font-size: 14px;
-                                                                                                                                        color: #363636;
-                                                                                                                                        background: #fff;
-                                                                                                                                        padding: 10px;
-                                                                                                                                        font-weight: 500;
-                                                                                                                                        white-space: nowrap;
-                                                                                                                                        text-decoration: none;
-                                                                                                                                    } */
+                                                                                                                                                                                    font-family: Nunito, Arial, Helvetica, sans-serif;
+                                                                                                                                                                                    font-size: 14px;
+                                                                                                                                                                                    color: #363636;
+                                                                                                                                                                                    background: #fff;
+                                                                                                                                                                                    padding: 10px;
+                                                                                                                                                                                    font-weight: 500;
+                                                                                                                                                                                    white-space: nowrap;
+                                                                                                                                                                                    text-decoration: none;
+                                                                                                                                                                                } */
     </style>
 
 
@@ -398,8 +398,32 @@
                                             <div data-v-576fdb38="" class="dropdown">
                                                 <div data-v-576fdb38="" class="yp-dropdown-menu">
 
+                                                    <div class="yp-dropdown-menu-actions" style="display: flex;">
+                                                        {{-- <a class="dropdown-item" href="#" data-toggle="modal"
+                                                            data-target="#ModalShow{{ $annonce->id }}"
+                                                            style="color: #9cb2bd;">
+                                                            <i class="fa-solid fa-eye"></i> </a>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('famille.editannonce', ['annonce' => $annonce->id]) }}"
+                                                            style="color: #9cb2bd;"><i
+                                                                class="fa-solid fa-pen-to-square"></i> </a>
 
-                                                    <div class="yp-dropdown-menu-actions">
+                                                        <a class="dropdown-item" href="#" data-toggle="modal"
+                                                            data-target="#ModalDelete{{ $annonce->id }}"
+                                                            style="color: #9cb2bd;">
+                                                            <i class="fa-solid fa-trash"></i> </a>
+                                                        @if ($annonce->status == 'Active')
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                style="color: #9cb2bd;"><i class="fa-solid fa-pause"></i>
+                                                            </a>
+                                                        @else
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('famille.activeannonce', ['status' => $annonce->status, 'id_annonce' => $annonce->id]) }}"
+                                                                style="color: #9cb2bd;"><i class="fa-solid fa-plug"></i>
+                                                            </a>
+                                                        @endif --}}
+
 
                                                         <div class="btn-group">
                                                             <button type="button" class="btn btn-secondary"
@@ -439,6 +463,7 @@
 
                                                             </div>
                                                         </div>
+
                                                         {{-- MODAL VIEW --}}
 
                                                         <div class="modal fade text-left" id="ModalShow{{ $annonce->id }}"
@@ -473,7 +498,8 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <label for=""
-                                                                                            class="font-weight-bold">Under 3
+                                                                                            class="font-weight-bold">Under
+                                                                                            3
                                                                                             years old</label>
                                                                                         <input type="text"
                                                                                             class="form-control"

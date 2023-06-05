@@ -131,27 +131,30 @@
                 </style>
                 <li class="nav-item dropdown has-arrow main-drop">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                         {{--! image --}}
-                        
+                        {{-- ! image --}}
 
-                         @if(Auth::user()->image)
-                         <span class="user-img">
-                             <img src="/storage/{{ Auth::user()->image }}" alt="" style="width: 30px">
-                             <span class="status online"></span>
-                         </span>
-                          @else
-                          <span class="user-img">
-                             <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username)}}" alt="" style="width: 30px">
-                             <span class="status online"></span>
-                         </span>
-                          @endif
-                         {{--! end image --}}
+
+                        @if (Auth::user()->image)
+                            <span class="user-img">
+                                <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
+                                    style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @else
+                            <span class="user-img">
+                                <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
+                                    alt="" style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @endif
+                        {{-- ! end image --}}
                         {{-- <span>{{ Auth::user()->username}}</span> --}}
                         {{-- <span>username</span> --}}
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
-                        <a class="dropdown-item" href="{{ route('candidats.edit',Auth::user()->id)}}"><i data-feather="user" class="mr-1"></i>
+                        <a class="dropdown-item" href="{{ route('candidats.edit', Auth::user()->id) }}"><i
+                                data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
                             Settings</a>
@@ -263,18 +266,18 @@
                     <a class="nav-link" href="#"><i class="fa-solid fa-puzzle-piece"></i> My Ad</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('candidats.edit',Auth::user()->id)}}"><i class="fa-solid fa-user"></i> My Account</a>
+                    <a class="nav-link" href="{{ route('candidats.edit', Auth::user()->id) }}"><i
+                            class="fa-solid fa-user"></i> My Account</a>
                 </li>
             </ul>
-            <form action="{{ route('candidat.search') }}" method="POST" class="form-inline my-2 my-lg-0 ">
+            {{-- <form action="{{ route('candidat.search') }}" method="POST" class="form-inline my-2 my-lg-0 ">
                 @csrf
                 <input class="form-control mr-sm-2 search-familly" type="search" name="title_of_offer"
                     id="title_of_offer" placeholder="Search" aria-label="Search">
-
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 <div id="user_list">
                 </div>
-            </form>
+            </form> --}}
         </div>
     </nav>
     <div class="container-fluid py-1 bg-dark page-header mb-5">
@@ -320,9 +323,9 @@
                     </li>
                 </ul>
                 @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
                 @endif
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
@@ -344,7 +347,7 @@
                                                     alt="" style="width: 80px; height: 80px;">
                                             @endif
 
-                                            
+
                                             <div class="text-start ps-4">
                                                 {{-- {{ $annonce->title_of_offer }}
                                                 <br>
@@ -741,7 +744,7 @@
                                                 Apply
                                             </a> --}}
                                                 <a class="btn btn-outline-secondary font-monospace"
-                                                    href="{{ route('contacter', ['user_id' => Auth::user()->id, 'annonce_id' => $apply->id]) }}">applay</a>
+                                                    href="{{ route('contacter', ['user_id' => Auth::user()->id, 'annonce_id' => $apply->id]) }}">Apply</a>
 
 
 
@@ -1024,7 +1027,7 @@
         function appelDecline() {
             swal({
                 title: "Job Declined!",
-                timer: 2000
+                timer: 800
             });
         }
     </script>
