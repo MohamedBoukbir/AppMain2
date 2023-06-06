@@ -146,7 +146,7 @@
                                     </div>
                                 </form>
                                 <div class="form-link">
-                                    <span>Already have an account? <a href="#"
+                                    <span>Already have an account? <a href="{{ route('signin') }}"
                                             class="link login-link">Login</a></span>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@
                             </div>
                             <div class="media-options">
 
-                                <a href="#" data-toggle="modal" data-target="#ModalDelete">GMAIL</a>
+                                {{-- <a href="#" data-toggle="modal" data-target="#ModalDelete">GMAIL</a> --}}
                                 <a href="{{ route('google.login') }}" class="field google">
                                     {{-- <i class='bx bxl-google text text-danger icon-google'></i> --}}
                                     <img src="{{ asset('img/gmail.png') }}" alt="" class="google-img">

@@ -111,7 +111,7 @@
                                     </div>
                                 </form>
                                 <div class="form-link">
-                                    <span>You don't have an account? <a href="#" class="link login-link">Register</a></span>
+                                    <span>You don't have an account? <a href="{{ route('signup') }}" class="link login-link">Register</a></span>
                                 </div>
                             </div>
                             <div class="line"></div>
