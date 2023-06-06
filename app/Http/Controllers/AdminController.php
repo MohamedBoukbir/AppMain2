@@ -9,13 +9,21 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+
+    public function index (){
+        $users = User::whereRoleIs(['famille', 'candidat'])->orderBy('id', 'desc')->paginate("");
+        // $users = User::whereNull(['email_verified_at'])->orderBy('id', 'desc')->paginate("");
+        $familles = User::whereRoleIs('famille')->orderBy('id', 'desc')->paginate("");
+        $candidats = User::whereRoleIs('candidat')->orderBy('created_at', 'asc')->paginate("");
+        return view('admin.adminHome', compact('users', 'familles', 'candidats'));
+    }
     /////show add edit familles/////////////////////////
 
 
     //// afficher familles
     public function indexfamille()
     {
-        $familles = User::orderBy('id','desc')->paginate("");
+        $familles = User::whereRoleIs('famille')->orderBy('id', 'desc')->paginate("");
         return view('admin.indexfamille', compact('familles'));
     }
 
@@ -129,7 +137,7 @@ class AdminController extends Controller
 
     public function indexcandidat()
     {
-        $candidats = User::whereRoleIs('candidat')->orderBy('id','desc')->paginate("");
+        $candidats =  User::whereRoleIs('candidat')->orderBy('created_at', 'asc')->paginate("");
         return view('admin.indexcandidat', compact('candidats'));
 
     }

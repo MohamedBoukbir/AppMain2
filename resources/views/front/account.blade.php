@@ -248,7 +248,7 @@
         <div class="menu">
             <div class="menu-list">
                 <div class="menu-list-item">
-                    <a href="{{ route('account-dashboard') }}" class="menu-item-link">
+                    <a href="{{ route('famille.index') }}" class="menu-item-link">
                         <span class="menu-item-icon"><i class='bx bxs-dashboard'></i></span>
                         {{-- <p class="menu-item-label">Dashboard</p> --}}
                         @yield('item-list-1')

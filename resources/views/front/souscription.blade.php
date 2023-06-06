@@ -248,7 +248,7 @@
                                     <h5 class="card-title">Standard</h5>
                                     <small>Small Business</small>
                                     <br><br>
-                                    <span class="h2">$20</span>/month
+                                    <span class="h2">$20</span>/6 month
                                     <br><br>
                                 </div>
                                 <p class="card-text">Some quick example text to build on the card title and make up the
@@ -287,7 +287,7 @@
                                     <h5 class="card-title">Premium</h5>
                                     <small>Large Companies</small>
                                     <br><br>
-                                    <span class="h2">$40</span>/month
+                                    <span class="h2">$40</span>/1 years
                                     <br><br>
                                 </div>
                                 <p class="card-text">Some quick example text to build on the card title and make up the

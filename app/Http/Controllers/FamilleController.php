@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Liked;
+use Carbon\Carbon;
 use App\Models\Annonce;
+use App\Models\Subscribe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -13,51 +15,52 @@ class FamilleController extends Controller
 {
     public function index()
     {
-        $familles = User::where("type","famille")->orderBy('id','desc')->paginate("");
-        return view('familles.familleHome', compact('familles'));
+        $upgrade=Subscribe::where('user_id',auth()->user()->id)
+        ->where('enddate','>',Carbon::now())->first();
+        return view('front.dashboard-account',compact('upgrade'));
     }
 
 
-    public function create()
-    {
-        return view('familles.add-famille');
-    }
+//     public function create()
+//     {
+//         return view('familles.add-famille');
+//     }
 
-public function store(Request $request)
-    {
-        $request->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'address' => 'required',
-            'country' => 'required',
-            'phone' => 'required',
-            'religion' => 'required',
-            'domain' => 'required',
-            'child' => 'required',
-            'social_status' => 'required',
+// public function store(Request $request)
+//     {
+//         $request->validate([
+//             'firstName' => 'required',
+//             'lastName' => 'required',
+//             'email' => 'required',
+//             'password' => 'required',
+//             'address' => 'required',
+//             'country' => 'required',
+//             'phone' => 'required',
+//             'religion' => 'required',
+//             'domain' => 'required',
+//             'child' => 'required',
+//             'social_status' => 'required',
 
-        ]);
+//         ]);
 
-        $user = new User();
+//         $user = new User();
         
-        $user->firstName = $request->firstName;
-        $user->lastName = $request->lastName;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->address = $request->address;
-        $user->country = $request->country;
-        $user->phone = $request->phone;
-        $user->religion = $request->religion;
-        $user->domain = $request->domain;
-        $user->child = $request->child;
-        $user->social_status = $request->social_status;
-        $user->type='famille';
+//         $user->firstName = $request->firstName;
+//         $user->lastName = $request->lastName;
+//         $user->email = $request->email;
+//         $user->password = Hash::make($request->password);
+//         $user->address = $request->address;
+//         $user->country = $request->country;
+//         $user->phone = $request->phone;
+//         $user->religion = $request->religion;
+//         $user->domain = $request->domain;
+//         $user->child = $request->child;
+//         $user->social_status = $request->social_status;
+//         $user->type='famille';
 
-        $user->save();
-        return redirect()->route('familles.familleHome')->with('success','famille  Ajouter ');
-    }
+//         $user->save();
+//         return redirect()->route('familles.familleHome')->with('success','famille  Ajouter ');
+//     }
 
     public function edit(User $famille)
     {
