@@ -233,10 +233,18 @@
 
 
                                 <div class="overlay-content " style="display: flex;justify-content: space-between;">
-                                    <span>{{ $user->babysitter }}
-                                        {{ $user->nanny }}
-                                        {{ $user->childminder }}
-                                        {{ $user->maid }}</span>
+
+                                    <div style="display: flex;justify-content: start;">
+
+                                        <span
+                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->babysitter }}</span>
+                                        <span
+                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->nanny }}</span>
+                                        <span
+                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->childminder }}</span>
+                                        <span
+                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->maid }}</span>
+                                    </div>
                                     <div style="display: table-column">
                                         <span>{{ $user->country }}</span>
                                     </div>
