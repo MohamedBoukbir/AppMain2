@@ -36,6 +36,9 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 /// / /// / /// / welcome  /// / /// / ///
 Route::get('/', [FrontController::class, 'indexfront'])->name('welcome');
+Route::get('/find', function () {
+  return view('find-candidat');
+})->name('find-candidat');
 // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // /Admin // / // / // / // / // / // / // / // / // / //
 Route::middleware('auth','backNotAllowed','role:admin','verified')->group(function () {
