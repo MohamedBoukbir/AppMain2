@@ -45,7 +45,7 @@
     @livewireStyles
 </head>
 
-<body style="background-color: #FFF">
+<body style="background-color: #FFF" >
 
     <div class="container-fluid bg-white p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
