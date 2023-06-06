@@ -82,7 +82,7 @@ Route::middleware('auth','backNotAllowed','role:famille','verified')->group(func
     Route::get('/dashboard/active/annonce', [FamilleController::class, 'activeAnnonce'])->name('famille.activeannonce');
     Route::delete('/dashboard/delete/annonce/{annonce}', [FamilleController::class, 'destroyAnnonce'])->name('annonce.destroye');
 
-    Route::get('/dashbord/famille/success', [FamilleController::class, 'rederectToFamille'])->name('registration.famille.success');
+    // Route::get('/dashbord/famille/success', [FamilleController::class, 'rederectToFamille'])->name('registration.famille.success');
 
     /////////////// end fineshed regestring famille///////////////////////////
     Route::get('/my-account-applications', [AnnonceController::class, 'index'])->name('account-applications');
