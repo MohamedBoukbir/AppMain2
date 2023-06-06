@@ -236,14 +236,28 @@
 
                                     <div style="display: flex;justify-content: start;">
 
-                                        <span
-                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->babysitter }}</span>
-                                        <span
-                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->nanny }}</span>
-                                        <span
-                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->childminder }}</span>
-                                        <span
-                                            class="badge rounded-pill text-bg-success ms-1">{{ $user->maid }}</span>
+
+
+                                        @if ($user->babysitter)
+                                            <span
+                                                class="badge rounded-pill text-bg-success ms-1">{{ $user->babysitter }}</span>
+                                        @endif
+
+
+
+                                        @if ($user->childminder)
+                                            <span
+                                                class="badge rounded-pill text-bg-success ms-1">{{ $user->childminder }}</span>
+                                        @endif
+                                        @if ($user->nanny)
+                                            <span
+                                                class="badge rounded-pill text-bg-success ms-1">{{ $user->nanny }}</span>
+                                        @endif
+                                        @if ($user->maid)
+                                            <span
+                                                class="badge rounded-pill text-bg-success ms-1">{{ $user->maid }}</span>
+                                        @endif
+
                                     </div>
                                     <div style="display: table-column">
                                         <span>{{ $user->country }}</span>
@@ -259,7 +273,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a href="{{ route('signin') }}" >Add to favorites</a>
+                                            <a href="{{ route('signin') }}">Add to favorites</a>
                                         </div>
                                     </div>
                                 </div>
