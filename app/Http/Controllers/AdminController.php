@@ -294,6 +294,51 @@ class AdminController extends Controller
         ->get();
         return view('abonnements',compact('subscribes'));
      }
- 
+ // update profil Admin
+ public function edit(User $admin)
+ {
+   
+     return view('admin.profile',compact('admin'));
+ }
+
+ public function update(Request $request, User $admin)
+ {
+     
+     $request->validate([
+         'phone' => 'required',
+         'address' => 'required',
+         'country' => 'required',
+     ]);
+
+  // Verify the current password
+  
+
+   // Update the password
+      $admin = User::find($admin->id);
+      if($request->current_password && $request->password){
+         $request->validate([
+             'current_password' => 'required',
+             'password' => 'required|min:6|confirmed',
+         ]);
+         if (!Hash::check($request->current_password, $admin->password)) {
+             return back()->withErrors(['current_password' => 'Le mot de passe actuel est incorrect.']);
+         }
+         $admin->password = Hash::make($request->password);
+     }
+         if($request->image){
+             $request->validate([
+                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+             ]);
+             $imagePath =$request->image->store('images', 'public');
+             // $candidat->image = $request->image;
+             $admin->image = $imagePath;
+         }
+
+         $admin->address = $request->address;
+         $admin->country = $request->country;
+         $admin->phone = $request->phone;
+         $admin->save();
+     return redirect()->route('admin.index')->with('success', 'your profile is update !!');
+ }
 
 }

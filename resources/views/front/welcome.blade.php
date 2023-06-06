@@ -235,8 +235,8 @@
                 </div>
             </div>
         </div>
-
-
+        @else
+        Not Data
         @endif
           <!-- table End -->
         <!-- Category Start -->
@@ -384,8 +384,23 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
-                                            alt="" style="width: 80px; height: 80px;">
+                                        
+                           {{-- ! image --}}
+
+
+                         @if ($first2childminder->image)
+                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2childminder->image }}"
+                         alt="" style="width: 80px; height: 80px;">
+
+                            
+        
+                        
+                     @else
+                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2childminder->username) }}"
+                     alt="" style="width: 80px; height: 80px;">
+                        
+                     @endif
+                     {{-- ! end image --}}
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">{{$first2childminder->username}}</h5>
                                             <span class="text-truncate me-3"><i
@@ -426,8 +441,22 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
-                                            alt="" style="width: 80px; height: 80px;">
+                                     {{-- ! image --}}
+
+
+                         @if ($first2babysitter->image)
+                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2babysitter->image }}"
+                         alt="" style="width: 80px; height: 80px;">
+
+                            
+        
+                        
+                     @else
+                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2babysitter->username) }}"
+                     alt="" style="width: 80px; height: 80px;">
+                        
+                     @endif
+                     {{-- ! end image --}}
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">{{$first2babysitter->username}}</h5>
                                             <span class="text-truncate me-3"><i
@@ -469,8 +498,22 @@
                         <div class="job-item p-4 mb-4">
                             <div class="row g-4">
                                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
+                                   {{-- ! image --}}
+
+
+                         @if ($first2maid->image)
+                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2maid->image }}"
+                         alt="" style="width: 80px; height: 80px;">
+
+                            
+        
+                        
+                     @else
+                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2maid->username) }}"
+                     alt="" style="width: 80px; height: 80px;">
+                        
+                     @endif
+                     {{-- ! end image --}}
                                     <div class="text-start ps-4">
                                         <h5 class="mb-3">{{$first2maid->username}}</h5>
                                         <span class="text-truncate me-3"><i
@@ -513,8 +556,22 @@
                          <div class="job-item p-4 mb-4">
                              <div class="row g-4">
                                  <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                     <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg"
-                                         alt="" style="width: 80px; height: 80px;">
+                                    {{-- ! image --}}
+
+
+                         @if ($first2nanny->image)
+                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2nanny->image }}"
+                         alt="" style="width: 80px; height: 80px;">
+
+                            
+        
+                        
+                     @else
+                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2nanny->username) }}"
+                     alt="" style="width: 80px; height: 80px;">
+                        
+                     @endif
+                     {{-- ! end image --}}
                                      <div class="text-start ps-4">
                                          <h5 class="mb-3">{{$first2nanny->username}}</h5>
                                          <span class="text-truncate me-3"><i

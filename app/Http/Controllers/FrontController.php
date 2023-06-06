@@ -49,45 +49,57 @@ class FrontController extends Controller
     public function searchfront( Request $request) {  
     $users=User::where('maid',1)->get();
 if ( $request->location || $request->category){
-    switch ($request->category) {
-        case 'childminder':
+    if($request->category == null){
+     $users = User::whereRoleIs('candidat')
+            ->Where('country', $request->location)
+            ->paginate();
+    }else{
+        switch ($request->category) {
+            case 'childminder':
+                // dd('childminder');
+                $users = User::whereRoleIs('candidat')
+                ->where(function ($query) use ($request) {
+                    $query
+                          ->where('childminder', $request->category)
+                          ->orWhere('country', $request->location);
+                })->where('country','<>',null)
+                ->paginate();
+                break;
+            case 'nanny':
+                // dd('nanny');
+                $users = User::whereRoleIs('candidat')
+                ->where(function ($query) use ($request) {
+                    $query->where('nanny', $request->category)
+                          ->orWhere('country', $request->location);
+                })->where('country','<>',null)
+                ->paginate();
+               
+                break;
+            case 'maid':
+                // dd('maid');
+                $users = User::whereRoleIs('candidat')
+                ->where(function ($query) use ($request) {
+                    $query->where('maid', $request->category)
+                          ->orWhere('country', $request->location);
+                })->where('country','<>',null)
+                ->paginate();
+                break;
+            default:
+            // dd('babysitter');
             $users = User::whereRoleIs('candidat')
             ->where(function ($query) use ($request) {
-                $query->where('childminder', $request->category)
+                $query->where('babysitter', $request->category)
                       ->orWhere('country', $request->location);
-            })
+            })->where('country','<>',null)
             ->paginate();
-            break;
-        case 'nanny':
-          
-            $users = User::whereRoleIs('candidat')
-            ->where(function ($query) use ($request) {
-                $query->where('nanny', $request->category)
-                      ->orWhere('country', $request->location);
-            })
-            ->paginate();
-           
-            break;
-        case 'maid':
-            $users = User::whereRoleIs('candidat')
-            ->where(function ($query) use ($request) {
-                $query->where('maid', $request->category)
-                      ->orWhere('country', $request->location);
-            })
-            ->paginate();
-            break;
-        default:
-        $users = User::whereRoleIs('candidat')
-        ->where(function ($query) use ($request) {
-            $query->where('babysitter', $request->category)
-                  ->orWhere('country', $request->location);
-        })
-        ->paginate();
+        }
     }
+    
 }elseif($request->username){
-    // dd($request->username);
+    dd($request->username);
     $users = User::whereRoleIs('candidat')
             ->where('username', $request->username)
+            ->where('country','<>',null)
             ->paginate();
 }
 // autre table 

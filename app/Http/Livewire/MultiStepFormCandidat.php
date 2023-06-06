@@ -26,8 +26,7 @@ class MultiStepFormCandidat extends Component
     public $monthly_salary;
     public $currency_coin;
 ///////////////////////////
-    public $title_of_offer;
-    public $define_needs;
+   
     public $address;
    
    
@@ -63,8 +62,11 @@ public $babysitter;
 public $nanny;
 public $childminder;
 public $maid;
+public $title_of_offer;
+public $define_needs;
+public $years_experience;
   ////////////////////////////////
-    public $totalSteps =3;
+    public $totalSteps =4;
     public $currentStep = 1;
 
     public function mount(){
@@ -137,18 +139,20 @@ public $maid;
                  'religion'=>'required',
               ]);
         }
-        // elseif($this->currentStep == 3){
-        //       $this->validate([
-        //           'passport_number'=>'required',
-        //       ]);
-        // }
+        elseif($this->currentStep == 3){
+              $this->validate([
+                'passport_number'=>'required',
+              ]);
+        }
     }
 
     public function register(){
           $this->resetErrorBag();
-          if($this->currentStep == 3){
+          if($this->currentStep == 4){
               $this->validate([
-                'passport_number'=>'required',
+                'title_of_offer'=>'required',
+                'define_needs'=>'required',
+                'years_experience'=>'required',
               ]);
           }
 
@@ -197,7 +201,9 @@ public $maid;
         $user->childminder = $this->childminder;
         $user->nanny = $this->nanny;
         $user->babysitter =$this->babysitter;
-        // $user->accommodation = $this->accommodation;
+        $user->title_of_offer =$this->title_of_offer;
+        $user->define_needs =$this->define_needs;
+        $user->years_experience = $this->years_experience;
         // $user->day_off = $this->day_off;
         // $user->expected_start_date = $this->expected_start_date;
 

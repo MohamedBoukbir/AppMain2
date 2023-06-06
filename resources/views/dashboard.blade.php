@@ -170,14 +170,31 @@
 
                 <li class="nav-item dropdown has-arrow main-drop">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <span class="user-img">
+                        {{-- <span class="user-img">
                             <img src="{{ asset('img/profile.png') }}" alt="">
                             <span class="status online"></span>
-                        </span>
-                        <span>Badour Mohcine</span>
+                        </span> --}}
+                         {{-- ! image --}}
+
+
+                         @if (Auth::user()->image)
+                         <span class="user-img">
+                             <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
+                                 style="width: 40px;height: 40px;">
+                             <span class="status online"></span>
+                         </span>
+                     @else
+                         <span class="user-img">
+                             <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
+                                 alt="" style="width: 40px;height: 40px;">
+                             <span class="status online"></span>
+                         </span>
+                     @endif
+                     {{-- ! end image --}}
+                        <span>{{Auth::user()->username}}</span>
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="profile.html"><i data-feather="user" class="mr-1"></i>
+                        <a class="dropdown-item" href="{{ route('admin.edit', Auth::user()->id) }}"><i data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
                             Settings</a>

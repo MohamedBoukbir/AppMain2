@@ -95,7 +95,7 @@
                         {{-- ! image --}}
 
 
-                        @if ($candidat->image)
+                        @if ($admin->image)
                             <span class="user-img">
                                 <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
                                     style="width: 40px;height: 40px;">
@@ -116,7 +116,7 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
                         {{-- <a class="dropdown-item disabled" href="#">#</a> --}}
-                        <a class="dropdown-item" href="{{ route('candidats.edit', Auth::user()->id) }}"><i
+                        <a class="dropdown-item" href="{{ route('admin.edit', Auth::user()->id) }}"><i
                                 data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
@@ -151,8 +151,7 @@
                                 box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
                             }
                         </style>
-                        {{--!logout--}}
-                        {{-- <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <div class="row justify-content-center">
                                 <div class="col-auto">
@@ -161,22 +160,11 @@
                                         Logout
                                     </button>
                                 </div>
-                            </div> --}}
+                            </div>
                             {{-- <button class="btn-logout" type="submit">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 Logout</button> --}}
-                        {{-- </form> --}}
-                        
-                        <a class="dropdown-item" href="login.html" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
-                     {{-- !image logout--}}
-                     <i
-                            data-feather="log-out" class="mr-1"></i> Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                        {{--!logout--}}
+                        </form>
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}
@@ -233,7 +221,7 @@
     </div>
 
     <div class="container mt-5">
-        <form action="{{ route('candidats.updatecandidat', $candidat->id) }}" method="POST"
+        <form action="{{ route('admin.updateadmin', $admin->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             <div class="main-body">
@@ -243,7 +231,7 @@
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
                                     {{-- {{$candidat->image}} --}}
-                                    @if ($candidat->image)
+                                    @if ($admin->image)
                                         {{-- <img class="flex-shrink-0 img-fluid rounded"
                                 src="/storage/{{ $candidat->image }}" alt=""
                                 style="width: 80px; height: 80px;"> --}}
@@ -256,7 +244,7 @@
                                             <span class="status online"></span>
                                         </span>
                                     @else
-                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($candidat->username) }}"
+                                        <img src="https://ui-avatars.com/api/?name={{ urlencode($admin->username) }}"
                                             alt="Admin" class="rounded-circle p-1"
                                             style="width: 110;height: 110px;">
                                     @endif
@@ -304,7 +292,7 @@
                                             </svg>
                                             Gmail
                                         </h6>
-                                        <span class="text-secondary">{{ $candidat->email }}</span>
+                                        <span class="text-secondary">{{ $admin->email }}</span>
                                     </li>
                                     <li
                                         class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -332,7 +320,7 @@
                                         <h6 class="mb-0">Full Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="{{ $candidat->username }}"
+                                        <input type="text" class="form-control" value="{{ $admin->username }}"
                                             disabled>
                                         @error('username')
                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -344,7 +332,7 @@
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="{{ $candidat->email }}"
+                                        <input type="text" class="form-control" value="{{ $admin->email }}"
                                             disabled>
                                         @error('email')
                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -357,7 +345,7 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="text" name="phone" class="form-control"
-                                            value="{{ $candidat->phone }}" autocomplete="off">
+                                            value="{{ $admin->phone }}" autocomplete="off">
                                         @error('phone')
                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                         @enderror
@@ -369,7 +357,7 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="text" name="address" class="form-control"
-                                            value="{{ $candidat->address }}" autocomplete="off">
+                                            value="{{ $admin->address }}" autocomplete="off">
                                         @error('address')
                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                         @enderror
@@ -382,7 +370,7 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="text" name="country" class="form-control"
-                                            value="{{ $candidat->country }}" autocomplete="off">
+                                            value="{{ $admin->country }}" autocomplete="off">
                                         @error('country')
                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                         @enderror

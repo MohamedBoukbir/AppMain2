@@ -1334,109 +1334,109 @@
                                         <select class="form-select" id="languages" name="languages"
                                             wire:model="languages">
                                             <option>Select</option>
-                                            <option value="af">Afrikaans</option>
-                                            <option value="sq">Albanian - shqip</option>
-                                            <option value="am">Amharic - አማርኛ</option>
-                                            <option value="ar">Arabic - العربية</option>
-                                            <option value="an">Aragonese - aragonés</option>
-                                            <option value="az">Azerbaijani - azərbaycan dili</option>
-                                            <option value="eu">Basque - euskara</option>
-                                            <option value="be">Belarusian - беларуская</option>
-                                            <option value="bn">Bengali - বাংলা</option>
-                                            <option value="bs">Bosnian - bosanski</option>
-                                            <option value="br">Breton - brezhoneg</option>
-                                            <option value="bg">Bulgarian - български</option>
-                                            <option value="ca">Catalan - català</option>
-                                            <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
-                                            <option value="zh">Chinese - 中文</option>
-                                            <option value="hr">Croatian - hrvatski</option>
-                                            <option value="da">Danish - dansk</option>
-                                            <option value="nl">Dutch - Nederlands</option>
-                                            <option value="en">English</option>
-                                            <option value="et">Estonian - eesti</option>
-                                            <option value="fo">Faroese - føroyskt</option>
-                                            <option value="fil">Filipino</option>
-                                            <option value="fi">Finnish - suomi</option>
-                                            <option value="fr">French - français</option>
-                                            <option value="de">German - Deutsch</option>
-                                            <option value="el">Greek - Ελληνικά</option>
-                                            <option value="gn">Guarani</option>
-                                            <option value="gu">Gujarati - ગુજરાતી</option>
-                                            <option value="ha">Hausa</option>
-                                            <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
-                                            <option value="he">Hebrew - עברית</option>
-                                            <option value="hi">Hindi - हिन्दी</option>
-                                            <option value="hu">Hungarian - magyar</option>
-                                            <option value="is">Icelandic - íslenska</option>
-                                            <option value="id">Indonesian - Indonesia</option>
-                                            <option value="ia">Interlingua</option>
-                                            <option value="ga">Irish - Gaeilge</option>
-                                            <option value="it">Italian - italiano</option>
-                                            <option value="ja">Japanese - 日本語</option>
-                                            <option value="ko">Korean - 한국어</option>
-                                            <option value="ku">Kurdish - Kurdî</option>
-                                            <option value="la">Latin</option>
-                                            <option value="lt">Lithuanian - lietuvių</option>
-                                            <option value="mk">Macedonian - македонски</option>
-                                            <option value="ms">Malay - Bahasa Melayu</option>
-                                            <option value="ml">Malayalam - മലയാളം</option>
-                                            <option value="mt">Maltese - Malti</option>
-                                            <option value="mr">Marathi - मराठी</option>
-                                            <option value="mn">Mongolian - монгол</option>
-                                            <option value="ne">Nepali - नेपाली</option>
-                                            <option value="no">Norwegian - norsk</option>
-                                            <option value="nb">Norwegian Bokmål - norsk bokmål</option>
-                                            <option value="nn">Norwegian Nynorsk - nynorsk</option>
-                                            <option value="oc">Occitan</option>
-                                            <option value="or">Oriya - ଓଡ଼ିଆ</option>
-                                            <option value="om">Oromo - Oromoo</option>
-                                            <option value="ps">Pashto - پښتو</option>
-                                            <option value="fa">Persian - فارسی</option>
-                                            <option value="pl">Polish - polski</option>
-                                            <option value="pt">Portuguese - português</option>
-                                            <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
-                                            <option value="pt-PT">Portuguese (Portugal) - português (Portugal)
+                                            <option value="Afrikaans">Afrikaans</option>
+                                            <option value="Albanian - shqip">Albanian - shqip</option>
+                                            <option value="Amharic - አማርኛ">Amharic - አማርኛ</option>
+                                            <option value="Arabic - العربية">Arabic - العربية</option>
+                                            <option value="Aragonese - aragonés">Aragonese - aragonés</option>
+                                            <option value="Azerbaijani - azərbaycan dili">Azerbaijani - azərbaycan dili</option>
+                                            <option value="Basque - euskara">Basque - euskara</option>
+                                            <option value="Belarusian - беларуская">Belarusian - беларуская</option>
+                                            <option value="Bengali - বাংলা">Bengali - বাংলা</option>
+                                            <option value="Bosnian - bosanski">Bosnian - bosanski</option>
+                                            <option value="Breton - brezhoneg">Breton - brezhoneg</option>
+                                            <option value="Bulgarian - български">Bulgarian - български</option>
+                                            <option value="Catalan - català">Catalan - català</option>
+                                            <option value="Central Kurdish - کوردی (دەستنوسی عەرەبی)">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
+                                            <option value="Chinese - 中文">Chinese - 中文</option>
+                                            <option value="Croatian - hrvatski">Croatian - hrvatski</option>
+                                            <option value="Danish - dansk">Danish - dansk</option>
+                                            <option value="Dutch - Nederlands">Dutch - Nederlands</option>
+                                            <option value="English">English</option>
+                                            <option value="Estonian - eesti">Estonian - eesti</option>
+                                            <option value="Faroese - føroyskt">Faroese - føroyskt</option>
+                                            <option value="Filipino">Filipino</option>
+                                            <option value="Finnish - suomi">Finnish - suomi</option>
+                                            <option value="French - français">French - français</option>
+                                            <option value="German - Deutsch">German - Deutsch</option>
+                                            <option value="Greek - Ελληνικά">Greek - Ελληνικά</option>
+                                            <option value="Guarani">Guarani</option>
+                                            <option value="Gujarati - ગુજરાતી">Gujarati - ગુજરાતી</option>
+                                            <option value="Hausa">Hausa</option>
+                                            <option value="Hawaiian - ʻŌlelo Hawaiʻi">Hawaiian - ʻŌlelo Hawaiʻi</option>
+                                            <option value="Hebrew - עברית">Hebrew - עברית</option>
+                                            <option value="Hindi - हिन्दी">Hindi - हिन्दी</option>
+                                            <option value="Hungarian - magyar">Hungarian - magyar</option>
+                                            <option value="Icelandic - íslenska">Icelandic - íslenska</option>
+                                            <option value="Indonesian - Indonesia">Indonesian - Indonesia</option>
+                                            <option value="Interlingua">Interlingua</option>
+                                            <option value="Irish - Gaeilge">Irish - Gaeilge</option>
+                                            <option value="Italian - italiano">Italian - italiano</option>
+                                            <option value="Japanese - 日本語">Japanese - 日本語</option>
+                                            <option value="Korean - 한국어">Korean - 한국어</option>
+                                            <option value="Kurdish - Kurdî">Kurdish - Kurdî</option>
+                                            <option value="Latin">Latin</option>
+                                            <option value="Lithuanian - lietuvių">Lithuanian - lietuvių</option>
+                                            <option value="Macedonian - македонски">Macedonian - македонски</option>
+                                            <option value="Malay - Bahasa Melayu">Malay - Bahasa Melayu</option>
+                                            <option value="Malayalam - മലയാളം">Malayalam - മലയാളം</option>
+                                            <option value="Maltese - Malti">Maltese - Malti</option>
+                                            <option value="Marathi - मराठी">Marathi - मराठी</option>
+                                            <option value="Mongolian - монгол">Mongolian - монгол</option>
+                                            <option value="Nepali - नेपाली">Nepali - नेपाली</option>
+                                            <option value="Norwegian - norsk">Norwegian - norsk</option>
+                                            <option value="Norwegian Bokmål - norsk bokmål">Norwegian Bokmål - norsk bokmål</option>
+                                            <option value="Norwegian Nynorsk - nynorsk">Norwegian Nynorsk - nynorsk</option>
+                                            <option value="Occitan">Occitan</option>
+                                            <option value="Oriya - ଓଡ଼ିଆ">Oriya - ଓଡ଼ିଆ</option>
+                                            <option value="Oromo - Oromoo">Oromo - Oromoo</option>
+                                            <option value="Pashto - پښتو">Pashto - پښتو</option>
+                                            <option value="Persian - فارسی">Persian - فارسی</option>
+                                            <option value="Polish - polski">Polish - polski</option>
+                                            <option value="Portuguese - português">Portuguese - português</option>
+                                            <option value="Portuguese (Brazil) - português (Brasil)">Portuguese (Brazil) - português (Brasil)</option>
+                                            <option value="Portuguese (Portugal) - português (Portugal)">Portuguese (Portugal) - português (Portugal)
                                             </option>
-                                            <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
-                                            <option value="qu">Quechua</option>
-                                            <option value="ro">Romanian - română</option>
-                                            <option value="ru">Russian - русский</option>
-                                            <option value="gd">Scottish Gaelic</option>
-                                            <option value="sr">Serbian - српски</option>
-                                            <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
-                                            <option value="sn">Shona - chiShona</option>
-                                            <option value="sd">Sindhi</option>
-                                            <option value="si">Sinhala - සිංහල</option>
-                                            <option value="sk">Slovak - slovenčina</option>
-                                            <option value="sl">Slovenian - slovenščina</option>
-                                            <option value="so">Somali - Soomaali</option>
-                                            <option value="st">Southern Sotho</option>
-                                            <option value="es">Spanish - español</option>
-                                            <option value="su">Sundanese</option>
-                                            <option value="sw">Swahili - Kiswahili</option>
-                                            <option value="sv">Swedish - svenska</option>
-                                            <option value="tg">Tajik - тоҷикӣ</option>
-                                            <option value="ta">Tamil - தமிழ்</option>
-                                            <option value="tt">Tatar</option>
-                                            <option value="te">Telugu - తెలుగు</option>
-                                            <option value="th">Thai - ไทย</option>
-                                            <option value="ti">Tigrinya - ትግርኛ</option>
-                                            <option value="to">Tongan - lea fakatonga</option>
-                                            <option value="tr">Turkish - Türkçe</option>
-                                            <option value="tk">Turkmen</option>
-                                            <option value="tw">Twi</option>
-                                            <option value="uk">Ukrainian - українська</option>
-                                            <option value="ur">Urdu - اردو</option>
-                                            <option value="ug">Uyghur</option>
-                                            <option value="uz">Uzbek - o‘zbek</option>
-                                            <option value="vi">Vietnamese - Tiếng Việt</option>
-                                            <option value="wa">Walloon - wa</option>
-                                            <option value="cy">Welsh - Cymraeg</option>
-                                            <option value="fy">Western Frisian</option>
-                                            <option value="xh">Xhosa</option>
-                                            <option value="yi">Yiddish</option>
-                                            <option value="yo">Yoruba - Èdè Yorùbá</option>
-                                            <option value="zu">Zulu - isiZulu</option>
+                                            <option value="Punjabi - ਪੰਜਾਬੀ">Punjabi - ਪੰਜਾਬੀ</option>
+                                            <option value="Quechua">Quechua</option>
+                                            <option value="Romanian - română">Romanian - română</option>
+                                            <option value="Russian - русский">Russian - русский</option>
+                                            <option value="Scottish Gaelic">Scottish Gaelic</option>
+                                            <option value="Serbian - српски">Serbian - српски</option>
+                                            <option value="Serbo-Croatian - Srpskohrvatski">Serbo-Croatian - Srpskohrvatski</option>
+                                            <option value="Shona - chiShona">Shona - chiShona</option>
+                                            <option value="Sindhi">Sindhi</option>
+                                            <option value="Sinhala - සිංහල">Sinhala - සිංහල</option>
+                                            <option value="Slovak - slovenčina">Slovak - slovenčina</option>
+                                            <option value="Slovenian - slovenščina">Slovenian - slovenščina</option>
+                                            <option value="Somali - Soomaali">Somali - Soomaali</option>
+                                            <option value="Southern Sotho">Southern Sotho</option>
+                                            <option value="Spanish - español">Spanish - español</option>
+                                            <option value="Sundanese">Sundanese</option>
+                                            <option value="Swahili - Kiswahili">Swahili - Kiswahili</option>
+                                            <option value="Swedish - svenska">Swedish - svenska</option>
+                                            <option value="Tajik - тоҷикӣ">Tajik - тоҷикӣ</option>
+                                            <option value="Tamil - தமிழ்">Tamil - தமிழ்</option>
+                                            <option value="Tatar">Tatar</option>
+                                            <option value="Telugu - తెలుగు">Telugu - తెలుగు</option>
+                                            <option value="Thai - ไทย">Thai - ไทย</option>
+                                            <option value="Tigrinya - ትግርኛ">Tigrinya - ትግርኛ</option>
+                                            <option value="Tongan - lea fakatonga">Tongan - lea fakatonga</option>
+                                            <option value="Turkish - Türkçe">Turkish - Türkçe</option>
+                                            <option value="Turkmen">Turkmen</option>
+                                            <option value="Twi">Twi</option>
+                                            <option value="Ukrainian - українська">Ukrainian - українська</option>
+                                            <option value="Urdu - اردو">Urdu - اردو</option>
+                                            <option value="Uyghur">Uyghur</option>
+                                            <option value="Uzbek - o‘zbek">Uzbek - o‘zbek</option>
+                                            <option value="Vietnamese - Tiếng Việt">Vietnamese - Tiếng Việt</option>
+                                            <option value="Walloon - wa">Walloon - wa</option>
+                                            <option value="Welsh - Cymraeg">Welsh - Cymraeg</option>
+                                            <option value="Western Frisian">Western Frisian</option>
+                                            <option value="Xhosa">Xhosa</option>
+                                            <option value="Yiddish">Yiddish</option>
+                                            <option value="Yoruba - Èdè Yorùbá">Yoruba - Èdè Yorùbá</option>
+                                            <option value="Zulu - isiZulu">Zulu - isiZulu</option>
                                         </select>
                                         <span class="text-danger">
                                             @error('languages')
@@ -1772,6 +1772,222 @@
                     </div>
                 </div>
             @endif
+            @if ($currentStep == 4)
+            <div class="step-two">
+                <div class="card">
+                    <style>
+                        .step-wizard {
+                            /* background-color: #21d4fd; */
+                            /* background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%); */
+                            /* height: 100vh; */
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        .step-wizard-list {
+                            background: #fff;
+                            /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); */
+                            color: #333;
+                            list-style-type: none;
+                            border-radius: 10px;
+                            display: flex;
+                            padding: 20px 10px;
+                            position: relative;
+                            z-index: 10;
+                        }
+
+                        .step-wizard-item {
+                            padding: 0 20px;
+                            flex-basis: 0;
+                            -webkit-box-flex: 1;
+                            -ms-flex-positive: 1;
+                            flex-grow: 1;
+                            max-width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            text-align: center;
+                            min-width: 170px;
+                            position: relative;
+                        }
+
+                        .step-wizard-item+.step-wizard-item:after {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: 19px;
+                            background: #0071FF;
+                            width: 100%;
+                            height: 2px;
+                            transform: translateX(-50%);
+                            z-index: -10;
+                        }
+
+                        .progress-count {
+                            height: 40px;
+                            width: 40px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            font-weight: 600;
+                            margin: 0 auto;
+                            position: relative;
+                            z-index: 10;
+                            color: transparent;
+                        }
+
+                        .progress-count:after {
+                            content: "";
+                            height: 40px;
+                            width: 40px;
+                            background: #0071FF;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            border-radius: 50%;
+                            z-index: -10;
+                        }
+
+                        .progress-count:before {
+                            content: "";
+                            height: 10px;
+                            width: 20px;
+                            border-left: 3px solid #fff;
+                            border-bottom: 3px solid #fff;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -60%) rotate(-45deg);
+                            transform-origin: center center;
+                        }
+
+                        .progress-label {
+                            font-size: 14px;
+                            font-weight: 600;
+                            margin-top: 10px;
+                        }
+
+                        .current-item .progress-count:before,
+                        .current-item~.step-wizard-item .progress-count:before {
+                            display: none;
+                        }
+
+                        .current-item~.step-wizard-item .progress-count:after {
+                            height: 10px;
+                            width: 10px;
+                        }
+
+                        .current-item~.step-wizard-item .progress-label {
+                            opacity: 0.5;
+                        }
+
+                        .current-item .progress-count:after {
+                            background: #fff;
+                            border: 2px solid #0071FF;
+                        }
+
+                        .current-item .progress-count {
+                            color: #0071FF;
+                        }
+
+                        .card {
+                            border-top-left-radius: 20px;
+                            border-top-right-radius: 20px;
+                            border: none;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        }
+
+                        .card-header {
+                            text-align: center;
+                            font-weight: 900;
+                            width: 100%;
+                            border-top-left-radius: 20px;
+                            border-top-right-radius: 20px;
+                            margin: 0 auto;
+                            height: 50px;
+                        }
+                    </style>
+
+                    <div
+                        class="card-header bg-primary text-white d-flex align-items-center justify-content-center">
+                        Define your needs</div>
+                    <section class="step-wizard">
+                        <ul class="step-wizard-list">
+                            <li class="step-wizard-item">
+                                <span class="progress-count">1</span>
+                                <span class="progress-label">About You</span>
+                            </li>
+                            <li class="step-wizard-item ">
+                                <span class="progress-count">2</span>
+                                <span class="progress-label">Your background</span>
+                            </li>
+                            <li class="step-wizard-item ">
+                                <span class="progress-count">3</span>
+                                <span class="progress-label">More</span>
+                            </li>
+                            <li class="step-wizard-item current-item">
+                                <span class="progress-count">4</span>
+                                <span class="progress-label">Finished</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Title of my offer* (30-60 characters)</label>
+                                    <input type="text" class="form-control" wire:model="title_of_offer">
+                                    <span class="text-danger">
+                                        @error('title_of_offer')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                           
+                          
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="">Define your needs</label>
+                                    <textarea class="form-control customtextarea" rows="6"
+                                        placeholder="Example:
+We are a family of 3 members, 2 kids 10 and 12 years old and an elderly requiring special needs. Looking for a helper with at least 4 years of experience and good recommendations. We would like someone warm, friendly and kind to help with day-to-day tasks, experienced, flexible - priority is looking after our children, a great cook and super organised who can manage all things related to cooking and housekeeping (cleaning, laundry, ironing) with ease…"
+                                        wire:model="define_needs"></textarea>
+                                    <span class="text-danger">
+                                        @error('define_needs')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                           
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">years of experience</label>
+                                    <input type="number" class="form-control" pattern="[0-9]+" min="0"
+                                        wire:model="years_experience">
+                                    <span class="text-danger">
+                                        @error('years_experience')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
 
             {{-- BUTTONS --}}
             <div class="action-buttons d-flex justify-content-between pt-2 pb-2">
@@ -1780,17 +1996,17 @@
                     <div></div>
                 @endif
 
-                @if ($currentStep == 2 || $currentStep == 3)
+                @if ($currentStep == 2 || $currentStep == 3 || $currentStep == 4)
                     <button type="button" class="btn btn-md btn-danger" wire:click="decreaseStep()"><i
                             class="fa-sharp fa-solid fa-arrow-left"></i></button>
                 @endif
 
-                @if ($currentStep == 1 || $currentStep == 2)
+                @if ($currentStep == 1 || $currentStep == 2 || $currentStep == 3)
                     <button type="button" class="btn btn-md btn-success" wire:click="increaseStep()"><i
                             class="fa-sharp fa-solid fa-arrow-right"></i></button>
                 @endif
 
-                @if ($currentStep == 3)
+                @if ($currentStep == 4)
                     <button type="submit" class="btn btn-md btn-primary"><i class="fa-solid fa-check"></i></button>
                 @endif
             </div>

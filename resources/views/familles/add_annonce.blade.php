@@ -89,16 +89,33 @@
                 </style>
                 <li class="nav-item dropdown has-arrow main-drop">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <span class="user-img">
+                        {{-- <span class="user-img">
                             <img src="{{ asset('img/profile.png') }}" alt="" style="width: 30px">
                             <span class="status online"></span>
-                        </span>
+                        </span> --}}
+                          {{-- ! image --}}
+
+
+                          @if (Auth::user()->image)
+                          <span class="user-img">
+                              <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
+                                  style="width: 40px;height: 40px;">
+                              <span class="status online"></span>
+                          </span>
+                      @else
+                          <span class="user-img">
+                              <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
+                                  alt="" style="width: 40px;height: 40px;">
+                              <span class="status online"></span>
+                          </span>
+                      @endif
+                      {{-- ! end image --}}
                         {{-- <span>{{ Auth::user()->username}}</span> --}}
                         {{-- <span>username</span> --}}
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
-                        <a class="dropdown-item" href="profile.html"><i data-feather="user" class="mr-1"></i>
+                        <a class="dropdown-item"href="{{ route('familles.edit', Auth::user()->id) }}"><i data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
                             Settings</a>
@@ -108,12 +125,23 @@
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i
                                 data-feather="log-out" class="mr-1"></i> Logout</a> --}}
-
-                        <form method="POST" action="{{ route('logout') }}">
+                         {{--!logout--}}
+                         
+                        <a class="dropdown-item" href="login.html" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+                     {{-- !image logout--}}
+                     <i
+                            data-feather="log-out" class="mr-1"></i> Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                        {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <button type="submit"> Logout</button>
-                        </form>
+                        </form> --}}
+                        {{--!logout--}}
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}

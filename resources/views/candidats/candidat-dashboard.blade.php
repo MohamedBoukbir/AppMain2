@@ -188,7 +188,8 @@
                                 box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
                             }
                         </style>
-                        <form method="POST" action="{{ route('logout') }}">
+                        {{--!logout--}}
+                        {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <div class="row justify-content-center">
                                 <div class="col-auto">
@@ -197,11 +198,22 @@
                                         Logout
                                     </button>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <button class="btn-logout" type="submit">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 Logout</button> --}}
-                        </form>
+                        {{-- </form> --}}
+                        
+                        <a class="dropdown-item" href="login.html" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+                     {{-- !image logout--}}
+                     <i
+                            data-feather="log-out" class="mr-1"></i> Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                        {{--!logout--}}
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}
@@ -339,7 +351,7 @@
                                                     src="https://ui-avatars.com/api/?name={{ urlencode($annonce->username) }}"
                                                     alt="" style="width: 80px; height: 80px;"> --}}
                                                 <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="/storage/images/{{ $annonce->image }}" alt=""
+                                                    src="/storage/{{ $annonce->image }}" alt=""
                                                     style="width: 80px; height: 80px;">
                                             @else
                                                 <img class="flex-shrink-0 img-fluid rounded"
@@ -693,7 +705,7 @@
                                         <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                             @if ($apply->image)
                                                 <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="/storage/images/{{ $apply->image }}" alt=""
+                                                    src="/storage/{{ $apply->image }}" alt=""
                                                     style="width: 80px; height: 80px;">
                                             @else
                                                 <img class="flex-shrink-0 img-fluid rounded"
@@ -770,7 +782,7 @@
                                         <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                             @if ($decline->image)
                                                 <img class="flex-shrink-0 img-fluid rounded"
-                                                    src="/storage/images/{{ $decline->image }}" alt=""
+                                                    src="/storage/{{ $decline->image }}" alt=""
                                                     style="width: 80px; height: 80px;">
                                             @else
                                                 <img class="flex-shrink-0 img-fluid rounded"

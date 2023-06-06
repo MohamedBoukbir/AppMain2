@@ -61,67 +61,66 @@ class FamilleController extends Controller
 //         $user->save();
 //         return redirect()->route('familles.familleHome')->with('success','famille  Ajouter ');
 //     }
+// edit famille
+    // public function edit(User $famille)
+    // {
+    //     return view('familles.edit-famille',compact('famille'));
+    // }
 
-    public function edit(User $famille)
-    {
-        return view('familles.edit-famille',compact('famille'));
-    }
-
-    public function update(Request $request, User $famille)
-    {
+    // public function update(Request $request, User $famille)
+    // {
         
-        $request->validate([
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'password' => 'required',
-            'address' => 'required',
-            'country' => 'required',
-            'phone' => 'required',
-            'religion' => 'required',
-            'domain' => 'required',
-            'child' => 'required',
-            'social_status' => 'required', 
-        ]);
-        $famille = User::find($famille->id);
+    //     $request->validate([
+    //         'firstName' => 'required',
+    //         'lastName' => 'required',
+    //         'password' => 'required',
+    //         'address' => 'required',
+    //         'country' => 'required',
+    //         'phone' => 'required',
+    //         'religion' => 'required',
+    //         'domain' => 'required',
+    //         'child' => 'required',
+    //         'social_status' => 'required', 
+    //     ]);
+    //     $famille = User::find($famille->id);
 
-        if($famille->email == $request->email){
-            $famille->firstName = $request->firstName;
-            $famille->lastName = $request->lastName;
-            // $famille->email = $request->email;
-            $famille->password = Hash::make($request->password);
-            $famille->address = $request->address;
-            $famille->country = $request->country;
-            $famille->phone = $request->phone;
-            $famille->religion = $request->religion;
-            $famille->domain = $request->domain;
-            $famille->child = $request->child;
-            $famille->social_status = $request->social_status;
-            $famille->type='famille';
+    //     if($famille->email == $request->email){
+    //         $famille->firstName = $request->firstName;
+    //         $famille->lastName = $request->lastName;
+    //         // $famille->email = $request->email;
+    //         $famille->password = Hash::make($request->password);
+    //         $famille->address = $request->address;
+    //         $famille->country = $request->country;
+    //         $famille->phone = $request->phone;
+    //         $famille->religion = $request->religion;
+    //         $famille->domain = $request->domain;
+    //         $famille->child = $request->child;
+    //         $famille->social_status = $request->social_status;
+    //         $famille->type='famille';
 
-        }else{
-            $request->validate([
-                'email' => ['required', 'string', 'email', 'max:255','unique:users']
-            ]);
-        $famille->firstName = $request->firstName;
-        $famille->lastName = $request->lastName;
-        $famille->email = $request->email;
-        $famille->password = Hash::make($request->password);
-        $famille->address = $request->address;
-        $famille->country = $request->country;
-        $famille->phone = $request->phone;
-        $famille->religion = $request->religion;
-        $famille->domain = $request->domain;
-        $famille->child = $request->child;
-        $famille->social_status = $request->social_status;
-        $famille->type='famille';
-        }   
+    //     }else{
+    //         $request->validate([
+    //             'email' => ['required', 'string', 'email', 'max:255','unique:users']
+    //         ]);
+    //     $famille->firstName = $request->firstName;
+    //     $famille->lastName = $request->lastName;
+    //     $famille->email = $request->email;
+    //     $famille->password = Hash::make($request->password);
+    //     $famille->address = $request->address;
+    //     $famille->country = $request->country;
+    //     $famille->phone = $request->phone;
+    //     $famille->religion = $request->religion;
+    //     $famille->domain = $request->domain;
+    //     $famille->child = $request->child;
+    //     $famille->social_status = $request->social_status;
+    //     $famille->type='famille';
+    //     }   
 
 
-        $famille->save();
+    //     $famille->save();
 
-        return redirect()->route('admin.famille')->with('success', 'famille  a été bien modifié !!');
-    }
-
+    //     return redirect()->route('admin.famille')->with('success', 'famille  a été bien modifié !!');
+    // }
     public function destroy(User $user)
     {
         $user->delete();
@@ -199,6 +198,52 @@ class FamilleController extends Controller
         // dd($annonce);
         $annonce->delete();
         return redirect()->back()->with('success', 'famille  a été bien supremer !!');
+    }
+    //update profile famille
+    public function edit(User $famille)
+    {
+        // dd('famille');
+        return view('familles.profile',compact('famille'));
+    }
+
+    public function update(Request $request, User $famille)
+    {
+        
+        $request->validate([
+            'phone' => 'required',
+            'address' => 'required',
+            'country' => 'required',
+        ]);
+
+     // Verify the current password
+     
+
+      // Update the password
+         $famille = User::find($famille->id);
+         if($request->current_password && $request->password){
+            $request->validate([
+                'current_password' => 'required',
+                'password' => 'required|min:6|confirmed',
+            ]);
+            if (!Hash::check($request->current_password, $famille->password)) {
+                return back()->withErrors(['current_password' => 'Le mot de passe actuel est incorrect.']);
+            }
+            $famille->password = Hash::make($request->password);
+        }
+            if($request->image){
+                $request->validate([
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                ]);
+                $imagePath =$request->image->store('images', 'public');
+                // $candidat->image = $request->image;
+                $famille->image = $imagePath;
+            }
+
+            $famille->address = $request->address;
+            $famille->country = $request->country;
+            $famille->phone = $request->phone;
+            $famille->save();
+        return redirect()->route('famille.index')->with('success', 'your profile is update !!');
     }
 
 }

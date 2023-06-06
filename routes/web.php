@@ -43,6 +43,9 @@ Route::middleware('auth','backNotAllowed','role:admin','verified')->group(functi
   Route::get('/dashboard/admin/famille', [AdminController::class, 'indexfamille'])->name('admin.famille');
   Route::get('/dashboard/admin/candidat', [AdminController::class, 'indexcandidat'])->name('admin.candidat');
   Route::get('dashboard/admin/abonnements', [AdminController::class,'indexSubscribe'])->name('admin.abonnements');
+   // edit profile admin
+   Route::get('Admin/edit-profile/{admin}', [AdminController::class, 'edit'])->name('admin.edit');
+   Route::post('Admin/updateprofile/{admin}', [AdminController::class, 'update'])->name('admin.updateadmin');
 });
 // / // / // / // / // / // / end Admin // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
@@ -83,6 +86,9 @@ Route::middleware('auth','backNotAllowed','role:famille','verified')->group(func
     Route::delete('/dashboard/delete/annonce/{annonce}', [FamilleController::class, 'destroyAnnonce'])->name('annonce.destroye');
 
     // Route::get('/dashbord/famille/success', [FamilleController::class, 'rederectToFamille'])->name('registration.famille.success');
+    // edit profile famille
+   Route::get('famille/edit-famille/{famille}', [FamilleController::class, 'edit'])->name('familles.edit');
+   Route::post('famille/updatefamille/{famille}', [FamilleController::class, 'update'])->name('familles.updatefamille');
 
     /////////////// end fineshed regestring famille///////////////////////////
     Route::get('/my-account-applications', [AnnonceController::class, 'index'])->name('account-applications');
