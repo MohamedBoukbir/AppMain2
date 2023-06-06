@@ -254,12 +254,12 @@
                                 <div class="row">
                                     <div class="col-md-6 first-button">
                                         <div class="text-button">
-                                            <a href="#">Contact</a>
+                                            <a href="{{ route('signin') }}">Contact</a>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a href="#">Add to favorites</a>
+                                            <a href="{{ route('signin') }}" >Add to favorites</a>
                                         </div>
                                     </div>
                                 </div>
