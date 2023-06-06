@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Subscribe;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
@@ -34,17 +35,18 @@ class StripeController extends Controller
     //    dd ($request->all());
    if ($amountt){
     $subscribe=Subscribe::where('user_id',auth()->user()->id)->first();
-  
+    // $userauth=User::find(auth()->user->id);
+    // dd($userauth);
     if($subscribe== null){
         $subscribe = new Subscribe();
     }
    
-    $subscribe->email =auth()->user()->email;
+    $subscribe->email =$user->email;
     $subscribe->payerstatus = 'verified';
     $subscribe->currencycode = 'USD';
-    $subscribe->stripe_id =auth()->user()->stripe_id ;
+    $subscribe->stripe_id =$user->stripe_id ;
     $subscribe->amt = $amountt;
-    $subscribe->user_id =auth()->user()->id ;
+    $subscribe->user_id = $user->id ;
 
     switch ($amountt) {
         case 8:
@@ -59,9 +61,11 @@ class StripeController extends Controller
         default:
         $subscribe->enddate=Carbon::now();
     }
-  
+     
     $subscribe->save();
-    return redirect()->route('dashboard');
+    $user->trial_ends_at = $subscribe->enddate;
+     $user->save();
+    return redirect()->route('famille.index');
    }else {
     dd('try again');
    }

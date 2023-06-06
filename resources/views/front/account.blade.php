@@ -291,12 +291,19 @@
                     </a>
                 </div>
                 <div class="menu-list-item">
-                    {{-- <a href="{{ route('chat') }}">message</a> --}}
+                   @if(Auth::user()->trial_ends_at > Carbon\Carbon::now())
                     <a href="{{ route('chat') }}" class="menu-item-link">
                         <span class="menu-item-icon"><i class='bx bxs-message'></i></span>
                         {{-- <p class="menu-item-label">Conversations</p> --}}
                         @yield('item-list-3')
                     </a>
+                    @else
+                     <a href="{{ route('famille.index') }}" class="menu-item-link">
+                        <span class="menu-item-icon"><i class='bx bxs-message'></i></span>
+                        {{-- <p class="menu-item-label">Conversations</p> --}}
+                         @yield('item-list-3')
+                     </a>
+                    @endif
                 </div>
 
                 <div class="menu-list-item ">

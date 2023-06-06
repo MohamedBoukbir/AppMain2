@@ -158,7 +158,7 @@ Route::get('/login/google/callback', [GoogleController::class, 'googleredirect']
 // / // / // / // / // / // / end Autentification google et facebook  // / // / // / // / // / // / // / // / // / //
  // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // /auth and virifiey // / // / // / // / // / // / // / // / // / //
-Route::middleware('auth','backNotAllowed','verified')->group(function () {
+Route::middleware('auth')->group(function () {
  // Comment ///////////////////////////////
 Route::get('/index/comments', [CommentController::class, 'indexComment'])->name('index.comment');
 Route::post('/comments', [CommentController::class, 'comments'])->name('comment');
