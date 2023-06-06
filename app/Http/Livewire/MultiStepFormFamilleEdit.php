@@ -196,7 +196,7 @@ class MultiStepFormFamilleEdit extends Component
             //   $this->reset();
             //   $this->currentStep = 1;
             // $data = ['name'=>$this->first_name.' '.$this->last_name,'email'=>$this->email];
-            return redirect()->route('registration.famille.success');
+            return redirect()->route('famille.index');
         //   }
     }
 
