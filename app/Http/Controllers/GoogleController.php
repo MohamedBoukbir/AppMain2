@@ -17,10 +17,10 @@ class GoogleController extends Controller
         }
     
         public function googleredirect(){
-            // try{
-            //    dd('nadi');
+            try{
+            
             $user=Socialite::driver('google')->user();
-               dd($user);
+             
                 $finduser =User::where('google_id',$user->id)->first();
                 if( $finduser){
                     Auth::login($finduser);
@@ -34,7 +34,7 @@ class GoogleController extends Controller
                         $randomString .= $characters[$index];
                     }
                     // return $randomString;
-                    dd($user->user["given_name"]);
+                   
                     $newUser=User::updateOrCreate([
                           'email'=>$user->email,
                            'username'=>$user->user["given_name"].'_'.$randomString,
@@ -46,10 +46,9 @@ class GoogleController extends Controller
                 }
     
                
-            // }catch(Exception $e){
-                // return view('front.welcome'); 
-            //     dd($e);
+            }catch(Exception $e){
+                return redirect()->route('welcome');
     
-            // }
+            }
         }
 }

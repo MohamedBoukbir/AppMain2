@@ -45,37 +45,38 @@ class PayPalController extends Controller
         $response = $provider->getExpressCheckoutDetails($request->token);
 
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            // dd($response); 
-            $subscribe= Subscribe::where('user_id',auth()->user()->id)->first();
-        if( $subscribe=null){
+         $subscribe=Subscribe::where('user_id',auth()->user()->id)->first();
+         
+         if($subscribe== null){
             $subscribe = new Subscribe();
-            }
-            $subscribe->email =$response['EMAIL'];
-            $subscribe->payerstatus = $response['PAYERSTATUS'];
-            $subscribe->firstName = $response['FIRSTNAME'];
-            $subscribe->lastName = $response['LASTNAME'];
-            $subscribe->countrycode = $response['COUNTRYCODE'];
-            $subscribe->currencycode =$response['CURRENCYCODE'];
-            $subscribe->amt =$response['AMT'];
-            $subscribe->user_id =auth()->user()->id;
-    
-            switch ( $response['AMT']) {
-                case 8:
-                    $subscribe->enddate=  Carbon::now()->addDays(30);
-                    break;
-                case 20:
-                    $subscribe->enddate=Carbon::now()->addDays(180);
-                    break;
-                case 40:
-                    $subscribe->enddate= Carbon::now()->addDays(356);
-                    break;
-                default:
-                $subscribe->enddate=Carbon::now();
-            }
-      
-      
-       
+        }
+
+        // $subscribe = new SubscribePaypal();
+        $subscribe->email =$response['EMAIL'];
+        $subscribe->payerstatus = $response['PAYERSTATUS'];
+        $subscribe->firstName = $response['FIRSTNAME'];
+        $subscribe->lastName = $response['LASTNAME'];
+        $subscribe->countrycode = $response['COUNTRYCODE'];
+        $subscribe->currencycode =$response['CURRENCYCODE'];
+        $subscribe->amt = $response['AMT'];
+        $subscribe->user_id = auth()->user()->id;
+
+        switch ( $response['AMT']) {
+            case 8:
+                $subscribe->enddate=Carbon::now()->addDays(30);
+                break;
+            case 20:
+                $subscribe->enddate=Carbon::now()->addDays(180);
+                break;
+            case 40:
+                $subscribe->enddate=Carbon::now()->addDays(356);
+                break;
+            default:
+            $subscribe->enddate=Carbon::now();
+        }
         $subscribe->save();
+        auth()->user()->trial_ends_at = $subscribe->enddate;
+        auth()->user()->save();
         return redirect()->route('dashboard');
         }
         dd('Please try again later.');

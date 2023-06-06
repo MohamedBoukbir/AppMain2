@@ -322,14 +322,16 @@
                                         can contact them.</p>
                                 </div>
                                 {{--! upg--}}
-                                @if($upgrade)
-                                {{$upgrade->enddate}}
+
+                                @if(Auth::user()->trial_ends_at > Carbon\Carbon::now())
+                                {{Auth::user()->trial_ends_at}}
                                 @else
                                 <button class="card-button mt-3" type="button"><a
-                                        href="{{ route('account-souscription') }}">Upgrade to premium </a><i
-                                        {{-- href="#">Upgrade to premium </a><i --}}
-                                        class='bx bx-chevron-right align-middle'></i></button>
+                                    href="{{ route('account-souscription') }}">Upgrade to premium </a><i
+                                    {{-- href="#">Upgrade to premium </a><i --}}
+                                    class='bx bx-chevron-right align-middle'></i></button>
                                 @endif
+
                                 {{--! end  upg--}}
                             </div>
                         </div>

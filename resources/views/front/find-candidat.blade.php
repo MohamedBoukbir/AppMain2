@@ -440,12 +440,25 @@
                     </div>
                 </div>
             </div>
+         
             <div class="row">
-
+                @foreach ($users as $user)
+               
+              
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="featured-item">
                         <div class="thumb">
-                            <img src="{{ asset('img/maid-5.jpg') }}" alt="" style="height: 250px;">
+
+                              {{-- ! image --}}
+
+
+                        @if ($user->image)
+                        <img src="/storage/{{ $user->image }}" alt="" style="height: 250px;">
+                    @else
+                    <img  src="https://ui-avatars.com/api/?name={{ urlencode($user->username) }}" alt="" style="height: 250px;">
+                    @endif
+                    {{-- ! end image --}}
+                           
                             {{-- <div class="overlay-content">
                                 <ul>
                                     <li><i class="fa fa-star  text-warning"></i></li>
@@ -461,26 +474,58 @@
                         </div>
                         <div class="down-content ">
                             <div class="overlay-content " style="display: flex;justify-content: space-between;">
-                                <h4>Username</h4>
+                                <h4>{{$user->username}}</h4>
                                 <div style="display: flex">
                                     {{-- <span style="margin-right: 8px;">country</span> --}}
-                                    <ul style="display: flex;margin-right: 10px;">
-                                        <li><i class="fa fa-star text-warning"></i></li>
-                                        <li><i class="fa fa-star text-warning"></i></li>
-                                        <li><i class="fa fa-star "></i></li>
-                                    </ul>
+                                   {{--! switch--}}
+                                   @switch($user->rate)
+                                            @case(1)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                                @break
+
+                                            @case(2)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                                @break
+                                                @case(3)
+                                                <ul style="display: flex;margin-right: 10px;">
+                                                    <li><i class="fa fa-star text-warning"></i></li>
+                                                    <li><i class="fa fa-star text-warning"></i></li>
+                                                    <li><i class="fa fa-star text-warning "></i></li>
+                                                </ul>
+                                                    @break
+                                            @default
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                        @endswitch
+                                   
+                                    {{--! switch--}}
                                 </div>
                             </div>
 
 
                             <div class="overlay-content " style="display: flex;justify-content: space-between;">
-                                <span>Category of candidat</span>
+                                <span>{{$user->babysitter}}
+                                    {{$user->nanny}}
+                                    {{$user->childminder}}
+                                    {{$user->maid}}
+                                </span>
                                 <div style="display: table-column">
-                                    <span>country</span>
+                                    <span>{{$user->country}}</span>
                                 </div>
                             </div>
                             {{-- <span>Category of candidat</span> --}}
-                            <p>description</p>
+                            <p>{{$user->title_of_offer}}</p>
 
                             <div class="row">
                                 <div class="col-md-6 first-button">
@@ -497,7 +542,7 @@
                         </div>
                     </div>
                 </div>
-
+                @endforeach
             </div>
 
         </div>

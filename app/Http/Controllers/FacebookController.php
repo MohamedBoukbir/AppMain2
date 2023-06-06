@@ -54,7 +54,7 @@ class FacebookController extends Controller
            
         }catch(Exception $e){
             // dd($user->email);
-            return view('front.welcome'); 
+            return redirect()->route('welcome');
 
         }
     }

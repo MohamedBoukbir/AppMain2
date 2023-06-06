@@ -135,7 +135,7 @@ $first2babysitter=User::whereRoleIs('candidat')
 ->take(2)
 ->get();
 ///
-return view('front.welcome',compact('childminders','users','nannys','maids','babysitters','first2childminder','first2nanny','first2maid','first2babysitter'));
+return view('front.find-candidat',compact('childminders','users','nannys','maids','babysitters','first2childminder','first2nanny','first2maid','first2babysitter'));
     }
 
 

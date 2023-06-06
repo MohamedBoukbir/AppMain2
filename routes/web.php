@@ -54,7 +54,7 @@ Route::middleware('auth','backNotAllowed','role:admin','verified')->group(functi
 // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // /Candidat // / // / // / // / // / // / // / // / // / //
-Route::middleware('auth','backNotAllowed','role:candidat','verified')->group(function () {
+Route::middleware('auth','backNotAllowed','role:candidat')->group(function () {
   Route::get('/dashboard/candidat', [CandidatController::class, 'index'])->name('candidat.index');
   Route::get('/dashboard/complete/profile', [CandidatController::class, 'completeprofile'])->name('candidat.completeprofile');
   Route::get('/contacter/famille', [AppliedjobsController::class, 'contact'])->name('contacter');
@@ -78,7 +78,7 @@ Route::middleware('auth','backNotAllowed','role:candidat','verified')->group(fun
  // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // / Famille // / // / // / // / // / // / // / // / // / //
-Route::middleware('auth','backNotAllowed','role:famille','verified')->group(function () {
+Route::middleware('auth','backNotAllowed','role:famille')->group(function () {
   Route::get('/dashboard/famille', [FamilleController::class, 'index'])->name('famille.index');
     /////////////////////////// fineshed regestring famille///////////////////////////
     Route::get('/dashboard/famille/liked', [FamilleController::class, 'likedCandidat'])->name('likedcandidat');
@@ -166,11 +166,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/index/comments', [CommentController::class, 'indexComment'])->name('index.comment');
 Route::post('/comments', [CommentController::class, 'comments'])->name('comment');
 //end comment ///////////////////////////////
-/////////////////  peymant Paypale ///////////////
-Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
-Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
-Route::get('/payment/success', [PayPalController::class, 'success'])->name('payment.success');
-//////////////////  end  peymant Paypale ///////////////
+// /////////////////  peymant Paypale ///////////////
+// Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
+// Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
+// Route::get('/payment/success', [PayPalController::class, 'success'])->name('payment.success');
+// //////////////////  end  peymant Paypale ///////////////
 ////////////////// peymant Stripe ///////////////
 Route::get('/payment/carts', [StripeController::class, 'paymentstripe'])->name('payment.stripe');
 Route::post('single-charge',[StripeController::class,'singleCharge'])->name('single.charge');
@@ -188,6 +188,12 @@ Route::post('/send/message/{receiverInstance}/{conversation}', [CreateUsers::cla
 
 
 });
+
+//////////////////  peymant Paypale ///////////////
+Route::get('/payment', [PayPalController::class, 'payment'])->name('payment');
+Route::get('/cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
+Route::get('/payment/success', [PayPalController::class, 'success'])->name('payment.success');
+//////////////////  end  peymant Paypale ///////////////
 // / // / // / // / // / // / end auth and virifiey // / // / // / // / // / // / // / // / // / //
 // / // / // / // / // / // / // / // / // / // / // / // / // / // / // / //
 
@@ -236,7 +242,10 @@ Route::get('/homehelp/signin', function () {
 // Route::get('/homehelp/user', [DashbordController::class, 'selectUser'])->name('select-user');
 // Route::get('/homehelp/{user}', [DashbordController::class, 'userAtacher'])->name('useratacher');
 
-
+///user no has rol
+Route::get('/homehelp/user', [DashbordController::class, 'selectusernorole'])->name('users.selectusernorole');
+Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])->name('usernorolatacher');
+///////////
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

@@ -34,9 +34,11 @@ class DashbordController extends Controller
                 return  redirect()->route('candidat.completeprofile');
                 break;
             default:
+            // dd('nadi');
                 return redirect()->route('users.selectusernorole');
         }
     }catch(Exception $e){
+        dd($e);
     return redirect()->route('welcome');
     // dd($e);
 
@@ -46,6 +48,7 @@ class DashbordController extends Controller
 
     public function selectusernorole()
     {
+      
         $user = [
             'usernorol' => 'candidat',
         ];
@@ -56,8 +59,8 @@ class DashbordController extends Controller
     public function usernoroleAtacher($user)
     {
        $users = Auth::user();
-         dd($user);
        $users->type=$user;
+    //    dd('nadi');
        $users->save();
         $users->attachRole($user);
     
