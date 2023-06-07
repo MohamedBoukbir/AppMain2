@@ -178,7 +178,8 @@
         <h1>WHAT ARE YOU LOOKING FOR?</h1>
         <div class="container forms"
             style="display: flex; align-items: center; justify-content: center;column-gap: 30px;">
-            <a class="row d-flex justify-content-center" href="{{ route('useratacher',$user['users']='famille')}}">
+            {{-- <a class="row d-flex justify-content-center" href="{{ route('useratacher',$user['users']='famille')}}"> --}}
+                <a class="row d-flex justify-content-center" href="{{route('users.selectusernorole')}}">
                 <div class="col-xl-0 col-sm-12 col-12 p-5">
                     <div class="red-border">
                         <div class="card card-hover" style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;" tabindex="1">
@@ -189,8 +190,8 @@
 
                             <div class="card-body">
                                 <center>
-                                    <h5 class="card-title text text-primary">Help</h5>
-                                    <p style="color: #3b3b3b;">Find a Babysitter, Childminder, Nanny, or Au Pair</p>
+                                 
+                                    <p style="color: #3b3b3b;">Anneler</p>
                                 </center>
                             </div>
                         </div>
@@ -199,7 +200,7 @@
                 </div>
             </a>
 
-            <a class="row d-flex justify-content-center" href="{{ route('useratacher',$user['users']='candidat')}}">
+            <a class="row d-flex justify-content-center" href="{{route('users.valideRoleAtach')}}">
                 <div class="col-xl-0 col-sm-12 col-12 p-5">
                     <div class="red-border">
                         <div class="card card-hover" style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;" tabindex="1">
@@ -210,8 +211,8 @@
 
                             <div class="card-body">
                                 <center>
-                                    <h5 class="card-title text text-primary">A Job</h5>
-                                    <p style="color: #3b3b3b;">As a Babysitter, Childminder, Nanny, or Au Pair  </p>
+                                    {{-- <h5 class="card-title text text-primary">A Job</h5> --}}
+                                    <p style="color: #3b3b3b;"> conffirmer </p>
                                 </center>
 
                             </div>

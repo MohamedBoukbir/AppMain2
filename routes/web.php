@@ -247,6 +247,8 @@ Route::get('/homehelp/signin', function () {
 ///user no has rol
 Route::get('/homehelp/user', [DashbordController::class, 'selectusernorole'])->name('users.selectusernorole');
 Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])->name('usernorolatacher');
+Route::get('/valider/role', [DashbordController::class, 'valideRole'])->name('users.validerrole');
+Route::get('/valider/role/Atach', [DashbordController::class, 'valideRoleAtach'])->name('users.valideRoleAtach');
 ///////////
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

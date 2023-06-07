@@ -58,17 +58,32 @@ class DashbordController extends Controller
 
     public function usernoroleAtacher($user)
     {
-       $users = Auth::user();
-       $users->type=$user;
-    //    dd('nadi');
-       $users->save();
-        $users->attachRole($user);
-    
-        return redirect()->route('dashboard');
+        session()->put('role', $user);
+        return redirect()->route('users.validerrole');
+
+    }
+    /******************** assurer le role********************************************* */
+    // detacherRol 
+
+    public function valideRole()
+    {
+      return view('front.validerRole'); 
     }
 
+    public function valideRoleAtach()
+    {
+       $users = Auth::user();
+       $users->type=session()->get('role');
+    //    dd('nadi');
+       $users->save();
+        $users->attachRole(session()->get('role'));
+        session()->forget('role');
 
+        return  redirect()->route('dashboard'); 
+    }
 
+     /******************** assurer le role********************************************* */
+    //
     // public function selectUser()
     // {
     //     $user = [

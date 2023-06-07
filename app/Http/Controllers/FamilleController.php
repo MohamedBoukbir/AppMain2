@@ -140,7 +140,7 @@ class FamilleController extends Controller
 
     public function editAnnonce(Request $request){
         $id_annonce = $request->query('annonce');
-        session()->put('id_annonce',$id_annonce);
+       session()->put('id_annonce', $id_annonce);
         
         // dd($id_annonce);
         return view('familles.edit_annonce');
