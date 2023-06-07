@@ -188,7 +188,7 @@
                                 box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
                             }
                         </style>
-                        {{--!logout--}}
+                        {{-- !logout --}}
                         {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <div class="row justify-content-center">
@@ -199,21 +199,20 @@
                                     </button>
                                 </div>
                             </div> --}}
-                            {{-- <button class="btn-logout" type="submit">
+                        {{-- <button class="btn-logout" type="submit">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 Logout</button> --}}
                         {{-- </form> --}}
-                        
+
                         <a class="dropdown-item" href="login.html" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                            onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
-                     {{-- !image logout--}}
-                     <i
-                            data-feather="log-out" class="mr-1"></i> Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                        {{--!logout--}}
+                            {{-- !image logout --}}
+                            <i data-feather="log-out" class="mr-1"></i> Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        {{-- !logout --}}
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}
@@ -242,8 +241,12 @@
                         box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
                     }
                 </style>
-                {{--! active--}}
-                @if (Auth::user()->candidat_status == 'Active')
+                {{-- ! active --}}
+
+                <button href="#" class="btn-upgrade">
+                    Get verified
+                </button>
+                {{-- @if (Auth::user()->candidat_status == 'Active')
                 
                 <a  href="#" style="background-color: green;  font-size: 16px;" class="btn-upgrade">
                  Active
@@ -252,9 +255,9 @@
             <a href="#" type="button"   style="background-color: red; font-size: 16px;" class="btn-upgrade">
               Pause
             </a>
-            @endif
-               
-                {{--! non  active--}}
+            @endif --}}
+
+                {{-- ! non  active --}}
             </div>
         </nav>
     </div>
@@ -1035,8 +1038,8 @@
             </div>
         </div>
     </div>
-    <button type="button" onclick="appelJS()">APPEL</button>
-    <button type="button" onclick="appelDecline()">APPEL 2</button>
+    {{-- <button type="button" onclick="appelJS()">APPEL</button>
+    <button type="button" onclick="appelDecline()">APPEL 2</button> --}}
 
     <script>
         function appelSuccess() {
@@ -1085,7 +1088,7 @@
         });
     </script>
     {{-- ////////////////// end  Search scripte ////////// --}}
-    <a href="{{ route('profile-candidat') }}">profile</a>
+    {{-- <a href="{{ route('profile-candidat') }}">profile</a> --}}
 
 </body>
 

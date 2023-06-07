@@ -33,6 +33,10 @@
 
     <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}" />
 
+    <link rel="stylesheet" href="{{ asset('css/new-owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}"> --}}
+
 
     <script src="{{ asset('js/states.js') }}"></script>
     <script src="{{ asset('js/select2.js') }}"></script>
@@ -62,6 +66,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
+
+
 
 
     @livewireStyles
@@ -125,29 +131,30 @@
                             <img src="{{ asset('img/profile.png') }}" alt="" style="width: 30px">
                             <span class="status online"></span>
                         </span> --}}
-                         {{-- ! image --}}
+                        {{-- ! image --}}
 
 
-                         @if (Auth::user()->image)
-                         <span class="user-img">
-                             <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
-                                 style="width: 40px;height: 40px;">
-                             <span class="status online"></span>
-                         </span>
-                     @else
-                         <span class="user-img">
-                             <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
-                                 alt="" style="width: 40px;height: 40px;">
-                             <span class="status online"></span>
-                         </span>
-                     @endif
-                     {{-- ! end image --}}
+                        @if (Auth::user()->image)
+                            <span class="user-img">
+                                <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
+                                    style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @else
+                            <span class="user-img">
+                                <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
+                                    alt="" style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @endif
+                        {{-- ! end image --}}
                         {{-- <span>{{ Auth::user()->username}}</span> --}}
                         {{-- <span>username</span> --}}
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
-                        <a class="dropdown-item" href="{{ route('familles.edit', Auth::user()->id) }}"><i data-feather="user" class="mr-1"></i>
+                        <a class="dropdown-item" href="{{ route('familles.edit', Auth::user()->id) }}"><i
+                                data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
                             Settings</a>
@@ -157,7 +164,7 @@
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i
                                 data-feather="log-out" class="mr-1"></i> Logout</a> --}}
-        {{--! Logout--}}
+                        {{-- ! Logout --}}
                         {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -165,15 +172,14 @@
                         </form> --}}
 
                         <a class="dropdown-item" href="login.html" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                            onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
-                     {{-- !image logout--}}
-                     <i
-                            data-feather="log-out" class="mr-1"></i> Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-        {{--! end Logout--}}
+                            {{-- !image logout --}}
+                            <i data-feather="log-out" class="mr-1"></i> Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        {{-- ! end Logout --}}
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}
@@ -291,21 +297,21 @@
                     </a>
                 </div>
                 <div class="menu-list-item">
-                    {{-- !Message--}}
-                   @if(Auth::user()->trial_ends_at > Carbon\Carbon::now())
-                    <a href="{{ route('chat') }}" class="menu-item-link">
-                        <span class="menu-item-icon"><i class='bx bxs-message'></i></span>
-                        {{-- <p class="menu-item-label">Conversations</p> --}}
-                        @yield('item-list-3')
-                    </a>
+                    {{-- !Message --}}
+                    @if (Auth::user()->trial_ends_at > Carbon\Carbon::now())
+                        <a href="{{ route('chat') }}" class="menu-item-link">
+                            <span class="menu-item-icon"><i class='bx bxs-message'></i></span>
+                            {{-- <p class="menu-item-label">Conversations</p> --}}
+                            @yield('item-list-3')
+                        </a>
                     @else
-                     <a href="{{ route('account-souscription') }}" class="menu-item-link">
-                        <span class="menu-item-icon"><i class='bx bxs-message'></i></span>
-                        {{-- <p class="menu-item-label">Conversations</p> --}}
-                         @yield('item-list-3')
-                     </a>
+                        <a href="{{ route('account-souscription') }}" class="menu-item-link">
+                            <span class="menu-item-icon"><i class='bx bxs-message'></i></span>
+                            {{-- <p class="menu-item-label">Conversations</p> --}}
+                            @yield('item-list-3')
+                        </a>
                     @endif
-                     {{-- !Message--}}
+                    {{-- !Message --}}
                 </div>
 
                 <div class="menu-list-item ">
@@ -325,9 +331,8 @@
                         <span class="menu-item-icon" style="color: green;"><i class='bx bx-search-alt-2'></i></span>
                         <p class="menu-item-label" style="color: green;">Find Domestic Helpers</p>
                     </a>
-
                     {{-- <a href="{{ route('index.comment') }}">comments</a> --}}
-                        <a href="{{ route('index') }}">users</a>
+                    {{-- <a href="{{ route('index') }}">users</a> --}}
                 </div>
 
 
