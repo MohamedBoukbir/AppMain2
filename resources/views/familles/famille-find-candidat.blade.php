@@ -35,7 +35,7 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 </head>
 
@@ -108,59 +108,59 @@
                     }
                 </style>
 
-                  {{--! shearch--}}
-                  
-    <form action="{{ route('familles.searchcandidat') }}" method="POST">
-        @csrf
-    <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
-        <div class="container">
-            <div class="row g-2">
-                <div class="col-md-10">
-                    <div class="row g-2">
-                        <div class="col-md-4">
-                            <div class="col-xl-12 col-sm-12 col-12">
-                                <div class="form-group">
-                                       <input type="text" name="username" id="username" class="form-control"
-                                       placeholder="Search " autocomplete="off">
-                                   <div id="user_list">
-                                   </div>
-                                     
-                                </div>
-                               
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col-xl-12 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <select name="category" id="categorySel" size="1"  name="category" id="category" >
-                                        <option value="" selected="selected">Category</option>
-                                        <option value="babysitter">Babysitter</option>
-                                        <option value="maid">Maid</option>
-                                        <option value="nanny">Nanny</option>
-                                        <option value="childminder">Childminder</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col-xl-12 col-sm-12 col-12">
-                                <div class="form-group">
-                                    <select name="location" id="countySel" size="1"  id="location" >
-                                        <option value="" selected="selected">Location</option>
-                                    </select>
+                {{-- ! shearch --}}
+
+                <form action="{{ route('familles.searchcandidat') }}" method="POST">
+                    @csrf
+                    <div class="container-fluid  wow fadeIn" data-wow-delay="0.1s" style="padding: 10px;">
+                        <div class="container">
+                            <div class="row g-2">
+                                <div class="col-md-10" style="display: flex;">
+                                    {{-- <div class="row g-2"> --}}
+                                    <div class="col-6">
+                                        <div class="col-xl-12 col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <input type="text" name="username" id="username"
+                                                    class="form-control" placeholder="Keyword" autocomplete="off">
+                                                <div id="user_list">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ms-1">
+                                        <div class="col-xl-12 col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <select name="category" id="categorySel" size="1" name="category"
+                                                    id="category">
+                                                    <option value="" selected="selected">Category</option>
+                                                    <option value="babysitter">Babysitter</option>
+                                                    <option value="maid">Maid</option>
+                                                    <option value="nanny">Nanny</option>
+                                                    <option value="childminder">Childminder</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ms-1">
+                                        <div class="col-xl-12 col-sm-12 col-12">
+                                            <div class="form-group">
+                                                <select name="location" id="countySel" size="1"
+                                                    id="location">
+                                                    <option value="" selected="selected">Location</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- </div> --}}
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn btn-dark border-0 ms-1 w-100 mt-0 h-100"
+                                            style="border-radius: 8px;">Search</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <button  type="submit" class="btn btn-dark border-0 ms-1 w-100 mt-0 h-100"
-                        style="border-radius: 8px;">Search</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
+                </form>
 
                 {{-- <div class="col">
                     <div class="form-group">
@@ -170,7 +170,7 @@
                             Location</button>
                     </div>
                 </div> --}}
-{{--             
+                {{--             
                 <div class="col">
                     <div class="form-group">
                         <button class="form-control btn "
@@ -200,7 +200,7 @@
                             Experience</button>
                     </div>
                 </div> --}}
-                 {{--! end  shearch--}}
+                {{-- ! end  shearch --}}
             </div>
         </div>
     </nav>
@@ -316,13 +316,14 @@
                                     <div class="col-md-6 first-button">
                                         <div class="text-button">
 
-                                            <a  href="{{ route('sendeto', $user->id) }}" >Contact</a>
+                                            <a href="{{ route('sendeto', $user->id) }}">Contact</a>
 
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a  href="{{ route('liked', ['id_candidat' => $user->id]) }}" >Add to favorites</a>
+                                            <a href="{{ route('liked', ['id_candidat' => $user->id]) }}">Add to
+                                                favorites</a>
                                         </div>
                                     </div>
                                 </div>
@@ -735,8 +736,8 @@
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
     </script>
 
-      {{-- ////////////////// Search scripte ////////// --}}
-      <script>
+    {{-- ////////////////// Search scripte ////////// --}}
+    <script>
         $(document).ready(function() {
             $("#username").on('keyup', function() {
                 var value = $(this).val();
