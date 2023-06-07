@@ -110,7 +110,7 @@
 
                   {{--! shearch--}}
                   
-    <form action="{{ route('front.searchfront') }}" method="POST">
+    <form action="{{ route('familles.searchcandidat') }}" method="POST">
         @csrf
     <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
         <div class="container">

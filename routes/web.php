@@ -211,7 +211,9 @@ Route::post('/Search', [DashbordController::class, 'search'])->name('Search');
 Route::get('/ajax_searsh/shearch', [DashbordController::class, 'ajax_searsh'])->name('ajax_searsh_name');
 ///////////////////////////////
 //////////////////////// searchfront/////////////////////
-Route::post('front/searchfront', [FrontController::class, 'searchfront'])->name('front.searchfront');
+Route::get('/dashbord/famille/candidat', [FamilleController::class, 'indexcandidat'])->name('famille.indexcandidat');
+Route::post('dashbord/famille/shearch/candidat', [FamilleController::class, 'searchfindcandidat'])->name('familles.searchcandidat');
+Route::post('welcome/search/candidat', [FrontController::class, 'searchfront'])->name('front.searchfront');
 Route::get('/front/search/live', [FrontController::class, 'livesearchfront'])->name('front.livesearch');
 ////////////////////////  end searchfront/////////////////////
 

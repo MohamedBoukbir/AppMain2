@@ -317,12 +317,17 @@
                 </div>
 
                 <div class="menu-list-item item-search">
-                    <a href="{{ route('index') }}" class="menu-item-link">
+                    {{-- <a href="{{ route('index') }}" class="menu-item-link">
+                        <span class="menu-item-icon" style="color: green;"><i class='bx bx-search-alt-2'></i></span>
+                        <p class="menu-item-label" style="color: green;">Find Domestic Helpers</p>
+                    </a> --}}
+                    <a href="{{ route('famille.indexcandidat') }}" class="menu-item-link">
                         <span class="menu-item-icon" style="color: green;"><i class='bx bx-search-alt-2'></i></span>
                         <p class="menu-item-label" style="color: green;">Find Domestic Helpers</p>
                     </a>
 
-                    <a href="{{ route('index.comment') }}">comments</a>
+                    {{-- <a href="{{ route('index.comment') }}">comments</a> --}}
+                        <a href="{{ route('index') }}">users</a>
                 </div>
 
 
