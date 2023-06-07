@@ -258,7 +258,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"> Retour</button>
-                        <button type="button" class="btn btn-primary"><a href=""
+                        <button type="button" class="btn btn-primary"><a href="#"
                                 class="text-light">Continue</a> </button>
                     </div>
                 </div>
@@ -291,7 +291,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                        <button type="button" class="btn btn-primary"><a href=""
+                        <button type="button" class="btn btn-primary"><a href="#"
                                 class="text-light">Continue</a> </button>
                     </div>
                 </div>
