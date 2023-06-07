@@ -124,6 +124,11 @@
                         color: #000000;
                         border-radius: 5px;
                     }
+
+                    /* Styles for phones */
+                    @media only screen and (max-width: 480px) {
+                        .searchinputs {}
+                    }
                 </style>
 
                 {{-- ! shearch --}}
@@ -133,7 +138,7 @@
                     <div class="container-fluid  wow fadeIn" data-wow-delay="0.1s" style="padding: 10px;">
                         <div class="container">
                             <div class="row g-2">
-                                <div class="col-md-10" style="display: flex;">
+                                <div class="searchinputs col-md-10" style="display: flex;">
                                     {{-- <div class="row g-2"> --}}
                                     <div class="col-6">
                                         <div class="col-xl-12 col-sm-12 col-12">
@@ -632,7 +637,7 @@
                                         @endif
                                         @if ($user->nanny)
                                             <span
-                                                class="badge rounded-pill text-bg-secondary text-success ms-1">{{ $user->nanny }}</span>
+                                                class="badge rounded-pill text-bg-secondary text-light ms-1">{{ $user->nanny }}</span>
                                         @endif
                                         @if ($user->maid)
                                             <span
@@ -644,7 +649,7 @@
                                         <span>{{ $user->country }}</span>
                                     </div>
                                 </div>
-                                <p>{{ $user->title_of_offer }}</p>
+                                <p style="height: 50px;max-height: 50px;">{{ $user->title_of_offer }}</p>
 
                                 <div class="row">
                                     <div class="col-md-6 first-button">

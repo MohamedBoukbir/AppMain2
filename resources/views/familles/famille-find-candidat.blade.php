@@ -612,7 +612,7 @@
                                         @endif
                                         @if ($user->nanny)
                                             <span
-                                                class="badge rounded-pill text-bg-secondary text-success ms-1">{{ $user->nanny }}</span>
+                                                class="badge rounded-pill text-bg-secondary text-light ms-1">{{ $user->nanny }}</span>
                                         @endif
                                         @if ($user->maid)
                                             <span
@@ -624,7 +624,7 @@
                                         <span>{{ $user->country }}</span>
                                     </div>
                                 </div>
-                                <p>{{ $user->title_of_offer }}</p>
+                                <p style="height: 50px;max-height: 50px;">{{ $user->title_of_offer }}</p>
 
                                 <div class="row">
                                     <div class="col-md-6 first-button">
