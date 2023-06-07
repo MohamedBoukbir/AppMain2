@@ -165,7 +165,7 @@ class FamilleController extends Controller
     $likeds = DB::table('users')
     ->join('likeds', 'users.id', '=', 'likeds.id_candidat')
     ->where('likeds.id_famille',auth()->user()->id)
-    ->select('users.username', 'likeds.id_candidat')
+    ->select('users.*', 'likeds.id_candidat as id_candidat')
     ->get();
     // dd(count($likeds));
     //  $likeds=User::whereRoleIs('candidat')
@@ -247,7 +247,9 @@ class FamilleController extends Controller
     }
     /************************ famille index candidat **************************************************************/
     public function indexcandidat(){
-        $users=User::whereRoleIs('candidat')->orderby('created_at','desc')->get();
+        $users=User::whereRoleIs('candidat')
+                    ->where('country','<>',null)
+                    ->orderby('created_at','desc')->get();
         return view('familles.famille-find-candidat',compact('users'));
     }
       /************************ famille find candidat **************************************************************/

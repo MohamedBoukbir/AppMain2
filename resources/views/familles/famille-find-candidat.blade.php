@@ -315,12 +315,14 @@
                                 <div class="row">
                                     <div class="col-md-6 first-button">
                                         <div class="text-button">
-                                            <a href="{{ route('signin') }}">Contact</a>
+
+                                            <a  href="{{ route('sendeto', $user->id) }}" >Contact</a>
+
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a href="{{ route('signin') }}">Add to favorites</a>
+                                            <a  href="{{ route('liked', ['id_candidat' => $user->id]) }}" >Add to favorites</a>
                                         </div>
                                     </div>
                                 </div>

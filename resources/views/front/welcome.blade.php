@@ -200,7 +200,7 @@
     </form>
         <!-- Search End -->
          <!-- table  -->
-         @if(count($users)>0)
+         {{-- @if(count($users)>0)
                 <div class="table-responsive">
                     <table class="table custom-table no-footer">
                         <thead>
@@ -220,7 +220,7 @@
                                 <tr>
 
                                     <td>#</td>
-                                    {{-- <td>{{ $user->firstName . ' ' . $user->lastName }}</td> --}}
+                                   
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->country }}</td>
@@ -237,7 +237,7 @@
         </div>
         @else
         Not Data
-        @endif
+        @endif --}}
           <!-- table End -->
         <!-- Category Start -->
         <div class="container-xxl py-5">

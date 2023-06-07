@@ -16,7 +16,7 @@ class FrontController extends Controller
     ->where('maid','maid')->get());
     $babysitters=count(User::whereRoleIs('candidat')
     ->where('babysitter','babysitter')->get()) ;
-    $users=User::where('maid',1)->get();
+    // $users=User::where('maid',1)->get();
 
     $first2childminder=User::whereRoleIs('candidat')
                     ->where('childminder','childminder')
@@ -41,7 +41,7 @@ class FrontController extends Controller
                     ->take(2)
                     ->get();
 
-    return view('front.welcome',compact('childminders','users','nannys','maids','babysitters','first2childminder','first2nanny','first2maid','first2babysitter'));
+    return view('front.welcome',compact('childminders','nannys','maids','babysitters','first2childminder','first2nanny','first2maid','first2babysitter'));
  }
 
 
@@ -96,46 +96,13 @@ if ( $request->location || $request->category){
     }
     
 }elseif($request->username){
-    dd($request->username);
     $users = User::whereRoleIs('candidat')
             ->where('username', $request->username)
             ->where('country','<>',null)
             ->paginate();
 }
-// autre table 
-$childminders=count(User::whereRoleIs('candidat')
-->where('childminder','childminder')->get());
-$nannys=count(User::whereRoleIs('candidat')
-->where('nanny','nanny')->get());
-$maids= count(User::whereRoleIs('candidat')
-->where('maid','maid')->get());
-$babysitters=count(User::whereRoleIs('candidat')
-->where('babysitter','babysitter')->get()) ;
 
-$first2childminder=User::whereRoleIs('candidat')
-->where('childminder','childminder')
-->orderBy('rate', 'desc') 
-->take(2)
-->get();
-
-$first2nanny=User::whereRoleIs('candidat')
-->where('nanny','nanny')
-->orderBy('rate', 'desc') 
-->take(2)
-->get();
-
-$first2maid=User::whereRoleIs('candidat')
-->where('maid','maid')
-->orderBy('rate', 'desc') 
-->take(2)
-->get();
-$first2babysitter=User::whereRoleIs('candidat')
-->where('babysitter','babysitter')
-->orderBy('rate', 'desc') 
-->take(2)
-->get();
-///
-return view('front.find-candidat',compact('childminders','users','nannys','maids','babysitters','first2childminder','first2nanny','first2maid','first2babysitter'));
+return view('front.find-candidat',compact('users'));
     }
 
 
