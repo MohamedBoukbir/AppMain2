@@ -37,14 +37,16 @@
         <!-- Spinner Start -->
         <div id="spinner"
             class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
+            <div class="spinner-grow text-primary"
+                style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
         <!-- Spinner End -->
 
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="{{route('welcome')}}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <a href="{{ route('welcome') }}"
+                class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
                 <h1 class="m-0 text-muted">HomeHelp</h1>
             </a>
@@ -178,10 +180,13 @@
         <h1>WHAT ARE YOU LOOKING FOR?</h1>
         <div class="container forms"
             style="display: flex; align-items: center; justify-content: center;column-gap: 30px;">
-            <a class="row d-flex justify-content-center" href="{{ route('usernorolatacher',$user['usernorol']='famille')}}">
+            <a class="row d-flex justify-content-center" href="#" data-toggle="modal"
+                data-target="#helperModal">
                 <div class="col-xl-0 col-sm-12 col-12 p-5">
                     <div class="red-border">
-                        <div class="card card-hover" style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;" tabindex="1">
+                        <div class="card card-hover"
+                            style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;"
+                            tabindex="1">
                             <center>
                                 <img class="card-img-top" src="{{ asset('img/employer.png') }}" alt="Card image cap"
                                     style="width: 150px;margin:5px">
@@ -199,10 +204,15 @@
                 </div>
             </a>
 
-            <a class="row d-flex justify-content-center" href="{{ route('usernorolatacher',$user['usernorol']='candidat')}}">
+
+
+            {{-- href="{{ route('usernorolatacher', $user['usernorol'] = 'candidat') }}" --}}
+            <a class="row d-flex justify-content-center" href="#" data-toggle="modal" data-target="#jobModal">
                 <div class="col-xl-0 col-sm-12 col-12 p-5">
                     <div class="red-border">
-                        <div class="card card-hover" style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;" tabindex="1">
+                        <div class="card card-hover"
+                            style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;"
+                            tabindex="1">
                             <center>
                                 <img class="card-img-top" src="{{ asset('img/applicant.png') }}"
                                     alt="Card image cap" style="width: 150px;margin:5px">
@@ -211,7 +221,7 @@
                             <div class="card-body">
                                 <center>
                                     <h5 class="card-title text text-primary">A Job</h5>
-                                    <p style="color: #3b3b3b;">As a Babysitter, Childminder, Nanny, or Au Pair  </p>
+                                    <p style="color: #3b3b3b;">As a Babysitter, Childminder, Nanny, or Au Pair </p>
                                 </center>
 
                             </div>
@@ -221,8 +231,76 @@
                 </div>
             </a>
 
-            
+
         </div>
+
+
+
+        {{-- !MODAL --}}
+        <!-- Button trigger modal -->
+        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button> --}}
+
+        <!-- Modal -->
+        <div class="modal fade" id="jobModal" tabindex="-1" role="dialog" aria-labelledby="jobModalLabel"
+            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-dialog-centered" role="document">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="jobModalLabel">Define your identity</h5>
+                        {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button> --}}
+                    </div>
+                    <div class="modal-body">
+                        YOU ARE YOU LOOKING FOR A JOB ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"> Retour</button>
+                        <button type="button" class="btn btn-primary"><a href=""
+                                class="text-light">Continue</a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- !END MODAL --}}
+
+
+
+
+        {{-- !MODAL --}}
+        <!-- Button trigger modal -->
+        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button> --}}
+
+        <!-- Modal -->
+        <div class="modal fade" id="helperModal" tabindex="-1" role="dialog" aria-labelledby="helperModalLabel"
+            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-dialog-centered" role="document">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="helperModalLabel">Define your identity</h5>
+                        {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button> --}}
+                    </div>
+                    <div class="modal-body">
+                        YOU ARE YOU LOOKING FOR A HELPER ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                        <button type="button" class="btn btn-primary"><a href=""
+                                class="text-light">Continue</a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- !END MODAL --}}
+
+
+
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
