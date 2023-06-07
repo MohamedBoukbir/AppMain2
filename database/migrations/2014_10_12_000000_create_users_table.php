@@ -70,6 +70,7 @@ return new class extends Migration
             $table->string('childminder')->nullable();
             $table->string('maid')->nullable();
             $table->string('rate')->nullable();
+            $table->string('candidat_status')->nullable();
             ///////////////////////
             $table->rememberToken();
             $table->timestamps();

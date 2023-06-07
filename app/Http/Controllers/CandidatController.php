@@ -225,6 +225,11 @@ $decline=DB::table('users')
 return view('candidats.candidat-dashboard',compact('annonces','apply','decline'));
 }
 
+
  ////////////// /////////////  ajax_searsh
+ /** ********************** Active candidat ********************************** */
+ public function ActiveDesactiveCandidat(){
+    
+ }
 
 }

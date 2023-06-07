@@ -204,6 +204,7 @@ public $years_experience;
         $user->title_of_offer =$this->title_of_offer;
         $user->define_needs =$this->define_needs;
         $user->years_experience = $this->years_experience;
+        $user->candidat_status ='Active';
         // $user->day_off = $this->day_off;
         // $user->expected_start_date = $this->expected_start_date;
 

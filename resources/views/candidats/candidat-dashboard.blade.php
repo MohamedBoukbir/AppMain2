@@ -242,9 +242,19 @@
                         box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
                     }
                 </style>
-                <button type="button" class="btn-upgrade">
-                    Get Verified
-                </button>
+                {{--! active--}}
+                @if (Auth::user()->candidat_status == 'Active')
+                
+                <a  href="#" style="background-color: green;  font-size: 16px;" class="btn-upgrade">
+                 Active
+                </a>
+            @else
+            <a href="#" type="button"   style="background-color: red; font-size: 16px;" class="btn-upgrade">
+              Pause
+            </a>
+            @endif
+               
+                {{--! non  active--}}
             </div>
         </nav>
     </div>
