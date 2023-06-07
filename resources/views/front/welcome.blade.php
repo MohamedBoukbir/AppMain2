@@ -401,13 +401,48 @@
                         
                      @endif
                      {{-- ! end image --}}
+
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">{{$first2childminder->username}}</h5>
+                                             {{-- ! switch --}}
+                                        @switch($first2childminder->rate)
+                                        @case(1)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @case(2)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @case(3)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @default
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                    @endswitch
+
+                                    {{-- ! switch --}}
                                             <span class="text-truncate me-3"><i
-                                                    class="fa fa-map-marker-alt text-primary me-2"></i>New York,
-                                                USA</span>
+                                                    class="fa fa-map-marker-alt text-primary me-2"></i>{{$first2childminder->country}}</span>
                                             <span class="text-truncate me-3"><i
-                                                    class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                    class="far fa-clock text-primary me-2"></i> {{$first2childminder->country}}Full Time</span>
                                             <span class="text-truncate me-0"><i
                                                     class="far fa-money-bill-alt text-primary me-2"></i>$123 -
                                                 $456</span>
@@ -459,6 +494,41 @@
                      {{-- ! end image --}}
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">{{$first2babysitter->username}}</h5>
+                                              {{-- ! switch --}}
+                                        @switch($first2babysitter->rate)
+                                        @case(1)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @case(2)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @case(3)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @default
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                    @endswitch
+
+                                    {{-- ! switch --}}
                                             <span class="text-truncate me-3"><i
                                                     class="fa fa-map-marker-alt text-primary me-2"></i>New York,
                                                 USA</span>
@@ -516,6 +586,41 @@
                      {{-- ! end image --}}
                                     <div class="text-start ps-4">
                                         <h5 class="mb-3">{{$first2maid->username}}</h5>
+                                          {{-- ! switch --}}
+                                          @switch($first2maid->rate)
+                                          @case(1)
+                                              <ul style="display: flex;margin-right: 10px;">
+                                                  <li><i class="fa fa-star text-warning "></i></li>
+                                                  <li><i class="fa fa-star "></i></li>
+                                                  <li><i class="fa fa-star "></i></li>
+                                              </ul>
+                                          @break
+  
+                                          @case(2)
+                                              <ul style="display: flex;margin-right: 10px;">
+                                                  <li><i class="fa fa-star text-warning"></i></li>
+                                                  <li><i class="fa fa-star text-warning "></i></li>
+                                                  <li><i class="fa fa-star "></i></li>
+                                              </ul>
+                                          @break
+  
+                                          @case(3)
+                                              <ul style="display: flex;margin-right: 10px;">
+                                                  <li><i class="fa fa-star text-warning"></i></li>
+                                                  <li><i class="fa fa-star text-warning"></i></li>
+                                                  <li><i class="fa fa-star text-warning "></i></li>
+                                              </ul>
+                                          @break
+  
+                                          @default
+                                              <ul style="display: flex;margin-right: 10px;">
+                                                  <li><i class="fa fa-star "></i></li>
+                                                  <li><i class="fa fa-star "></i></li>
+                                                  <li><i class="fa fa-star "></i></li>
+                                              </ul>
+                                      @endswitch
+  
+                                      {{-- ! switch --}}
                                         <span class="text-truncate me-3"><i
                                                 class="fa fa-map-marker-alt text-primary me-2"></i>New York,
                                             USA</span>
@@ -574,6 +679,41 @@
                      {{-- ! end image --}}
                                      <div class="text-start ps-4">
                                          <h5 class="mb-3">{{$first2nanny->username}}</h5>
+                                           {{-- ! switch --}}
+                                        @switch($first2nanny->rate)
+                                        @case(1)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @case(2)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @case(3)
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                <li><i class="fa fa-star text-warning "></i></li>
+                                            </ul>
+                                        @break
+
+                                        @default
+                                            <ul style="display: flex;margin-right: 10px;">
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                                <li><i class="fa fa-star "></i></li>
+                                            </ul>
+                                    @endswitch
+
+                                    {{-- ! switch --}}
                                          <span class="text-truncate me-3"><i
                                                  class="fa fa-map-marker-alt text-primary me-2"></i>New York,
                                              USA</span>
