@@ -43,7 +43,7 @@
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="{{ route('welcome') }}"
                 class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                <h1 class="m-0 text-primary">Homework</h1>
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">Homeworker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -134,73 +134,74 @@
 
         <!-- Search Start -->
 
-    <form action="{{ route('front.searchfront') }}" method="POST">
+        <form action="{{ route('front.searchfront') }}" method="POST">
             @csrf
             {{-- <input type="text" name="q" id="q" class="form-control  mt-2">
             <button type="submit" class="btn btn-primary   btn-sm mt-2"> Search</button> --}}
-      
-        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
-            <div class="container">
-                <div class="row g-2">
-                    <div class="col-md-10">
-                        <div class="row g-2">
-                            <div class="col-md-4">
-                                {{-- <input type="text" class="form-control border-0" placeholder="Keyword" />
+
+            <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+                <div class="container">
+                    <div class="row g-2">
+                        <div class="col-md-10">
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    {{-- <input type="text" class="form-control border-0" placeholder="Keyword" />
                                 <br> --}}
-                                <div class="col-xl-12 col-sm-12 col-12">
-                                    <div class="form-group">
-                                        {{-- <input id="email" type="text" name="username" id="username"  class="form-control" 
+                                    <div class="col-xl-12 col-sm-12 col-12">
+                                        <div class="form-group">
+                                            {{-- <input id="email" type="text" name="username" id="username"  class="form-control" 
                                             placeholder="Keyword" autofocus> --}}
                                             {{-- <span style="color: red">
                                             @error('username')
                                             {{ $message }}
                                             @enderror
                                            </span> --}}
-                                           <input type="text" name="username" id="username" class="form-control"
-                                           placeholder="Search " autocomplete="off">
-                                       <div id="user_list">
-                                       </div>
-                                         
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="col-xl-12 col-sm-12 col-12">
-                                    <div class="form-group">
-                                        <select name="category" id="categorySel" size="1"  name="category" id="category" >
-                                            <option value="" selected="selected">Category</option>
-                                            <option value="babysitter">Babysitter</option>
-                                            <option value="maid">Maid</option>
-                                            <option value="nanny">Nanny</option>
-                                            <option value="childminder">Childminder</option>
-                                            {{-- <option value="3">Au Pair</option> --}}
-                                        </select>
+                                            <input type="text" name="username" id="username"
+                                                class="form-control" placeholder="Search " autocomplete="off">
+                                            <div id="user_list">
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="col-xl-12 col-sm-12 col-12">
-                                    <div class="form-group">
-                                        <select name="location" id="countySel" size="1"  id="location" >
-                                            <option value="" selected="selected">Location</option>
-                                        </select>
+                                <div class="col-md-4">
+                                    <div class="col-xl-12 col-sm-12 col-12">
+                                        <div class="form-group">
+                                            <select name="category" id="categorySel" size="1" name="category"
+                                                id="category">
+                                                <option value="" selected="selected">Category</option>
+                                                <option value="babysitter">Babysitter</option>
+                                                <option value="maid">Maid</option>
+                                                <option value="nanny">Nanny</option>
+                                                <option value="childminder">Childminder</option>
+                                                {{-- <option value="3">Au Pair</option> --}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-xl-12 col-sm-12 col-12">
+                                        <div class="form-group">
+                                            <select name="location" id="countySel" size="1" id="location">
+                                                <option value="" selected="selected">Location</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button  type="submit" class="btn btn-dark border-0 ms-1 w-100 mt-0 h-100"
-                            style="border-radius: 8px;">Search</button>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-dark border-0 ms-1 w-100 mt-0 h-100"
+                                style="border-radius: 8px;">Search</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
         <!-- Search End -->
-         <!-- table  -->
-         {{-- @if(count($users)>0)
+        <!-- table  -->
+        {{-- @if (count($users) > 0)
                 <div class="table-responsive">
                     <table class="table custom-table no-footer">
                         <thead>
@@ -238,7 +239,7 @@
         @else
         Not Data
         @endif --}}
-          <!-- table End -->
+        <!-- table End -->
         <!-- Category Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -250,28 +251,28 @@
                             <i class="fa fa-3x fa-baby text-primary mb-4"></i>
                             {{-- <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i> --}}
                             <h6 class="mb-3">BabySitter</h6>
-                            <p class="mb-0">{{$babysitters}}</p>
+                            <p class="mb-0">{{ $babysitters }}</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Maid</h6>
-                            <p class="mb-0">{{$maids}}</p>
+                            <p class="mb-0">{{ $maids }}</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Childminder</h6>
-                            <p class="mb-0">{{$childminders}}</p>
+                            <p class="mb-0">{{ $childminders }}</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Nanny</h6>
-                            <p class="mb-0">{{ $nannys}}</p>
+                            <p class="mb-0">{{ $nannys }}</p>
                         </a>
                     </div>
                     {{--  <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -378,372 +379,360 @@
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             {{-- //////// !first 2 childminder /// --}}
-                            @if(count($first2childminder)>0)
-                            @foreach ($first2childminder as $first2childminder)
-                            
-                            <div class="job-item p-4 mb-4">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        
-                           {{-- ! image --}}
+                            @if (count($first2childminder) > 0)
+                                @foreach ($first2childminder as $first2childminder)
+                                    <div class="job-item p-4 mb-4">
+                                        <div class="row g-4">
+                                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+
+                                                {{-- ! image --}}
 
 
-                         @if ($first2childminder->image)
-                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2childminder->image }}"
-                         alt="" style="width: 80px; height: 80px;">
+                                                @if ($first2childminder->image)
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="/storage/{{ $first2childminder->image }}" alt=""
+                                                        style="width: 80px; height: 80px;">
+                                                @else
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="https://ui-avatars.com/api/?name={{ urlencode($first2childminder->username) }}"
+                                                        alt="" style="width: 80px; height: 80px;">
+                                                @endif
+                                                {{-- ! end image --}}
 
-                            
-        
-                        
-                     @else
-                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2childminder->username) }}"
-                     alt="" style="width: 80px; height: 80px;">
-                        
-                     @endif
-                     {{-- ! end image --}}
+                                                <div class="text-start ps-4">
+                                                    <h5 class="mb-3">{{ $first2childminder->username }}</h5>
+                                                    {{-- ! switch --}}
+                                                    @switch($first2childminder->rate)
+                                                        @case(1)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
 
-                                        <div class="text-start ps-4">
-                                            <h5 class="mb-3">{{$first2childminder->username}}</h5>
-                                             {{-- ! switch --}}
-                                        @switch($first2childminder->rate)
-                                        @case(1)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                        @break
+                                                        @case(2)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
 
-                                        @case(2)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                        @break
+                                                        @case(3)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                            </ul>
+                                                        @break
 
-                                        @case(3)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                            </ul>
-                                        @break
+                                                        @default
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                    @endswitch
 
-                                        @default
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                    @endswitch
-
-                                    {{-- ! switch --}}
-                                            <span class="text-truncate me-3"><i
-                                                    class="fa fa-map-marker-alt text-primary me-2"></i>{{$first2childminder->country}}</span>
-                                            <span class="text-truncate me-3"><i
-                                                    class="far fa-clock text-primary me-2"></i> {{$first2childminder->country}}Full Time</span>
-                                            <span class="text-truncate me-0"><i
-                                                    class="far fa-money-bill-alt text-primary me-2"></i>$123 -
-                                                $456</span>
+                                                    {{-- ! switch --}}
+                                                    <span class="text-truncate me-3"><i
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>{{ $first2childminder->country }}</span>
+                                                    <span class="text-truncate me-3"><i
+                                                            class="far fa-clock text-primary me-2"></i>
+                                                        {{ $first2childminder->country }}Full Time</span>
+                                                    <span class="text-truncate me-0"><i
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 -
+                                                        $456</span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                <div class="d-flex mb-3">
+                                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                                            class="far fa-heart text-primary"></i></a>
+                                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                                </div>
+                                                <small class="text-truncate"><i
+                                                        class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01
+                                                    Jan,
+                                                    2045</small>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div
-                                        class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=""><i
-                                                    class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href="">Apply Now</a>
-                                        </div>
-                                        <small class="text-truncate"><i
-                                                class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
-                                            2045</small>
-                                    </div>
-                                </div>
-                            </div>
-                         
-                            @endforeach
-                    @endif
-                 {{-- //////// ! first 2 childminder /// --}}
+                                @endforeach
+                            @endif
+                            {{-- //////// ! first 2 childminder /// --}}
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
                         </div>
                         <div id="tab-2" class="tab-pane fade show p-0">
 
-                               {{-- //////// !first 2 babysitter /// --}}
-                            @if(count($first2babysitter))
-                            @foreach ($first2babysitter as $first2babysitter)
-                            
-                            <div class="job-item p-4 mb-4">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                     {{-- ! image --}}
+                            {{-- //////// !first 2 babysitter /// --}}
+                            @if (count($first2babysitter))
+                                @foreach ($first2babysitter as $first2babysitter)
+                                    <div class="job-item p-4 mb-4">
+                                        <div class="row g-4">
+                                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                                {{-- ! image --}}
 
 
-                         @if ($first2babysitter->image)
-                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2babysitter->image }}"
-                         alt="" style="width: 80px; height: 80px;">
+                                                @if ($first2babysitter->image)
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="/storage/{{ $first2babysitter->image }}" alt=""
+                                                        style="width: 80px; height: 80px;">
+                                                @else
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="https://ui-avatars.com/api/?name={{ urlencode($first2babysitter->username) }}"
+                                                        alt="" style="width: 80px; height: 80px;">
+                                                @endif
+                                                {{-- ! end image --}}
+                                                <div class="text-start ps-4">
+                                                    <h5 class="mb-3">{{ $first2babysitter->username }}</h5>
+                                                    {{-- ! switch --}}
+                                                    @switch($first2babysitter->rate)
+                                                        @case(1)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
 
-                            
-        
-                        
-                     @else
-                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2babysitter->username) }}"
-                     alt="" style="width: 80px; height: 80px;">
-                        
-                     @endif
-                     {{-- ! end image --}}
-                                        <div class="text-start ps-4">
-                                            <h5 class="mb-3">{{$first2babysitter->username}}</h5>
-                                              {{-- ! switch --}}
-                                        @switch($first2babysitter->rate)
-                                        @case(1)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                        @break
+                                                        @case(2)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
 
-                                        @case(2)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                        @break
+                                                        @case(3)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                            </ul>
+                                                        @break
 
-                                        @case(3)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                            </ul>
-                                        @break
+                                                        @default
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                    @endswitch
 
-                                        @default
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                    @endswitch
-
-                                    {{-- ! switch --}}
-                                            <span class="text-truncate me-3"><i
-                                                    class="fa fa-map-marker-alt text-primary me-2"></i>New York,
-                                                USA</span>
-                                            <span class="text-truncate me-3"><i
-                                                    class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                            <span class="text-truncate me-0"><i
-                                                    class="far fa-money-bill-alt text-primary me-2"></i>$123 -
-                                                $456</span>
+                                                    {{-- ! switch --}}
+                                                    <span class="text-truncate me-3"><i
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>New
+                                                        York,
+                                                        USA</span>
+                                                    <span class="text-truncate me-3"><i
+                                                            class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                    <span class="text-truncate me-0"><i
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 -
+                                                        $456</span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                <div class="d-flex mb-3">
+                                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                                            class="far fa-heart text-primary"></i></a>
+                                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                                </div>
+                                                <small class="text-truncate"><i
+                                                        class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01
+                                                    Jan,
+                                                    2045</small>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div
-                                        class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=""><i
-                                                    class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href="">Apply Now</a>
-                                        </div>
-                                        <small class="text-truncate"><i
-                                                class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
-                                            2045</small>
-                                    </div>
-                                </div>
-                            </div>
-                         
-                            @endforeach
-                    @endif
-                 {{-- //////// ! first 2 childminder /// --}}
-                     
+                                @endforeach
+                            @endif
+                            {{-- //////// ! first 2 childminder /// --}}
+
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
                         </div>
-                        <div id="tab-3" class="tab-pane fade show p-0"> 
+                        <div id="tab-3" class="tab-pane fade show p-0">
 
-                        {{-- //////// !first 2 babysitter /// --}}
-                        @if(count($first2maid))
-                        @foreach ($first2maid as $first2maid)
-                        
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                   {{-- ! image --}}
+                            {{-- //////// !first 2 babysitter /// --}}
+                            @if (count($first2maid))
+                                @foreach ($first2maid as $first2maid)
+                                    <div class="job-item p-4 mb-4">
+                                        <div class="row g-4">
+                                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                                {{-- ! image --}}
 
 
-                         @if ($first2maid->image)
-                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2maid->image }}"
-                         alt="" style="width: 80px; height: 80px;">
+                                                @if ($first2maid->image)
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="/storage/{{ $first2maid->image }}" alt=""
+                                                        style="width: 80px; height: 80px;">
+                                                @else
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="https://ui-avatars.com/api/?name={{ urlencode($first2maid->username) }}"
+                                                        alt="" style="width: 80px; height: 80px;">
+                                                @endif
+                                                {{-- ! end image --}}
+                                                <div class="text-start ps-4">
+                                                    <h5 class="mb-3">{{ $first2maid->username }}</h5>
+                                                    {{-- ! switch --}}
+                                                    @switch($first2maid->rate)
+                                                        @case(1)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
 
-                            
-        
-                        
-                     @else
-                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2maid->username) }}"
-                     alt="" style="width: 80px; height: 80px;">
-                        
-                     @endif
-                     {{-- ! end image --}}
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">{{$first2maid->username}}</h5>
-                                          {{-- ! switch --}}
-                                          @switch($first2maid->rate)
-                                          @case(1)
-                                              <ul style="display: flex;margin-right: 10px;">
-                                                  <li><i class="fa fa-star text-warning "></i></li>
-                                                  <li><i class="fa fa-star "></i></li>
-                                                  <li><i class="fa fa-star "></i></li>
-                                              </ul>
-                                          @break
-  
-                                          @case(2)
-                                              <ul style="display: flex;margin-right: 10px;">
-                                                  <li><i class="fa fa-star text-warning"></i></li>
-                                                  <li><i class="fa fa-star text-warning "></i></li>
-                                                  <li><i class="fa fa-star "></i></li>
-                                              </ul>
-                                          @break
-  
-                                          @case(3)
-                                              <ul style="display: flex;margin-right: 10px;">
-                                                  <li><i class="fa fa-star text-warning"></i></li>
-                                                  <li><i class="fa fa-star text-warning"></i></li>
-                                                  <li><i class="fa fa-star text-warning "></i></li>
-                                              </ul>
-                                          @break
-  
-                                          @default
-                                              <ul style="display: flex;margin-right: 10px;">
-                                                  <li><i class="fa fa-star "></i></li>
-                                                  <li><i class="fa fa-star "></i></li>
-                                                  <li><i class="fa fa-star "></i></li>
-                                              </ul>
-                                      @endswitch
-  
-                                      {{-- ! switch --}}
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York,
-                                            USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 -
-                                            $456</span>
+                                                        @case(2)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
+
+                                                        @case(3)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                            </ul>
+                                                        @break
+
+                                                        @default
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                    @endswitch
+
+                                                    {{-- ! switch --}}
+                                                    <span class="text-truncate me-3"><i
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>New
+                                                        York,
+                                                        USA</span>
+                                                    <span class="text-truncate me-3"><i
+                                                            class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                    <span class="text-truncate me-0"><i
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 -
+                                                        $456</span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                <div class="d-flex mb-3">
+                                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                                            class="far fa-heart text-primary"></i></a>
+                                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                                </div>
+                                                <small class="text-truncate"><i
+                                                        class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01
+                                                    Jan,
+                                                    2045</small>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-light btn-square me-3" href=""><i
-                                                class="far fa-heart text-primary"></i></a>
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i
-                                            class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
-                                        2045</small>
-                                </div>
-                            </div>
-                        </div>
-                     
-                        @endforeach
-                @endif
-             {{-- //////// ! first 2 childminder /// --}}
+                                @endforeach
+                            @endif
+                            {{-- //////// ! first 2 childminder /// --}}
 
-                       
+
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
                         </div>
                         <div id="tab-4" class="tab-pane fade show p-0">
 
                             {{-- //////// !first 2 first2nanny /// --}}
-                         @if(count($first2nanny))
-                         @foreach ($first2nanny as $first2nanny)
-                         
-                         <div class="job-item p-4 mb-4">
-                             <div class="row g-4">
-                                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    {{-- ! image --}}
+                            @if (count($first2nanny))
+                                @foreach ($first2nanny as $first2nanny)
+                                    <div class="job-item p-4 mb-4">
+                                        <div class="row g-4">
+                                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                                {{-- ! image --}}
 
 
-                         @if ($first2nanny->image)
-                         <img class="flex-shrink-0 img-fluid border rounded" src="/storage/{{ $first2nanny->image }}"
-                         alt="" style="width: 80px; height: 80px;">
+                                                @if ($first2nanny->image)
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="/storage/{{ $first2nanny->image }}" alt=""
+                                                        style="width: 80px; height: 80px;">
+                                                @else
+                                                    <img class="flex-shrink-0 img-fluid border rounded"
+                                                        src="https://ui-avatars.com/api/?name={{ urlencode($first2nanny->username) }}"
+                                                        alt="" style="width: 80px; height: 80px;">
+                                                @endif
+                                                {{-- ! end image --}}
+                                                <div class="text-start ps-4">
+                                                    <h5 class="mb-3">{{ $first2nanny->username }}</h5>
+                                                    {{-- ! switch --}}
+                                                    @switch($first2nanny->rate)
+                                                        @case(1)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
 
-                            
-        
-                        
-                     @else
-                     <img class="flex-shrink-0 img-fluid border rounded" src="https://ui-avatars.com/api/?name={{ urlencode($first2nanny->username) }}"
-                     alt="" style="width: 80px; height: 80px;">
-                        
-                     @endif
-                     {{-- ! end image --}}
-                                     <div class="text-start ps-4">
-                                         <h5 class="mb-3">{{$first2nanny->username}}</h5>
-                                           {{-- ! switch --}}
-                                        @switch($first2nanny->rate)
-                                        @case(1)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                        @break
+                                                        @case(2)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                        @break
 
-                                        @case(2)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                        @break
+                                                        @case(3)
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning"></i></li>
+                                                                <li><i class="fa fa-star text-warning "></i></li>
+                                                            </ul>
+                                                        @break
 
-                                        @case(3)
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning"></i></li>
-                                                <li><i class="fa fa-star text-warning "></i></li>
-                                            </ul>
-                                        @break
+                                                        @default
+                                                            <ul style="display: flex;margin-right: 10px;">
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                                <li><i class="fa fa-star "></i></li>
+                                                            </ul>
+                                                    @endswitch
 
-                                        @default
-                                            <ul style="display: flex;margin-right: 10px;">
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                                <li><i class="fa fa-star "></i></li>
-                                            </ul>
-                                    @endswitch
+                                                    {{-- ! switch --}}
+                                                    <span class="text-truncate me-3"><i
+                                                            class="fa fa-map-marker-alt text-primary me-2"></i>New
+                                                        York,
+                                                        USA</span>
+                                                    <span class="text-truncate me-3"><i
+                                                            class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                                    <span class="text-truncate me-0"><i
+                                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 -
+                                                        $456</span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                <div class="d-flex mb-3">
+                                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                                            class="far fa-heart text-primary"></i></a>
+                                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                                </div>
+                                                <small class="text-truncate"><i
+                                                        class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01
+                                                    Jan,
+                                                    2045</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                            {{-- //////// ! first 2 childminder /// --}}
 
-                                    {{-- ! switch --}}
-                                         <span class="text-truncate me-3"><i
-                                                 class="fa fa-map-marker-alt text-primary me-2"></i>New York,
-                                             USA</span>
-                                         <span class="text-truncate me-3"><i
-                                                 class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                         <span class="text-truncate me-0"><i
-                                                 class="far fa-money-bill-alt text-primary me-2"></i>$123 -
-                                             $456</span>
-                                     </div>
-                                 </div>
-                                 <div
-                                     class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                     <div class="d-flex mb-3">
-                                         <a class="btn btn-light btn-square me-3" href=""><i
-                                                 class="far fa-heart text-primary"></i></a>
-                                         <a class="btn btn-primary" href="">Apply Now</a>
-                                     </div>
-                                     <small class="text-truncate"><i
-                                             class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan,
-                                         2045</small>
-                                 </div>
-                             </div>
-                         </div>
-                      
-                         @endforeach
-                 @endif
-              {{-- //////// ! first 2 childminder /// --}}
-                        
-                         <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
-                     </div>
+                            <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -864,7 +853,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">HomeHelper</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">HomeWorkerer</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}
@@ -908,12 +897,12 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
 
 
 
-      {{-- ////////////////// Search scripte ////////// --}}
-      <script>
+
+    {{-- ////////////////// Search scripte ////////// --}}
+    <script>
         $(document).ready(function() {
             $("#username").on('keyup', function() {
                 var value = $(this).val();

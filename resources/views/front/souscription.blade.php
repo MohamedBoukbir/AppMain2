@@ -45,9 +45,8 @@
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
-                <h1 class="m-0 text-muted"
-                    style="-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: #9e9cf7; font-family:cursive">
-                    HomeHelp</h1>
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">
+                    HomeWorker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -66,7 +65,7 @@
 
                 <style>
                     .btn-upgrade {
-                        width: 12%;
+                        width: 15%;
                         height: 50px;
                         /* min-width: 230px; */
                         /* padding: 10px 20px; */
@@ -235,9 +234,12 @@
                             <div class="card-body text-center">
                                 {{-- <button class="btn btn-violet-outline btn-lg"
                                     style="border-radius:30px;border-color: #9e9cf7">Select</button> --}}
-                                    <a  href="{{route('payment',['price' =>8])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select</a>
-                                    <br>
-                                    <a   href="{{route('payment.stripe',['price' =>8])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select carts</a>
+                                <a href="{{ route('payment', ['price' => 8]) }}" class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select</a>
+                                <br>
+                                <a href="{{ route('payment.stripe', ['price' => 8]) }}"
+                                    class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select carts</a>
                             </div>
                         </div>
                     </div>
@@ -274,9 +276,13 @@
                             <div class="card-body text-center">
                                 {{-- <button class="btn btn-violet-outline btn-lg"
                                     style="border-radius:30px;border-color: #9e9cf7">Select</button> --}}
-                                    <a   href="{{route('payment',['price' =>20])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select</a>
-                                    <br>
-                                    <a   href="{{route('payment.stripe',['price' =>20])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select carts</a>
+                                <a href="{{ route('payment', ['price' => 20]) }}"
+                                    class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select</a>
+                                <br>
+                                <a href="{{ route('payment.stripe', ['price' => 20]) }}"
+                                    class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select carts</a>
                             </div>
                         </div>
                     </div>
@@ -314,10 +320,14 @@
                                 {{-- <button class="btn btn-violet-outline btn-lg"
                                     style="border-radius:30px;border-color: #9e9cf7">Select</button> --}}
 
-                                    <a href="{{route('payment',['price' =>40])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select</a>
-                                    <br>
-                                    <a   href="{{route('payment.stripe',['price' =>40])}}" class="btn btn-violet-outline btn-lg" style="border-radius:30px;border-color: #9e9cf7"  >Select carts</a> 
-                                </div>
+                                <a href="{{ route('payment', ['price' => 40]) }}"
+                                    class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select</a>
+                                <br>
+                                <a href="{{ route('payment.stripe', ['price' => 40]) }}"
+                                    class="btn btn-violet-outline btn-lg"
+                                    style="border-radius:30px;border-color: #9e9cf7">Select carts</a>
+                            </div>
                         </div>
                     </div>
                 </div>

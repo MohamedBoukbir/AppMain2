@@ -35,7 +35,8 @@
         <!-- Spinner Start -->
         <div id="spinner"
             class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
+            <div class="spinner-grow text-primary"
+                style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
@@ -43,8 +44,9 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="{{route('welcome')}}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                <h1 class="m-0 text-primary">Homework</h1>
+            <a href="{{ route('welcome') }}"
+                class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">Homeworker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -73,15 +75,16 @@
                 </div>
                 <a href="{{ route('signup') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block"><i
                         class="fa fa-user me-3"></i>Sign Up</a>
-                <a href="{{ route('signin') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block ">Sign In<i
-                        class="fa fa-arrow-right ms-3"></i></a>
+                <a href="{{ route('signin') }}" class="btn btn-primary rounded-0 py-4 px-lg-3 d-none d-lg-block ">Sign
+                    In<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
         <!-- Navbar End -->
-        <div class="container-xxl py-5" >
+        <div class="container-xxl py-5">
             <div class="container">
                 <div class="row py-5">
-                    <section class="container forms" style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 30px;">
+                    <section class="container forms"
+                        style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 30px;">
                         <!-- Signup Form -->
                         <div class="form signup">
                             <div class="form-content">
@@ -89,29 +92,35 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="field input-field">
-                                        <input id="email"  type="email" placeholder="Email" class="input @error('email') is-invalid @enderror" name="email" :value="old('email')" required autofocus autocomplete="email" >
-                                            @error('email')
+                                        <input id="email" type="email" placeholder="Email"
+                                            class="input @error('email') is-invalid @enderror" name="email"
+                                            :value="old('email')" required autofocus autocomplete="email">
+                                        @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                            @enderror
-                                   
+                                        @enderror
+
                                     </div>
                                     <div class="field input-field">
-                                        <input id="password"  type="password" name="password"  placeholder="Create password" class="password @error('password') is-invalid @enderror"   required autocomplete="current-password">
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                        <input id="password" type="password" name="password"
+                                            placeholder="Create password"
+                                            class="password @error('password') is-invalid @enderror" required
+                                            autocomplete="current-password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
 
                                     </div>
                                     <div class="field button-field">
-                                        <button type="submit" > Signup </button>
+                                        <button type="submit"> Signup </button>
                                     </div>
                                 </form>
                                 <div class="form-link">
-                                    <span>You don't have an account? <a href="{{ route('signup') }}" class="link login-link">Register</a></span>
+                                    <span>You don't have an account? <a href="{{ route('signup') }}"
+                                            class="link login-link">Register</a></span>
                                 </div>
                             </div>
                             <div class="line"></div>
@@ -130,10 +139,11 @@
                             </div>
 
                             @if (Route::has('password.request'))
-                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                          @endif
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    href="{{ route('password.request') }}">
+                                    {{ __('Forgot your password?') }}
+                                </a>
+                            @endif
                         </div>
                     </section>
                 </div>
@@ -191,7 +201,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">HomeHelper</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">HomeWorkerer</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}
@@ -225,9 +235,15 @@
     <script src="{{ asset('js/new-main.js') }}"></script>
     <script src="{{ asset('js/states.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>

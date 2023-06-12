@@ -87,7 +87,7 @@
             <a href="{{ route('welcome') }}"
                 class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
-                <h1 class="m-0 text-muted">HomeHelp</h1>
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">HomeWorker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -220,7 +220,7 @@
                 </li>
                 <style>
                     .btn-upgrade {
-                        width: 10%;
+                        width: 15%;
                         height: 50px;
                         /* min-width: 230px; */
                         /* padding: 10px 20px; */

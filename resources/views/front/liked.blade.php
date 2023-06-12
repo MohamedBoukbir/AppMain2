@@ -43,7 +43,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <style>
         .btn-upgrade {
-            width: 10%;
+            width: 15%;
             height: 50px;
             /* min-width: 230px; */
             /* padding: 10px 20px; */
@@ -105,18 +105,13 @@
                                             alt="" style="height: 250px;">
                                     @endif
                                     {{-- ! end image --}}
-                                    {{-- <img src="{{ asset('img/maid-5.jpg') }}" alt="" style="height: 250px;"> --}}
 
                                 </div>
                                 <div class="down-content ">
                                     <div class="overlay-content " style="display: flex;justify-content: space-between;">
                                         <h4>{{ $liked->username }}</h4>
                                         <div style="display: flex">
-                                            {{-- <ul style="display: flex;margin-right: 10px;">
-                    <li><i class="fa fa-star text-warning"></i></li>
-                    <li><i class="fa fa-star text-warning"></i></li>
-                    <li><i class="fa fa-star "></i></li>
-                </ul> --}}
+
                                             {{-- ! switch --}}
                                             @switch($liked->rate)
                                                 @case(1)
@@ -196,11 +191,6 @@
                                                     class="bg-light text-success">Contact</a>
                                             </div>
                                         </div>
-                                        {{-- <div class="col-md-6">
-                    <div class="text-button">
-                        <a  href="{{ route('liked', ['id_candidat' => $liked->id]) }}" >Add to favorites</a>
-                    </div>
-                </div> --}}
                                     </div>
                                 </div>
                             </div>

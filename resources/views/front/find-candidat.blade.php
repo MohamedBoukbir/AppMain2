@@ -40,14 +40,6 @@
 </head>
 
 <body>
-    {{-- <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border" style="width: 4rem; height: 4rem;color:#9e9cf7;font-weight: 900;border-width: 10px;"
-            role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div> --}}
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/new-wow.min.js') }}"></script>
@@ -57,10 +49,9 @@
 
     <!-- Template Javascript -->
 
-
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow  p-0">
         <a href="{{ route('welcome') }}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-            <h1 class="m-0 text-muted"> HomeHelp</h1>
+            <h3 class="m-0 text-success" style="text-transform: uppercase"> HomeWorker</h3>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -78,7 +69,7 @@
             </div>
             <style>
                 .btn-upgrade {
-                    width: 10%;
+                    width: 15%;
                     height: 50px;
                     /* min-width: 230px; */
                     /* padding: 10px 20px; */

@@ -70,7 +70,7 @@
             <a href="{{ route('welcome') }}"
                 class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
-                <h1 class="m-0 text-muted">HomeHelp</h1>
+                <h1 class="m-0 text-primary" style="text-transform: uppercase;">HomeWorker</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -88,7 +88,7 @@
         </div>
     </div>
 
-  
+
     {{-- <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
@@ -120,7 +120,7 @@
 
         <button type="submit"> Logout</button>
     </form> --}}
-    
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

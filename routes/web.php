@@ -226,27 +226,27 @@ Route::get('/front/search/live', [FrontController::class, 'livesearchfront'])->n
   //   return view('front.welcome',compact('users'));
   // })->name('welcome');F
 
-Route::get('/homehelp/signup', function () {
+Route::get('/HomeWorker/signup', function () {
   return view('front.signup');
 })->name('signup');
 
-// Route::get('/homehelp/user', function () {
+// Route::get('/HomeWorker/user', function () {
 //   return view('front.selectuser');
 // })->name('select-user');
 
 
-Route::get('/homehelp/signin', function () {
+Route::get('/HomeWorker/signin', function () {
   return view('front.signin');
 })->name('signin');
 
 
 
-// Route::get('/homehelp/user', [DashbordController::class, 'selectUser'])->name('select-user');
-// Route::get('/homehelp/{user}', [DashbordController::class, 'userAtacher'])->name('useratacher');
+// Route::get('/HomeWorker/user', [DashbordController::class, 'selectUser'])->name('select-user');
+// Route::get('/HomeWorker/{user}', [DashbordController::class, 'userAtacher'])->name('useratacher');
 
 ///user no has rol
-Route::get('/homehelp/user', [DashbordController::class, 'selectusernorole'])->name('users.selectusernorole');
-Route::get('/homehelp/{user}', [DashbordController::class, 'usernoroleAtacher'])->name('usernorolatacher');
+Route::get('/HomeWorker/user', [DashbordController::class, 'selectusernorole'])->name('users.selectusernorole');
+Route::get('/HomeWorker/{user}', [DashbordController::class, 'usernoroleAtacher'])->name('usernorolatacher');
 Route::get('/valider/role', [DashbordController::class, 'valideRole'])->name('users.validerrole');
 Route::get('/valider/role/Atach', [DashbordController::class, 'valideRoleAtach'])->name('users.valideRoleAtach');
 ///////////
@@ -293,7 +293,7 @@ require __DIR__.'/auth.php';
 
 //  end Search
 
-  // Route::get('/homehelppp/signin', function () {
+  // Route::get('/HomeWorkerpp/signin', function () {
   //   return view('front.account');
   // })->name('signin');
 

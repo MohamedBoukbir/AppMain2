@@ -51,7 +51,7 @@
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
-                <h1 class="m-0 text-muted">HomeHelp</h1>
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">HomeWorker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -93,29 +93,30 @@
                             <img src="{{ asset('img/profile.png') }}" alt="" style="width: 30px">
                             <span class="status online"></span>
                         </span> --}}
-                          {{-- ! image --}}
+                        {{-- ! image --}}
 
 
-                          @if (Auth::user()->image)
-                          <span class="user-img">
-                              <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
-                                  style="width: 40px;height: 40px;">
-                              <span class="status online"></span>
-                          </span>
-                      @else
-                          <span class="user-img">
-                              <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
-                                  alt="" style="width: 40px;height: 40px;">
-                              <span class="status online"></span>
-                          </span>
-                      @endif
-                      {{-- ! end image --}}
+                        @if (Auth::user()->image)
+                            <span class="user-img">
+                                <img class="rounded-circle" src="/storage/{{ Auth::user()->image }}" alt=""
+                                    style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @else
+                            <span class="user-img">
+                                <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->username) }}"
+                                    alt="" style="width: 40px;height: 40px;">
+                                <span class="status online"></span>
+                            </span>
+                        @endif
+                        {{-- ! end image --}}
                         {{-- <span>{{ Auth::user()->username}}</span> --}}
                         {{-- <span>username</span> --}}
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item disabled" href="#">{{ Auth::user()->username }}</a>
-                        <a class="dropdown-item" href="{{ route('familles.edit', Auth::user()->id) }}"><i data-feather="user" class="mr-1"></i>
+                        <a class="dropdown-item" href="{{ route('familles.edit', Auth::user()->id) }}"><i
+                                data-feather="user" class="mr-1"></i>
                             Profile</a>
                         <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
                             Settings</a>
@@ -125,23 +126,22 @@
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i
                                 data-feather="log-out" class="mr-1"></i> Logout</a> --}}
-                        {{--!logout--}}
+                        {{-- !logout --}}
                         {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <button type="submit"> Logout</button>
                         </form> --}}
-                        
+
                         <a class="dropdown-item" href="login.html" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                            onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
-                     {{-- !image logout--}}
-                     <i
-                            data-feather="log-out" class="mr-1"></i> Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                        {{--!logout--}}
+                            {{-- !image logout --}}
+                            <i data-feather="log-out" class="mr-1"></i> Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        {{-- !logout --}}
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}
@@ -149,7 +149,7 @@
                 </li>
                 <style>
                     .btn-upgrade {
-                        width: 10%;
+                        width: 15%;
                         height: 50px;
                         /* min-width: 230px; */
                         /* padding: 10px 20px; */
@@ -178,7 +178,7 @@
         <div class="container">
             <div class="row" style="margin-top:50px">
                 <div class="col-md-9 offset-md-1">
-                    <livewire:multi-step-form-famille-edit/>
+                    <livewire:multi-step-form-famille-edit />
                 </div>
             </div>
         </div>

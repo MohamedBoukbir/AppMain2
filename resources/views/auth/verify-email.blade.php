@@ -8,7 +8,7 @@ background-size: cover;"
 
     <style>
         .card-send {
-            width: 30%;
+            width: 50%;
             background-color: #FFF;
             border-radius: 15px;
             padding: 15px;
@@ -95,7 +95,7 @@ background-size: cover;"
                     <div>
                         <button type="submit" class="btn-send text text-light font-weight-bold"
                             onclick="showMessage()">
-                            {{ __('Resend Verification Email') }}
+                            {{ __('Send Verification Email') }}
                         </button>
 
                     </div>

@@ -182,19 +182,19 @@
                             <ul class="step-wizard-list">
                                 <li class="step-wizard-item current-item">
                                     <span class="progress-count">1</span>
-                                    <span class="progress-label">STEP ONE</span>
+                                    <span class="progress-label">FAMILLY INFORMATIONS</span>
                                 </li>
                                 <li class="step-wizard-item ">
                                     <span class="progress-count">2</span>
-                                    <span class="progress-label">STEP TWO</span>
+                                    <span class="progress-label">RECOMMENDATIONS</span>
                                 </li>
                                 <li class="step-wizard-item">
                                     <span class="progress-count">3</span>
-                                    <span class="progress-label">STEP THREE</span>
+                                    <span class="progress-label">OFFER & NEEDS</span>
                                 </li>
                                 <li class="step-wizard-item">
                                     <span class="progress-count">4</span>
-                                    <span class="progress-label">STEP FOUR</span>
+                                    <span class="progress-label">EXCEPECTED DOMESTIC</span>
                                 </li>
                             </ul>
                         </section>
@@ -210,6 +210,7 @@
                                         <label for="">Under 3 years old</label>
                                         <select class="form-select" wire:model="child_baby">
                                             <option value="" selected>Select</option>
+                                            <option value="0">0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3+">3+</option>
@@ -226,6 +227,7 @@
                                         <label for="">Between 3 and 6 Yo</label>
                                         <select class="form-select" wire:model="child_kid">
                                             <option value="" selected>Select</option>
+                                            <option value="0">0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3+">3+</option>
@@ -242,6 +244,7 @@
                                         <label for="">7 years old and up</label>
                                         <select class="form-select" wire:model="child_boy">
                                             <option value="" selected>Select</option>
+                                            <option value="0">0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3+">3+</option>
@@ -423,19 +426,19 @@
                             <ul class="step-wizard-list">
                                 <li class="step-wizard-item">
                                     <span class="progress-count">1</span>
-                                    <span class="progress-label">STEP ONE</span>
+                                    <span class="progress-label">FAMILLY INFORMATIONS</span>
                                 </li>
                                 <li class="step-wizard-item current-item">
                                     <span class="progress-count">2</span>
-                                    <span class="progress-label">STEP TWO</span>
+                                    <span class="progress-label">RECOMMENDATIONS</span>
                                 </li>
                                 <li class="step-wizard-item">
                                     <span class="progress-count">3</span>
-                                    <span class="progress-label">STEP THREE</span>
+                                    <span class="progress-label">OFFER & NEEDS</span>
                                 </li>
                                 <li class="step-wizard-item">
                                     <span class="progress-count">4</span>
-                                    <span class="progress-label">STEP FOUR</span>
+                                    <span class="progress-label">EXCEPECTED DOMESTIC</span>
                                 </li>
                             </ul>
                         </section>
@@ -664,19 +667,19 @@
                             <ul class="step-wizard-list">
                                 <li class="step-wizard-item">
                                     <span class="progress-count">1</span>
-                                    <span class="progress-label">STEP ONE</span>
+                                    <span class="progress-label">FAMILLY INFORMATIONS</span>
                                 </li>
                                 <li class="step-wizard-item ">
                                     <span class="progress-count">2</span>
-                                    <span class="progress-label">STEP TWO</span>
+                                    <span class="progress-label">RECOMMENDATIONS</span>
                                 </li>
                                 <li class="step-wizard-item current-item">
                                     <span class="progress-count">3</span>
-                                    <span class="progress-label">STEP THREE</span>
+                                    <span class="progress-label">OFFER & NEEDS</span>
                                 </li>
                                 <li class="step-wizard-item">
                                     <span class="progress-count">4</span>
-                                    <span class="progress-label">STEP FOUR</span>
+                                    <span class="progress-label">EXCEPECTED DOMESTIC</span>
                                 </li>
                             </ul>
                         </section>
@@ -1210,19 +1213,19 @@ We are a family of 3 members, 2 kids 10 and 12 years old and an elderly requirin
                             <ul class="step-wizard-list">
                                 <li class="step-wizard-item">
                                     <span class="progress-count">1</span>
-                                    <span class="progress-label">STEP ONE</span>
+                                    <span class="progress-label">FAMILLY INFORMATIONS</span>
                                 </li>
                                 <li class="step-wizard-item ">
                                     <span class="progress-count">2</span>
-                                    <span class="progress-label">STEP TWO</span>
+                                    <span class="progress-label">RECOMMENDATIONS</span>
                                 </li>
                                 <li class="step-wizard-item">
                                     <span class="progress-count">3</span>
-                                    <span class="progress-label">STEP THREE</span>
+                                    <span class="progress-label">OFFER & NEEDS</span>
                                 </li>
                                 <li class="step-wizard-item current-item">
                                     <span class="progress-count">4</span>
-                                    <span class="progress-label">STEP FOUR</span>
+                                    <span class="progress-label">EXCEPECTED DOMESTIC</span>
                                 </li>
                             </ul>
                         </section>
@@ -1533,8 +1536,8 @@ We are a family of 3 members, 2 kids 10 and 12 years old and an elderly requirin
                                         <label for="">Religion</label>
                                         <select class="form-select" wire:model="religion">
                                             <option value="" selected>Select</option>
-                                            <option value="christian">Christian</option>
                                             <option value="muslim">Muslim</option>
+                                            <option value="christian">Christian</option>
                                             <option value="buddist">Buddist</option>
                                             <option value="other">Other</option>
                                         </select>

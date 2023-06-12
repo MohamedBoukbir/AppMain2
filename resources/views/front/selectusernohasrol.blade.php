@@ -48,7 +48,7 @@
             <a href="{{ route('welcome') }}"
                 class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
-                <h1 class="m-0 text-muted">HomeHelp</h1>
+                <h1 class="m-0 text-primary" style="text-transform: uppercase;">HomeWorker</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -110,7 +110,7 @@
                 </li>
                 <style>
                     .btn-upgrade {
-                        width: 10%;
+                        width: 15%;
                         height: 50px;
                         /* min-width: 230px; */
                         /* padding: 10px 20px; */
@@ -158,7 +158,7 @@
             .red-border :focus h5 {
                 transition: all 0.3s ease;
                 font-weight: 900;
-                transform: rotate(1.0turn);
+                /* transform: rotate(1.0turn); */
                 /* color: white; */
             }
 
@@ -258,7 +258,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"> Retour</button>
-                        <button type="button" class="btn btn-primary"><a href="{{ route('usernorolatacher',$user['usernorol']='candidat')}}"
+                        <button type="button" class="btn btn-primary"><a
+                                href="{{ route('usernorolatacher', $user['usernorol'] = 'candidat') }}"
                                 class="text-light">Continue</a> </button>
                     </div>
                 </div>
@@ -291,7 +292,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                        <button type="button" class="btn btn-primary"><a  href="{{ route('usernorolatacher',$user['usernorol']='famille')}}"
+                        <button type="button" class="btn btn-primary"><a
+                                href="{{ route('usernorolatacher', $user['usernorol'] = 'famille') }}"
                                 class="text-light">Continue</a> </button>
                     </div>
                 </div>
@@ -352,7 +354,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">HomeHelper</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">HomeWorkerer</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}

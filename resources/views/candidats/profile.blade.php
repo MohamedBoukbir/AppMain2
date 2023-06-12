@@ -48,7 +48,7 @@
             <a href="{{ route('welcome') }}"
                 class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
-                <h1 class="m-0 text-muted">HomeHelp</h1>
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">HomeWorker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -151,7 +151,7 @@
                                 box-shadow: 0 2px 10px rgba(54, 54, 54, .2);
                             }
                         </style>
-                        {{--!logout--}}
+                        {{-- !logout --}}
                         {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <div class="row justify-content-center">
@@ -162,21 +162,20 @@
                                     </button>
                                 </div>
                             </div> --}}
-                            {{-- <button class="btn-logout" type="submit">
+                        {{-- <button class="btn-logout" type="submit">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 Logout</button> --}}
                         {{-- </form> --}}
-                        
+
                         <a class="dropdown-item" href="login.html" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                            onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
-                     {{-- !image logout--}}
-                     <i
-                            data-feather="log-out" class="mr-1"></i> Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                        {{--!logout--}}
+                            {{-- !image logout --}}
+                            <i data-feather="log-out" class="mr-1"></i> Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        {{-- !logout --}}
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> --}}
@@ -184,7 +183,7 @@
                 </li>
                 <style>
                     .btn-upgrade {
-                        width: 10%;
+                        width: 15%;
                         height: 50px;
                         /* min-width: 230px; */
                         /* padding: 10px 20px; */

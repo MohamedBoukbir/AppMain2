@@ -42,7 +42,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow  p-0">
         <a href="{{ route('welcome') }}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-            <h1 class="m-0 text-muted">HomeHelp</h1>
+            <h3 class="m-0 text-primary" style="text-transform: uppercase;">HomeWorker</h3>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,7 @@
             </div>
             <style>
                 .btn-upgrade {
-                    width: 10%;
+                    width: 15%;
                     height: 50px;
                     /* min-width: 230px; */
                     /* padding: 10px 20px; */
@@ -461,10 +461,7 @@
                                                     @enderror
                                                 </span>
 
-                                                {{-- <select name="location" id="countySel" size="1"
-                                                    id="location">
-                                                    <option value="" selected="selected">Location</option>
-                                                </select> --}}
+
                                             </div>
                                         </div>
                                     </div>

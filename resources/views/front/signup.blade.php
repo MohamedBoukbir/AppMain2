@@ -52,7 +52,7 @@
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="{{ route('welcome') }}"
                 class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                <h1 class="m-0 text-primary">Homework</h1>
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">Homeworker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -90,7 +90,7 @@
             <div class="container">
                 <div class="row py-5">
                     <section class="container forms"
-                        style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 30px;">
+                        style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 50px;margin-top: 30px;">
                         <!-- Signup Form -->
                         <div class="form signup">
                             <div class="form-content">
@@ -241,11 +241,11 @@
                                     </form>
                                 </div>
                                 {{-- <div class="modal-footer"> --}}
-                                  
 
 
 
-                                    {{-- <form method="POST" action="{{ route('logout') }}">
+
+                                {{-- <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <button type="submit" class="btn-logout">
                                             {{ __('Log Out') }}
@@ -253,7 +253,7 @@
                                     </form> --}}
 
 
-                                    {{-- <button type="submit"
+                                {{-- <button type="submit"
                                         class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                         {{ __('Log Out') }}
                                     </button> --}}
@@ -323,7 +323,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">HomeHelper</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">HomeWorker</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}

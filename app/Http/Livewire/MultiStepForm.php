@@ -112,7 +112,7 @@ class MultiStepForm extends Component
                   'title_of_offer'=>'required|min:30|max:60',
                   'define_needs'=>'required|min:200',
                   'country'=>'required',
-                  'phone'=>'required|digits:9',
+                  'phone'=>'required',
                   'address'=>'required'
               ]);
         }

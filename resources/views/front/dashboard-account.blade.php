@@ -123,7 +123,7 @@
 
         .card {
             /* background-color: #f49758; */
-            background-color: #9e9cf7;
+            background-color: #f49758;
             border-radius: 6px;
             padding: 20px;
             width: 100%;
@@ -291,13 +291,13 @@
             <div class="dashboard">
                 <div class="dashboard-card">
                     <div>
-                        
-                        <h2 class="dashboard-card-title"> Hi {{Auth::user()->username }}</h2>
+
+                        <h2 class="dashboard-card-title"> Hi {{ Auth::user()->username }}</h2>
                         <p class="dashboard-card-text">
                             {{ __('Welcome to your personal dashboard! Here you can manage your searches and job posting.') }}
                         </p>
                     </div>
-                   
+
                     <br>
                     <div>
                         <h5 class="dashboard-card-subtitle">{{ __('Can we help you?') }}</h5>
@@ -321,18 +321,18 @@
                                     <p class="card-text">You can search and find helpers for free, but only Premium users
                                         can contact them.</p>
                                 </div>
-                                {{--! upg--}}
+                                {{-- ! upg --}}
 
-                                @if(Auth::user()->trial_ends_at > Carbon\Carbon::now())
-                                {{Auth::user()->trial_ends_at}}
+                                @if (Auth::user()->trial_ends_at > Carbon\Carbon::now())
+                                    {{ Auth::user()->trial_ends_at }}
                                 @else
-                                <button class="card-button mt-3" type="button"><a
-                                    href="{{ route('account-souscription') }}">Upgrade to premium </a><i
-                                    {{-- href="#">Upgrade to premium </a><i --}}
-                                    class='bx bx-chevron-right align-middle'></i></button>
+                                    <button class="card-button mt-3" type="button"><a
+                                            href="{{ route('account-souscription') }}"
+                                            style="text-decoration: none;color: #9cb2bd;">Upgrade to premium </a><i
+                                            {{-- href="#">Upgrade to premium </a><i --}} class='bx bx-chevron-right align-middle'></i></button>
                                 @endif
 
-                                {{--! end  upg--}}
+                                {{-- ! end  upg --}}
                             </div>
                         </div>
                     </div>

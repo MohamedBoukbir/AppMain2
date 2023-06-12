@@ -37,10 +37,11 @@
 
         <!-- Navbar Start -->
         <!-- Navbar End -->
-        <div class="container-xxl py-5" >
+        <div class="container-xxl py-5">
             <div class="container">
                 <div class="row py-5">
-                    <section class="container forms" style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 30px;">
+                    <section class="container forms"
+                        style="height: 60vh;width: 100%;display: flex; align-items: center; justify-content: center;column-gap: 30px;">
                         <!-- Signup Form -->
                         <div class="form signup">
                             <div class="form-content">
@@ -48,23 +49,27 @@
                                 <form action="{{ route('staff.store') }}" method="POST">
                                     @csrf
                                     <div class="field input-field">
-                                        <input id="username" type="text" placeholder="Username" class="input @error('username') is-invalid @enderror" name="username" :value="old('username')" required autocomplete="username" autofocus>
+                                        <input id="username" type="text" placeholder="Username"
+                                            class="input @error('username') is-invalid @enderror" name="username"
+                                            :value="old('username')" required autocomplete="username" autofocus>
                                         @error('username')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                         @enderror
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="field input-field">
-                                        <input type="email"  id="email" placeholder="Email" class="input  @error('email') is-invalid @enderror" name="email" :value="old('email')" required autocomplete="email">
+                                        <input type="email" id="email" placeholder="Email"
+                                            class="input  @error('email') is-invalid @enderror" name="email"
+                                            :value="old('email')" required autocomplete="email">
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                         @enderror
-                                    
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
                                     </div>
-                                
+
                                     <div class="field button-field">
                                         <button>Signup</button>
                                     </div>
@@ -127,7 +132,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">HomeHelper</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">HomeWorkerer</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}
@@ -161,9 +166,15 @@
     <script src="{{ asset('js/new-main.js') }}"></script>
     <script src="{{ asset('js/states.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>

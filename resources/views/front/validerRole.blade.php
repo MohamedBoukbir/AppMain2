@@ -37,7 +37,8 @@
         <!-- Spinner Start -->
         <div id="spinner"
             class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
+            <div class="spinner-grow text-primary"
+                style="width: 4rem; height: 4rem;color:#00B074;font-weight: 900;border-width: 10px;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
@@ -46,7 +47,7 @@
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 {{-- <img src="{{ asset('img/big-logo.png') }}" alt="" style="width: 60px;margin-right: 15px;"> --}}
-                <h1 class="m-0 text-muted">HomeHelp</h1>
+                <h3 class="m-0 text-primary" style="text-transform: uppercase;">HomeWorker</h3>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -108,7 +109,7 @@
                 </li>
                 <style>
                     .btn-upgrade {
-                        width: 10%;
+                        width: 15%;
                         height: 50px;
                         /* min-width: 230px; */
                         /* padding: 10px 20px; */
@@ -179,10 +180,12 @@
         <div class="container forms"
             style="display: flex; align-items: center; justify-content: center;column-gap: 30px;">
             {{-- <a class="row d-flex justify-content-center" href="{{ route('useratacher',$user['users']='famille')}}"> --}}
-                <a class="row d-flex justify-content-center" href="{{route('users.selectusernorole')}}">
+            <a class="row d-flex justify-content-center" href="{{ route('users.selectusernorole') }}">
                 <div class="col-xl-0 col-sm-12 col-12 p-5">
                     <div class="red-border">
-                        <div class="card card-hover" style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;" tabindex="1">
+                        <div class="card card-hover"
+                            style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;"
+                            tabindex="1">
                             <center>
                                 <img class="card-img-top" src="{{ asset('img/employer.png') }}" alt="Card image cap"
                                     style="width: 150px;margin:5px">
@@ -190,7 +193,7 @@
 
                             <div class="card-body">
                                 <center>
-                                 
+
                                     <p style="color: #3b3b3b;">Anneler</p>
                                 </center>
                             </div>
@@ -200,10 +203,12 @@
                 </div>
             </a>
 
-            <a class="row d-flex justify-content-center" href="{{route('users.valideRoleAtach')}}">
+            <a class="row d-flex justify-content-center" href="{{ route('users.valideRoleAtach') }}">
                 <div class="col-xl-0 col-sm-12 col-12 p-5">
                     <div class="red-border">
-                        <div class="card card-hover" style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;" tabindex="1">
+                        <div class="card card-hover"
+                            style="width: 25rem;cursor: pointer;box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);padding: 10px;"
+                            tabindex="1">
                             <center>
                                 <img class="card-img-top" src="{{ asset('img/applicant.png') }}"
                                     alt="Card image cap" style="width: 150px;margin:5px">
@@ -222,7 +227,7 @@
                 </div>
             </a>
 
-            
+
         </div>
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
@@ -275,7 +280,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">HomeHelper</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">HomeWorkerer</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> --}}
