@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,13 @@
     welcom eto users  
 <br>
 @foreach ($users as $user)
-{{-- <li class="list-group-item list-group-item-action"> {{$user->name}}</li> --}}
+
 <a   href="{{ route('sendeto', $user->id) }}">{{$user->username}} </a>
     @php
         $existe = false;
     @endphp
     @foreach ($likeds as $liked) 
-      {{-- {{ $liked->id_famille}} --}}
+     
         @if ($liked->id_famille == Auth::user()->id) 
                 @php
                 $existe = true;
@@ -44,4 +44,4 @@
 /////////////////
 <a href="{{route('famille.index')}}"> router </a>
 </body>
-</html>
+</html> --}}

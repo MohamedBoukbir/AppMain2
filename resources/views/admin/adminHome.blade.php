@@ -65,7 +65,7 @@
                     <div class="card board1 fill3 ">
                         <div class="card-body">
                             <div class="card_widget_header">
-                                <label>Abonnements</label>
+                                <label>Annonces</label>
                                 <h4>0</h4>
                             </div>
                             <div class="card_widget_img">
@@ -78,7 +78,7 @@
                     <div class="card board1 fill4 ">
                         <div class="card-body">
                             <div class="card_widget_header">
-                                <label>Reviews</label>
+                                <label>Abonnements</label>
                                 <h4>0</h4>
                             </div>
                             <div class="card_widget_img">

@@ -193,5 +193,8 @@ class DashbordController extends Controller
 //     dd('nadi');
 //     return view('front.signup');
 // }
+public function backfamille(){
+    return  redirect()->route('famille.index');
+}
 
 }
