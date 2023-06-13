@@ -769,7 +769,7 @@
                                                 Apply
                                             </a> --}}
                                                 <a class="btn btn-outline-secondary font-monospace"
-                                                    href="{{ route('contacter', ['user_id' => Auth::user()->id, 'annonce_id' => $apply->id]) }}">Apply</a>
+                                                    href=" {{ route('sendeto', $apply->id) }}">Contact</a>
 
 
 

@@ -337,7 +337,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
 // Route::get('/my-account-dashboard', function () {
 //   return view('front.dashboard-account');
 // })->name('account-dashboard');
